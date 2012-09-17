@@ -8,11 +8,16 @@
 
 #import "MoreViewController.h"
 
+#define TABLE_HEADER_HEIGHT 27
+#define TABLE_CELL_HEIGHT 68
+#define BUTTON_HEIGHT 63
+
 @interface MoreViewController ()
 
 @end
 
 @implementation MoreViewController
+@synthesize scrollView;
 @synthesize tableViewLinks;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -43,11 +48,20 @@
     self.navigationItem.leftBarButtonItem = bbi;
     
     self.tableViewLinks.backgroundColor = [UIColor clearColor];
+    CGRect tableFrame = self.tableViewLinks.frame;
+    CGFloat tableHeight = [dictionaryLinks count] * TABLE_CELL_HEIGHT + TABLE_HEADER_HEIGHT;
+    tableFrame.size.height = tableHeight;
+    self.tableViewLinks.frame = tableFrame;
+    
+    self.scrollView.backgroundColor = [UIColor clearColor];
+    self.scrollView.contentSize = CGSizeMake(320,
+                                             2 * BUTTON_HEIGHT + tableHeight);
 }
 
 - (void)viewDidUnload
 {
     [self setTableViewLinks:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
 }
 
@@ -57,6 +71,18 @@
 - (void)goBack:(id)sender
 {
     [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
+}
+
+- (IBAction)clickOnTechnicalHelpButton:(id)sender
+{
+    TechnicalHelpViewController *vc = [[TechnicalHelpViewController alloc] initWithNibName:@"TechnicalHelpViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)clickOnAboutProgramButton:(id)sender
+{
+    AboutProgramViewController *vc = [[AboutProgramViewController alloc] initWithNibName:@"AboutProgramViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -90,12 +116,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 68;
+    return TABLE_CELL_HEIGHT;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *URLString = [[dictionaryLinks allValues] objectAtIndex:indexPath.row];
+    NSString *URLName = [[dictionaryLinks allKeys] objectAtIndex:indexPath.row];
     
+    AdvertisementWebViewController *vc = [[AdvertisementWebViewController alloc] initWithNibName:@"AdvertisementWebViewController" bundle:nil];
+    vc.titleString = URLName;
+    vc.URLString = URLString;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -108,7 +141,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 27;
+    return TABLE_HEADER_HEIGHT;
 }
-
 @end

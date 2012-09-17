@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "PrettyViews.h"
 
-@interface AdvertisementWebViewController : UIViewController
+@interface AdvertisementWebViewController : UIViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (nonatomic, retain) NSString *URL;
+@property (nonatomic, retain) NSString *URLString;
+@property (nonatomic, retain) NSString *titleString;
 
 @end

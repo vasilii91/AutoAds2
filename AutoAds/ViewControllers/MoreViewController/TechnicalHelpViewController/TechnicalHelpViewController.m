@@ -1,28 +1,29 @@
 //
-//  HelpfulInfoViewController.m
+//  TechnicalHelpViewController.m
 //  AutoAds
 //
-//  Created by Vasilii Kasnitski on 9/6/12.
+//  Created by Vasilii Kasnitski on 9/17/12.
 //  Copyright (c) 2012 Kyr Dunenkoff. All rights reserved.
 //
 
-#import "HelpfulInfoViewController.h"
+#import "TechnicalHelpViewController.h"
 
-@interface HelpfulInfoViewController ()
+@interface TechnicalHelpViewController ()
 
 @end
 
-@implementation HelpfulInfoViewController
+@implementation TechnicalHelpViewController
 
 
 #pragma mark - Initialization
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
-    } 
+
+    }
+    
     return self;
 }
 
@@ -32,10 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+	
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbarBackground.png"] forBarMetrics:UIBarMetricsDefault];
     
-    UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Полезная информация"];
+    UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Техподдержка"];
     self.navigationItem.titleView = textLabel;
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
@@ -51,8 +52,7 @@
 
 - (void)goBack:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 @end

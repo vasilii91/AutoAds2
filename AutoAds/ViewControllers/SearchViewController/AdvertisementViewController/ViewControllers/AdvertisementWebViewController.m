@@ -36,14 +36,19 @@
 
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbarBackground.png"] forBarMetrics:UIBarMetricsDefault];
     
-    UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Объявление на сайте"];
+    UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:self.titleString];
     self.navigationItem.titleView = textLabel;
     
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
     
+    [self.webView setScalesPageToFit:YES];
+    self.webView.delegate = self;
     
-    [self.webView loadHTMLString:@"" baseURL:[NSURL URLWithString: self.URL]];
+    NSURL* url = [NSURL URLWithString:self.URLString];
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    
+    [self.webView loadRequest:request];
 }
 
 - (void)viewDidUnload
@@ -63,6 +68,19 @@
 - (void)goBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - @protocol UIWebViewDelegate <NSObject>
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 @end

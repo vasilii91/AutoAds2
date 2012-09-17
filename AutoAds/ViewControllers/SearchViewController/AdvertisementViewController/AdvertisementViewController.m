@@ -115,6 +115,8 @@
 {
     if (carPhotosButtonType == CarPhotosButtonTypeShowOnSite) {
         AdvertisementWebViewController *vc = [[AdvertisementWebViewController alloc] initWithNibName:@"AdvertisementWebViewController" bundle:nil];
+        vc.URLString = @"http://www.google.by";
+        vc.titleString = @"Объявление на сайте";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

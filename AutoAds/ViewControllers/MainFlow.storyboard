@@ -221,44 +221,57 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eXQ-yF-Tfa">
-                                <rect key="frame" x="0.0" y="127" width="320" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="609-Yo-Dh0" id="htV-Q8-sKK"/>
-                                    <outlet property="delegate" destination="609-Yo-Dh0" id="XNR-nH-EnX"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fRY-2g-wT8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Техподдержка" backgroundImage="tableButton@2x.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vzi-tC-1LM">
-                                <rect key="frame" x="0.0" y="63" width="320" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="О программе" backgroundImage="tableButton@2x.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KNa-OP-o0R">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eXQ-yF-Tfa">
+                                        <rect key="frame" x="0.0" y="127" width="320" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="609-Yo-Dh0" id="htV-Q8-sKK"/>
+                                            <outlet property="delegate" destination="609-Yo-Dh0" id="XNR-nH-EnX"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vzi-tC-1LM">
+                                        <rect key="frame" x="0.0" y="62" width="320" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="О программе" backgroundImage="tableButton@2x.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickOnAboutProgramButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="H39-C4-dQL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fRY-2g-wT8">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Техподдержка" backgroundImage="tableButton@2x.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickOnTechnicalHelpButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="Isq-FI-Rub"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Еще" id="VKy-17-rIk"/>
                     <connections>
+                        <outlet property="scrollView" destination="KNa-OP-o0R" id="wjj-wV-3MX"/>
                         <outlet property="tableViewLinks" destination="eXQ-yF-Tfa" id="fjG-Ka-eBA"/>
                     </connections>
                 </viewController>
@@ -486,16 +499,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clickOnButton:"/>
-                <relationship kind="outlet" name="_addButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_bottomBar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="_favButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_infoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_moreButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_searchButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="MoreViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOnAboutProgramButton:"/>
+                <relationship kind="action" name="clickOnTechnicalHelpButton:"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableViewLinks" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="RubrikCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RubrikCell.h"/>

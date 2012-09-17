@@ -10,12 +10,20 @@
 #import "PrettyViews.h"
 #import "LinkCell.h"
 #import "TableViewHeader.h"
+#import "AdvertisementWebViewController.h"
+#import "TechnicalHelpViewController.h"
+#import "AboutProgramViewController.h"
 
 @interface MoreViewController : UIViewController
 {
     NSDictionary *dictionaryLinks;
 }
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewLinks;
+
+- (IBAction)clickOnTechnicalHelpButton:(id)sender;
+- (IBAction)clickOnAboutProgramButton:(id)sender;
+
 
 @end

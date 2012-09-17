@@ -34,6 +34,10 @@
 		10D125801606282B003357E7 /* UIImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D1257F1606282B003357E7 /* UIImageExtension.m */; };
 		10D12589160676BA003357E7 /* LinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D12588160676BA003357E7 /* LinkCell.m */; };
 		10D1258B160676EF003357E7 /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D1258A160676EF003357E7 /* LinkCell.xib */; };
+		10FCD0921607AE4C005C877D /* TechnicalHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */; };
+		10FCD0931607AE4C005C877D /* TechnicalHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */; };
+		10FCD0981607AFA0005C877D /* AboutProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0961607AFA0005C877D /* AboutProgramViewController.m */; };
+		10FCD0991607AFA0005C877D /* AboutProgramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */; };
 		BE2F84F415FF2B9A008859B1 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F315FF2B9A008859B1 /* Image.m */; };
 		BE2F84F715FF2C3C008859B1 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F615FF2C3C008859B1 /* Photo.m */; };
 		BE2F84FA15FF2CE2008859B1 /* Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F915FF2CE2008859B1 /* Phone.m */; };
@@ -163,6 +167,12 @@
 		10D12587160676BA003357E7 /* LinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkCell.h; path = Views/LinkCell.h; sourceTree = "<group>"; };
 		10D12588160676BA003357E7 /* LinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkCell.m; path = Views/LinkCell.m; sourceTree = "<group>"; };
 		10D1258A160676EF003357E7 /* LinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinkCell.xib; path = Views/LinkCell.xib; sourceTree = "<group>"; };
+		10FCD08F1607AE4C005C877D /* TechnicalHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechnicalHelpViewController.h; path = TechnicalHelpViewController/TechnicalHelpViewController.h; sourceTree = "<group>"; };
+		10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechnicalHelpViewController.m; path = TechnicalHelpViewController/TechnicalHelpViewController.m; sourceTree = "<group>"; };
+		10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TechnicalHelpViewController.xib; path = TechnicalHelpViewController/TechnicalHelpViewController.xib; sourceTree = "<group>"; };
+		10FCD0951607AFA0005C877D /* AboutProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutProgramViewController.h; path = AboutProgramViewController/AboutProgramViewController.h; sourceTree = "<group>"; };
+		10FCD0961607AFA0005C877D /* AboutProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutProgramViewController.m; path = AboutProgramViewController/AboutProgramViewController.m; sourceTree = "<group>"; };
+		10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutProgramViewController.xib; path = AboutProgramViewController/AboutProgramViewController.xib; sourceTree = "<group>"; };
 		BE2F84F215FF2B9A008859B1 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = Entities/Image.h; sourceTree = "<group>"; };
 		BE2F84F315FF2B9A008859B1 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = Entities/Image.m; sourceTree = "<group>"; };
 		BE2F84F515FF2C3C008859B1 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Entities/Photo.h; sourceTree = "<group>"; };
@@ -395,6 +405,26 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		10FCD08E1607AE24005C877D /* TechnicalHelpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10FCD08F1607AE4C005C877D /* TechnicalHelpViewController.h */,
+				10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */,
+				10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */,
+			);
+			name = TechnicalHelpViewController;
+			sourceTree = "<group>";
+		};
+		10FCD0941607AF81005C877D /* AboutProgramViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10FCD0951607AFA0005C877D /* AboutProgramViewController.h */,
+				10FCD0961607AFA0005C877D /* AboutProgramViewController.m */,
+				10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */,
+			);
+			name = AboutProgramViewController;
+			sourceTree = "<group>";
+		};
 		BE2F84F015FF2B50008859B1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +623,8 @@
 				10D12585160676A1003357E7 /* Views */,
 				BEF6390D15F8EB8000B0CAD0 /* MoreViewController.h */,
 				BEF6390E15F8EB8000B0CAD0 /* MoreViewController.m */,
+				10FCD08E1607AE24005C877D /* TechnicalHelpViewController */,
+				10FCD0941607AF81005C877D /* AboutProgramViewController */,
 			);
 			path = MoreViewController;
 			sourceTree = "<group>";
@@ -880,6 +912,8 @@
 				10D1257316060FD0003357E7 /* AdvertisementOtherInfoOne.xib in Resources */,
 				10D1257916062331003357E7 /* AdvertisementWebViewController.xib in Resources */,
 				10D1258B160676EF003357E7 /* LinkCell.xib in Resources */,
+				10FCD0931607AE4C005C877D /* TechnicalHelpViewController.xib in Resources */,
+				10FCD0991607AFA0005C877D /* AboutProgramViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +988,8 @@
 				10D1257816062331003357E7 /* AdvertisementWebViewController.m in Sources */,
 				10D125801606282B003357E7 /* UIImageExtension.m in Sources */,
 				10D12589160676BA003357E7 /* LinkCell.m in Sources */,
+				10FCD0921607AE4C005C877D /* TechnicalHelpViewController.m in Sources */,
+				10FCD0981607AFA0005C877D /* AboutProgramViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,8 +1031,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1019,8 +1055,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1030,12 +1066,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoAds/AutoAds-Prefix.pch";
 				INFOPLIST_FILE = "AutoAds/AutoAds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1044,12 +1082,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vasil Kasnitski (FNQWCWZDZ8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutoAds/AutoAds-Prefix.pch";
 				INFOPLIST_FILE = "AutoAds/AutoAds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -50,7 +50,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return NO;
 }
 
 
@@ -61,7 +61,9 @@
     LOG(@"%d", button.tag);
     if (button.tag == 4) {
         HelpfulInfoViewController *hivc = [[HelpfulInfoViewController alloc] initWithNibName:@"HelpfulInfoViewController" bundle:nil];
-        [UIView transitionFromView:self.view toView:hivc.view duration:0.5 options:UIViewAnimationTransitionFlipFromLeft completion:^(BOOL finished) {}];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:hivc];
+        [self presentModalViewController:navigationController animated:YES];
+//        [UIView transitionFromView:self.view toView:hivc.view duration:0.5 options:UIViewAnimationTransitionFlipFromLeft completion:^(BOOL finished) {}];
     }
     else {
         [[NSUserDefaults standardUserDefaults] setInteger:button.tag forKey:SELECTED_TAB_BAR_INDEX];
