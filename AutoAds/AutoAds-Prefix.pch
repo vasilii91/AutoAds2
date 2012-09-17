@@ -1,0 +1,18 @@
+//
+// Prefix header for all source files of the 'AutoAds' target in the 'AutoAds' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "Core/Extensions/UIColor+Colors.h"
+    #import "Core/Constants.h"
+    #import "Core/logger.h"
+    #import "MainController.h"
+#endif
