@@ -23,4 +23,6 @@
 @property (nonatomic, strong) IBOutlet UIButton *button;
 @property (nonatomic, weak) id <ButtonCellDelegate> delegate;
 
++ (ButtonCell *)loadView;
+
 @end

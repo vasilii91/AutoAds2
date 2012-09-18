@@ -11,6 +11,7 @@
 #import "SelectValueCell.h"
 #import "TableViewHeader.h"
 #import "SavedSearchCell.h"
+#import "SearchViewController.h"
 
 @interface SavedSearchQueriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {

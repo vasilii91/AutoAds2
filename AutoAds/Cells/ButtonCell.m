@@ -35,6 +35,11 @@
     return 50;
 }
 
++ (ButtonCell *)loadView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"ButtonCell" owner:nil options:nil] lastObject];
+}
+
 
 #pragma mark - Actions
 

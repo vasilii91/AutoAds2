@@ -46,6 +46,9 @@
 		BE2F850315FF3000008859B1 /* VehicleModification.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F850215FF3000008859B1 /* VehicleModification.m */; };
 		BE2F850615FF303C008859B1 /* VehicleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F850515FF303C008859B1 /* VehicleModel.m */; };
 		BE2F850915FF30D4008859B1 /* VehicleBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F850815FF30D4008859B1 /* VehicleBrand.m */; };
+		BE45624F16087F8F001EC686 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE45624E16087F8F001EC686 /* SearchViewController.xib */; };
+		BE45625216088097001EC686 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE45625116088097001EC686 /* ButtonCell.xib */; };
+		BE456254160880C5001EC686 /* RubrikCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE456253160880C5001EC686 /* RubrikCell.xib */; };
 		BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */; };
 		BE96CF3A160324870074A52B /* SavedSearchQueriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE96CF38160324870074A52B /* SavedSearchQueriesViewController.xib */; };
 		BE96CF4F160338A20074A52B /* ListOfAdverisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */; };
@@ -101,6 +104,7 @@
 		BEDD194F16035F1A00FACC4B /* AdvertisementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDD194E16035F1A00FACC4B /* AdvertisementCell.m */; };
 		BEDD1951160360C600FACC4B /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDD1950160360C600FACC4B /* thumbnail.png */; };
 		BEDD195A16036C0B00FACC4B /* CirculationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDD195916036C0B00FACC4B /* CirculationView.m */; };
+		BEE4E03C16084DE5001187CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE4E03B16084DE5001187CA /* MessageUI.framework */; };
 		BEF6390415F8D2D000B0CAD0 /* HelpfulInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF6390215F8D2D000B0CAD0 /* HelpfulInfoViewController.m */; };
 		BEF6390515F8D2D000B0CAD0 /* HelpfulInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF6390315F8D2D000B0CAD0 /* HelpfulInfoViewController.xib */; };
 		BEF6390815F8D9AF00B0CAD0 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF6390715F8D9AF00B0CAD0 /* FavoritesViewController.m */; };
@@ -189,6 +193,9 @@
 		BE2F850515FF303C008859B1 /* VehicleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleModel.m; path = Entities/VehicleModel.m; sourceTree = "<group>"; };
 		BE2F850715FF30D3008859B1 /* VehicleBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleBrand.h; path = Entities/VehicleBrand.h; sourceTree = "<group>"; };
 		BE2F850815FF30D4008859B1 /* VehicleBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleBrand.m; path = Entities/VehicleBrand.m; sourceTree = "<group>"; };
+		BE45624E16087F8F001EC686 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		BE45625116088097001EC686 /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		BE456253160880C5001EC686 /* RubrikCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RubrikCell.xib; sourceTree = "<group>"; };
 		BE96CF36160324870074A52B /* SavedSearchQueriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedSearchQueriesViewController.h; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.h; sourceTree = "<group>"; };
 		BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedSearchQueriesViewController.m; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.m; sourceTree = "<group>"; };
 		BE96CF38160324870074A52B /* SavedSearchQueriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SavedSearchQueriesViewController.xib; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.xib; sourceTree = "<group>"; };
@@ -261,6 +268,7 @@
 		BEDD1950160360C600FACC4B /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
 		BEDD195816036C0B00FACC4B /* CirculationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CirculationView.h; sourceTree = "<group>"; };
 		BEDD195916036C0B00FACC4B /* CirculationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CirculationView.m; sourceTree = "<group>"; };
+		BEE4E03B16084DE5001187CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BEF6390115F8D2D000B0CAD0 /* HelpfulInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpfulInfoViewController.h; path = HelpfulInfoViewController/HelpfulInfoViewController.h; sourceTree = "<group>"; };
 		BEF6390215F8D2D000B0CAD0 /* HelpfulInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpfulInfoViewController.m; path = HelpfulInfoViewController/HelpfulInfoViewController.m; sourceTree = "<group>"; };
 		BEF6390315F8D2D000B0CAD0 /* HelpfulInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HelpfulInfoViewController.xib; path = HelpfulInfoViewController/HelpfulInfoViewController.xib; sourceTree = "<group>"; };
@@ -297,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE4E03C16084DE5001187CA /* MessageUI.framework in Frameworks */,
 				DDE5425015D93FF500172CE6 /* UIKit.framework in Frameworks */,
 				DDE5425215D93FF500172CE6 /* Foundation.framework in Frameworks */,
 				DDE5425415D93FF500172CE6 /* CoreGraphics.framework in Frameworks */,
@@ -576,6 +585,7 @@
 			children = (
 				10A3FB6415FC1034007FE234 /* SearchViewController.h */,
 				10A3FB6515FC1034007FE234 /* SearchViewController.m */,
+				BE45624E16087F8F001EC686 /* SearchViewController.xib */,
 				10BE55B015FCF609008983A6 /* Search2ViewController.h */,
 				10BE55B115FCF609008983A6 /* Search2ViewController.m */,
 				BEC9943115F88B5B006BDCA9 /* SearchViewControllerOld.h */,
@@ -593,8 +603,10 @@
 				BEC9943B15F88B67006BDCA9 /* CellHeightProtocol.h */,
 				BEC9943915F88B67006BDCA9 /* ButtonCell.h */,
 				BEC9943A15F88B67006BDCA9 /* ButtonCell.m */,
+				BE45625116088097001EC686 /* ButtonCell.xib */,
 				BEC9943C15F88B67006BDCA9 /* RubrikCell.h */,
 				BEC9943D15F88B67006BDCA9 /* RubrikCell.m */,
+				BE456253160880C5001EC686 /* RubrikCell.xib */,
 				10BE55CF15FD08B2008983A6 /* SelectValueCell.h */,
 				10BE55D015FD08B3008983A6 /* SelectValueCell.m */,
 				10BE55D215FD0929008983A6 /* SelectValueCell.xib */,
@@ -771,6 +783,7 @@
 		DDE5424E15D93FF500172CE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEE4E03B16084DE5001187CA /* MessageUI.framework */,
 				DDE5424F15D93FF500172CE6 /* UIKit.framework */,
 				DDE5425115D93FF500172CE6 /* Foundation.framework */,
 				DDE5425315D93FF500172CE6 /* CoreGraphics.framework */,
@@ -914,6 +927,9 @@
 				10D1258B160676EF003357E7 /* LinkCell.xib in Resources */,
 				10FCD0931607AE4C005C877D /* TechnicalHelpViewController.xib in Resources */,
 				10FCD0991607AFA0005C877D /* AboutProgramViewController.xib in Resources */,
+				BE45624F16087F8F001EC686 /* SearchViewController.xib in Resources */,
+				BE45625216088097001EC686 /* ButtonCell.xib in Resources */,
+				BE456254160880C5001EC686 /* RubrikCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

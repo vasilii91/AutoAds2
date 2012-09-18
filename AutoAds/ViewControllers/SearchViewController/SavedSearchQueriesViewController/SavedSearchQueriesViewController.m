@@ -20,9 +20,9 @@
 
 #pragma mark - Initialization
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         latestSearchQueries = [NSMutableArray new];
         [latestSearchQueries addObject:@"Mazda 3 [2] -- 650-270 тыс./руб., 2011г., >100000 км."];
@@ -74,7 +74,8 @@
 
 - (IBAction)clickOnNewSearchButton:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    SearchViewController *vc = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

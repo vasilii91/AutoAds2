@@ -45,118 +45,59 @@
             </objects>
             <point key="canvasLocation" x="986" y="-42"/>
         </scene>
-        <!--Search View Controller - Item-->
+        <!--Saved Search Queries View Controller - Item-->
         <scene sceneID="MMs-mD-7eb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBO-Jj-9na" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="SearchViewController" modalTransitionStyle="flipHorizontal" id="LqZ-fd-lGr" customClass="SearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xt3-Al-Lky">
+                <viewController storyboardIdentifier="SearchViewController" modalTransitionStyle="flipHorizontal" id="LqZ-fd-lGr" customClass="SavedSearchQueriesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7WJ-F5-7vl">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="bpd-yf-4ju">
-                                <rect key="frame" x="0.0" y="68" width="320" height="299"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="backgroundDark@2x.png" id="d1S-SM-rSH">
+                                <rect key="frame" x="-7" y="0.0" width="327" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="backgroundLight@2x.png" id="FFD-mz-wLk">
+                                <rect key="frame" x="0.0" y="75" width="320" height="292"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aSY-0z-IJJ">
+                                <rect key="frame" x="13" y="11" width="295" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="5"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Новый поиск" image="searchIcon.png" backgroundImage="actionButton@2x.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickOnNewSearchButton:" destination="LqZ-fd-lGr" eventType="touchUpInside" id="tVx-1P-xwB"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ghX-PJ-cKX">
+                                <rect key="frame" x="0.0" y="75" width="320" height="292"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" rowHeight="50" id="rgg-YP-Avo" customClass="ButtonCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qQR-XZ-n6Z">
-                                                    <rect key="frame" x="179" y="7" width="134" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="7" maxY="0.0"/>
-                                                    <state key="normal" title="Краснодар">
-                                                        <color key="titleColor" red="0.0" green="0.37647058820000001" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="Город" id="bWW-Hb-cg4">
-                                                    <rect key="frame" x="11" y="0.0" width="160" height="49"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="button" destination="qQR-XZ-n6Z" id="71h-i6-ssE"/>
-                                            <outlet property="textView" destination="bWW-Hb-cg4" id="LFQ-3v-9Nd"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RubrikCell" rowHeight="40" id="9CV-CK-FDl" customClass="RubrikCell">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="40"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ma1-m7-LeU">
-                                                    <rect key="frame" x="20" y="9" width="280" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="titleLabel" destination="Ma1-m7-LeU" id="ATE-CW-k4V"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="LqZ-fd-lGr" id="fRk-3S-FYO"/>
-                                    <outlet property="delegate" destination="LqZ-fd-lGr" id="HzE-jE-D9w"/>
+                                    <outlet property="dataSource" destination="LqZ-fd-lGr" id="a4Z-JY-hS7"/>
+                                    <outlet property="delegate" destination="LqZ-fd-lGr" id="jDc-Ms-jaB"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" id="3U1-p3-6gG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Nq-oW-UFc">
-                                        <rect key="frame" x="13" y="8" width="295" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <inset key="contentEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="5"/>
-                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                        <state key="normal" title="Найти" image="searchIcon.png" backgroundImage="actionButton.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickOnSearchButton:" destination="LqZ-fd-lGr" eventType="touchUpInside" id="Off-tM-goa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                        <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                        <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="b6A-m3-yi9"/>
                     <navigationItem key="navigationItem" id="JuT-X6-Xdb"/>
-                    <connections>
-                        <outlet property="_header" destination="3U1-p3-6gG" id="MH6-bS-lPu"/>
-                        <outlet property="_searchButton" destination="8Nq-oW-UFc" id="pVk-ax-CzH"/>
-                        <outlet property="tableView" destination="bpd-yf-4ju" id="aGs-xO-lo2"/>
-                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1426" y="-42"/>
@@ -185,9 +126,56 @@
                     <view key="view" contentMode="scaleToFill" id="Eu2-Hw-6vK">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="backgroundLight@2x.png" id="bgE-h6-YgU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="nCo-aC-nfK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dZE-b8-1Fr">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="YYl-aQ-mWD" id="UL3-G9-pya"/>
+                                            <outlet property="delegate" destination="YYl-aQ-mWD" id="3mu-HN-lhR"/>
+                                        </connections>
+                                    </tableView>
+                                    <webView contentMode="scaleToFill" id="0wk-Ir-lbQ">
+                                        <rect key="frame" x="0.0" y="240" width="320" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </webView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0uq-xM-pmR">
+                                        <rect key="frame" x="0.0" y="303" width="320" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="  Добавить" image="addBarIcon.png" backgroundImage="actionButton@2x.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickOnTechnicalHelpButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="SUI-fC-eQ7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Добавить" id="sug-tI-smj"/>
+                    <connections>
+                        <outlet property="buttonAdd" destination="0uq-xM-pmR" id="a2g-q1-721"/>
+                        <outlet property="scrollView" destination="nCo-aC-nfK" id="fMa-DA-sXU"/>
+                        <outlet property="tableViewFields" destination="dZE-b8-1Fr" id="70n-oy-nHY"/>
+                        <outlet property="webView" destination="0wk-Ir-lbQ" id="8lK-wp-q0p"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1458" y="553"/>
@@ -465,8 +453,10 @@
     </scenes>
     <resources>
         <image name="82.png" width="16" height="16"/>
-        <image name="actionButton.png" width="16" height="16"/>
+        <image name="actionButton@2x.png" width="590" height="112"/>
+        <image name="addBarIcon.png" width="16" height="16"/>
         <image name="addBlue.png" width="16" height="16"/>
+        <image name="backgroundDark@2x.png" width="640" height="960"/>
         <image name="backgroundLight@2x.png" width="640" height="960"/>
         <image name="divider.png" width="16" height="16"/>
         <image name="infoButton.png" width="16" height="16"/>
@@ -481,12 +471,11 @@
     <classes>
         <class className="AddViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
-        </class>
-        <class className="ButtonCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButtonCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="buttonAdd" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableViewFields" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="FavoritesViewController" superclassName="UIViewController">
@@ -499,6 +488,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clickOnButton:"/>
+                <relationship kind="outlet" name="_addButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_bottomBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="_favButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_infoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_moreButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_searchButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="MoreViewController" superclassName="UIViewController">
@@ -510,19 +505,13 @@
                 <relationship kind="outlet" name="tableViewLinks" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="RubrikCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RubrikCell.h"/>
+        <class className="SavedSearchQueriesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SavedSearchQueriesViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickOnSearchButton:"/>
-                <relationship kind="outlet" name="_header" candidateClass="UIView"/>
-                <relationship kind="outlet" name="_searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="action" name="clickOnNewSearchButton:"/>
+                <relationship kind="outlet" name="buttonNewSearch" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableViewSavedSearchQueries" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="viewHeader" candidateClass="UIView"/>
             </relationships>
         </class>
     </classes>

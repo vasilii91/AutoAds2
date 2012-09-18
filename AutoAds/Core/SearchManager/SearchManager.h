@@ -16,11 +16,11 @@
 
 @interface SearchManager : NSObject
 {
-    NSMutableArray *groups;
+    NSMutableDictionary *groups;
 }
 
 + (SearchManager *)sharedMySingleton;
+- (AdvGroup *)findGroupByGroupType:(GroupType)groupType;
 - (AdvGroup *)categoriesByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
-- (AdvGroup *)getMainGroup;
 
 @end

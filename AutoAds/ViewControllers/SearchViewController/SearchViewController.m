@@ -33,12 +33,12 @@
 
 #pragma mark - Initialization
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithCoder:aDecoder];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         searchManager = [SearchManager sharedMySingleton];
-        fields = [[searchManager getMainGroup] getObligatoryFields];
+        fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     }
     return self;
 }
@@ -63,7 +63,7 @@
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(goToSavedSearchQuery) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQuery) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
 }
 
@@ -76,8 +76,8 @@
 {
     [super viewWillAppear:animated];
     
-    AdvField *f1 = (AdvField *)[fields objectAtIndex:0];
-    AdvField *f2 = (AdvField *)[fields objectAtIndex:1];
+    AdvField *f1 = (AdvField *)[fields objectAtIndex:1];
+    AdvField *f2 = (AdvField *)[fields objectAtIndex:2];
     
     if (([f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
         [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] &&
@@ -105,10 +105,9 @@
     [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
 }
 
-- (void)goToSavedSearchQuery
+- (void)cleanQuery
 {
-    SavedSearchQueriesViewController *vc = [[SavedSearchQueriesViewController alloc] initWithNibName:@"SavedSearchQueriesViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (IBAction)clickOnSearchButton:(id)sender
@@ -143,6 +142,9 @@
 {
     static NSString *CellIdentifier = @"ButtonCell";
     ButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [ButtonCell loadView];
+    }
     cell.delegate = self;
     
     AdvField *field = [fields objectAtIndex:indexPath.row];

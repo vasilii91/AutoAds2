@@ -27,4 +27,9 @@
     return 40;
 }
 
++ (RubrikCell *)loadView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"RubrikCell" owner:nil options:nil] lastObject];
+}
+
 @end

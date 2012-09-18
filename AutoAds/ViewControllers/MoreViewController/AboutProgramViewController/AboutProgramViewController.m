@@ -63,6 +63,38 @@
 }
 
 
+#pragma mark - Private methods
+
+- (void)emailLetterToRecipients:(NSArray *)recipients
+{
+	MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+	[mailViewController setSubject:@"Автообъявления"];
+    [mailViewController setToRecipients:recipients];
+    
+	mailViewController.mailComposeDelegate = self;
+	
+	if (IS_IPAD) {
+		mailViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+	}
+	
+    if (mailViewController == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"У Вас нету ни одного настроенного аккаунта" message:@"Если хотите использовать e-mail, Вы должны настроить по-крайней мере один почтовый ящик" delegate:nil cancelButtonTitle:@"Ок" otherButtonTitles:nil];
+        [alertView show];
+    }
+    else {
+        [self presentModalViewController:mailViewController animated:YES];
+    }
+	
+}
+
+- (void)callToPhone:(NSString *)phone
+{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
+    }
+}
+
+
 #pragma mark - Actions
 
 - (void)goBack:(id)sender
@@ -75,24 +107,47 @@
     switch (sender.tag) {
         case 0:
         {
-            // first call button
+            [self callToPhone:@"+7-351-729-94-90"];
             break;
         }
         case 1:
         {
-            // first send button
+            [self emailLetterToRecipients:@[@"mobile.development@info74.ru"]];
             break;
         }
         case 2:
         {
-            // second call button
+            [self callToPhone:@"+375-44-573-31-92"];
             break;
         }
         case 3:
         {
-            // second send button
+            [self emailLetterToRecipients:@[@"vasilii91@gmail.com"]];
             break;
         }
     }
+}
+
+
+#pragma mark - @protocol MFMailComposeViewControllerDelegate <NSObject>
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+	[self dismissModalViewControllerAnimated:YES];
+	
+	NSString *mailError = nil;
+	
+	switch (result) {
+		case MFMailComposeResultSent: ; break;
+		case MFMailComposeResultFailed: mailError = @"Failed sending media, please try again...";
+			break;
+		default:
+			break;
+	}
+	
+	if (mailError != nil) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:mailError delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+	}
 }
 @end

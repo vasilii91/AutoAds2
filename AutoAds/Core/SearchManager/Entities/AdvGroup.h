@@ -11,8 +11,10 @@
 
 enum
 {
+    GroupTypeJoined,
     GroupTypeMain,
     GroupTypeGeneral,
+    GroupTypeAddAdvertisement,
     GroupTypePassengerCar,
     GroupTypeTrailerForCar,
     GroupTypeBus,

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PrettyViews.h"
+#import <MessageUI/MessageUI.h>
 
-@interface AboutProgramViewController : UIViewController
+@interface AboutProgramViewController : UIViewController<MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelAutoadvertisement;
 @property (weak, nonatomic) IBOutlet UILabel *labelVersion;
