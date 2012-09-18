@@ -69,7 +69,7 @@
 
 - (void)goBack:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
 }
 
 - (IBAction)clickOnNewSearchButton:(id)sender

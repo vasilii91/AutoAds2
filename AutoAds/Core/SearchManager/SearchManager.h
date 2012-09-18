@@ -21,6 +21,7 @@
 
 + (SearchManager *)sharedMySingleton;
 - (AdvGroup *)findGroupByGroupType:(GroupType)groupType;
-- (AdvGroup *)categoriesByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (AdvGroup *)categoryByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (AdvGroup *)categoryAddAdvertisementByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 
 @end

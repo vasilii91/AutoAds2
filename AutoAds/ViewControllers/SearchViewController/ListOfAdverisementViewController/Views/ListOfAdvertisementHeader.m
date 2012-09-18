@@ -10,6 +10,7 @@
 
 @implementation ListOfAdvertisementHeader
 @synthesize circulationView;
+@synthesize scrollViewLabels;
 
 
 #pragma mark - Initialization
@@ -22,13 +23,40 @@
 + (ListOfAdvertisementHeader *)loadView
 {
     ListOfAdvertisementHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ListOfAdvertisementHeader" owner:nil options:nil] lastObject];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    
+    CGRect scroolViewRect = header.scrollViewLabels.frame;
+    
+    header->firstFrame = CGRectMake(0,
+                                    0,
+                                    scroolViewRect.size.width,
+                                    scroolViewRect.size.height);
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:header->firstFrame];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont fontWithName:FONT_DINPro_REGULAR size:24];
     label.textAlignment = UITextAlignmentCenter;
-    [label setText:@"TEST"];
-    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    label.textAlignment = UITextAlignmentCenter;
-    [label setText:@"TEST2"];
-    [header.circulationView initializeWithViews:@[label, label2]];
+    [label setText:@"По цене"];
+    [header.scrollViewLabels addSubview:label];
+    
+    
+    header->secondFrame = CGRectMake(scroolViewRect.size.width,
+                                     0,
+                                     scroolViewRect.size.width,
+                                     scroolViewRect.size.height);
+    
+    UILabel *label2 = [[UILabel alloc] initWithFrame:header->secondFrame];
+    label2.backgroundColor = [UIColor clearColor];
+    label2.textColor = [UIColor whiteColor];
+    label2.font = [UIFont fontWithName:FONT_DINPro_REGULAR size:24];
+    label2.textAlignment = UITextAlignmentCenter;
+    [label2 setText:@"По дате"];
+    [header.scrollViewLabels addSubview:label2];
+    
+    [header.scrollViewLabels setContentSize:CGSizeMake(scroolViewRect.size.width * 2,
+                                                       scroolViewRect.size.height)];
+    [header.scrollViewLabels setShowsHorizontalScrollIndicator:NO];
+    [header.scrollViewLabels setShowsVerticalScrollIndicator:NO];
     
     return header;
 }
@@ -40,10 +68,11 @@
 { 
     if (button.tag == 0) {
         // click on left button
-        [self.circulationView scrollToRight];
+        [self.scrollViewLabels scrollRectToVisible:firstFrame animated:YES];
     }
     else {
         // click on right button
+        [self.scrollViewLabels scrollRectToVisible:secondFrame animated:YES];
     }
 }
 

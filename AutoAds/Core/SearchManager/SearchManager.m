@@ -54,7 +54,37 @@ static SearchManager *_sharedMySingleton = nil;
     return nil;
 }
 
-- (AdvGroup *)categoriesByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+- (AdvGroup *)categoryByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    AdvGroup *subrubricGroup = [self subrubricGroupByRubric:rubric subrubric:subrubric];
+    AdvGroup *generalGroup = [self findGroupByGroupType:GroupTypeGeneral];
+    AdvGroup *mainGroup = [self findGroupByGroupType:GroupTypeMain];
+    
+    AdvGroup *result = [self joinGroup:mainGroup withGroup:generalGroup];
+    result = [self joinGroup:result withGroup:subrubricGroup];
+    
+    return result;
+}
+
+- (AdvGroup *)categoryAddAdvertisementByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    AdvGroup *subrubricGroup = [self subrubricGroupByRubric:rubric subrubric:subrubric];
+    AdvGroup *addAdvertisementGroup = [self findGroupByGroupType:GroupTypeAddAdvertisement];
+    AdvGroup *generalGroup = [self findGroupByGroupType:GroupTypeGeneral];
+    AdvGroup *mainGroup = [self findGroupByGroupType:GroupTypeMain];
+    
+    AdvGroup *result1 = [self joinGroup:mainGroup withGroup:generalGroup];
+    AdvGroup *result2 = [self mergeLittleGroup:subrubricGroup withBigGroup:addAdvertisementGroup];
+    
+    AdvGroup *result = [self joinGroup:result1 withGroup:result2];
+    
+    return result;
+}
+
+
+#pragma mark - Private methods
+
+- (AdvGroup *)subrubricGroupByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
 {
     AdvGroup *subrubricGroup = nil;
     if ([subrubric isEqualToString:@"Отечественные авто"] ||
@@ -76,22 +106,13 @@ static SearchManager *_sharedMySingleton = nil;
         }
     }
     
-    AdvGroup *generalGroup = [self findGroupByGroupType:GroupTypeGeneral];
-    AdvGroup *mainGroup = [self findGroupByGroupType:GroupTypeMain];
-    
-    AdvGroup *result = [self joinGroup:mainGroup withGroup:generalGroup];
-    result = [self joinGroup:result withGroup:subrubricGroup];
-    
-    return result;
+    return subrubricGroup;
 }
-
-
-#pragma mark - Private methods
 
 - (AdvGroup *)joinGroup:(AdvGroup *)group1 withGroup:(AdvGroup *)group2
 {
     AdvGroup *joindedGroup = [AdvGroup new];
-    joindedGroup.name = [NSString stringWithFormat:@"%@_%@", group1.name, group2.name];
+    joindedGroup.name = [NSString stringWithFormat:@"%@_joined_%@", group1.name, group2.name];
     joindedGroup.type = GroupTypeJoined;
     
     NSMutableArray *fields = [[NSMutableArray alloc] init];
@@ -101,6 +122,26 @@ static SearchManager *_sharedMySingleton = nil;
     joindedGroup.fields = fields;
     
     return joindedGroup;
+}
+
+- (AdvGroup *)mergeLittleGroup:(AdvGroup *)littleGroup withBigGroup:(AdvGroup *)bigGroup
+{
+    AdvGroup *mergedGroup = [AdvGroup new];
+    mergedGroup.name = [NSString stringWithFormat:@"%@_merged_%@", littleGroup.name, bigGroup.name];
+    mergedGroup.type = GroupTypeMerged;
+    
+    NSMutableArray *fields = [NSMutableArray new];
+    for (AdvField *littleField in littleGroup.fields) {
+        for (AdvField *bigField in bigGroup.fields) {
+            if ([littleField.nameEnglish isEqualToString:bigField.nameEnglish]) {
+                [fields addObject:littleField];
+                break;
+            }
+        }
+    }
+    mergedGroup.fields = fields;
+    
+    return mergedGroup;
 }
 
 - (NSString *)keyByGroupType:(GroupType)groupType

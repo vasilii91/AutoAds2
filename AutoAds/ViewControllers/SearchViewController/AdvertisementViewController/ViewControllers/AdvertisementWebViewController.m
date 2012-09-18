@@ -51,6 +51,13 @@
     [self.webView loadRequest:request];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
 - (void)viewDidUnload
 {
     [self setWebView:nil];

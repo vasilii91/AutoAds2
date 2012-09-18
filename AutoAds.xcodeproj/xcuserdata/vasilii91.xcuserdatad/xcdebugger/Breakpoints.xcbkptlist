@@ -46,19 +46,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "369257550.169015"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
-         landmarkName = "-categoriesByRubric:subrubric:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
          timestampString = "369606876.666324"
          startingColumnNumber = "9223372036854775807"
@@ -92,6 +79,19 @@
          startingLineNumber = "84"
          endingLineNumber = "84"
          landmarkName = "-clickOnAboutProgramButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/Controls/CirculationView/CirculationView.m"
+         timestampString = "369686865.72481"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
+         landmarkName = "-initializeWithViews:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

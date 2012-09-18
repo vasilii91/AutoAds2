@@ -12,6 +12,7 @@
 enum
 {
     GroupTypeJoined,
+    GroupTypeMerged,
     GroupTypeMain,
     GroupTypeGeneral,
     GroupTypeAddAdvertisement,

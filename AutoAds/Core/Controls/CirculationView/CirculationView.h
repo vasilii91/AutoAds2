@@ -8,11 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@interface InternalView : UIView
+
+@property (nonatomic, retain) UIView *view;
+@property (nonatomic, assign) NSInteger index;
+
++ (InternalView *)newInternalViewFromView:(UIView *)v index:(NSInteger)index;
+
+@end
+
+
 @interface CirculationView : UIView
+{
+    NSMutableArray *internalViews;
+}
 
 @property (nonatomic, assign) CGRect activeFrame;
 @property (nonatomic, assign) NSInteger activeViewIndex;
-@property (nonatomic, retain) NSArray *views;
 
 - (void)initializeWithViews:(NSArray *)v;
 - (void)scrollToRight;

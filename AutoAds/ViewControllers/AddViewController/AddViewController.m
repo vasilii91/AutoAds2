@@ -82,7 +82,7 @@
          f2.selectedValue != nil) ||
         [f1.selectedValue isEqualToString:@"Автозапчасти"]) {
         
-        currentGroup = [searchManager categoriesByRubric:f1.selectedValue subrubric:f2.selectedValue];
+        currentGroup = [searchManager categoryAddAdvertisementByRubric:f1.selectedValue subrubric:f2.selectedValue];
         fields = [currentGroup getObligatoryFields];
     }
     
@@ -116,7 +116,12 @@
 
 - (void)cleanQuery
 {
+    for (AdvField *field in fields) {
+        field.selectedValue = nil;
+    }
+    fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     
+    [self.tableViewFields reloadData];
 }
 
 

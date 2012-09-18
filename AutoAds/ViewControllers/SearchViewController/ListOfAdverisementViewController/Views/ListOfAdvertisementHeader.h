@@ -10,8 +10,14 @@
 #import "CirculationView.h"
 
 @interface ListOfAdvertisementHeader : UIView
+{
+    CGRect firstFrame;
+    CGRect secondFrame;
+}
 
 @property (weak, nonatomic) IBOutlet CirculationView *circulationView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewLabels;
+
 + (ListOfAdvertisementHeader *)loadView;
 - (IBAction)clickOnTypeOfSortButton:(UIButton *)button;
 

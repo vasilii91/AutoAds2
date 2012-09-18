@@ -85,7 +85,7 @@
         f2.selectedValue != nil) ||
         [f1.selectedValue isEqualToString:@"Автозапчасти"]) {
         
-        currentGroup = [searchManager categoriesByRubric:f1.selectedValue subrubric:f2.selectedValue];
+        currentGroup = [searchManager categoryByRubric:f1.selectedValue subrubric:f2.selectedValue];
         fields = [currentGroup getObligatoryFields];
     }
     
@@ -102,12 +102,17 @@
 
 - (void)goBack:(id)sender
 {
-    [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)cleanQuery
 {
+    for (AdvField *field in fields) {
+        field.selectedValue = nil;
+    }
+    fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     
+    [self.tableView reloadData];
 }
 
 - (IBAction)clickOnSearchButton:(id)sender
