@@ -11,6 +11,6 @@
 @interface UIImage (Extension)
 
 - (UIImage*)scaleToSize:(CGSize)size;
-- (UIImage *)scaleSize:(CGSize)oldSize toSize:(CGSize)newSize;
+- (UIImage *)scaleToSizeProportionaly:(CGSize)newSize;
 
 @end

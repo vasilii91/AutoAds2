@@ -54,6 +54,8 @@
     self.navigationItem.leftBarButtonItem = bbi;
     
     self.tableViewSavedSearchQueries.backgroundColor = [UIColor clearColor];
+    
+    [[KVNetworkManager sharedInstance] search];
 }
 
 - (void)viewDidUnload

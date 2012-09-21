@@ -19,22 +19,24 @@
     return image;
 }
 
-- (UIImage *)scaleSize:(CGSize)oldSize toSize:(CGSize)newSize
+- (UIImage *)scaleToSizeProportionaly:(CGSize)boxSize
 {
-    CGFloat newWidth = oldSize.width * newSize.height / oldSize.height;
-    CGSize newCarPhotoSize = CGSizeMake(newWidth, newSize.height);
+    CGSize imageSize = self.size;
+    CGSize resultSize = CGSizeZero;
     
-    if (newCarPhotoSize.width > newSize.width) {
-        CGFloat newHeight = newSize.width / newCarPhotoSize.width * newSize.height;
-        newCarPhotoSize = CGSizeMake(newSize.width, newHeight);
+    CGFloat k1 = boxSize.height / imageSize.height;
+    CGFloat k2 = boxSize.width / imageSize.width;
+    CGFloat k = MIN(k1, k2);
+    
+    if (k > 1) {
+        resultSize = imageSize;
     }
-    else if (newCarPhotoSize.height > newSize.height) {
-        CGFloat newWidth = newSize.height / newCarPhotoSize.height * newSize.width;
-        newCarPhotoSize = CGSizeMake(newWidth, newSize.height);
+    else {
+        resultSize = CGSizeMake(imageSize.width * k, imageSize.height * k);
     }
     
-    UIImage *image = [self scaleToSize:newCarPhotoSize];
-
+    UIImage *image = [self scaleToSize:resultSize];
+    
     return image;
 }
 

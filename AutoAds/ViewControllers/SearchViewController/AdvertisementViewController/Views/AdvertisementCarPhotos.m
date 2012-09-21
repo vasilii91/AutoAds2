@@ -59,7 +59,7 @@
         NSString *imageName = [names objectAtIndex:i];
         UIImage *carPhoto = [UIImage imageNamed:imageName];
         CGSize oldCarPhotoSize = carPhoto.size;
-        UIImage *newCarPhoto = [carPhoto scaleSize:oldCarPhotoSize toSize:scrollViewFrame.size];
+        UIImage *newCarPhoto = [carPhoto scaleToSizeProportionaly:scrollViewFrame.size];
         
         CGRect newCarPhotoRect = CGRectMake((scrollViewFrame.size.width - newCarPhoto.size.width) / 2 + i * scrollViewFrame.size.width,
                                             (scrollViewFrame.size.height - newCarPhoto.size.height) / 2,

@@ -12,6 +12,7 @@
 #import "TableViewHeader.h"
 #import "SavedSearchCell.h"
 #import "SearchViewController.h"
+#import "KVNetworkManager.h"
 
 @interface SavedSearchQueriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {

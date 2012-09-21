@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Jastor.h"
 
-@interface Advertisement : NSObject
+@interface Advertisement : Jastor
 
 @property (nonatomic, retain) NSString *rubric;
 @property (nonatomic, retain) NSString *subrubric;
@@ -52,7 +53,7 @@
 @property (nonatomic, retain) NSString *HolesCount;
 @property (nonatomic, retain) NSString *HoleDiameter;
 @property (nonatomic, retain) NSString *Sortie;
-@property (nonatomic, retain) NSString *Options;
+@property (nonatomic, retain) NSArray *Options;
 @property (nonatomic, retain) NSString *Price;
 @property (nonatomic, retain) NSString *Chaffer;
 @property (nonatomic, retain) NSString *Contacts;
