@@ -14,6 +14,7 @@ enum
     GroupTypeJoined,
     GroupTypeMerged,
     GroupTypeMain,
+    GroupTypeBrands,
     GroupTypeGeneral,
     GroupTypeAddAdvertisement,
     GroupTypePassengerCar,

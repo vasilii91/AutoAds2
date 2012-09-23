@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Jastor.h"
 
-@interface VehicleModification : NSObject
+@interface VehicleModification : Jastor
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, retain) NSString *id;
 @property (nonatomic, retain) NSString *title;
 
 @end

@@ -56,11 +56,16 @@ static SearchManager *_sharedMySingleton = nil;
 
 - (AdvGroup *)categoryByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
 {
+    AdvGroup *brandsGroup = [self findGroupByGroupType:GroupTypeBrands];
     AdvGroup *subrubricGroup = [self subrubricGroupByRubric:rubric subrubric:subrubric];
     AdvGroup *generalGroup = [self findGroupByGroupType:GroupTypeGeneral];
     AdvGroup *mainGroup = [self findGroupByGroupType:GroupTypeMain];
     
-    AdvGroup *result = [self joinGroup:mainGroup withGroup:generalGroup];
+    AdvGroup *result = nil;
+//    if ([rubric isEqualToString:@"Диски"] == NO) {
+        result = [self joinGroup:mainGroup withGroup:brandsGroup];
+//    }
+    result = [self joinGroup:result withGroup:generalGroup];
     result = [self joinGroup:result withGroup:subrubricGroup];
     
     return result;
@@ -68,12 +73,17 @@ static SearchManager *_sharedMySingleton = nil;
 
 - (AdvGroup *)categoryAddAdvertisementByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
 {
+    AdvGroup *brandsGroup = [self findGroupByGroupType:GroupTypeBrands];
     AdvGroup *subrubricGroup = [self subrubricGroupByRubric:rubric subrubric:subrubric];
     AdvGroup *addAdvertisementGroup = [self findGroupByGroupType:GroupTypeAddAdvertisement];
     AdvGroup *generalGroup = [self findGroupByGroupType:GroupTypeGeneral];
     AdvGroup *mainGroup = [self findGroupByGroupType:GroupTypeMain];
     
-    AdvGroup *result1 = [self joinGroup:mainGroup withGroup:generalGroup];
+    AdvGroup *result1 = nil;
+//    if ([rubric isEqualToString:@"Диски"] == NO) {
+        result1 = [self joinGroup:mainGroup withGroup:brandsGroup];
+//    }
+    result1 = [self joinGroup:result1 withGroup:generalGroup];
     AdvGroup *result2 = [self mergeLittleGroup:subrubricGroup withBigGroup:addAdvertisementGroup];
     
     AdvGroup *result = [self joinGroup:result1 withGroup:result2];
@@ -157,6 +167,7 @@ static SearchManager *_sharedMySingleton = nil;
 
 - (void)fillGroups
 {
+    [self addGroupToGroups:[self fillBrandsGroup]];
     [self addGroupToGroups:[self fillMainGroup]];
     [self addGroupToGroups:[self fillGeneralGroup]];
     [self addGroupToGroups:[self fillPassengerCarGroup]];
@@ -199,6 +210,23 @@ static SearchManager *_sharedMySingleton = nil;
     return group;
 }
 
+- (AdvGroup *)fillBrandsGroup
+{
+    AdvGroup *group = [AdvGroup new];
+    group.name = @"Модели";
+    group.type = GroupTypeBrands;
+    
+    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
+    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
+    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
+    
+    
+    NSArray *fields = @[f1, f2, f3];
+    group.fields = fields;
+    
+    return group;
+}
+
 - (AdvGroup *)fillGeneralGroup
 {
     AdvGroup *group = [AdvGroup new];
@@ -231,9 +259,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Легковые";
     group.type = GroupTypePassengerCar;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_MILEAGE_ENG :F_MILEAGE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f6 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
@@ -249,7 +274,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f16 = [AdvField newAdvField:F_ENGINE_TYPE_ENG :F_ENGINE_TYPE_RUS :[AdvDictionaries EngineTypes] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
     AdvField *f17 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17];
     
     group.fields = fields;
     
@@ -262,9 +287,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Прицепы";
     group.type = GroupTypeTrailerForCar;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
@@ -272,7 +294,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f8 = [AdvField newAdvField:F_DESTINY_ENG :F_DESTINY_RUS :[AdvDictionaries TrailerDestinies] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9];
     
     group.fields = fields;
     
@@ -285,9 +307,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Автобусы";
     group.type = GroupTypeBus;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_MILEAGE_ENG :F_MILEAGE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f6 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
@@ -304,7 +323,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f17 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f18 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18];
     
     group.fields = fields;
     
@@ -317,9 +336,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Грузовые автомобили";
     group.type = GroupTypeTruck;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_MILEAGE_ENG :F_MILEAGE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f6 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
@@ -336,7 +352,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f17 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f18 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18];
     
     group.fields = fields;
     
@@ -349,9 +365,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Малый коммерческий транспорт";
     group.type = GroupTypeMKT;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_MILEAGE_ENG :F_MILEAGE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f6 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
@@ -369,7 +382,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f18 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f19 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19];
     
     group.fields = fields;
     
@@ -382,9 +395,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Грузовые прицепы и полуприцепы";
     group.type = GroupTypeTrailerForTruckCar;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
@@ -394,7 +404,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f10 = [AdvField newAdvField:F_AXIS_COUNT_ENG :F_AXIS_COUNT_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f11 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11];
     
     group.fields = fields;
     
@@ -407,9 +417,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Спецтехника";
     group.type = GroupTypeSpecialTechnique;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
@@ -420,7 +427,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f11 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f12 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12];
     
     group.fields = fields;
     
@@ -433,9 +440,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Мототехника";
     group.type = GroupTypeMotoTechnique;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
@@ -447,7 +451,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f12 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f13 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13];
     
     group.fields = fields;
     
@@ -460,9 +464,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Гидроциклы";
     group.type = GroupTypeHydroCycle;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
@@ -473,7 +474,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f11 = [AdvField newAdvField:F_MOTO_HOURS_ENG :F_MOTO_HOURS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f12 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12];
     
     group.fields = fields;
     
@@ -486,9 +487,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Катера и яхты";
     group.type = GroupTypeCuttersAndYachts;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
@@ -498,7 +496,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f10 = [AdvField newAdvField:F_SEATS_ENG :F_SEATS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f11 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11];
     
     group.fields = fields;
     
@@ -511,16 +509,13 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Лодки";
     group.type = GroupTypeBoats;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8];
+    NSArray *fields = @[f4, f5, f6, f7, f8];
     
     group.fields = fields;
     
@@ -539,14 +534,11 @@ static SearchManager *_sharedMySingleton = nil;
     f1.isExistMainField = YES;
     f1.dependentField = f2;
     
-    AdvField *f3 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :YES :YES :NO :YES];
-    AdvField *f4 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :YES :YES :NO :YES];
-    AdvField *f5 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f6 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f7 = [AdvField newAdvField:F_NAME_ENG :F_NAME_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries GearsStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8];
+    NSArray *fields = @[f1, f2, f6, f7, f8];
     
     group.fields = fields;
     
@@ -559,9 +551,6 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Шины";
     group.type = GroupTypeTires;
     
-    AdvField *f1 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f2 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
-    AdvField *f3 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_SEASONALITY_ENG :F_SEASONALITY_RUS :[AdvDictionaries Seasonalities] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_SPIKES_ENG :F_SPIKES_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_DIAMETER_ENG :F_DIAMETER_RUS :[AdvDictionaries WheelDiameters] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
@@ -570,7 +559,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f9 = [AdvField newAdvField:F_HOLES_COUNT_ENG :F_HOLES_COUNT_RUS :[AdvDictionaries WheelHoleCounts] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10];
+    NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10];
     
     group.fields = fields;
     

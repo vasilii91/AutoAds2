@@ -28,7 +28,7 @@
 #define F_BODY_TYPE_RUS @"Тип кузова"
 #define F_BODY_TYPE_ENG @"bodytype"
 
-#define F_BRAND_RUS @"Марка машины"
+#define F_BRAND_RUS @"Марка"
 #define F_BRAND_ENG @"brand"
 
 
@@ -269,10 +269,10 @@
 #define F_MODERATE_RUS @"Решение модератора"
 #define F_MODERATE_ENG @"Moderate"
 
-#define F_MODEL_RUS @"Модели машин"
+#define F_MODEL_RUS @"Модель"
 #define F_MODEL_ENG @"models"
 
-#define F_MODIFICATION_RUS @"Модификация модели"
+#define F_MODIFICATION_RUS @"Модификация"
 #define F_MODIFICATION_ENG @"Modification"
 
 #define F_MOTO_HOURS_RUS @"Моточасы"
@@ -356,7 +356,7 @@
 #define F_REMODERATE_RUS @"Повторно проверено модератором"
 #define F_REMODERATE_ENG @"Remoderate"
 
-#define F_RUBRIC_RUS @"Тип транспортного средства"
+#define F_RUBRIC_RUS @"Тип"
 #define F_RUBRIC_ENG @"rubric"
 
 #define F_RUBRICID_RUS @"Рубрика"
@@ -396,7 +396,7 @@
 #define F_STATUS_RUS @"Состояние"
 #define F_STATUS_ENG @"Status"
 
-#define F_SUBRUBRIC_RUS @"Подтип транспортного средства"
+#define F_SUBRUBRIC_RUS @"Подтип"
 #define F_SUBRUBRIC_ENG @"subrubric"
 
 #define F_SURNAME_RUS @""

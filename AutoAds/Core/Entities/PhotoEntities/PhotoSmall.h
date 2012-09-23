@@ -10,4 +10,11 @@
 
 @interface PhotoSmall : Jastor
 
+@property (nonatomic, retain) NSString *h;
+@property (nonatomic, retain) NSString *w;
+@property (nonatomic, retain) NSString *mime;
+@property (nonatomic, retain) NSString *path;
+@property (nonatomic, retain) NSString *size;
+@property (nonatomic, retain) NSString *url;
+
 @end

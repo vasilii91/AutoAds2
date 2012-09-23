@@ -254,6 +254,15 @@ static KVNetworkManager *instance = nil;
     [self addRequest:urlRequest];
 }
 
+- (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
+    NSString *url = [self urlGetWithActionName:@"Brands" parameters:jsonString];
+    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeBrands requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
+    
+    [self addRequest:urlRequest];
+}
+
 
 #pragma mark -
 #pragma mark BAUrlRequestDelegate members

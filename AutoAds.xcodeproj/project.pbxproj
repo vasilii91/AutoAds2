@@ -19,7 +19,6 @@
 		10BE55D815FD0E5B008983A6 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55D715FD0E5B008983A6 /* OrderedDictionary.m */; };
 		10BE55DA15FD21CE008983A6 /* SelectValueStringView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10BE55D915FD21CE008983A6 /* SelectValueStringView.xib */; };
 		10BE55DD15FD321A008983A6 /* AdvDictionaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55DC15FD3219008983A6 /* AdvDictionaries.m */; };
-		10D125541602836E003357E7 /* Advertisement.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D125531602836E003357E7 /* Advertisement.m */; };
 		10D1255F1605EF49003357E7 /* AdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D1255D1605EF49003357E7 /* AdvertisementViewController.m */; };
 		10D125601605EF49003357E7 /* AdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D1255E1605EF49003357E7 /* AdvertisementViewController.xib */; };
 		10D125641605F055003357E7 /* AdvertisementCarPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D125631605F055003357E7 /* AdvertisementCarPhotos.m */; };
@@ -34,6 +33,15 @@
 		10D125801606282B003357E7 /* UIImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D1257F1606282B003357E7 /* UIImageExtension.m */; };
 		10D12589160676BA003357E7 /* LinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D12588160676BA003357E7 /* LinkCell.m */; };
 		10D1258B160676EF003357E7 /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D1258A160676EF003357E7 /* LinkCell.xib */; };
+		10D529A7160DD9DF0011F682 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529A5160DD9DF0011F682 /* Photo.m */; };
+		10D529AA160DDA380011F682 /* PhotoLarge.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529A9160DDA380011F682 /* PhotoLarge.m */; };
+		10D529AD160DDAAA0011F682 /* PhotoSmall.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529AC160DDAAA0011F682 /* PhotoSmall.m */; };
+		10D529B1160DDBAB0011F682 /* Advertisement.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529AF160DDBAB0011F682 /* Advertisement.m */; };
+		10D529B9160DE4500011F682 /* VehicleModification.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529B3160DE4500011F682 /* VehicleModification.m */; };
+		10D529BA160DE4500011F682 /* VehicleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529B5160DE4500011F682 /* VehicleModel.m */; };
+		10D529BB160DE4500011F682 /* VehicleBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529B7160DE4500011F682 /* VehicleBrand.m */; };
+		10D529D7160E09990011F682 /* SSIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529D6160E09990011F682 /* SSIndicatorLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		10D529E5160E10B00011F682 /* PleaseWaitAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529E4160E10B00011F682 /* PleaseWaitAlertView.m */; };
 		10FCD0921607AE4C005C877D /* TechnicalHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */; };
 		10FCD0931607AE4C005C877D /* TechnicalHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */; };
 		10FCD0981607AFA0005C877D /* AboutProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0961607AFA0005C877D /* AboutProgramViewController.m */; };
@@ -49,13 +57,9 @@
 		BE26EBAE160C69F800530E7D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26EBA8160C69F800530E7D /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE26EBB2160C71A100530E7D /* KVDataLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26EBB1160C71A100530E7D /* KVDataLogic.m */; };
 		BE2F84F415FF2B9A008859B1 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F315FF2B9A008859B1 /* Image.m */; };
-		BE2F84F715FF2C3C008859B1 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F615FF2C3C008859B1 /* Photo.m */; };
 		BE2F84FA15FF2CE2008859B1 /* Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F915FF2CE2008859B1 /* Phone.m */; };
 		BE2F84FD15FF2EDA008859B1 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84FC15FF2EDA008859B1 /* Option.m */; };
 		BE2F850015FF2FAE008859B1 /* OptionsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */; };
-		BE2F850315FF3000008859B1 /* VehicleModification.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F850215FF3000008859B1 /* VehicleModification.m */; };
-		BE2F850615FF303C008859B1 /* VehicleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F850515FF303C008859B1 /* VehicleModel.m */; };
-		BE2F850915FF30D4008859B1 /* VehicleBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F850815FF30D4008859B1 /* VehicleBrand.m */; };
 		BE45624F16087F8F001EC686 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE45624E16087F8F001EC686 /* SearchViewController.xib */; };
 		BE45625216088097001EC686 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE45625116088097001EC686 /* ButtonCell.xib */; };
 		BE456254160880C5001EC686 /* RubrikCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE456253160880C5001EC686 /* RubrikCell.xib */; };
@@ -160,8 +164,6 @@
 		10BE55D915FD21CE008983A6 /* SelectValueStringView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectValueStringView.xib; path = SelectValueStringView/SelectValueStringView.xib; sourceTree = "<group>"; };
 		10BE55DB15FD3219008983A6 /* AdvDictionaries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvDictionaries.h; path = SearchManager/Entities/AdvDictionaries.h; sourceTree = "<group>"; };
 		10BE55DC15FD3219008983A6 /* AdvDictionaries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvDictionaries.m; path = SearchManager/Entities/AdvDictionaries.m; sourceTree = "<group>"; };
-		10D125521602836D003357E7 /* Advertisement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advertisement.h; path = SearchManager/Entities/Advertisement.h; sourceTree = "<group>"; };
-		10D125531602836E003357E7 /* Advertisement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advertisement.m; path = SearchManager/Entities/Advertisement.m; sourceTree = "<group>"; };
 		10D1255C1605EF49003357E7 /* AdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementViewController.h; path = AdvertisementViewController/AdvertisementViewController.h; sourceTree = "<group>"; };
 		10D1255D1605EF49003357E7 /* AdvertisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvertisementViewController.m; path = AdvertisementViewController/AdvertisementViewController.m; sourceTree = "<group>"; };
 		10D1255E1605EF49003357E7 /* AdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvertisementViewController.xib; path = AdvertisementViewController/AdvertisementViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +186,25 @@
 		10D12587160676BA003357E7 /* LinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkCell.h; path = Views/LinkCell.h; sourceTree = "<group>"; };
 		10D12588160676BA003357E7 /* LinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkCell.m; path = Views/LinkCell.m; sourceTree = "<group>"; };
 		10D1258A160676EF003357E7 /* LinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinkCell.xib; path = Views/LinkCell.xib; sourceTree = "<group>"; };
+		10D529A5160DD9DF0011F682 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Entities/PhotoEntities/Photo.m; sourceTree = "<group>"; };
+		10D529A6160DD9DF0011F682 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Entities/PhotoEntities/Photo.h; sourceTree = "<group>"; };
+		10D529A8160DDA380011F682 /* PhotoLarge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoLarge.h; path = Entities/PhotoEntities/PhotoLarge.h; sourceTree = "<group>"; };
+		10D529A9160DDA380011F682 /* PhotoLarge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoLarge.m; path = Entities/PhotoEntities/PhotoLarge.m; sourceTree = "<group>"; };
+		10D529AB160DDAAA0011F682 /* PhotoSmall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoSmall.h; path = Entities/PhotoEntities/PhotoSmall.h; sourceTree = "<group>"; };
+		10D529AC160DDAAA0011F682 /* PhotoSmall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoSmall.m; path = Entities/PhotoEntities/PhotoSmall.m; sourceTree = "<group>"; };
+		10D529AF160DDBAB0011F682 /* Advertisement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Advertisement.m; path = Entities/Advertisement/Advertisement.m; sourceTree = "<group>"; };
+		10D529B0160DDBAB0011F682 /* Advertisement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Advertisement.h; path = Entities/Advertisement/Advertisement.h; sourceTree = "<group>"; };
+		10D529B3160DE4500011F682 /* VehicleModification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleModification.m; path = Entities/Vehicle/VehicleModification.m; sourceTree = "<group>"; };
+		10D529B4160DE4500011F682 /* VehicleModification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleModification.h; path = Entities/Vehicle/VehicleModification.h; sourceTree = "<group>"; };
+		10D529B5160DE4500011F682 /* VehicleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleModel.m; path = Entities/Vehicle/VehicleModel.m; sourceTree = "<group>"; };
+		10D529B6160DE4500011F682 /* VehicleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleModel.h; path = Entities/Vehicle/VehicleModel.h; sourceTree = "<group>"; };
+		10D529B7160DE4500011F682 /* VehicleBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleBrand.m; path = Entities/Vehicle/VehicleBrand.m; sourceTree = "<group>"; };
+		10D529B8160DE4500011F682 /* VehicleBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleBrand.h; path = Entities/Vehicle/VehicleBrand.h; sourceTree = "<group>"; };
+		10D529D5160E09990011F682 /* SSIndicatorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSIndicatorLabel.h; sourceTree = "<group>"; };
+		10D529D6160E09990011F682 /* SSIndicatorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSIndicatorLabel.m; sourceTree = "<group>"; };
+		10D529D8160E0A050011F682 /* KVDataManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVDataManagerDelegate.h; sourceTree = "<group>"; };
+		10D529E3160E10B00011F682 /* PleaseWaitAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleaseWaitAlertView.h; sourceTree = "<group>"; };
+		10D529E4160E10B00011F682 /* PleaseWaitAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PleaseWaitAlertView.m; sourceTree = "<group>"; };
 		10FCD08F1607AE4C005C877D /* TechnicalHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechnicalHelpViewController.h; path = TechnicalHelpViewController/TechnicalHelpViewController.h; sourceTree = "<group>"; };
 		10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechnicalHelpViewController.m; path = TechnicalHelpViewController/TechnicalHelpViewController.m; sourceTree = "<group>"; };
 		10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TechnicalHelpViewController.xib; path = TechnicalHelpViewController/TechnicalHelpViewController.xib; sourceTree = "<group>"; };
@@ -213,20 +234,12 @@
 		BE26EBB1160C71A100530E7D /* KVDataLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVDataLogic.m; sourceTree = "<group>"; };
 		BE2F84F215FF2B9A008859B1 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = Entities/Image.h; sourceTree = "<group>"; };
 		BE2F84F315FF2B9A008859B1 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = Entities/Image.m; sourceTree = "<group>"; };
-		BE2F84F515FF2C3C008859B1 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Entities/Photo.h; sourceTree = "<group>"; };
-		BE2F84F615FF2C3C008859B1 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Entities/Photo.m; sourceTree = "<group>"; };
 		BE2F84F815FF2CE2008859B1 /* Phone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phone.h; path = Entities/Phone.h; sourceTree = "<group>"; };
 		BE2F84F915FF2CE2008859B1 /* Phone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phone.m; path = Entities/Phone.m; sourceTree = "<group>"; };
 		BE2F84FB15FF2EDA008859B1 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Option.h; path = Entities/Option.h; sourceTree = "<group>"; };
 		BE2F84FC15FF2EDA008859B1 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Option.m; path = Entities/Option.m; sourceTree = "<group>"; };
 		BE2F84FE15FF2FAE008859B1 /* OptionsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsCategory.h; path = Entities/OptionsCategory.h; sourceTree = "<group>"; };
 		BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsCategory.m; path = Entities/OptionsCategory.m; sourceTree = "<group>"; };
-		BE2F850115FF3000008859B1 /* VehicleModification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleModification.h; path = Entities/VehicleModification.h; sourceTree = "<group>"; };
-		BE2F850215FF3000008859B1 /* VehicleModification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleModification.m; path = Entities/VehicleModification.m; sourceTree = "<group>"; };
-		BE2F850415FF303C008859B1 /* VehicleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleModel.h; path = Entities/VehicleModel.h; sourceTree = "<group>"; };
-		BE2F850515FF303C008859B1 /* VehicleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleModel.m; path = Entities/VehicleModel.m; sourceTree = "<group>"; };
-		BE2F850715FF30D3008859B1 /* VehicleBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VehicleBrand.h; path = Entities/VehicleBrand.h; sourceTree = "<group>"; };
-		BE2F850815FF30D4008859B1 /* VehicleBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VehicleBrand.m; path = Entities/VehicleBrand.m; sourceTree = "<group>"; };
 		BE45624E16087F8F001EC686 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		BE45625116088097001EC686 /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		BE456253160880C5001EC686 /* RubrikCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RubrikCell.xib; sourceTree = "<group>"; };
@@ -454,6 +467,61 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		10D529A3160DD9B00011F682 /* PhotoEntities */ = {
+			isa = PBXGroup;
+			children = (
+				10D529A6160DD9DF0011F682 /* Photo.h */,
+				10D529A5160DD9DF0011F682 /* Photo.m */,
+				10D529A8160DDA380011F682 /* PhotoLarge.h */,
+				10D529A9160DDA380011F682 /* PhotoLarge.m */,
+				10D529AB160DDAAA0011F682 /* PhotoSmall.h */,
+				10D529AC160DDAAA0011F682 /* PhotoSmall.m */,
+			);
+			name = PhotoEntities;
+			sourceTree = "<group>";
+		};
+		10D529AE160DDB870011F682 /* Advertisement */ = {
+			isa = PBXGroup;
+			children = (
+				10D529B0160DDBAB0011F682 /* Advertisement.h */,
+				10D529AF160DDBAB0011F682 /* Advertisement.m */,
+			);
+			name = Advertisement;
+			sourceTree = "<group>";
+		};
+		10D529B2160DE41A0011F682 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				10D529B8160DE4500011F682 /* VehicleBrand.h */,
+				10D529B7160DE4500011F682 /* VehicleBrand.m */,
+				10D529B6160DE4500011F682 /* VehicleModel.h */,
+				10D529B5160DE4500011F682 /* VehicleModel.m */,
+				10D529B4160DE4500011F682 /* VehicleModification.h */,
+				10D529B3160DE4500011F682 /* VehicleModification.m */,
+			);
+			name = Vehicle;
+			sourceTree = "<group>";
+		};
+		10D529D4160E09990011F682 /* SSIndicatorLabel */ = {
+			isa = PBXGroup;
+			children = (
+				10D529D5160E09990011F682 /* SSIndicatorLabel.h */,
+				10D529D6160E09990011F682 /* SSIndicatorLabel.m */,
+			);
+			name = SSIndicatorLabel;
+			path = Controls/SSIndicatorLabel;
+			sourceTree = "<group>";
+		};
+		10D529E2160E10B00011F682 /* PleaseWaitAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				10D529E3160E10B00011F682 /* PleaseWaitAlertView.h */,
+				10D529E4160E10B00011F682 /* PleaseWaitAlertView.m */,
+			);
+			name = PleaseWaitAlertView;
+			path = Controls/PleaseWaitAlertView;
+			sourceTree = "<group>";
+		};
 		10FCD08E1607AE24005C877D /* TechnicalHelpViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +560,7 @@
 				BE26EBB1160C71A100530E7D /* KVDataLogic.m */,
 				BE26EB8F160C697600530E7D /* KVDataManager.h */,
 				BE26EB90160C697600530E7D /* KVDataManager.m */,
+				10D529D8160E0A050011F682 /* KVDataManagerDelegate.h */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -519,22 +588,17 @@
 		BE2F84F015FF2B50008859B1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				10D529AE160DDB870011F682 /* Advertisement */,
+				10D529A3160DD9B00011F682 /* PhotoEntities */,
+				10D529B2160DE41A0011F682 /* Vehicle */,
 				BE2F84F215FF2B9A008859B1 /* Image.h */,
 				BE2F84F315FF2B9A008859B1 /* Image.m */,
-				BE2F84F515FF2C3C008859B1 /* Photo.h */,
-				BE2F84F615FF2C3C008859B1 /* Photo.m */,
 				BE2F84F815FF2CE2008859B1 /* Phone.h */,
 				BE2F84F915FF2CE2008859B1 /* Phone.m */,
 				BE2F84FB15FF2EDA008859B1 /* Option.h */,
 				BE2F84FC15FF2EDA008859B1 /* Option.m */,
 				BE2F84FE15FF2FAE008859B1 /* OptionsCategory.h */,
 				BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */,
-				BE2F850115FF3000008859B1 /* VehicleModification.h */,
-				BE2F850215FF3000008859B1 /* VehicleModification.m */,
-				BE2F850415FF303C008859B1 /* VehicleModel.h */,
-				BE2F850515FF303C008859B1 /* VehicleModel.m */,
-				BE2F850715FF30D3008859B1 /* VehicleBrand.h */,
-				BE2F850815FF30D4008859B1 /* VehicleBrand.m */,
 				BE90E9C9160CA69600635EAC /* Options.h */,
 				BE90E9CA160CA69600635EAC /* Options.m */,
 			);
@@ -807,6 +871,8 @@
 		BEDD195616036BEC00FACC4B /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				10D529E2160E10B00011F682 /* PleaseWaitAlertView */,
+				10D529D4160E09990011F682 /* SSIndicatorLabel */,
 				BEDD195716036C0B00FACC4B /* CirculationView */,
 			);
 			name = Controls;
@@ -854,8 +920,6 @@
 				BEF6391715F9E8A400B0CAD0 /* AdvField.m */,
 				BEF6391A15F9FD5A00B0CAD0 /* AdvGroup.h */,
 				BEF6391B15F9FD5A00B0CAD0 /* AdvGroup.m */,
-				10D125521602836D003357E7 /* Advertisement.h */,
-				10D125531602836E003357E7 /* Advertisement.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -1080,14 +1144,9 @@
 				10BE55D815FD0E5B008983A6 /* OrderedDictionary.m in Sources */,
 				10BE55DD15FD321A008983A6 /* AdvDictionaries.m in Sources */,
 				BE2F84F415FF2B9A008859B1 /* Image.m in Sources */,
-				BE2F84F715FF2C3C008859B1 /* Photo.m in Sources */,
 				BE2F84FA15FF2CE2008859B1 /* Phone.m in Sources */,
 				BE2F84FD15FF2EDA008859B1 /* Option.m in Sources */,
 				BE2F850015FF2FAE008859B1 /* OptionsCategory.m in Sources */,
-				BE2F850315FF3000008859B1 /* VehicleModification.m in Sources */,
-				BE2F850615FF303C008859B1 /* VehicleModel.m in Sources */,
-				BE2F850915FF30D4008859B1 /* VehicleBrand.m in Sources */,
-				10D125541602836E003357E7 /* Advertisement.m in Sources */,
 				BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */,
 				BE96CF4F160338A20074A52B /* ListOfAdverisementViewController.m in Sources */,
 				BEDD193D16033FDE00FACC4B /* ListOfAdvertisementHeader.m in Sources */,
@@ -1118,6 +1177,15 @@
 				BE90E9C3160CA03700635EAC /* Jastor.m in Sources */,
 				BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */,
 				BE90E9CB160CA69600635EAC /* Options.m in Sources */,
+				10D529A7160DD9DF0011F682 /* Photo.m in Sources */,
+				10D529AA160DDA380011F682 /* PhotoLarge.m in Sources */,
+				10D529AD160DDAAA0011F682 /* PhotoSmall.m in Sources */,
+				10D529B1160DDBAB0011F682 /* Advertisement.m in Sources */,
+				10D529B9160DE4500011F682 /* VehicleModification.m in Sources */,
+				10D529BA160DE4500011F682 /* VehicleModel.m in Sources */,
+				10D529BB160DE4500011F682 /* VehicleBrand.m in Sources */,
+				10D529D7160E09990011F682 /* SSIndicatorLabel.m in Sources */,
+				10D529E5160E10B00011F682 /* PleaseWaitAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

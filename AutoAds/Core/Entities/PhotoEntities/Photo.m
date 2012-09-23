@@ -10,4 +10,14 @@
 
 @implementation Photo
 
++ (Class)large_class
+{
+    return [PhotoLarge class];
+}
+
++ (Class)small_class
+{
+    return [PhotoSmall class];
+}
+
 @end

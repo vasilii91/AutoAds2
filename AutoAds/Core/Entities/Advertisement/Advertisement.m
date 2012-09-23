@@ -10,4 +10,14 @@
 
 @implementation Advertisement
 
++ (Class)Photo_class
+{
+    return [Photo class];
+}
+
++ (Class)Options_class
+{
+    return [NSArray class];
+}
+
 @end

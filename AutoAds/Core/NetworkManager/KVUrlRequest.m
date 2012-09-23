@@ -40,6 +40,7 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
 		[_request retain];
         
         dataManager = [KVDataManager sharedInstance];
+        dataManager.delegate = self;
 	}
 	
 	return self;
@@ -164,7 +165,6 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
     
     if (statusCode == 200) {
         [dataManager saveData:_outputStream withRequestType:_tag];
-        [_delegate requestSuccess:self];
     }
     else {
         NSString *errorReason = [KVDataLogic descriptionByStatusCode:statusCode];
@@ -173,6 +173,14 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
     }
     
     [self stop];
+}
+
+
+#pragma mark - @protocol KVDataManagerDelegate <NSObject>
+
+- (void)dataWasSuccessfullyParsed
+{
+    [_delegate requestSuccess:self];
 }
 
 

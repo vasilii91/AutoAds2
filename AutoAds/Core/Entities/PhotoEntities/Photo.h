@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PhotoLarge.h"
+#import "PhotoSmall.h"
 
-@interface Photo : NSObject
+@interface Photo : Jastor
 
-@property (nonatomic, retain) NSData *large;
-@property (nonatomic, retain) NSData *small;
+@property (nonatomic, retain) PhotoLarge *large;
+@property (nonatomic, retain) PhotoSmall *small;
 @property (nonatomic, retain) NSString *Description;
 
 @end

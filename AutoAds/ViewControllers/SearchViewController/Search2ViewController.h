@@ -12,9 +12,12 @@
 #import "SelectValueDelegate.h"
 #import "SelectValueDictionaryView.h"
 #import "SelectValueStringView.h"
+#import "KVDataManager.h"
 
 @interface Search2ViewController : UIViewController<SelectValueDelegate>
-
+{
+    KVDataManager *dataManager;
+}
 @property (nonatomic, strong) AdvField *field;
 
 @end

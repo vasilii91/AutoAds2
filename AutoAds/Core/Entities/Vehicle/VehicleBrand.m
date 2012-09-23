@@ -10,4 +10,22 @@
 
 @implementation VehicleBrand
 
++ (Class)subrubrics_class
+{
+    return [VehicleModel class];
+}
+
+- (void)setSubrubrics:(NSDictionary *)subrubrics
+{
+    self.vehicleModels = [NSMutableArray new];
+    
+    if ([subrubrics count] != 0) {
+        NSArray *subrubricDictionaries = [subrubrics allValues];
+        for (NSDictionary * d in subrubricDictionaries) {
+            VehicleModel *vm = [[VehicleModel alloc] initWithDictionary:d];
+            [self.vehicleModels addObject:vm];
+        }
+    }
+}
+
 @end

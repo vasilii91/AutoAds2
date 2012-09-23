@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Jastor.h"
+#import "VehicleModel.h"
 
-@interface VehicleBrand : NSObject
+@interface VehicleBrand : Jastor
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, retain) NSString *id;
 @property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSArray *subrubrics;
-@property (nonatomic, assign) NSInteger order;
+@property (nonatomic, retain) NSDictionary *subrubrics;
+@property (nonatomic, retain) NSString *order;
+
+@property (nonatomic, retain) NSMutableArray *vehicleModels;
 
 @end

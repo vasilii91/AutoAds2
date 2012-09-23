@@ -38,6 +38,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         searchManager = [SearchManager sharedMySingleton];
+        networkManager = [KVNetworkManager sharedInstance];
+        [networkManager subscribe:self];
         fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     }
     return self;
@@ -63,8 +65,9 @@
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQuery) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQueryToDefaultState) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
+    
 }
 
 - (void)viewDidUnload
@@ -79,14 +82,36 @@
     AdvField *f1 = (AdvField *)[fields objectAtIndex:1];
     AdvField *f2 = (AdvField *)[fields objectAtIndex:2];
     
-    if (([f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
-        [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] &&
-        f1.selectedValue != nil &&
-        f2.selectedValue != nil) ||
-        [f1.selectedValue isEqualToString:@"Автозапчасти"]) {
+    BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
+                                    [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
+    BOOL isRubricAndSubWereSelected = f1.selectedValue != nil && f2.selectedValue != nil;
+    BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
+                            [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
+    
+    if (f1.selectedValue != nil && f2.selectedValue == nil) {
+        [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];
+    }
+    
+    if ((isFieldsAreRubricsAndSub && isNeedToUpdate) ||
+        ([f1.selectedValue isEqualToString:@"Автозапчасти"])) {
         
-        currentGroup = [searchManager categoryByRubric:f1.selectedValue subrubric:f2.selectedValue];
-        fields = [currentGroup getObligatoryFields];
+        [self cleanQueryExceptRubricAndSubrubric];
+        
+        if (isRubricAndSubWereSelected == YES) {
+            lastSelectedRubric = f1.selectedValue;
+            lastSelectedSubrubric = f2.selectedValue;
+            
+            currentGroup = [searchManager categoryByRubric:f1.selectedValue subrubric:f2.selectedValue];
+            fields = [currentGroup getObligatoryFields];
+            
+            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+            [pleaseWaitAlertView show];
+            
+            NSString *rubric = [f1 valueForServerBySelectedValue];
+            NSString *subrubric = [f2 valueForServerBySelectedValue];
+            
+            [networkManager getModelsByRubric:rubric subrubric:subrubric];
+        }
     }
     
     [self.tableView reloadData];
@@ -98,14 +123,9 @@
 }
 
 
-#pragma mark - Actions
+#pragma mark - Private methods
 
-- (void)goBack:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)cleanQuery
+- (void)cleanQueryToDefaultState
 {
     for (AdvField *field in fields) {
         field.selectedValue = nil;
@@ -113,6 +133,41 @@
     fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     
     [self.tableView reloadData];
+}
+
+- (void)cleanQueryToDefaultStateWithoutCleaningRubAndSub
+{
+    for (AdvField *field in fields) {
+        if ([field.nameEnglish isEqualToString:F_RUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_CITY_CODE_ENG] == NO) {
+            field.selectedValue = nil;
+        }
+    }
+    fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
+    
+    [self.tableView reloadData];
+}
+
+- (void)cleanQueryExceptRubricAndSubrubric
+{
+    for (AdvField *field in fields) {
+        if ([field.nameEnglish isEqualToString:F_RUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_CITY_CODE_ENG] == NO) {
+            field.selectedValue = nil;
+        }
+    }
+    
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - Actions
+
+- (void)goBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)clickOnSearchButton:(id)sender
@@ -172,6 +227,20 @@
     Search2ViewController *search2VC = [Search2ViewController new];
     search2VC.field = lastSelectedField;
     [self.navigationController pushViewController:search2VC animated:YES];
+}
+
+
+#pragma mark - @protocol KVNetworkDelegate
+
+- (void)requestProcessed:(int)requestId forId:(NSString *)identifier
+{
+    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    pleaseWaitAlertView = nil;
+}
+
+- (void)requestFailed:(int)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
+{
+    LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol KVDataManagerProtocol <NSObject>
+@protocol KVDataManagerDelegate <NSObject>
+
+- (void)dataWasSuccessfullyParsed;
 
 @end

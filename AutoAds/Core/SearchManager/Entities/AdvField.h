@@ -43,4 +43,5 @@ typedef NSUInteger ValueType;
 - (void)setMainValues:(NSString *)nameE :(NSString *)nameR :(id)val :(id)valByDef :(id)selectedVal :(ValueType)valType;
 - (void)setBoolValues:(BOOL)isShown :(BOOL)isPrecond :(BOOL)isShort :(BOOL)isExtended :(BOOL)isTable :(BOOL)isFull;
 
+- (id)valueForServerBySelectedValue;
 @end

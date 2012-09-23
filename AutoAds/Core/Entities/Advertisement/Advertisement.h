@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Jastor.h"
+#import "Photo.h"
 
 @interface Advertisement : Jastor
 
@@ -61,7 +62,7 @@
 @property (nonatomic, retain) NSString *Details;
 @property (nonatomic, retain) NSString *Period;
 @property (nonatomic, retain) NSString *CityCode;
-@property (nonatomic, retain) NSString *Photo;
+@property (nonatomic, retain) Photo *Photo;
 @property (nonatomic, retain) NSString *NumOfOwners;
 @property (nonatomic, retain) NSString *VIN;
 @property (nonatomic, retain) NSString *FromOfficialDealer;

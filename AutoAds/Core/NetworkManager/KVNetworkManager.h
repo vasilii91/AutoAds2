@@ -51,5 +51,6 @@
 - (void)connectToServerWithUsername:(NSString *)username password:(NSString *)password;
 
 - (void)search;
+- (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 
 @end

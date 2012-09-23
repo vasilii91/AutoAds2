@@ -22,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        dataManager = [KVDataManager sharedInstance];
     }
     return self;
 }
@@ -72,6 +72,29 @@
             
             break;
         }
+        case ValueTypeDictionaryFromInternet:
+        {
+            SelectValueDictionaryView *dictionaryView = [SelectValueDictionaryView loadView];
+            [dictionaryView setFrame:CGRectMake(0, 0, 320, 460)];
+            
+            NSString *fieldName = self.field.nameEnglish;
+            NSDictionary *dictionary = nil;
+            if ([fieldName isEqualToString:F_BRAND_ENG]) {
+                dictionary = [dataManager brandsDictionary];
+            }
+            else if ([fieldName isEqualToString:F_MODEL_ENG]) {
+                dictionary = [dataManager modelsDictionary];
+            }
+            else if ([fieldName isEqualToString:F_MODIFICATION_ENG]) {
+                dictionary = [dataManager modificationsDictionary];
+            }
+            
+            dictionaryView.dictionary = dictionary;
+            dictionaryView.delegate = self;
+            [self.view addSubview:dictionaryView];
+            
+            break;
+        }
     }
 }
 
@@ -93,6 +116,16 @@
 
 - (void)valueWasSelected:(id)selectedValue
 {
+    NSString *fieldName = field.nameEnglish;
+    if ([fieldName isEqualToString:F_BRAND_ENG]) {
+        [[NSUserDefaults standardUserDefaults] setValue:selectedValue forKey:CURRENT_BRAND];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else if ([fieldName isEqualToString:F_MODEL_ENG]) {
+        [[NSUserDefaults standardUserDefaults] setValue:selectedValue forKey:CURRENT_MODEL];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     field.selectedValue = selectedValue;
     [self.navigationController popViewControllerAnimated:YES];
 }

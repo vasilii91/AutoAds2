@@ -55,7 +55,7 @@
     
     self.tableViewSavedSearchQueries.backgroundColor = [UIColor clearColor];
     
-    [[KVNetworkManager sharedInstance] search];
+//    [[KVNetworkManager sharedInstance] getModelsByRubric:@"motors" subrubric:@"foreign"];
 }
 
 - (void)viewDidUnload

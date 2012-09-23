@@ -43,21 +43,111 @@ static KVDataManager *instance = nil;
             LOG(@"cookie - %@", currentCookie);
         }
     }
-    else if (type == RequestTypeSearch) {
+    else {
         NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
         SBJsonParser *parser = [[SBJsonParser alloc] init];
         NSDictionary *parseData = [parser objectWithString:str];
-        NSArray *advertisementsArray = [parseData valueForKey:@"Ads"];
-        NSMutableArray *advertisements = [NSMutableArray new];
         
-        for (NSDictionary *d in advertisementsArray) {
-            Advertisement *advertisement = [[Advertisement alloc] initWithDictionary:d];
-            [advertisements addObject:advertisement];
+        if (type == RequestTypeSearch) {
+            NSArray *advertisementsArray = [parseData valueForKey:@"Ads"];
+            self.advertisements = [NSMutableArray new];
+            
+            for (NSDictionary *d in advertisementsArray) {
+                Advertisement *advertisement = [[Advertisement alloc] initWithDictionary:d];
+                [self.advertisements addObject:advertisement];
+            }
         }
-        LOG(@"%@", advertisements);
+        else if (type == RequestTypeBrands) {
+            NSArray *arr = [parseData valueForKey:@"Brands"];
+            self.brands = [NSMutableArray new];
+            
+            for (NSDictionary *d in arr) {
+                VehicleBrand *brand = [[VehicleBrand alloc] initWithDictionary:d];
+                [self.brands addObject:brand];
+            }
+        }
+        
+        [self.delegate dataWasSuccessfullyParsed];
     }
+}
+
+- (NSDictionary *)brandsDictionary
+{
+    OrderedDictionary *brandsDict = [OrderedDictionary new];
+    
+    for (VehicleBrand *brand in self.brands) {
+        [brandsDict setValue:brand.id forKey:brand.title];
+    }
+    
+    return brandsDict;
+}
+
+- (NSDictionary *)modelsDictionary
+{
+    VehicleBrand *currentBrand = [self currentBrand];
+    OrderedDictionary *modelsDict = [OrderedDictionary new];
+    
+    if (currentBrand != nil) {
+        for (VehicleModel *model in currentBrand.vehicleModels) {
+            [modelsDict setValue:model.id forKey:model.title];
+        }
+    }
+    
+    return modelsDict;
+}
+
+- (NSDictionary *)modificationsDictionary
+{
+    VehicleModel *currentBrand = [self currentModel];
+    OrderedDictionary *modificationsDict = [OrderedDictionary new];
+    
+    if (currentBrand != nil) {
+        for (VehicleModel *model in currentBrand.vehicleModifications) {
+            [modificationsDict setValue:model.id forKey:model.title];
+        }
+    }
+    
+    return modificationsDict;
+}
+
+
+#pragma mark - Private methods
+
+- (VehicleBrand *)currentBrand
+{
+    NSString *currentBrandTitle = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_BRAND];
+    
+    VehicleBrand *currentBrand = nil;
+    if (currentBrandTitle != nil) {
+        for (VehicleBrand *brand in self.brands) {
+            if ([brand.title isEqualToString:currentBrandTitle]) {
+                currentBrand = brand;
+                break;
+            }
+        }
+    }
+    
+    return currentBrand;
+}
+
+- (VehicleModel *)currentModel
+{
+    NSString *currentModelTitle = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_MODEL];
+    VehicleBrand *currentBrand = [self currentBrand];
+    
+    VehicleModel *currentModel = nil;
+    if (currentModelTitle != nil && currentBrand != nil) {
+        for (VehicleModel *model in currentBrand.vehicleModels) {
+            if ([model.title isEqualToString:currentModelTitle]) {
+                currentModel = model;
+                break;
+            }
+        }
+    }
+    
+    return currentModel;
 }
 
 @end

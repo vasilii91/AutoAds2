@@ -10,13 +10,15 @@
 #import "JSON.h"
 #import "KVDataManager.h"
 #import "KVDataLogic.h"
+#import "KVDataManagerDelegate.h"
 
 @class KVUrlRequest;
 @class KVDataManager;
 
 typedef enum {
     RequestTypeLogin,
-    RequestTypeSearch
+    RequestTypeSearch,
+    RequestTypeBrands
 } RequestType;
 
 @protocol  KVUrlRequestDelegate
@@ -27,7 +29,7 @@ typedef enum {
 @end
 
 
-@interface KVUrlRequest : NSObject<NSURLConnectionDelegate>
+@interface KVUrlRequest : NSObject<NSURLConnectionDelegate, KVDataManagerDelegate>
 {
 	NSURLConnection *_connection;
 	NSURLRequest *_request;

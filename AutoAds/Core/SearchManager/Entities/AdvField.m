@@ -63,4 +63,18 @@
     return _value;
 }
 
+- (id)valueForServerBySelectedValue
+{
+    if (self.selectedValue != nil) {
+        if (_isExistMainField == NO) {
+            id newValue = [[_value valueForKey:_dependentField.selectedValue] valueForKey:self.selectedValue];
+            return newValue;
+        }
+        else {
+            return [_value valueForKey:self.selectedValue];
+        }
+    }
+    return nil;
+}
+
 @end
