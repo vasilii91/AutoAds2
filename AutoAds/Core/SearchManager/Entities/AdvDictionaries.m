@@ -950,9 +950,9 @@
 + (NSDictionary *)WaterStates
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"0" forKey:@"отличное"];
-    [dictionary setValue:@"1" forKey:@"хорошее"];
-    [dictionary setValue:@"2" forKey:@"среднее"];
+    [dictionary setValue:@"0" forKey:@"Отличное"];
+    [dictionary setValue:@"1" forKey:@"Хорошее"];
+    [dictionary setValue:@"2" forKey:@"Среднее"];
     
     return dictionary;
 }
@@ -1021,6 +1021,26 @@
     [dictionary setValue:@"1" forKey:@"Вариатор"];
     [dictionary setValue:@"2" forKey:@"Механическая"];
     [dictionary setValue:@"3" forKey:@"Роботизированная"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)GearboxTypesTrucks
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0" forKey:@"Автоматическая"];
+    [dictionary setValue:@"2" forKey:@"Механическая"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)GearboxTypesMKT
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0" forKey:@"автоматическая"];
+    [dictionary setValue:@"1" forKey:@"вариаторная"];
+    [dictionary setValue:@"2" forKey:@"механическая"];
+    [dictionary setValue:@"3" forKey:@"секвентальная"];
     
     return dictionary;
 }
@@ -1201,6 +1221,40 @@
     [dictionary setValue:@"16" forKey:@"Республика Татарстан"];
     [dictionary setValue:@"29" forKey:@"Архангельская область"];
     [dictionary setValue:@"76" forKey:@"Ярославская область"];
+    
+    return dictionary;
+}
+
+
+#pragma mark - Synonims
+
++ (NSDictionary *)SynonimsOfFields
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:F_DIAMETER_ENG forKey:F_DIAMETER_MAX_ENG];
+    [dictionary setValue:F_DIAMETER_ENG forKey:F_DIAMETER_MIN_ENG];
+    [dictionary setValue:F_DISPLACEMENT_ENG forKey:F_DISPLACEMENT_MAX_ENG];
+    [dictionary setValue:F_DISPLACEMENT_ENG forKey:F_DISPLACEMENT_MIN_ENG];
+    [dictionary setValue:F_ENGINE_CAPACITY_ENG forKey:F_ENGINE_CAPACITY_MAX_ENG];
+    [dictionary setValue:F_ENGINE_CAPACITY_ENG forKey:F_ENGINE_CAPACITY_MIN_ENG];
+    [dictionary setValue:F_ENGINE_POWER_ENG forKey:F_ENGINE_POWER_MAX_ENG];
+    [dictionary setValue:F_ENGINE_POWER_ENG forKey:F_ENGINE_POWER_MIN_ENG];
+    [dictionary setValue:F_HEIGHT_ENG forKey:F_HEIGHT_MAX_ENG];
+    [dictionary setValue:F_HEIGHT_ENG forKey:F_HEIGHT_MIN_ENG];
+    [dictionary setValue:F_HOLES_COUNT_ENG forKey:F_HOLES_COUNT_MAX_ENG];
+    [dictionary setValue:F_HOLES_COUNT_ENG forKey:F_HOLES_COUNT_MIN_ENG];
+    [dictionary setValue:F_HOLES_DIAMETER_ENG forKey:F_HOLES_DIAMETER_MAX_ENG];
+    [dictionary setValue:F_HOLES_DIAMETER_ENG forKey:F_HOLES_DIAMETER_MIN_ENG];
+    [dictionary setValue:F_MILEAGE_ENG forKey:F_MILEAGE_MAX_ENG];
+    [dictionary setValue:F_MILEAGE_ENG forKey:F_MILEAGE_MIN_ENG];
+    [dictionary setValue:F_PRICE_ENG forKey:F_PRICE_MAX_ENG];
+    [dictionary setValue:F_PRICE_ENG forKey:F_PRICE_MIN_ENG];
+    [dictionary setValue:F_SEATS_ENG forKey:F_SEATS_MAX_ENG];
+    [dictionary setValue:F_SEATS_ENG forKey:F_SEATS_MIN_ENG];
+    [dictionary setValue:F_WIDTH_ENG forKey:F_WIDTH_MAX_ENG];
+    [dictionary setValue:F_WIDTH_ENG forKey:F_WIDTH_MIN_ENG];
+    [dictionary setValue:F_YEAR_ENG forKey:F_YEAR_MAX_ENG];
+    [dictionary setValue:F_YEAR_ENG forKey:F_YEAR_MIN_ENG];
     
     return dictionary;
 }

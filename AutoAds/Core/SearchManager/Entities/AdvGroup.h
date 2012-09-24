@@ -17,6 +17,7 @@ enum
     GroupTypeBrands,
     GroupTypeGeneral,
     GroupTypeAddAdvertisement,
+    GroupTypeSearch,
     GroupTypePassengerCar,
     GroupTypeTrailerForCar,
     GroupTypeBus,

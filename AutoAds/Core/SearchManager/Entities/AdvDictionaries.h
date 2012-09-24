@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OrderedDictionary.h"
+#import "AdvFieldNames.h"
 
 @interface AdvDictionaries : NSObject
 
@@ -79,6 +80,8 @@
 + (NSDictionary *)FuelTypes;
 + (NSDictionary *)Rudder;
 + (NSDictionary *)GearboxTypes;
++ (NSDictionary *)GearboxTypesTrucks;
++ (NSDictionary *)GearboxTypesMKT;
 + (NSDictionary *)EngineTypes;
 + (NSDictionary *)Years;
 + (NSDictionary *)Counts;
@@ -101,6 +104,11 @@
 + (NSDictionary *)RubricsForAutoparts;
 + (NSDictionary *)HostLinks;
 + (NSDictionary *)Regions;
+
+
+#pragma mark - Synonims
+
++ (NSDictionary *)SynonimsOfFields;
 
 
 @end

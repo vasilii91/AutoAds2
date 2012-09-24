@@ -101,7 +101,7 @@
             lastSelectedRubric = f1.selectedValue;
             lastSelectedSubrubric = f2.selectedValue;
             
-            currentGroup = [searchManager categoryByRubric:f1.selectedValue subrubric:f2.selectedValue];
+            currentGroup = [searchManager categorySearchByRubric:f1.selectedValue subrubric:f2.selectedValue];
             fields = [currentGroup getObligatoryFields];
             
             pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];

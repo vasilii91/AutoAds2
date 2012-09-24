@@ -13,6 +13,7 @@
 #import "AdvValues.h"
 #import "AdvDictionaries.h"
 #import "OrderedDictionary.h"
+#import "objc/runtime.h"
 
 @interface SearchManager : NSObject
 {
@@ -21,7 +22,7 @@
 
 + (SearchManager *)sharedMySingleton;
 - (AdvGroup *)findGroupByGroupType:(GroupType)groupType;
-- (AdvGroup *)categoryByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (AdvGroup *)categorySearchByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (AdvGroup *)categoryAddAdvertisementByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 
 @end
