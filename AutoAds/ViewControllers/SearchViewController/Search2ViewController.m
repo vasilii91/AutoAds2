@@ -88,6 +88,7 @@
             else if ([fieldName isEqualToString:F_MODIFICATION_ENG]) {
                 dictionary = [dataManager modificationsDictionary];
             }
+            field.value = dictionary;
             
             dictionaryView.dictionary = dictionary;
             dictionaryView.delegate = self;

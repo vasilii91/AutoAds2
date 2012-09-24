@@ -67,7 +67,6 @@
     
     UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQueryToDefaultState) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
-    
 }
 
 - (void)viewDidUnload
@@ -172,6 +171,9 @@
 
 - (IBAction)clickOnSearchButton:(id)sender
 {
+    NSString *s = [searchManager queryToSearch:fields];
+    LOG(@"%@", s);
+
     ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }

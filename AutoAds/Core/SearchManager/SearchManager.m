@@ -94,6 +94,33 @@ static SearchManager *_sharedMySingleton = nil;
     return result;
 }
 
+- (NSString *)queryToSearch:(NSArray *)fields
+{
+    NSMutableString *stringQuery = [NSMutableString new];
+    for (AdvField *field in fields) {
+        if (field.isPrecondition && field.selectedValue == nil && field.valueByDefault == nil) {
+            return nil;
+        }
+        else {
+            NSString *fieldName = field.nameEnglish;
+            NSString *fieldValue = nil;
+            
+            if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
+                fieldValue = [field.value valueForKey:field.selectedValue];
+            }
+            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+                fieldValue = field.selectedValue;
+            }
+            
+            if (fieldValue != nil) {
+                [stringQuery appendFormat:@"%@=%@&", fieldName, fieldValue];
+            }
+        }
+    }
+
+    return stringQuery;
+}
+
 
 #pragma mark - Private methods
 

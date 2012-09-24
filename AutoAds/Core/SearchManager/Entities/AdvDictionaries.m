@@ -985,7 +985,7 @@
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
     for (float i = 0.5; i <= 8.0; i += 0.1) {
-        NSString *value = [NSString stringWithFormat:@"%f", i];
+        NSString *value = [NSString stringWithFormat:@"%.2f", i];
         [dictionary setValue:value forKey:value];
     }
     [dictionary setValue:@"999" forKey:@"более 8.0"];
