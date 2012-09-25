@@ -39,7 +39,6 @@
     if (self) {
         searchManager = [SearchManager sharedMySingleton];
         networkManager = [KVNetworkManager sharedInstance];
-        [networkManager subscribe:self];
         fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     }
     return self;
@@ -67,6 +66,13 @@
     
     UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQueryToDefaultState) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
+    
+    f0 = (AdvField *)[fields objectAtIndex:0];
+    f1 = (AdvField *)[fields objectAtIndex:1];
+    f2 = (AdvField *)[fields objectAtIndex:2];
+    f0.selectedValue = [[[AdvDictionaries Cities] allKeys] objectAtIndex:0];
+    f1.selectedValue = [[[AdvDictionaries Rubrics] allKeys] objectAtIndex:0];
+    f2.selectedValue = [[[AdvDictionaries SubrubricsMotors] allKeys] objectAtIndex:1];
 }
 
 - (void)viewDidUnload
@@ -77,9 +83,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    AdvField *f1 = (AdvField *)[fields objectAtIndex:1];
-    AdvField *f2 = (AdvField *)[fields objectAtIndex:2];
+    [networkManager subscribe:self];
     
     BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
                                     [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
@@ -103,7 +107,7 @@
             currentGroup = [searchManager categorySearchByRubric:f1.selectedValue subrubric:f2.selectedValue];
             fields = [currentGroup getObligatoryFields];
             
-            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
             [pleaseWaitAlertView show];
             
             NSString *rubric = [f1 valueForServerBySelectedValue];
@@ -114,6 +118,12 @@
     }
     
     [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [networkManager unsubscribe:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -171,10 +181,10 @@
 
 - (IBAction)clickOnSearchButton:(id)sender
 {
+    [networkManager subscribe:self];
     NSString *s = [searchManager queryToSearch:fields];
     [networkManager searchWithQuery:s];
     
-    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [pleaseWaitAlertView show];
 }
 
@@ -184,6 +194,17 @@
 - (void)didTapButtonInButtonCell:(ButtonCell *)cell
 {
     
+}
+
+
+#pragma mark - @protocol UIAlertViewDelegate <NSObject>
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [networkManager unsubscribe:self];
+        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    }
 }
 
 
@@ -237,7 +258,6 @@
 - (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
     [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
-    pleaseWaitAlertView = nil;
     
     if (requestId == RequestTypeSearch) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];

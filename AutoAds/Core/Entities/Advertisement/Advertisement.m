@@ -20,7 +20,7 @@
     return [NSArray class];
 }
 
-- (NSString *)getCarName
+- (NSString *)getFullCarName
 {
     KVDataManager *dataManager = [KVDataManager sharedInstance];
     
@@ -46,7 +46,7 @@
 
 - (NSString *)getCarPrice
 {
-    return [NSString stringWithFormat:@"%@ руб.", _Price];
+    return [NSString stringWithFormat:@"%d руб.", [_Price integerValue]];
 }
 
 - (NSString *)getOtherInfo
@@ -63,5 +63,20 @@
     }
     
     return carOtherInfo;
+}
+
+- (NSString *)getNameAndCity
+{
+    NSMutableString *nameAndCity = [NSMutableString new];
+    if (_Contacts != nil) {
+        [nameAndCity appendString:_Contacts];
+    }
+    if (_CityCode != nil) {
+        NSString *cityName = [AdvDictionaries valueFromDictionary:[AdvDictionaries Cities] forKeyOrValue:_CityCode];
+        if (cityName != nil) {
+            [nameAndCity appendFormat:@", %@", cityName];
+        }
+    }
+    return nameAndCity;
 }
 @end

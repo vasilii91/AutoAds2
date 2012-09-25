@@ -41,8 +41,15 @@
 
 #define DOCUMENTS_DIRECTORY [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
+#define DEFAULT_PHOTOS_DIRECTORY_NAME @"photos"
+
+#define PHOTOS_DIRECTORY [NSString stringWithFormat:@"%@/%@", DOCUMENTS_DIRECTORY, DEFAULT_PHOTOS_DIRECTORY_NAME]
+#define COUNT_OF_PHOTOS_IN_CAR_PHOTOS @"count of photos in car photos"
+#define PHOTOS_EXTENSION @"png"
+
 #define SELECTED_TAB_BAR_INDEX @"selected tab bar index"
 #define CURRENT_BRAND @"current brand"
 #define CURRENT_MODEL @"current model"
 #define CURRENT_RUBRIC @"current rubric"
 #define CURRENT_SUBRUBRIC @"current subrubric"
+#define CURRENT_NAME_OF_GROUP_OF_CITIES @"current number of group of cities"

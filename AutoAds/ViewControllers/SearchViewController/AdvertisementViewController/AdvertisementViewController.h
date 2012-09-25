@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "PrettyViews.h"
+#import "Advertisement.h"
 #import "AdvertisementHeader.h"
 #import "AdvertisementCarPhotos.h"
 #import "AdvertisementOtherInfo.h"
 #import "AdvertisementWebViewController.h"
+#import "KVNetworkManager.h"
+#import "PleaseWaitAlertView.h"
 
-@interface AdvertisementViewController : UIViewController<CarPhotosProtocol>
-
+@interface AdvertisementViewController : UIViewController<CarPhotosProtocol, KVNetworkDelegate, UIAlertViewDelegate>
+{
+    PleaseWaitAlertView *pleaseWaitAlertView;
+    
+    KVNetworkManager *networkManager;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, retain) Advertisement *advertisement;
 
 @end

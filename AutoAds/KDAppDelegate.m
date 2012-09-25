@@ -13,6 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSUserDefaults standardUserDefaults] setValue:@"16" forKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
 //    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:mmvc];

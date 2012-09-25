@@ -13,6 +13,49 @@
 
 #pragma mark - Cities
 
++ (NSDictionary *)Cities
+{
+    NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
+    
+    NSDictionary *dictionary = nil;
+    if ([currentNameOfGroup isEqualToString:@"2"]) {
+        dictionary = [AdvDictionaries Cities2];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"16"]) {
+        dictionary = [AdvDictionaries Cities16];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"29"]) {
+        dictionary = [AdvDictionaries Cities29];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"34"]) {
+        dictionary = [AdvDictionaries Cities34];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"59"]) {
+        dictionary = [AdvDictionaries Cities59];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"61"]) {
+        dictionary = [AdvDictionaries Cities61];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"63"]) {
+        dictionary = [AdvDictionaries Cities63];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"72"]) {
+        dictionary = [AdvDictionaries Cities72];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"74"]) {
+        dictionary = [AdvDictionaries Cities74];
+    }
+    else if ([currentNameOfGroup isEqualToString:@"76"]) {
+        dictionary = [AdvDictionaries Cities76];
+    }
+    
+    OrderedDictionary *newDictionary = [OrderedDictionary new];
+    [newDictionary setValue:@"" forKey:@"Любой"];
+    [newDictionary setValuesForKeysWithDictionary:dictionary];
+    
+    return newDictionary;
+}
+
 + (NSDictionary *)Cities2
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
@@ -1257,5 +1300,24 @@
     [dictionary setValue:F_YEAR_ENG forKey:F_YEAR_MIN_ENG];
     
     return dictionary;
+}
+
+
+#pragma mark - Public methods
+
++ (NSString *)valueFromDictionary:(NSDictionary *)dictionary forKeyOrValue:(NSString *)keyOrValue
+{
+    NSString *result = [dictionary valueForKey:keyOrValue];
+    
+    if (result == nil) {
+        for (NSString *key in [dictionary allKeys]) {
+            NSString *value = [dictionary valueForKey:key];
+            if ([value isEqualToString:keyOrValue]) {
+                return key;
+            }
+        }
+    }
+    
+    return nil;
 }
 @end

@@ -11,24 +11,22 @@
 #define FAVORITE_BUTTON_IMAGE_SELECTED @"starBlue.png"
 #define FAVORITE_BUTTON_IMAGE_DESELECTED @"starBarIcon.png"
 
-#define EXIT_BUTTON_IMAGE_SELECTED @"addBlue.png"
-#define EXIT_BUTTON_IMAGE_DESELECTED @"addBarIcon.png"
-
 @interface AdvertisementViewController ()
 
 @end
 
 @implementation AdvertisementViewController
+@synthesize scrollView;
 
 
 #pragma mark - Initialization
-@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        networkManager = [KVNetworkManager sharedInstance];
+        [networkManager subscribe:self];
     }
     return self;
 }
@@ -49,23 +47,50 @@
     self.navigationItem.leftBarButtonItem = bbi;
     
     UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnFavoriteButton:) frame:CGRectMake(0, 0, 33, 33) imageName:FAVORITE_BUTTON_IMAGE_DESELECTED text:nil];
-    UIBarButtonItem *bbi3 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnExitButton:) frame:CGRectMake(0, 0, 33, 33) imageName:EXIT_BUTTON_IMAGE_DESELECTED text:nil];
-    self.navigationItem.rightBarButtonItems = @[bbi3, bbi2];
+    self.navigationItem.rightBarButtonItems = @[bbi2];
     
     [self.scrollView setBackgroundColor:[UIColor clearColor]];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:@([self.advertisement.Photo count]) forKey:COUNT_OF_PHOTOS_IN_CAR_PHOTOS];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [networkManager savePhotosByPhotoContainer:self.advertisement.Photo];
+    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Загружаются фотографии...\n\n" delegate:self cancelButtonTitle:@"Остановить" otherButtonTitles: nil];
+
+    [pleaseWaitAlertView show];
+    
+}
+
+- (void)viewDidUnload
+{
+    [self setScrollView:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+
+#pragma mark - Private methods 
+
+- (void)addComponentsOnView
+{
+    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    [networkManager unsubscribe:self];
     
     AdvertisementHeader *header = [AdvertisementHeader loadView];
     header.userInteractionEnabled = YES;
     LOG(@"%@", NSStringFromCGRect(header.frame));
     
-    header.labelCarName.text = @"Ford C-MAX";
-    header.labelNameAndCity.text = @"Владимир, Минск";
-    header.labelPrice.text = @"5700$";
+    header.labelCarName.text = [self.advertisement Name];
+    header.labelNameAndCity.text = [self.advertisement getNameAndCity];
+    header.labelPrice.text = [self.advertisement getCarPrice];
     
     [self.scrollView addSubview:header];
     
     AdvertisementCarPhotos *carPhotos = [AdvertisementCarPhotos loadView];
-    [carPhotos addPhotosWithNames:@[@"thumbnail.png", @"addBlue@2x.png", @"backgroundLight@2x.png", @"logo@2x.png"]];
     carPhotos.delegate = self;
     carPhotos.userInteractionEnabled = YES;
     
@@ -97,17 +122,6 @@
                                                advFrame.origin.y + [advOtherInfo height] + 40)];
 }
 
-- (void)viewDidUnload
-{
-    [self setScrollView:nil];
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
-}
-
 
 #pragma mark - @protocol CarPhotosProtocol <NSObject>
 
@@ -122,6 +136,29 @@
 }
 
 
+#pragma mark - @protocol KVNetworkDelegate
+
+- (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
+{
+    [self addComponentsOnView];
+}
+
+- (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
+{
+    
+}
+
+
+#pragma mark - @protocol UIAlertViewDelegate <NSObject>
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self addComponentsOnView];
+    }
+}
+
+
 #pragma mark - Actions
 
 - (void)goBack:(id)sender
@@ -130,11 +167,6 @@
 }
 
 - (void)clickOnFavoriteButton:(UIButton *)button
-{
-    
-}
-
-- (void)clickOnExitButton:(UIButton *)button
 {
     
 }

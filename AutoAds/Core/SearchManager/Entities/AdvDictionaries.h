@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "OrderedDictionary.h"
 #import "AdvFieldNames.h"
+#import "Constants.h"
 
 @interface AdvDictionaries : NSObject
 
 #pragma mark - Cities
+
++ (NSDictionary *)Cities;
 
 + (NSDictionary *)Cities2;
 + (NSDictionary *)Cities16;
@@ -110,5 +113,9 @@
 
 + (NSDictionary *)SynonimsOfFields;
 
+
+#pragma mark - Public methods
+
++ (NSString *)valueFromDictionary:(NSDictionary *)dictionary forKeyOrValue:(NSString *)keyOrValue;
 
 @end

@@ -249,7 +249,7 @@ static SearchManager *_sharedMySingleton = nil;
     group.name = @"Главная";
     group.type = GroupTypeMain;
     
-    AdvField *f0 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :[AdvDictionaries Cities16] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
+    AdvField *f0 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :[AdvDictionaries Cities] :nil :@"Любой" :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f1 = [AdvField newAdvField:F_RUBRIC_ENG :F_RUBRIC_RUS :[AdvDictionaries Rubrics] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f2 = [AdvField newAdvField:F_SUBRUBRIC_ENG :F_SUBRUBRIC_RUS :[AdvDictionaries RubricsWithSubrubrics] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     f2.dependentField = f1;

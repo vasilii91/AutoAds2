@@ -10,6 +10,7 @@
 #import "Jastor.h"
 #import "PhotoContainer.h"
 #import "KVDataManager.h"
+#import "AdvDictionaries.h"
 
 @interface Advertisement : Jastor
 
@@ -69,8 +70,9 @@
 @property (nonatomic, retain) NSString *FromOfficialDealer;
 @property (nonatomic, retain) NSString *captcha_code;
 
-- (NSString *)getCarName;
+- (NSString *)getFullCarName;
 - (NSString *)getCarPrice;
 - (NSString *)getOtherInfo;
+- (NSString *)getNameAndCity;
 
 @end

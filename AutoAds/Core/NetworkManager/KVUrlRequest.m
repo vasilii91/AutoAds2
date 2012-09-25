@@ -113,10 +113,6 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
 
 - (void)connection:(NSURLConnection*)theConnection didReceiveData:(NSData*)data 
 {
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"API resp: %@", str);
-    [str release];
-    
 	const uint8_t *dataBytes;
 	
 	int dataLength;
@@ -164,15 +160,13 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
     LOG(@"%d", statusCode);
     
     if (statusCode == 200) {
-        [dataManager saveData:_outputStream withRequestType:_tag];
+        [dataManager saveData:_outputStream withRequestType:_tag identifier:_identifier];
     }
     else {
         NSString *errorReason = [KVDataLogic descriptionByStatusCode:statusCode];
         NSError *error = [self createErrorWithCode:statusCode description:errorReason reason:errorReason];
         [_delegate requestFailed:self error:error];
     }
-    
-    [self stop];
 }
 
 
@@ -181,6 +175,7 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
 - (void)dataWasSuccessfullyParsed
 {
     [_delegate requestSuccess:self];
+    [self stop];
 }
 
 

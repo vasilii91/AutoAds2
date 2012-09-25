@@ -11,6 +11,7 @@
 #import "KVUrlRequest.h"
 #import "Constants.h"
 #import "AdvDictionaries.h"
+#import "FileManagerCoreMethods.h"
 
 #define FNApiErrorConnection              -1
 #define FNApiErrorResponseFormat          -2
@@ -52,5 +53,6 @@
 
 - (void)searchWithQuery:(NSString *)queryString;
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (void)savePhotosByPhotoContainer:(NSArray *)photoContainers;
 
 @end

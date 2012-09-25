@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PleaseWaitAlertView : UIAlertView
-
+{
+    BOOL isAdded;
+}
 @end

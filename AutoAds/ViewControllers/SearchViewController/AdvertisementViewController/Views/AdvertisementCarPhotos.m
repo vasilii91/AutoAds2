@@ -27,7 +27,34 @@
 + (AdvertisementCarPhotos *)loadView
 {
     AdvertisementCarPhotos *v = [[[NSBundle mainBundle] loadNibNamed:@"AdvertisementCarPhotos" owner:nil options:nil] lastObject];
+    [v addPhotosFromDocuments];
     return v;
+}
+
+- (void)addPhotosFromDocuments
+{
+    NSArray *names = [FileManagerCoreMethods pathToImagesInDirectory:PHOTOS_DIRECTORY];
+    
+    CGRect scrollViewFrame = self.scrollViewPhotos.frame;
+    
+    for (int i = 0; i < [names count]; i++) {
+        NSString *imageName = [names objectAtIndex:i];
+        UIImage *carPhoto = [UIImage imageWithContentsOfFile:imageName];
+        UIImage *newCarPhoto = [carPhoto scaleToSizeProportionaly:scrollViewFrame.size];
+        
+        CGRect newCarPhotoRect = CGRectMake((scrollViewFrame.size.width - newCarPhoto.size.width) / 2 + i * scrollViewFrame.size.width,
+                                            (scrollViewFrame.size.height - newCarPhoto.size.height) / 2,
+                                            newCarPhoto.size.width,
+                                            newCarPhoto.size.height);
+        UIImageView *carPhotoImageView = [[UIImageView alloc] initWithImage:newCarPhoto];
+        carPhotoImageView.frame = newCarPhotoRect;
+        
+        [self.scrollViewPhotos addSubview:carPhotoImageView];
+    }
+    
+    self.scrollViewPhotos.contentSize = CGSizeMake(scrollViewFrame.size.width * [names count],
+                                                   scrollViewFrame.size.height);
+    self.pageControl.numberOfPages = [names count];
 }
 
 
@@ -46,34 +73,6 @@
 - (IBAction)clickOnShonOnSiteButton:(id)sender
 {
     [delegate clickOnButton:CarPhotosButtonTypeShowOnSite];
-}
-
-
-#pragma mark - Public methods
-
-- (void)addPhotosWithNames:(NSArray *)names
-{
-    CGRect scrollViewFrame = self.scrollViewPhotos.frame;
-    
-    for (int i = 0; i < [names count]; i++) {
-        NSString *imageName = [names objectAtIndex:i];
-        UIImage *carPhoto = [UIImage imageNamed:imageName];
-        CGSize oldCarPhotoSize = carPhoto.size;
-        UIImage *newCarPhoto = [carPhoto scaleToSizeProportionaly:scrollViewFrame.size];
-        
-        CGRect newCarPhotoRect = CGRectMake((scrollViewFrame.size.width - newCarPhoto.size.width) / 2 + i * scrollViewFrame.size.width,
-                                            (scrollViewFrame.size.height - newCarPhoto.size.height) / 2,
-                                            newCarPhoto.size.width,
-                                            newCarPhoto.size.height);
-        UIImageView *carPhotoImageView = [[UIImageView alloc] initWithImage:newCarPhoto];
-        carPhotoImageView.frame = newCarPhotoRect;
-        
-        [self.scrollViewPhotos addSubview:carPhotoImageView];
-    }
-    
-    self.scrollViewPhotos.contentSize = CGSizeMake(scrollViewFrame.size.width * [names count],
-                                                   scrollViewFrame.size.height);
-    self.pageControl.numberOfPages = [names count];
 }
 
 

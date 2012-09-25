@@ -396,7 +396,7 @@
 #define F_STATUS_RUS @"Состояние"
 #define F_STATUS_ENG @"Status"
 
-#define F_SUBRUBRIC_RUS @"Подтип"
+#define F_SUBRUBRIC_RUS @"Рубрика"
 #define F_SUBRUBRIC_ENG @"subrubric"
 
 #define F_SURNAME_RUS @""

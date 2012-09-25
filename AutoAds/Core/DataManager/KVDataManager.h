@@ -14,6 +14,7 @@
 #import "VehicleBrand.h"
 #import "KVDataManagerDelegate.h"
 #import "OrderedDictionary.h"
+#import "FileManagerCoreMethods.h"
 
 @class KVUrlRequest;
 
@@ -28,12 +29,14 @@
 @property (nonatomic, retain) NSDictionary *modelsDictionary;
 @property (nonatomic, retain) NSDictionary *modificationsDictionary;
 
+@property (nonatomic, assign) NSInteger countOfLoadedImages;;
+
 /**
  Method to save definitely data from stream
  @param outputStream Stream with data
  @param type Type of request
  */
-- (void)saveData:(NSOutputStream *)outputStream withRequestType:(int)type;
+- (void)saveData:(NSOutputStream *)outputStream withRequestType:(int)type identifier:(NSString *)identifier;
 
 - (NSString *)brandNameById:(NSString *)brandId;
 - (NSString *)modelNameById:(NSString *)modelId;

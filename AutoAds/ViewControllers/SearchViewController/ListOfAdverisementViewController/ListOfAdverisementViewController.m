@@ -159,14 +159,11 @@
     Advertisement *adv = [searchedAdvertisements objectAtIndex:indexPath.row];
     NSURL *photoSmallURL = [NSURL URLWithString:[[[adv.Photo objectAtIndex:0] small] url]];
     
-    [cell.labelCarName setText:adv.getCarName];
+    [cell.labelCarName setText:adv.Name];
     [cell.labelPrice setText:adv.getCarPrice];
     [cell.labelOtherInfo setText:adv.getOtherInfo];
     [cell.imageViewPhoto setImageWithURL:photoSmallURL placeholderImage:[UIImage imageNamed:@"thumbnail.png"]];
     
-//    [cell.labelCarName setText:@"Shoda Oktavia"];
-//    [cell.labelPrice setText:@"250 000 руб."];
-//    [cell.labelOtherInfo setText:@"2008 г., 243000 км., седан"];
     return cell;
 }
 
@@ -180,7 +177,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Advertisement *advertisement = [searchedAdvertisements objectAtIndex:indexPath.row];
     AdvertisementViewController *avc = [[AdvertisementViewController alloc] initWithNibName:@"AdvertisementViewController" bundle:nil];
+    avc.advertisement = advertisement;
     [self.navigationController pushViewController:avc animated:YES];
 }
 

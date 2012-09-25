@@ -19,7 +19,7 @@
 #import "ListOfAdverisementViewController.h"
 #import "KVNetworkManager.h"
 
-@interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ButtonCellDelegate, KVNetworkDelegate>
+@interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ButtonCellDelegate, KVNetworkDelegate, UIAlertViewDelegate>
 {
     IBOutlet UIView *_header;
     IBOutlet UIButton *_searchButton;
@@ -35,6 +35,10 @@
     NSString *lastSelectedSubrubric;
     
     KVNetworkManager *networkManager;
+    
+    AdvField *f0;
+    AdvField *f1;
+    AdvField *f2;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 

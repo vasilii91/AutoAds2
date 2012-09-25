@@ -42,6 +42,7 @@
 		10D529BB160DE4500011F682 /* VehicleBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529B7160DE4500011F682 /* VehicleBrand.m */; };
 		10D529D7160E09990011F682 /* SSIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529D6160E09990011F682 /* SSIndicatorLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		10D529E5160E10B00011F682 /* PleaseWaitAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D529E4160E10B00011F682 /* PleaseWaitAlertView.m */; };
+		10EE87211612157E000D4F9C /* FileManagerCoreMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EE87201612157E000D4F9C /* FileManagerCoreMethods.m */; };
 		10FCD0921607AE4C005C877D /* TechnicalHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */; };
 		10FCD0931607AE4C005C877D /* TechnicalHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */; };
 		10FCD0981607AFA0005C877D /* AboutProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0961607AFA0005C877D /* AboutProgramViewController.m */; };
@@ -212,6 +213,8 @@
 		10D529D8160E0A050011F682 /* KVDataManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVDataManagerDelegate.h; sourceTree = "<group>"; };
 		10D529E3160E10B00011F682 /* PleaseWaitAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleaseWaitAlertView.h; sourceTree = "<group>"; };
 		10D529E4160E10B00011F682 /* PleaseWaitAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PleaseWaitAlertView.m; sourceTree = "<group>"; };
+		10EE871F1612157E000D4F9C /* FileManagerCoreMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileManagerCoreMethods.h; path = FileManager/FileManagerCoreMethods.h; sourceTree = "<group>"; };
+		10EE87201612157E000D4F9C /* FileManagerCoreMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileManagerCoreMethods.m; path = FileManager/FileManagerCoreMethods.m; sourceTree = "<group>"; };
 		10FCD08F1607AE4C005C877D /* TechnicalHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechnicalHelpViewController.h; path = TechnicalHelpViewController/TechnicalHelpViewController.h; sourceTree = "<group>"; };
 		10FCD0901607AE4C005C877D /* TechnicalHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechnicalHelpViewController.m; path = TechnicalHelpViewController/TechnicalHelpViewController.m; sourceTree = "<group>"; };
 		10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TechnicalHelpViewController.xib; path = TechnicalHelpViewController/TechnicalHelpViewController.xib; sourceTree = "<group>"; };
@@ -546,6 +549,15 @@
 			path = Controls/PleaseWaitAlertView;
 			sourceTree = "<group>";
 		};
+		10EE871D1612155F000D4F9C /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				10EE871F1612157E000D4F9C /* FileManagerCoreMethods.h */,
+				10EE87201612157E000D4F9C /* FileManagerCoreMethods.m */,
+			);
+			name = FileManager;
+			sourceTree = "<group>";
+		};
 		10FCD08E1607AE24005C877D /* TechnicalHelpViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,6 +844,7 @@
 				BEC9944C15F89681006BDCA9 /* Extensions */,
 				BE26EB89160C697600530E7D /* NetworkManager */,
 				BE26EB8E160C697600530E7D /* DataManager */,
+				10EE871D1612155F000D4F9C /* FileManager */,
 				10BE55D515FD0E5B008983A6 /* OrderedDictionary */,
 				BEF6391015F8EE3F00B0CAD0 /* SearchManager */,
 				BEC9944515F88E1F006BDCA9 /* Views */,
@@ -1242,6 +1255,7 @@
 				BE6FCEFD1611A35700C8E8ED /* SDWebImageManager.m in Sources */,
 				BE6FCEFE1611A35700C8E8ED /* UIButton+WebCache.m in Sources */,
 				BE6FCEFF1611A35700C8E8ED /* UIImageView+WebCache.m in Sources */,
+				10EE87211612157E000D4F9C /* FileManagerCoreMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

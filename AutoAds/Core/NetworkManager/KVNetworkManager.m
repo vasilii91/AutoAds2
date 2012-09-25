@@ -196,7 +196,9 @@ static KVNetworkManager *instance = nil;
 
 - (NSString *)urlGetWithActionName:(NSString *)actionName parameters:(NSString *)parameters
 {
-    NSString *url = [NSString stringWithFormat:SERVER_URL_GET_FORMAT, [[[AdvDictionaries HostLinks] allKeys] objectAtIndex:1], actionName, parameters];
+    NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
+    NSString *serverURL = [AdvDictionaries valueFromDictionary:[AdvDictionaries HostLinks] forKeyOrValue:currentNameOfGroup];
+    NSString *url = [NSString stringWithFormat:SERVER_URL_GET_FORMAT, serverURL, actionName, parameters];
     
     return url;
 }
@@ -262,6 +264,26 @@ static KVNetworkManager *instance = nil;
     [self addRequest:urlRequest];
 }
 
+- (void)savePhotosByPhotoContainer:(NSArray *)photoContainers
+{
+    NSMutableArray *photoURLs = [NSMutableArray new];
+    for (PhotoContainer *photoContainer in photoContainers) {
+        [photoURLs addObject: photoContainer.large.url];
+    }
+
+    if ([photoURLs count] != 0) {
+        [FileManagerCoreMethods deleteDirectoryWithName:DEFAULT_PHOTOS_DIRECTORY_NAME];
+        [KVDataManager sharedInstance].countOfLoadedImages = 0;
+        
+        for (int i = 0; i < [photoURLs count]; i++) {
+            NSString *photoURL = [photoURLs objectAtIndex:i];
+            NSString *identifier = [NSString stringWithFormat:@"%d", i];
+            KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:photoURL requestType:RequestTypePhotosOfCar requestIdentifier:identifier jsonString:nil httpMethod:@"GET"];
+            
+            [self addRequest:urlRequest];
+        }
+    }
+}
 
 #pragma mark -
 #pragma mark BAUrlRequestDelegate members

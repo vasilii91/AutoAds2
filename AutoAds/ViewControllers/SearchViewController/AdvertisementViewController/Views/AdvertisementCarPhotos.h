@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImageExtension.h"
+#import "FileManagerCoreMethods.h"
 
 enum
 {
@@ -33,6 +34,5 @@ typedef NSUInteger CarPhotosButtonType;
 - (IBAction)clickOnCallButton:(id)sender;
 - (IBAction)clickOnSMSButton:(id)sender;
 - (IBAction)clickOnShonOnSiteButton:(id)sender;
-- (void)addPhotosWithNames:(NSArray *)names;
 
 @end

@@ -34,7 +34,7 @@ static KVDataManager *instance = nil;
 
 #pragma mark - Public methods
 
-- (void)saveData:(NSOutputStream *)outputStream withRequestType:(int)type
+- (void)saveData:(NSOutputStream *)outputStream withRequestType:(int)type identifier:(NSString *)identifier
 {
     if (type == RequestTypeLogin) {
         for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
@@ -43,9 +43,23 @@ static KVDataManager *instance = nil;
             LOG(@"cookie - %@", currentCookie);
         }
     }
+    else if (type == RequestTypePhotosOfCar) {
+        [FileManagerCoreMethods createNewDirectoryWithName:DEFAULT_PHOTOS_DIRECTORY_NAME];
+        
+        NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@.%@", PHOTOS_DIRECTORY, identifier, PHOTOS_EXTENSION];
+        [data writeToFile:filePath atomically:YES];
+        
+        self.countOfLoadedImages++;
+        NSInteger necessaryCount = [[[NSUserDefaults standardUserDefaults] valueForKey:COUNT_OF_PHOTOS_IN_CAR_PHOTOS] integerValue];
+        if (self.countOfLoadedImages == necessaryCount) {
+            [self.delegate dataWasSuccessfullyParsed];
+        }
+    }
     else {
         NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        LOG(@"%@", str);
         
         SBJsonParser *parser = [[SBJsonParser alloc] init];
         NSDictionary *parseData = [parser objectWithString:str];
