@@ -245,10 +245,9 @@ static KVNetworkManager *instance = nil;
 //    userPassword = password;
 }
 
-- (void)search
+- (void)searchWithQuery:(NSString *)queryString
 {
-    NSString *jsonString = @"rubric=motors&subrubric=rus&MileageMax=100000&Drive=FWD&Gearbox=MT&Fuel=GAS";
-    NSString *url = [self urlGetWithActionName:@"Search" parameters:jsonString];
+    NSString *url = [self urlGetWithActionName:@"Search" parameters:queryString];
     KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeSearch requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
     
     [self addRequest:urlRequest];

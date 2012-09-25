@@ -84,6 +84,18 @@ static KVDataManager *instance = nil;
     return brandsDict;
 }
 
+- (NSString *)brandNameById:(NSString *)brandId
+{
+    for (NSString *brandName in [self brandsDictionary]) {
+        NSString *_brandId = [[self brandsDictionary] valueForKey:brandName];
+        if ([brandId integerValue] == [_brandId integerValue]) {
+            return brandName;
+        }
+    }
+    
+    return nil;
+}
+
 - (NSDictionary *)modelsDictionary
 {
     VehicleBrand *currentBrand = [self currentBrand];
@@ -98,6 +110,18 @@ static KVDataManager *instance = nil;
     return modelsDict;
 }
 
+- (NSString *)modelNameById:(NSString *)modelId
+{
+    for (NSString *modelName in [self modelsDictionary]) {
+        NSString *_modelId = [[self brandsDictionary] valueForKey:modelName];
+        if ([modelId integerValue] == [_modelId integerValue]) {
+            return modelName;
+        }
+    }
+    
+    return nil;
+}
+
 - (NSDictionary *)modificationsDictionary
 {
     VehicleModel *currentBrand = [self currentModel];
@@ -110,6 +134,18 @@ static KVDataManager *instance = nil;
     }
     
     return modificationsDict;
+}
+
+- (NSString *)modificationNameById:(NSString *)modificationId
+{
+    for (NSString *modificatonName in [self modelsDictionary]) {
+        NSString *_modificationId = [[self brandsDictionary] valueForKey:modificatonName];
+        if ([modificationId integerValue] == [_modificationId integerValue]) {
+            return modificatonName;
+        }
+    }
+    
+    return nil;
 }
 
 

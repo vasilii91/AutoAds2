@@ -12,6 +12,9 @@
 #import "ListOfAdvertisementHeader.h"
 #import "AdvertisementCell.h"
 #import "AdvertisementViewController.h"
+#import "KVDataManager.h"
+#import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
 
 @interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
@@ -23,6 +26,8 @@
     CGRect frameOfHeaderWhenShown;
     CGRect frameOfTableViewWhenHidden;
     CGRect frameOfTableViewWhenShown;
+    
+    KVDataManager *dataManager;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewAdvertisement;

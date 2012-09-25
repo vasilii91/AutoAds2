@@ -28,9 +28,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        searchedAdvertisements = [NSMutableArray new];
-        [searchedAdvertisements addObject:@"advertisement"];
-        [searchedAdvertisements addObject:@"advertisement"];
+        dataManager = [KVDataManager sharedInstance];
+        
+        searchedAdvertisements = [dataManager advertisements];
     }
     return self;
 }
@@ -156,10 +156,17 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [cell.labelCarName setText:@"Shoda Oktavia"];
-    [cell.labelPrice setText:@"250 000 руб."];
-    [cell.labelOtherInfo setText:@"2008 г., 243000 км., седан"];
+    Advertisement *adv = [searchedAdvertisements objectAtIndex:indexPath.row];
+    NSURL *photoSmallURL = [NSURL URLWithString:[[[adv.Photo objectAtIndex:0] small] url]];
     
+    [cell.labelCarName setText:adv.getCarName];
+    [cell.labelPrice setText:adv.getCarPrice];
+    [cell.labelOtherInfo setText:adv.getOtherInfo];
+    [cell.imageViewPhoto setImageWithURL:photoSmallURL placeholderImage:[UIImage imageNamed:@"thumbnail.png"]];
+    
+//    [cell.labelCarName setText:@"Shoda Oktavia"];
+//    [cell.labelPrice setText:@"250 000 руб."];
+//    [cell.labelOtherInfo setText:@"2008 г., 243000 км., седан"];
     return cell;
 }
 

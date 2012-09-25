@@ -35,4 +35,8 @@
  */
 - (void)saveData:(NSOutputStream *)outputStream withRequestType:(int)type;
 
+- (NSString *)brandNameById:(NSString *)brandId;
+- (NSString *)modelNameById:(NSString *)modelId;
+- (NSString *)modificationNameById:(NSString *)modificationId;
+
 @end

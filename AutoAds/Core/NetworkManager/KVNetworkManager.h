@@ -18,8 +18,8 @@
 
 @protocol KVNetworkDelegate
 
-- (void)requestProcessed:(int)requestId forId:(NSString *)identifier;
-- (void)requestFailed:(int)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code;
+- (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier;
+- (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code;
 
 @end
 
@@ -50,7 +50,7 @@
  */
 - (void)connectToServerWithUsername:(NSString *)username password:(NSString *)password;
 
-- (void)search;
+- (void)searchWithQuery:(NSString *)queryString;
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 
 @end

@@ -98,10 +98,10 @@ static SearchManager *_sharedMySingleton = nil;
 {
     NSMutableString *stringQuery = [NSMutableString new];
     for (AdvField *field in fields) {
-        if (field.isPrecondition && field.selectedValue == nil && field.valueByDefault == nil) {
-            return nil;
-        }
-        else {
+//        if (field.isPrecondition && field.selectedValue == nil && field.valueByDefault == nil) {
+//            return nil;
+//        }
+        if (field.selectedValue != nil || field.valueByDefault != nil) {
             NSString *fieldName = field.nameEnglish;
             NSString *fieldValue = nil;
             
@@ -113,7 +113,12 @@ static SearchManager *_sharedMySingleton = nil;
             }
             
             if (fieldValue != nil) {
-                [stringQuery appendFormat:@"%@=%@&", fieldName, fieldValue];
+                if ([stringQuery length] == 0) {
+                    [stringQuery appendFormat:@"%@=%@", fieldName, fieldValue];
+                }
+                else {
+                    [stringQuery appendFormat:@"&%@=%@", fieldName, fieldValue];
+                }
             }
         }
     }
@@ -646,9 +651,6 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f1 = [AdvField newAdvField:F_RUBRIC_ENG :F_RUBRIC_RUS :[AdvDictionaries Rubrics] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f2 = [AdvField newAdvField:F_SUBRUBRIC_ENG :F_SUBRUBRIC_RUS :[AdvDictionaries RubricsWithSubrubrics] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
-    f2.dependentField = f1;
-    f1.isExistMainField = YES;
-    f1.dependentField = f2;
     AdvField *f3 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_MODIFICATION_ENG :F_MODIFICATION_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :NO :NO :NO :YES :YES];
@@ -718,9 +720,6 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f0 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f1 = [AdvField newAdvField:F_RUBRIC_ENG :F_RUBRIC_RUS :[AdvDictionaries Rubrics] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f2 = [AdvField newAdvField:F_SUBRUBRIC_ENG :F_SUBRUBRIC_RUS :[AdvDictionaries RubricsWithSubrubrics] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
-    f2.dependentField = f1;
-    f1.isExistMainField = YES;
-    f1.dependentField = f2;
     AdvField *f3 = [AdvField newAdvField:F_BRAND_ENG :F_BRAND_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
     AdvField *f4 = [AdvField newAdvField:F_MODEL_ENG :F_MODEL_RUS :nil :nil :nil :ValueTypeDictionaryFromInternet :YES :YES :NO :YES :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_PRICE_MAX_ENG :F_PRICE_MAX_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];

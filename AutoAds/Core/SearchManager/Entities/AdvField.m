@@ -56,9 +56,9 @@
             id newValue = [_value valueForKey:_dependentField.selectedValue];
             return newValue;
         }
-        else {
-            _dependentField.selectedValue = nil;
-        }
+//        else {
+//            _dependentField.selectedValue = nil;
+//        }
     }
     return _value;
 }

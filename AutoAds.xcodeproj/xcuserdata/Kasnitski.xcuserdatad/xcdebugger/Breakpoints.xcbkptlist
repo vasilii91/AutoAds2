@@ -33,32 +33,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "369656820.43589"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "165"
-         endingLineNumber = "165"
-         landmarkName = "@implementation SearchViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
-         timestampString = "369926837.649604"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-saveData:withRequestType:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/Entities/Options.m"
          timestampString = "369928042.372489"
          startingColumnNumber = "9223372036854775807"
@@ -72,26 +46,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "370192318.399732"
+         filePath = "AutoAds/Core/Entities/Vehicle/VehicleBrand.m"
+         timestampString = "370256092.601387"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "15"
+         endingLineNumber = "15"
+         landmarkName = "+subrubrics_class"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370192991.17254"
+         filePath = "AutoAds/Core/Entities/Vehicle/VehicleModel.m"
+         timestampString = "370256189.62477"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-categorySearchByRubric:subrubric:"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-setSubrubrics:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

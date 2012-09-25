@@ -118,15 +118,26 @@
 - (void)valueWasSelected:(id)selectedValue
 {
     NSString *fieldName = field.nameEnglish;
+    NSString *currentKey = nil;
+    
     if ([fieldName isEqualToString:F_BRAND_ENG]) {
-        [[NSUserDefaults standardUserDefaults] setValue:selectedValue forKey:CURRENT_BRAND];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        currentKey = CURRENT_BRAND;
     }
     else if ([fieldName isEqualToString:F_MODEL_ENG]) {
-        [[NSUserDefaults standardUserDefaults] setValue:selectedValue forKey:CURRENT_MODEL];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        currentKey = CURRENT_MODEL;
+    }
+    else if ([fieldName isEqualToString:F_RUBRIC_ENG]) {
+        currentKey = CURRENT_RUBRIC;
+    }
+    else if ([fieldName isEqualToString:F_SUBRUBRIC_ENG]) {
+        currentKey = CURRENT_SUBRUBRIC;
     }
     
+    if (currentKey != nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:selectedValue forKey:currentKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
     field.selectedValue = selectedValue;
     [self.navigationController popViewControllerAnimated:YES];
 }

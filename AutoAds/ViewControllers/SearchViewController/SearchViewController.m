@@ -172,10 +172,10 @@
 - (IBAction)clickOnSearchButton:(id)sender
 {
     NSString *s = [searchManager queryToSearch:fields];
-    LOG(@"%@", s);
-
-    ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+    [networkManager searchWithQuery:s];
+    
+    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите..." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    [pleaseWaitAlertView show];
 }
 
 
@@ -234,13 +234,20 @@
 
 #pragma mark - @protocol KVNetworkDelegate
 
-- (void)requestProcessed:(int)requestId forId:(NSString *)identifier
+- (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
     [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
     pleaseWaitAlertView = nil;
+    
+    if (requestId == RequestTypeSearch) {
+        ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+    }
 }
 
-- (void)requestFailed:(int)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
+- (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
 {
     LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }

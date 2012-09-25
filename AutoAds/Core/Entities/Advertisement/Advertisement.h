@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Jastor.h"
-#import "Photo.h"
+#import "PhotoContainer.h"
+#import "KVDataManager.h"
 
 @interface Advertisement : Jastor
 
@@ -62,10 +63,14 @@
 @property (nonatomic, retain) NSString *Details;
 @property (nonatomic, retain) NSString *Period;
 @property (nonatomic, retain) NSString *CityCode;
-@property (nonatomic, retain) Photo *Photo;
+@property (nonatomic, retain) NSArray *Photo;
 @property (nonatomic, retain) NSString *NumOfOwners;
 @property (nonatomic, retain) NSString *VIN;
 @property (nonatomic, retain) NSString *FromOfficialDealer;
 @property (nonatomic, retain) NSString *captcha_code;
+
+- (NSString *)getCarName;
+- (NSString *)getCarPrice;
+- (NSString *)getOtherInfo;
 
 @end

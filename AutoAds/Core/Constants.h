@@ -44,3 +44,5 @@
 #define SELECTED_TAB_BAR_INDEX @"selected tab bar index"
 #define CURRENT_BRAND @"current brand"
 #define CURRENT_MODEL @"current model"
+#define CURRENT_RUBRIC @"current rubric"
+#define CURRENT_SUBRUBRIC @"current subrubric"
