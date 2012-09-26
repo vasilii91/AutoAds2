@@ -975,8 +975,8 @@
 + (NSDictionary *)Bools
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"0" forKey:@"Да"];
-    [dictionary setValue:@"1" forKey:@"Нет"];
+    [dictionary setValue:@"1" forKey:@"Да"];
+    [dictionary setValue:@"0" forKey:@"Нет"];
     
     return dictionary;
 }

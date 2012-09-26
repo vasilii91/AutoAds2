@@ -19,6 +19,8 @@
     
     UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundLight.png"]];
     [self.tableViewDictionary setBackgroundView:iv];
+    
+    [self.labelHeader setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:18]];
 }
 
 + (SelectValueDictionaryView *)loadView

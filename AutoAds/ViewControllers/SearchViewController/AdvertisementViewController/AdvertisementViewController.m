@@ -54,11 +54,9 @@
     [[NSUserDefaults standardUserDefaults] setValue:@([self.advertisement.Photo count]) forKey:COUNT_OF_PHOTOS_IN_CAR_PHOTOS];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [networkManager savePhotosByPhotoContainer:self.advertisement.Photo];
-    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Загружаются фотографии...\n\n" delegate:self cancelButtonTitle:@"Остановить" otherButtonTitles: nil];
-
+    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Загружаются фотографии...\n\n\n" delegate:self cancelButtonTitle:@"Остановить" otherButtonTitles: nil];
     [pleaseWaitAlertView show];
-    
+    [networkManager savePhotosByPhotoContainer:self.advertisement.Photo];
 }
 
 - (void)viewDidUnload
@@ -93,6 +91,12 @@
     AdvertisementCarPhotos *carPhotos = [AdvertisementCarPhotos loadView];
     carPhotos.delegate = self;
     carPhotos.userInteractionEnabled = YES;
+    if (self.advertisement.Phone == nil) {
+        [carPhotos setCallAndSendSMSButtonsToEnabledState:NO];
+    }
+    else {
+        [carPhotos setCallAndSendSMSButtonsToEnabledState:YES];
+    }
     
     CGRect rect = carPhotos.frame;
     rect.origin.y = header.frame.size.height;
@@ -122,6 +126,25 @@
                                                advFrame.origin.y + [advOtherInfo height] + 40)];
 }
 
+- (void)sendSMS:(NSString *)bodyOfMessage recipientList:(NSArray *)recipients
+{
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    if([MFMessageComposeViewController canSendText])
+    {
+        controller.body = bodyOfMessage;
+        controller.recipients = recipients;
+        controller.messageComposeDelegate = self;
+        [self presentModalViewController:controller animated:YES];
+    }    
+}
+
+- (void)callToPhone:(NSString *)phone
+{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
+    }
+}
+
 
 #pragma mark - @protocol CarPhotosProtocol <NSObject>
 
@@ -129,9 +152,17 @@
 {
     if (carPhotosButtonType == CarPhotosButtonTypeShowOnSite) {
         AdvertisementWebViewController *vc = [[AdvertisementWebViewController alloc] initWithNibName:@"AdvertisementWebViewController" bundle:nil];
-        vc.URLString = @"http://www.google.by";
+        vc.URLString = self.advertisement.url;
         vc.titleString = @"Объявление на сайте";
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (carPhotosButtonType == CarPhotosButtonTypeCall) {
+        if (self.advertisement.Phone != nil) {
+            [self callToPhone:self.advertisement.Phone];
+        }
+    }
+    else if (carPhotosButtonType == CarPhotosButtonTypeSendSms) {
+        [self sendSMS:@"" recipientList:@[self.advertisement.Phone]];
     }
 }
 
@@ -180,6 +211,24 @@
 {
     if (buttonIndex == 0) {
         [self addComponentsOnView];
+    }
+}
+
+
+#pragma mark - @protocol MFMessageComposeViewControllerDelegate <NSObject>
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [self dismissModalViewControllerAnimated:YES];
+    
+    if (result == MessageComposeResultCancelled) {
+        NSLog(@"Message cancelled");
+    }
+    else if (result == MessageComposeResultSent) {
+        NSLog(@"Message sent");
+    }
+    else {
+        NSLog(@"Message failed");
     }
 }
 

@@ -25,6 +25,14 @@
     return [NSDate dateWithTimeIntervalSince1970:interval];
 }
 
++ (NSDate *)dateWithMilliseconds:(NSString *)millisecondsString
+{
+    unsigned long long milliseconds = [millisecondsString longLongValue];
+    NSTimeInterval interval = milliseconds/1000;
+    
+    return [NSDate dateWithTimeIntervalSince1970:interval];
+}
+
 + (NSString *)descriptionByStatusCode:(NSInteger)statusCode
 {
     NSString *description = @"";

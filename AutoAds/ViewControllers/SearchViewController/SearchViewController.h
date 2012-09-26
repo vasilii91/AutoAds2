@@ -21,7 +21,6 @@
 
 @interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ButtonCellDelegate, KVNetworkDelegate, UIAlertViewDelegate>
 {
-    IBOutlet UIView *_header;
     IBOutlet UIButton *_searchButton;
     PleaseWaitAlertView *pleaseWaitAlertView;
     

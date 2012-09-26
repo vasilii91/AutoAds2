@@ -21,6 +21,10 @@
     NSArray *fields;
     AdvField *lastSelectedField;
     AdvGroup *currentGroup;
+    
+    AdvField *f0;
+    AdvField *f1;
+    AdvField *f2;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewFields;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

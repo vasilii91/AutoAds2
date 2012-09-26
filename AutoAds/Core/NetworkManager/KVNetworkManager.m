@@ -271,8 +271,8 @@ static KVNetworkManager *instance = nil;
         [photoURLs addObject: photoContainer.large.url];
     }
 
+    [FileManagerCoreMethods deleteDirectoryWithName:DEFAULT_PHOTOS_DIRECTORY_NAME];
     if ([photoURLs count] != 0) {
-        [FileManagerCoreMethods deleteDirectoryWithName:DEFAULT_PHOTOS_DIRECTORY_NAME];
         [KVDataManager sharedInstance].countOfLoadedImages = 0;
         
         for (int i = 0; i < [photoURLs count]; i++) {
@@ -282,6 +282,9 @@ static KVNetworkManager *instance = nil;
             
             [self addRequest:urlRequest];
         }
+    }
+    else {
+        [self requestProcessed:nil];
     }
 }
 

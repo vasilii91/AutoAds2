@@ -11,6 +11,7 @@
 @interface KVDataLogic : NSObject
 
 + (NSDate *)dateWithJSONStringData:(NSString *)jsonString;
++ (NSDate *)dateWithMilliseconds:(NSString *)millisecondsString;
 + (NSString *)descriptionByStatusCode:(NSInteger)statusCode;
 
 + (NSString *)formattedFileSize:(unsigned long long)size;

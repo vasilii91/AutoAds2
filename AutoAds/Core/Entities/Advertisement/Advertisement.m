@@ -20,6 +20,11 @@
     return [NSArray class];
 }
 
+- (NSDate *)getDateCreated
+{
+    return [KVDataLogic dateWithMilliseconds:self.DateCreate];
+}
+
 - (NSString *)getFullCarName
 {
     KVDataManager *dataManager = [KVDataManager sharedInstance];

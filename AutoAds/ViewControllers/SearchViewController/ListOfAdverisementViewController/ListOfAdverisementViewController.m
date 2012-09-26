@@ -57,6 +57,7 @@
     self.tableViewAdvertisement.backgroundColor = [UIColor clearColor];
     
     listOfAdvertisementHeader = [ListOfAdvertisementHeader loadView];
+    listOfAdvertisementHeader.delegate = self;
     CGRect rect = listOfAdvertisementHeader.frame;
     frameOfHeaderWhenHidden = CGRectMake(0,
                                          -rect.size.height,
@@ -140,6 +141,56 @@
 }
 
 
+#pragma mark - Private methods
+
+- (void)sortAdvertisementsBySortType:(TypeOfSort)sortType
+{
+    NSComparisonResult (^sortBlock)(id, id) = ^(id obj1, id obj2) {
+        
+        Advertisement *adv1 = (Advertisement *)obj1;
+        Advertisement *adv2 = (Advertisement *)obj2;
+        
+        NSComparisonResult result;
+        if (sortType == TypeOfSortByPriceAscending ||
+            sortType == TypeOfSortByPriceDescending) {
+            
+            NSInteger price1 = [adv1.Price integerValue];
+            NSInteger price2 = [adv2.Price integerValue];
+            
+            result = NSOrderedSame;
+            if (price1 > price2) {
+                result = NSOrderedAscending;
+            }
+            else if (price1 < price2) {
+                result = NSOrderedDescending;
+            }
+        }
+        else {
+            result = [[adv1 getDateCreated] compare:[adv2 getDateCreated]];
+        }
+        
+        if (sortType == TypeOfSortByDateDescending ||
+            sortType == TypeOfSortByPriceDescending) {
+            
+            if (result == NSOrderedAscending) {
+                result = NSOrderedDescending;
+            }
+            else if (result == NSOrderedDescending) {
+                result = NSOrderedAscending;
+            }
+        }
+        
+        return result;
+    };
+    
+    NSMutableArray *sortedArray = [[NSMutableArray alloc] initWithArray:[searchedAdvertisements sortedArrayUsingComparator:sortBlock]];
+    [searchedAdvertisements removeAllObjects];
+    [searchedAdvertisements addObjectsFromArray:sortedArray];
+    
+    [self.tableViewAdvertisement reloadData];
+}
+
+
 #pragma mark - @protocol UITableViewDataSource<NSObject>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -162,7 +213,7 @@
     [cell.labelCarName setText:adv.Name];
     [cell.labelPrice setText:adv.getCarPrice];
     [cell.labelOtherInfo setText:adv.getOtherInfo];
-    [cell.imageViewPhoto setImageWithURL:photoSmallURL placeholderImage:[UIImage imageNamed:@"thumbnail.png"]];
+    [cell.imageViewPhoto setImageWithURL:photoSmallURL placeholderImage:[UIImage imageNamed:@"thumbnail_02.png"]];
     
     return cell;
 }
@@ -178,9 +229,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Advertisement *advertisement = [searchedAdvertisements objectAtIndex:indexPath.row];
+    
     AdvertisementViewController *avc = [[AdvertisementViewController alloc] initWithNibName:@"AdvertisementViewController" bundle:nil];
     avc.advertisement = advertisement;
     [self.navigationController pushViewController:avc animated:YES];
+}
+
+
+#pragma mark - @protocol ListOfAdvertisementHeaderProtocol <NSObject>
+
+- (void)userChoosenTypeOfSort:(TypeOfSort)typeOfSort
+{
+    [self sortAdvertisementsBySortType:typeOfSort];
 }
 
 

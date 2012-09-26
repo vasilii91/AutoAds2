@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "UIImageExtension.h"
 #import "FileManagerCoreMethods.h"
+#import "PageControl.h"
 
 enum
 {
     CarPhotosButtonTypeShowOnSite,
+    CarPhotosButtonTypeCall,
+    CarPhotosButtonTypeSendSms,
 };
 typedef NSUInteger CarPhotosButtonType;
 
@@ -24,19 +27,23 @@ typedef NSUInteger CarPhotosButtonType;
 @end
 
 
-@interface AdvertisementCarPhotos : UIView<UIScrollViewDelegate>
+@interface AdvertisementCarPhotos : UIView<UIScrollViewDelegate, PageControlDelegate>
 {
     CGFloat imageViewPhotoWidth;
+    PageControl *myPageControl;
 }
 
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewPhotos;
 @property (weak, nonatomic) IBOutlet UIButton *buttonShowOnSite;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCall;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSendSMS;
 @property (nonatomic, assign) NSObject<CarPhotosProtocol> *delegate;
 
 + (AdvertisementCarPhotos *)loadView;
 - (IBAction)clickOnCallButton:(id)sender;
 - (IBAction)clickOnSMSButton:(id)sender;
 - (IBAction)clickOnShonOnSiteButton:(id)sender;
+
+- (void)setCallAndSendSMSButtonsToEnabledState:(BOOL)isEnabled;
 
 @end

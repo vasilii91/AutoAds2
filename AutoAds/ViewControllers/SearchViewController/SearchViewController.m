@@ -53,7 +53,6 @@
     
     UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundLight.png"]];
     [self.tableView setBackgroundView:iv];
-    [_header setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"hugeHeader.png"]]];
     [_searchButton.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:16.]];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbarBackground.png"] forBarMetrics:UIBarMetricsDefault];
@@ -107,7 +106,7 @@
             currentGroup = [searchManager categorySearchByRubric:f1.selectedValue subrubric:f2.selectedValue];
             fields = [currentGroup getObligatoryFields];
             
-            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
+            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
             [pleaseWaitAlertView show];
             
             NSString *rubric = [f1 valueForServerBySelectedValue];

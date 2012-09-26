@@ -11,13 +11,11 @@
 #import "PhotoContainer.h"
 #import "KVDataManager.h"
 #import "AdvDictionaries.h"
-#import "KVDataLogic.h"
 
-@interface Advertisement : Jastor
+@interface AdvertisementAdd : NSObject
 
-@property (nonatomic, retain) NSString *AdvID;
-@property (nonatomic, retain) NSString *RubricID;
-@property (nonatomic, retain) NSString *UserID;
+@property (nonatomic, retain) NSString *rubric;
+@property (nonatomic, retain) NSString *subrubric;
 @property (nonatomic, retain) NSString *Brand;
 @property (nonatomic, retain) NSString *Model;
 @property (nonatomic, retain) NSString *Modification;
@@ -43,9 +41,11 @@
 @property (nonatomic, retain) NSString *AxisCount;
 @property (nonatomic, retain) NSString *MotoHours;
 @property (nonatomic, retain) NSString *Displacement;
+@property (nonatomic, retain) NSString *i_razdel;
+@property (nonatomic, retain) NSString *rubricid;
 @property (nonatomic, retain) NSString *Name;
 @property (nonatomic, retain) NSString *Seasonality;
-@property (nonatomic, retain) NSString *Spikes;
+@property (nonatomic, retain) NSString *eSpikes;
 @property (nonatomic, retain) NSString *Diameter;
 @property (nonatomic, retain) NSString *WheelWidth;
 @property (nonatomic, retain) NSString *Width;
@@ -60,33 +60,14 @@
 @property (nonatomic, retain) NSString *Price;
 @property (nonatomic, retain) NSString *Chaffer;
 @property (nonatomic, retain) NSString *Contacts;
-@property (nonatomic, retain) NSString *Phone;
-@property (nonatomic, retain) NSString *Details;
-@property (nonatomic, retain) NSString *DateCreate;
-@property (nonatomic, retain) NSString *DateValid;
-@property (nonatomic, retain) NSString *DateUpdate;
-@property (nonatomic, retain) NSString *IsVisible;
-@property (nonatomic, retain) NSString *opt_InState;
-@property (nonatomic, retain) NSString *opt_Title;
-@property (nonatomic, retain) NSString *IsNew;
-@property (nonatomic, retain) NSString *Moderate;
-@property (nonatomic, retain) NSString *Remoderate;
-@property (nonatomic, retain) NSString *Important;
-@property (nonatomic, retain) NSString *ImportantTill;
-@property (nonatomic, retain) NSString *IsFavorite;
-@property (nonatomic, retain) NSString *FavRemark;
 @property (nonatomic, retain) NSString *Email;
+@property (nonatomic, retain) NSString *Details;
+@property (nonatomic, retain) NSString *Period;
 @property (nonatomic, retain) NSString *CityCode;
 @property (nonatomic, retain) NSArray *Photo;
 @property (nonatomic, retain) NSString *NumOfOwners;
 @property (nonatomic, retain) NSString *VIN;
 @property (nonatomic, retain) NSString *FromOfficialDealer;
-@property (nonatomic, retain) NSString *url;
-
-- (NSDate *)getDateCreated;
-- (NSString *)getFullCarName;
-- (NSString *)getCarPrice;
-- (NSString *)getOtherInfo;
-- (NSString *)getNameAndCity;
+@property (nonatomic, retain) NSString *captcha_code;
 
 @end

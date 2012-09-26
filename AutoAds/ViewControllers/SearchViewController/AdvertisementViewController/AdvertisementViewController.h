@@ -17,8 +17,9 @@
 #import "PleaseWaitAlertView.h"
 #import "MyPhoto.h"
 #import "MyPhotoSource.h"
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface AdvertisementViewController : UIViewController<CarPhotosProtocol, KVNetworkDelegate, UIAlertViewDelegate>
+@interface AdvertisementViewController : UIViewController<CarPhotosProtocol, KVNetworkDelegate, UIAlertViewDelegate, MFMessageComposeViewControllerDelegate>
 {
     PleaseWaitAlertView *pleaseWaitAlertView;
     

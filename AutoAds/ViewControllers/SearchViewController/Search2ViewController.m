@@ -50,6 +50,7 @@
         case ValueTypeDictionary:
         {
             SelectValueDictionaryView *dictionaryView = [SelectValueDictionaryView loadView];
+            dictionaryView.labelHeader.text = self.field.nameRussian;
             [dictionaryView setFrame:CGRectMake(0, 0, 320, 460)];
             NSDictionary *dictionary = (NSDictionary *)self.field.value;
             dictionaryView.dictionary = dictionary;
@@ -62,6 +63,7 @@
         case ValueTypeNumber:
         {
             SelectValueStringView *stringView = [SelectValueStringView loadView];
+            stringView.labelHeader.text = self.field.nameRussian;
             stringView.valueType = self.field.valueType;
             stringView.delegate = self;
             [self.view addSubview:stringView];
@@ -75,6 +77,7 @@
         case ValueTypeDictionaryFromInternet:
         {
             SelectValueDictionaryView *dictionaryView = [SelectValueDictionaryView loadView];
+            dictionaryView.labelHeader.text = self.field.nameRussian;
             [dictionaryView setFrame:CGRectMake(0, 0, 320, 460)];
             
             NSString *fieldName = self.field.nameEnglish;

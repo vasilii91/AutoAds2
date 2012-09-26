@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldValue;
 @property (nonatomic, assign) NSObject<SelectValueDelegate> *delegate;
 @property (nonatomic, assign) ValueType valueType;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeader;
 
 + (SelectValueStringView *)loadView;
 - (IBAction)clickOnOkButton:(id)sender;

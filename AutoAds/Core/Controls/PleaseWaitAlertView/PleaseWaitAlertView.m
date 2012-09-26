@@ -14,7 +14,7 @@
 {
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
-    indicator.center = CGPointMake(self.bounds.size.width / 2, 50);
+    indicator.center = CGPointMake(self.bounds.size.width / 2, 60);
     [indicator startAnimating];
     
     if (isAdded == NO) {

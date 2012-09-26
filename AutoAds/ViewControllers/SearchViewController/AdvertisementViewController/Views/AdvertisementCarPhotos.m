@@ -9,7 +9,6 @@
 #import "AdvertisementCarPhotos.h"
 
 @implementation AdvertisementCarPhotos
-@synthesize pageControl;
 @synthesize scrollViewPhotos;
 @synthesize buttonShowOnSite;
 @synthesize delegate;
@@ -59,9 +58,22 @@
     
     self.scrollViewPhotos.contentSize = CGSizeMake(scrollViewFrame.size.width * [names count],
                                                    scrollViewFrame.size.height);
-    self.pageControl.numberOfPages = [names count];
+    
+    CGRect f = CGRectMake(0, 48, 320, 20);
+    myPageControl = [[PageControl alloc] initWithFrame:f];
+    myPageControl.numberOfPages = [names count];
+    myPageControl.delegate = self;
+    [self addSubview:myPageControl];
 }
 
+
+#pragma mark - Public methods
+
+- (void)setCallAndSendSMSButtonsToEnabledState:(BOOL)isEnabled
+{
+    self.buttonCall.enabled = isEnabled;
+    self.buttonSendSMS.enabled = isEnabled;
+}
 
 #pragma mark - Actions
 
@@ -75,12 +87,12 @@
 
 -(IBAction)clickOnCallButton:(id)sender
 {
-    LOG(@"call-button");
+    [delegate clickOnButton:CarPhotosButtonTypeCall];
 }
 
 - (IBAction)clickOnSMSButton:(id)sender
 {
-    LOG(@"sms-button");
+    [delegate clickOnButton:CarPhotosButtonTypeSendSms];
 }
 
 - (IBAction)clickOnShonOnSiteButton:(id)sender
@@ -94,7 +106,18 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger numberOfPage = scrollView.contentOffset.x / self.scrollViewPhotos.frame.size.width;
-    self.pageControl.currentPage = numberOfPage;
+    myPageControl.currentPage = numberOfPage;
+}
+
+
+#pragma mark - @protocol PageControlDelegate<NSObject>
+
+- (void)pageControlPageDidChange:(PageControl *)pageControl
+{
+    CGRect newRect = self.scrollViewPhotos.frame;
+    newRect.origin.x = imageViewPhotoWidth * pageControl.currentPage;
+    
+    [self.scrollViewPhotos scrollRectToVisible:newRect animated:YES];
 }
 
 @end

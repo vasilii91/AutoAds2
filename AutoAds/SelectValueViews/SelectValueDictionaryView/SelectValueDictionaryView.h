@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableViewDictionary;
 @property (nonatomic, retain) NSDictionary *dictionary;
 @property (nonatomic, assign) NSObject<SelectValueDelegate> *delegate;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeader;
 
 + (SelectValueDictionaryView *)loadView;
 

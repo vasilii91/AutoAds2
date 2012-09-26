@@ -18,6 +18,8 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
+    [self.labelHeader setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:18]];
 }
 
 + (SelectValueStringView *)loadView

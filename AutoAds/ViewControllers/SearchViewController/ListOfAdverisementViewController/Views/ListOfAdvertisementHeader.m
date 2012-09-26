@@ -39,7 +39,6 @@
     [label setText:@"По цене"];
     [header.scrollViewLabels addSubview:label];
     
-    
     header->secondFrame = CGRectMake(scroolViewRect.size.width,
                                      0,
                                      scroolViewRect.size.width,
@@ -67,13 +66,50 @@
 - (IBAction)clickOnTypeOfSortButton:(UIButton *)button
 { 
     if (button.tag == 0) {
-        // click on left button
         [self.scrollViewLabels scrollRectToVisible:firstFrame animated:YES];
+        isSortByPrice = YES;
     }
     else {
-        // click on right button
         [self.scrollViewLabels scrollRectToVisible:secondFrame animated:YES];
+        isSortByPrice = NO;
     }
+    
+    [self updateSortType];
+}
+
+- (IBAction)clickOnButtonAscDesc:(UIButton *)button
+{
+    if (button.tag == 0) {
+        isAscending = YES;
+    }
+    else {
+        isAscending = NO;
+    }
+    
+    [self updateSortType];
+}
+
+- (void)updateSortType
+{
+    TypeOfSort typeOfSort;
+    if (isAscending) {
+        if (isSortByPrice) {
+            typeOfSort = TypeOfSortByPriceAscending;
+        }
+        else {
+            typeOfSort = TypeOfSortByDateAscending;
+        }
+    }
+    else {
+        if (isSortByPrice) {
+            typeOfSort = TypeOfSortByPriceDescending;
+        }
+        else {
+            typeOfSort = TypeOfSortByDateDescending;
+        }
+    }
+    
+    [self.delegate userChoosenTypeOfSort:typeOfSort];
 }
 
 @end

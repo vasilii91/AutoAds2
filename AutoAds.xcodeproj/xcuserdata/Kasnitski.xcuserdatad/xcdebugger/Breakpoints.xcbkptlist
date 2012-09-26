@@ -46,13 +46,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/AdvertisementViewController/AdvertisementViewController.m"
-         timestampString = "370346718.506038"
+         filePath = "AutoAds/ViewControllers/SearchViewController/AdvertisementViewController/Views/AdvertisementCarPhotos.m"
+         timestampString = "370357076.665403"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
-         landmarkName = "-goBack:"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "-addPhotosFromDocuments"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/AdvertisementViewController/AdvertisementViewController.m"
+         timestampString = "370360535.721382"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
+         landmarkName = "-callToPhone:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

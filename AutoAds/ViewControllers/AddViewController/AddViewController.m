@@ -58,6 +58,13 @@
     
     NSString *html = [NSString stringWithFormat:@"<html><body><p align=\"center\"><font size=\"2\" face=\"%@\">Нажимая кнопку \"Добавить\" я подтверждаю свое согласие с <a href=\"http://www.autochel.ru/help/car/rules\">правилами размещения объявлений</a></font></p></body></html>", FONT_DINPro_REGULAR];
     [self.webView loadHTMLString:html baseURL:nil];
+    
+    f0 = (AdvField *)[fields objectAtIndex:0];
+    f1 = (AdvField *)[fields objectAtIndex:1];
+    f2 = (AdvField *)[fields objectAtIndex:2];
+    f0.selectedValue = [[[AdvDictionaries Cities] allKeys] objectAtIndex:0];
+    f1.selectedValue = [[[AdvDictionaries Rubrics] allKeys] objectAtIndex:0];
+    f2.selectedValue = [[[AdvDictionaries SubrubricsMotors] allKeys] objectAtIndex:1];
 }
 
 - (void)viewDidUnload
@@ -72,9 +79,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    AdvField *f1 = (AdvField *)[fields objectAtIndex:1];
-    AdvField *f2 = (AdvField *)[fields objectAtIndex:2];
     
     if (([f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
          [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] &&
@@ -173,8 +177,12 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        NSURL *url = [request URL];
-        [[UIApplication sharedApplication] openURL:url];
+        NSString *url = [[request URL] absoluteString];
+        AdvertisementWebViewController *vc = [[AdvertisementWebViewController alloc] initWithNibName:@"AdvertisementWebViewController" bundle:nil];
+        vc.URLString = url;
+        vc.titleString = @"Правила размещения";
+        [self.navigationController pushViewController:vc animated:YES];
+        
         return NO;
     }
     

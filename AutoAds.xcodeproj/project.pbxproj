@@ -84,6 +84,9 @@
 		BE3CFA59161305E00081CD64 /* EGOPhotoCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3CFA3F161305E00081CD64 /* EGOPhotoCaptionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE3CFA5A161305E00081CD64 /* EGOPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3CFA42161305E00081CD64 /* EGOPhotoImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE3CFA5B161305E00081CD64 /* EGOPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3CFA45161305E00081CD64 /* EGOPhotoScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE3CFA5F161312AF0081CD64 /* thumbnail_01.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3CFA5D161312AF0081CD64 /* thumbnail_01.png */; };
+		BE3CFA60161312AF0081CD64 /* thumbnail_02.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3CFA5E161312AF0081CD64 /* thumbnail_02.png */; };
+		BE3CFA64161318AF0081CD64 /* PageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3CFA63161318AF0081CD64 /* PageControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE45624F16087F8F001EC686 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE45624E16087F8F001EC686 /* SearchViewController.xib */; };
 		BE45625216088097001EC686 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE45625116088097001EC686 /* ButtonCell.xib */; };
 		BE456254160880C5001EC686 /* RubrikCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE456253160880C5001EC686 /* RubrikCell.xib */; };
@@ -97,6 +100,7 @@
 		BE90E9C3160CA03700635EAC /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C0160CA03700635EAC /* Jastor.m */; };
 		BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */; };
 		BE90E9CB160CA69600635EAC /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9CA160CA69600635EAC /* Options.m */; };
+		BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = BE919FEF16133A500005FA8A /* AdvertisementAdd.m */; };
 		BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */; };
 		BE96CF3A160324870074A52B /* SavedSearchQueriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE96CF38160324870074A52B /* SavedSearchQueriesViewController.xib */; };
 		BE96CF4F160338A20074A52B /* ListOfAdverisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */; };
@@ -150,7 +154,6 @@
 		BEDD194A1603417E00FACC4B /* TableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEDD19461603417E00FACC4B /* TableViewHeader.xib */; };
 		BEDD194C16035EFF00FACC4B /* AdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEDD194B16035EFF00FACC4B /* AdvertisementCell.xib */; };
 		BEDD194F16035F1A00FACC4B /* AdvertisementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDD194E16035F1A00FACC4B /* AdvertisementCell.m */; };
-		BEDD1951160360C600FACC4B /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDD1950160360C600FACC4B /* thumbnail.png */; };
 		BEDD195A16036C0B00FACC4B /* CirculationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDD195916036C0B00FACC4B /* CirculationView.m */; };
 		BEE4E03C16084DE5001187CA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE4E03B16084DE5001187CA /* MessageUI.framework */; };
 		BEF6390415F8D2D000B0CAD0 /* HelpfulInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF6390215F8D2D000B0CAD0 /* HelpfulInfoViewController.m */; };
@@ -309,6 +312,10 @@
 		BE3CFA42161305E00081CD64 /* EGOPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoImageView.m; sourceTree = "<group>"; };
 		BE3CFA44161305E00081CD64 /* EGOPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoScrollView.h; sourceTree = "<group>"; };
 		BE3CFA45161305E00081CD64 /* EGOPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoScrollView.m; sourceTree = "<group>"; };
+		BE3CFA5D161312AF0081CD64 /* thumbnail_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail_01.png; sourceTree = "<group>"; };
+		BE3CFA5E161312AF0081CD64 /* thumbnail_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail_02.png; sourceTree = "<group>"; };
+		BE3CFA62161318AF0081CD64 /* PageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageControl.h; path = Controls/PageControl/PageControl.h; sourceTree = "<group>"; };
+		BE3CFA63161318AF0081CD64 /* PageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageControl.m; path = Controls/PageControl/PageControl.m; sourceTree = "<group>"; };
 		BE45624E16087F8F001EC686 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		BE45625116088097001EC686 /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		BE456253160880C5001EC686 /* RubrikCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RubrikCell.xib; sourceTree = "<group>"; };
@@ -335,6 +342,8 @@
 		BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JastorRuntimeHelper.m; sourceTree = "<group>"; };
 		BE90E9C9160CA69600635EAC /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Options.h; path = Entities/Options.h; sourceTree = "<group>"; };
 		BE90E9CA160CA69600635EAC /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Options.m; path = Entities/Options.m; sourceTree = "<group>"; };
+		BE919FEE16133A500005FA8A /* AdvertisementAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementAdd.h; path = Entities/Advertisement/AdvertisementAdd.h; sourceTree = "<group>"; };
+		BE919FEF16133A500005FA8A /* AdvertisementAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvertisementAdd.m; path = Entities/Advertisement/AdvertisementAdd.m; sourceTree = "<group>"; };
 		BE96CF36160324870074A52B /* SavedSearchQueriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedSearchQueriesViewController.h; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.h; sourceTree = "<group>"; };
 		BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavedSearchQueriesViewController.m; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.m; sourceTree = "<group>"; };
 		BE96CF38160324870074A52B /* SavedSearchQueriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SavedSearchQueriesViewController.xib; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.xib; sourceTree = "<group>"; };
@@ -404,7 +413,6 @@
 		BEDD194B16035EFF00FACC4B /* AdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvertisementCell.xib; path = ListOfAdverisementViewController/Views/AdvertisementCell.xib; sourceTree = "<group>"; };
 		BEDD194D16035F1A00FACC4B /* AdvertisementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementCell.h; path = ListOfAdverisementViewController/Views/AdvertisementCell.h; sourceTree = "<group>"; };
 		BEDD194E16035F1A00FACC4B /* AdvertisementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvertisementCell.m; path = ListOfAdverisementViewController/Views/AdvertisementCell.m; sourceTree = "<group>"; };
-		BEDD1950160360C600FACC4B /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
 		BEDD195816036C0B00FACC4B /* CirculationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CirculationView.h; sourceTree = "<group>"; };
 		BEDD195916036C0B00FACC4B /* CirculationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CirculationView.m; sourceTree = "<group>"; };
 		BEE4E03B16084DE5001187CA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -572,6 +580,8 @@
 			children = (
 				10D529B0160DDBAB0011F682 /* Advertisement.h */,
 				10D529AF160DDBAB0011F682 /* Advertisement.m */,
+				BE919FEE16133A500005FA8A /* AdvertisementAdd.h */,
+				BE919FEF16133A500005FA8A /* AdvertisementAdd.m */,
 			);
 			name = Advertisement;
 			sourceTree = "<group>";
@@ -847,6 +857,24 @@
 			path = EGOPhotoScrollView;
 			sourceTree = "<group>";
 		};
+		BE3CFA5C161312AF0081CD64 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				BE3CFA5D161312AF0081CD64 /* thumbnail_01.png */,
+				BE3CFA5E161312AF0081CD64 /* thumbnail_02.png */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		BE3CFA61161318890081CD64 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				BE3CFA62161318AF0081CD64 /* PageControl.h */,
+				BE3CFA63161318AF0081CD64 /* PageControl.m */,
+			);
+			name = PageControl;
+			sourceTree = "<group>";
+		};
 		BE6FCEE71611A35700C8E8ED /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,7 +956,7 @@
 		BEC993E515F88A8A006BDCA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BEDD1950160360C600FACC4B /* thumbnail.png */,
+				BE3CFA5C161312AF0081CD64 /* General */,
 				BEC993E615F88A8A006BDCA9 /* backgroundDark@2x.png */,
 				BEC993E715F88A8A006BDCA9 /* backgroundLight@2x.png */,
 				BEC993E815F88A8A006BDCA9 /* divider@2x.png */,
@@ -1140,6 +1168,7 @@
 		BEDD195616036BEC00FACC4B /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				BE3CFA61161318890081CD64 /* PageControl */,
 				10D529E2160E10B00011F682 /* PleaseWaitAlertView */,
 				10D529D4160E09990011F682 /* SSIndicatorLabel */,
 				BEDD195716036C0B00FACC4B /* CirculationView */,
@@ -1351,7 +1380,6 @@
 				BEDD19481603417E00FACC4B /* SavedSearchCell.xib in Resources */,
 				BEDD194A1603417E00FACC4B /* TableViewHeader.xib in Resources */,
 				BEDD194C16035EFF00FACC4B /* AdvertisementCell.xib in Resources */,
-				BEDD1951160360C600FACC4B /* thumbnail.png in Resources */,
 				10D125601605EF49003357E7 /* AdvertisementViewController.xib in Resources */,
 				10D125661605F07D003357E7 /* AdvertisementCarPhotos.xib in Resources */,
 				10D1256816060197003357E7 /* AdvertisementHeader.xib in Resources */,
@@ -1375,6 +1403,8 @@
 				BE3CFA56161305E00081CD64 /* egopv_photo_placeholder@2x.png in Resources */,
 				BE3CFA57161305E00081CD64 /* egopv_right.png in Resources */,
 				BE3CFA58161305E00081CD64 /* egopv_right@2x.png in Resources */,
+				BE3CFA5F161312AF0081CD64 /* thumbnail_01.png in Resources */,
+				BE3CFA60161312AF0081CD64 /* thumbnail_02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1486,6 +1516,8 @@
 				BE3CFA59161305E00081CD64 /* EGOPhotoCaptionView.m in Sources */,
 				BE3CFA5A161305E00081CD64 /* EGOPhotoImageView.m in Sources */,
 				BE3CFA5B161305E00081CD64 /* EGOPhotoScrollView.m in Sources */,
+				BE3CFA64161318AF0081CD64 /* PageControl.m in Sources */,
+				BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,8 +1559,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1551,8 +1583,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1568,8 +1600,8 @@
 				INFOPLIST_FILE = "AutoAds/AutoAds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1584,8 +1616,8 @@
 				INFOPLIST_FILE = "AutoAds/AutoAds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

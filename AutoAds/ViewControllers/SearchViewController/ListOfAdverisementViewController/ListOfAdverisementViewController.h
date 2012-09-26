@@ -16,7 +16,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 
-@interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol>
 {
     NSMutableArray *searchedAdvertisements;
     BOOL isShowHeader;
