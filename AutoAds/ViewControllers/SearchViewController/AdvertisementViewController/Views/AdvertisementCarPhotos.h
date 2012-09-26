@@ -19,11 +19,15 @@ typedef NSUInteger CarPhotosButtonType;
 @protocol CarPhotosProtocol <NSObject>
 
 - (void)clickOnButton:(CarPhotosButtonType)carPhotosButtonType;
+- (void)userClickOnPhotoWithIndex:(NSInteger)photoIndex;
 
 @end
 
 
 @interface AdvertisementCarPhotos : UIView<UIScrollViewDelegate>
+{
+    CGFloat imageViewPhotoWidth;
+}
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewPhotos;

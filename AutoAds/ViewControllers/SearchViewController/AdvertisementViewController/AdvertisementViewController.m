@@ -135,6 +135,31 @@
     }
 }
 
+- (void)userClickOnPhotoWithIndex:(NSInteger)photoIndex
+{
+    NSArray *imagePathes = [FileManagerCoreMethods pathToImagesInDirectory:PHOTOS_DIRECTORY];
+    
+    NSMutableArray *arrayMyPhotos = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [imagePathes count]; i++) {
+        UIImage *image = [UIImage imageWithContentsOfFile:[imagePathes objectAtIndex:i]];
+        MyPhoto *photo = [[MyPhoto alloc] initWithImage:image];
+        [arrayMyPhotos addObject:photo];
+    }
+    MyPhotoSource *source = [[MyPhotoSource alloc] initWithPhotos: arrayMyPhotos];
+    
+    EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:source];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:photoController];
+    
+    navController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    navController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentModalViewController:navController animated:YES];
+    
+    [photoController moveToPhotoAtIndex:photoIndex animated:NO];
+    
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBackFromPhotoViewer:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    photoController.navigationItem.leftBarButtonItem = bbi;
+}
+
 
 #pragma mark - @protocol KVNetworkDelegate
 
@@ -164,6 +189,11 @@
 - (void)goBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)goBackFromPhotoViewer:(id)sender
+{
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 - (void)clickOnFavoriteButton:(UIButton *)button

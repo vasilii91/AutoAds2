@@ -15,6 +15,8 @@
 #import "AdvertisementWebViewController.h"
 #import "KVNetworkManager.h"
 #import "PleaseWaitAlertView.h"
+#import "MyPhoto.h"
+#import "MyPhotoSource.h"
 
 @interface AdvertisementViewController : UIViewController<CarPhotosProtocol, KVNetworkDelegate, UIAlertViewDelegate>
 {

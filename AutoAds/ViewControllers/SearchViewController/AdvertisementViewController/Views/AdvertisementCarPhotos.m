@@ -51,6 +51,11 @@
         
         [self.scrollViewPhotos addSubview:carPhotoImageView];
     }
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnPhotoImageView:)];
+    gestureRecognizer.numberOfTapsRequired = 2;
+    [self.scrollViewPhotos addGestureRecognizer:gestureRecognizer];
+    
+    imageViewPhotoWidth = scrollViewFrame.size.width;
     
     self.scrollViewPhotos.contentSize = CGSizeMake(scrollViewFrame.size.width * [names count],
                                                    scrollViewFrame.size.height);
@@ -59,6 +64,14 @@
 
 
 #pragma mark - Actions
+
+- (void)clickOnPhotoImageView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint point = [gestureRecognizer locationInView:self.scrollViewPhotos];
+    NSInteger indexOfPhoto = point.x / imageViewPhotoWidth;
+    
+    [delegate userClickOnPhotoWithIndex:indexOfPhoto];
+}
 
 -(IBAction)clickOnCallButton:(id)sender
 {

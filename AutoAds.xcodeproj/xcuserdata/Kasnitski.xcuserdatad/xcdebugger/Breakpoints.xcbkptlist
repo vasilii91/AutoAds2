@@ -46,26 +46,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/Entities/Vehicle/VehicleBrand.m"
-         timestampString = "370256092.601387"
+         filePath = "AutoAds/ViewControllers/SearchViewController/AdvertisementViewController/AdvertisementViewController.m"
+         timestampString = "370346718.506038"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "15"
-         endingLineNumber = "15"
-         landmarkName = "+subrubrics_class"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/Entities/Vehicle/VehicleModel.m"
-         timestampString = "370256189.62477"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "-setSubrubrics:"
+         startingLineNumber = "191"
+         endingLineNumber = "191"
+         landmarkName = "-goBack:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
