@@ -135,6 +135,9 @@
 
 - (void)cleanQueryToDefaultState
 {
+    lastSelectedRubric = nil;
+    lastSelectedSubrubric = nil;
+    
     for (AdvField *field in fields) {
         field.selectedValue = nil;
     }
@@ -145,6 +148,9 @@
 
 - (void)cleanQueryToDefaultStateWithoutCleaningRubAndSub
 {
+    lastSelectedRubric = nil;
+    lastSelectedSubrubric = nil;
+    
     for (AdvField *field in fields) {
         if ([field.nameEnglish isEqualToString:F_RUBRIC_ENG] == NO &&
             [field.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] == NO &&

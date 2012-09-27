@@ -160,6 +160,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="clickOnAddAdvertisementButton:" destination="YYl-aQ-mWD" eventType="touchUpInside" id="Ras-Fc-BIw"/>
                                             <action selector="clickOnTechnicalHelpButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="SUI-fC-eQ7"/>
                                         </connections>
                                     </button>

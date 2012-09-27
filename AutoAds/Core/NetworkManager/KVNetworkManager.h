@@ -12,6 +12,8 @@
 #import "Constants.h"
 #import "AdvDictionaries.h"
 #import "FileManagerCoreMethods.h"
+#import "AdvertisementAdd.h"
+#import "AdvField.h"
 
 #define FNApiErrorConnection              -1
 #define FNApiErrorResponseFormat          -2
@@ -23,6 +25,11 @@
 - (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code;
 
 @end
+
+typedef enum {
+    ApiCallGET,
+    ApiCallPOST
+} ApiCall;
 
 
 @interface KVNetworkManager : NSObject<KVUrlRequestDelegate> {
@@ -54,5 +61,6 @@
 - (void)searchWithQuery:(NSString *)queryString;
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (void)savePhotosByPhotoContainer:(NSArray *)photoContainers;
+- (void)addAdvertisementWithJsonString:(NSString *)jsonString images:(NSArray *)images;
 
 @end
