@@ -268,7 +268,9 @@ static KVNetworkManager *instance = nil;
 {
     NSMutableArray *photoURLs = [NSMutableArray new];
     for (PhotoContainer *photoContainer in photoContainers) {
-        [photoURLs addObject: photoContainer.large.url];
+        if (photoContainer.large.url != nil) {
+            [photoURLs addObject: photoContainer.large.url];
+        }
     }
 
     [FileManagerCoreMethods deleteDirectoryWithName:DEFAULT_PHOTOS_DIRECTORY_NAME];

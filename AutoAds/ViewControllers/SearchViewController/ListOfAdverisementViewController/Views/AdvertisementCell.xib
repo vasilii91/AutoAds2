@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1536</int>
-		<string key="IBDocument.SystemVersion">12B19</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
-		<string key="IBDocument.AppKitVersion">1187</string>
-		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<int key="IBDocument.SystemTarget">1296</int>
+		<string key="IBDocument.SystemVersion">12C54</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1926</string>
+			<string key="NS.object.0">1498</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -73,7 +73,6 @@
 								<object class="NSColor" key="IBUITextColor" id="838093980">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
-									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
 								</object>
 								<object class="NSColor" key="IBUIHighlightedColor" id="929909203">
 									<int key="NSColorSpace">3</int>
@@ -97,7 +96,7 @@
 								<string key="NSFrame">{{117, 29}, {192, 21}}</string>
 								<reference key="NSSuperview" ref="528063762"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="273006996"/>
+								<reference key="NSNextKeyView" ref="168142128"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -118,6 +117,7 @@
 								<string key="NSFrame">{{117, 50}, {192, 16}}</string>
 								<reference key="NSSuperview" ref="528063762"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="273006996"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -151,7 +151,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">thumbnail.png</string>
+									<string key="NSResourceName">thumbnail_02.png</string>
 								</object>
 							</object>
 							<object class="IBUIButton" id="273006996">
@@ -160,7 +160,7 @@
 								<string key="NSFrame">{{261, 31}, {29, 29}}</string>
 								<reference key="NSSuperview" ref="528063762"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="168142128"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -407,15 +407,15 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1536" key="NS.object.0"/>
+			<real value="1296" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="77@2x.png">{34, 154}</string>
 			<string key="starBlue@2x.png">{78, 78}</string>
-			<string key="thumbnail.png">{128, 128}</string>
+			<string key="thumbnail_02.png">{128, 128}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">1926</string>
+		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>
 </archive>
