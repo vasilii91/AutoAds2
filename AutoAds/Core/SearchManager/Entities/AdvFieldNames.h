@@ -270,7 +270,7 @@
 #define F_MODERATE_ENG @"Moderate"
 
 #define F_MODEL_RUS @"Модель"
-#define F_MODEL_ENG @"models"
+#define F_MODEL_ENG @"models[]"
 
 #define F_MODIFICATION_RUS @"Модификация"
 #define F_MODIFICATION_ENG @"Modification"

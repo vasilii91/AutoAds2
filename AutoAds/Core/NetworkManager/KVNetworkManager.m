@@ -99,7 +99,7 @@ static KVNetworkManager *instance = nil;
     }
 }
 
-- (KVUrlRequest *)createMultipartFormRequest:(NSOutputStream*)outputStream url:(NSString*)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier jsonString:(NSString *)jsonString
+- (KVUrlRequest *)createMultipartFormRequest:(NSOutputStream*)outputStream url:(NSString*)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier jsonString:(NSString *)jsonString withImages:(NSArray *)images
 {
     NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -109,10 +109,16 @@ static KVNetworkManager *instance = nil;
                                     requestWithURL:[NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
     NSMutableData *body = [[NSMutableData alloc] init];
     
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"", currentDevice.name] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithFormat:@"\r\n\r\n%@", currentDevice.name] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    if ([images count] != 0) {
+        for (UIImage *image in images) {
+            NSData *imageData = UIImagePNGRepresentation(image);
+            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[@"Content-Disposition: attachment; name=\"Photo[]\"; filename=\".jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[NSData dataWithData:imageData]];
+            [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        }
+    }
     
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n",@"request.json"] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -194,11 +200,19 @@ static KVNetworkManager *instance = nil;
     return [NSString stringWithFormat:@"%@-%d", identifier, type];
 }
 
-- (NSString *)urlGetWithActionName:(NSString *)actionName parameters:(NSString *)parameters
+- (NSString *)urlGetWithActionName:(NSString *)actionName parameters:(NSString *)parameters apiCall:(ApiCall)apiCall
 {
     NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
     NSString *serverURL = [AdvDictionaries valueFromDictionary:[AdvDictionaries HostLinks] forKeyOrValue:currentNameOfGroup];
-    NSString *url = [NSString stringWithFormat:SERVER_URL_GET_FORMAT, serverURL, actionName, parameters];
+    
+    NSString *getOrPost = nil;
+    if (apiCall == ApiCallGET) {
+        getOrPost = SERVER_URL_GET_FORMAT;
+    }
+    else {
+        getOrPost = SERVER_URL_POST_FORMAT;
+    }
+    NSString *url = [NSString stringWithFormat:getOrPost, serverURL, actionName, parameters];
     
     return url;
 }
@@ -249,7 +263,8 @@ static KVNetworkManager *instance = nil;
 
 - (void)searchWithQuery:(NSString *)queryString
 {
-    NSString *url = [self urlGetWithActionName:@"Search" parameters:queryString];
+    NSString *url = [self urlGetWithActionName:@"Search" parameters:queryString apiCall:ApiCallGET];
+    LOG(@"%@", url);
     KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeSearch requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
     
     [self addRequest:urlRequest];
@@ -258,7 +273,7 @@ static KVNetworkManager *instance = nil;
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
 {
     NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
-    NSString *url = [self urlGetWithActionName:@"Brands" parameters:jsonString];
+    NSString *url = [self urlGetWithActionName:@"Brands" parameters:jsonString apiCall:ApiCallGET];
     KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeBrands requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
     
     [self addRequest:urlRequest];
@@ -286,6 +301,14 @@ static KVNetworkManager *instance = nil;
     else {
         [self requestProcessed:nil];
     }
+}
+
+- (void)addAdvertisementWithJsonString:(NSString *)jsonString images:(NSArray *)images
+{
+    NSString *url = [self urlGetWithActionName:@"AddAdvertisement" parameters:jsonString apiCall:ApiCallGET];
+    
+    KVUrlRequest *urlRequest = [self createMultipartFormRequest:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeAddAdvertisement requestIdentifier:@"" jsonString:jsonString];
+    [self addRequest:urlRequest];
 }
 
 #pragma mark -

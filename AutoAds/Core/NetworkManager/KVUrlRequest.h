@@ -19,7 +19,8 @@ typedef enum {
     RequestTypeLogin,
     RequestTypeSearch,
     RequestTypeBrands,
-    RequestTypePhotosOfCar
+    RequestTypePhotosOfCar,
+    RequestTypeAddAdvertisement
 } RequestType;
 
 @protocol  KVUrlRequestDelegate

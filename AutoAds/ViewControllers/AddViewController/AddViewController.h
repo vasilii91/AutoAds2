@@ -13,14 +13,21 @@
 #import "Search2ViewController.h"
 #import "SavedSearchQueriesViewController.h"
 #import "Constants.h"
+#import "KVNetworkManager.h"
 
-@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
+@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate>
 {
+    PleaseWaitAlertView *pleaseWaitAlertView;
+    
     SearchManager *searchManager;
+    KVNetworkManager *networkManager;
     
     NSArray *fields;
     AdvField *lastSelectedField;
     AdvGroup *currentGroup;
+    
+    NSString *lastSelectedRubric;
+    NSString *lastSelectedSubrubric;
     
     AdvField *f0;
     AdvField *f1;
@@ -30,4 +37,5 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAdd;
+- (IBAction)clickOnAddAdvertisementButton:(id)sender;
 @end

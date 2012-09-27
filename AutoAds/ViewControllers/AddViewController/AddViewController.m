@@ -27,6 +27,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         searchManager = [SearchManager sharedMySingleton];
+        networkManager = [KVNetworkManager sharedInstance];
         fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     }
     return self;
@@ -46,7 +47,7 @@
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQuery) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQueryToDefaultState) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
     
     self.scrollView.backgroundColor = [UIColor clearColor];
@@ -79,17 +80,54 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [networkManager subscribe:self];
     
-    if (([f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
-         [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] &&
-         f1.selectedValue != nil &&
-         f2.selectedValue != nil) ||
-        [f1.selectedValue isEqualToString:@"Автозапчасти"]) {
-        
-        currentGroup = [searchManager categoryAddAdvertisementByRubric:f1.selectedValue subrubric:f2.selectedValue];
-        fields = [currentGroup getObligatoryFields];
+    BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
+    [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
+    BOOL isRubricAndSubWereSelected = f1.selectedValue != nil && f2.selectedValue != nil;
+    BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
+    [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
+    
+    if (f1.selectedValue != nil && f2.selectedValue == nil) {
+        [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];
     }
     
+    if ((isFieldsAreRubricsAndSub && isNeedToUpdate) ||
+        ([f1.selectedValue isEqualToString:@"Автозапчасти"])) {
+        
+        [self cleanQueryExceptRubricAndSubrubric];
+        
+        if (isRubricAndSubWereSelected == YES) {
+            lastSelectedRubric = f1.selectedValue;
+            lastSelectedSubrubric = f2.selectedValue;
+            
+            currentGroup = [searchManager categoryAddAdvertisementByRubric:f1.selectedValue subrubric:f2.selectedValue];
+            fields = [currentGroup getObligatoryFields];
+            
+            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
+            [pleaseWaitAlertView show];
+            
+            NSString *rubric = [f1 valueForServerBySelectedValue];
+            NSString *subrubric = [f2 valueForServerBySelectedValue];
+            
+            [networkManager getModelsByRubric:rubric subrubric:subrubric];
+        }
+    }
+    
+    [self setFramesToViews];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [networkManager unsubscribe:self];
+}
+
+
+#pragma mark - Private methods
+
+- (void)setFramesToViews
+{
     self.tableViewFields.backgroundColor = [UIColor clearColor];
     CGRect tableFrame = self.tableViewFields.frame;
     CGFloat tableHeight = [fields count] * TABLE_CELL_HEIGHT;
@@ -110,6 +148,49 @@
     [self.tableViewFields reloadData];
 }
 
+- (void)cleanQueryToDefaultState
+{
+    lastSelectedRubric = nil;
+    lastSelectedSubrubric = nil;
+
+    for (AdvField *field in fields) {
+        field.selectedValue = nil;
+    }
+    fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
+    
+    [self setFramesToViews];
+}
+
+- (void)cleanQueryToDefaultStateWithoutCleaningRubAndSub
+{
+    lastSelectedRubric = nil;
+    lastSelectedSubrubric = nil;
+    
+    for (AdvField *field in fields) {
+        if ([field.nameEnglish isEqualToString:F_RUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_CITY_CODE_ENG] == NO) {
+            field.selectedValue = nil;
+        }
+    }
+    fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
+    
+    [self setFramesToViews];
+}
+
+- (void)cleanQueryExceptRubricAndSubrubric
+{
+    for (AdvField *field in fields) {
+        if ([field.nameEnglish isEqualToString:F_RUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_SUBRUBRIC_ENG] == NO &&
+            [field.nameEnglish isEqualToString:F_CITY_CODE_ENG] == NO) {
+            field.selectedValue = nil;
+        }
+    }
+    
+    [self setFramesToViews];
+}
+
 
 #pragma mark - Actions
 
@@ -118,16 +199,11 @@
     [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
 }
 
-- (void)cleanQuery
+- (IBAction)clickOnAddAdvertisementButton:(id)sender
 {
-    for (AdvField *field in fields) {
-        field.selectedValue = nil;
-    }
-    fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
-    
-    [self.tableViewFields reloadData];
+    NSString *jsonString = [searchManager queryToAddAdvertisement:fields];
+    LOG(@"%@", jsonString);
 }
-
 
 #pragma mark - Table view data source
 
@@ -172,6 +248,17 @@
 }
 
 
+#pragma mark - @protocol UIAlertViewDelegate <NSObject>
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [networkManager unsubscribe:self];
+        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    }
+}
+
+
 #pragma mark - @protocol UIWebViewDelegate <NSObject>
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
@@ -187,5 +274,17 @@
     }
     
     return YES;
+}
+
+#pragma mark - @protocol KVNetworkDelegate
+
+- (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
+{
+    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+}
+
+- (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
+{
+    LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
 @end

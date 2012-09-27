@@ -126,6 +126,37 @@ static SearchManager *_sharedMySingleton = nil;
     return stringQuery;
 }
 
+- (NSString *)queryToAddAdvertisement:(NSArray *)fields
+{
+    NSMutableString *jsonString = [NSMutableString new];
+    [jsonString appendString:@"[{"];
+    for (AdvField *field in fields) {
+        if (field.selectedValue != nil || field.valueByDefault != nil) {
+            NSString *fieldName = field.nameEnglish;
+            NSString *fieldValue = nil;
+            
+            if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
+                fieldValue = [field.value valueForKey:field.selectedValue];
+            }
+            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+                fieldValue = field.selectedValue;
+            }
+            
+            if (fieldValue != nil) {
+                if ([jsonString length] == 2) {
+                    [jsonString appendFormat:@"%@:%@", fieldName, fieldValue];
+                }
+                else {
+                    [jsonString appendFormat:@",%@:%@", fieldName, fieldValue];
+                }
+            }
+        }
+    }
+    [jsonString appendString:@"}]"];
+    
+    return jsonString;
+}
+
 
 #pragma mark - Private methods
 
