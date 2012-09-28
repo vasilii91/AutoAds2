@@ -966,8 +966,8 @@
     OrderedDictionary *dictionary = [OrderedDictionary new];
     [dictionary setValue:@"0" forKey:@"2 недели"];
     [dictionary setValue:@"1" forKey:@"4 недели"];
-    [dictionary setValue:@"2" forKey:@"6 недели"];
-    [dictionary setValue:@"3" forKey:@"8 недели"];
+    [dictionary setValue:@"2" forKey:@"6 недель"];
+    [dictionary setValue:@"3" forKey:@"8 недель"];
     
     return dictionary;
 }

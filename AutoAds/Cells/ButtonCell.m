@@ -22,7 +22,7 @@
     [self.textView setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:12.]];
     [self.textView setBackgroundColor:[UIColor clearColor]];
     
-    [self.button.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:14.]];
+    [self.button.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:12.]];
     [self.button setBackgroundImage:[[UIImage imageNamed:@"tableButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)] forState:UIControlStateNormal];
     [self.button addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
     

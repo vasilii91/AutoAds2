@@ -69,11 +69,6 @@
             [self.view addSubview:stringView];
             break;
         }
-        case ValueTypePhoto:
-        {
-            
-            break;
-        }
         case ValueTypeDictionaryFromInternet:
         {
             SelectValueDictionaryView *dictionaryView = [SelectValueDictionaryView loadView];
@@ -142,6 +137,8 @@
     }
 
     field.selectedValue = selectedValue;
+    
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

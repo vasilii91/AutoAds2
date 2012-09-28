@@ -10,7 +10,6 @@
 		10A3FB6315FC0F6C007FE234 /* SearchViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A3FB6215FC0F6C007FE234 /* SearchViewControllerOld.m */; };
 		10A3FB6615FC1034007FE234 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A3FB6515FC1034007FE234 /* SearchViewController.m */; };
 		10BE55B215FCF609008983A6 /* Search2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55B115FCF609008983A6 /* Search2ViewController.m */; };
-		10BE55BF15FD0329008983A6 /* SelectValuePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55BE15FD0329008983A6 /* SelectValuePhotoView.m */; };
 		10BE55C315FD03AD008983A6 /* SelectValueStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55C215FD03AD008983A6 /* SelectValueStringView.m */; };
 		10BE55C815FD0546008983A6 /* SelectValueDictionaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55C715FD0546008983A6 /* SelectValueDictionaryView.m */; };
 		10BE55CA15FD0598008983A6 /* SelectValueDictionaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10BE55C915FD0598008983A6 /* SelectValueDictionaryView.xib */; };
@@ -47,6 +46,8 @@
 		10FCD0931607AE4C005C877D /* TechnicalHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0911607AE4C005C877D /* TechnicalHelpViewController.xib */; };
 		10FCD0981607AFA0005C877D /* AboutProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FCD0961607AFA0005C877D /* AboutProgramViewController.m */; };
 		10FCD0991607AFA0005C877D /* AboutProgramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */; };
+		BE02048316159DD700ABBCC3 /* SelectValuePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE02048216159DD700ABBCC3 /* SelectValuePhotoViewController.xib */; };
+		BE02048A1615AC7800ABBCC3 /* SelectValuePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0204891615AC7800ABBCC3 /* SelectValuePhotoViewController.m */; };
 		BE26EB95160C697700530E7D /* KVNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26EB8B160C697600530E7D /* KVNetworkManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE26EB96160C697700530E7D /* KVUrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26EB8D160C697600530E7D /* KVUrlRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE26EB97160C697700530E7D /* KVDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26EB90160C697600530E7D /* KVDataManager.m */; };
@@ -182,8 +183,7 @@
 		10BE55AE15FC148D008983A6 /* AdvFieldNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvFieldNames.h; path = SearchManager/Entities/AdvFieldNames.h; sourceTree = "<group>"; };
 		10BE55B015FCF609008983A6 /* Search2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search2ViewController.h; sourceTree = "<group>"; };
 		10BE55B115FCF609008983A6 /* Search2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search2ViewController.m; sourceTree = "<group>"; };
-		10BE55BD15FD0329008983A6 /* SelectValuePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectValuePhotoView.h; sourceTree = "<group>"; };
-		10BE55BE15FD0329008983A6 /* SelectValuePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectValuePhotoView.m; sourceTree = "<group>"; };
+		10BE55BD15FD0329008983A6 /* SelectValuePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectValuePhotoViewController.h; sourceTree = "<group>"; };
 		10BE55C115FD03AD008983A6 /* SelectValueStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectValueStringView.h; path = SelectValueStringView/SelectValueStringView.h; sourceTree = "<group>"; };
 		10BE55C215FD03AD008983A6 /* SelectValueStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectValueStringView.m; path = SelectValueStringView/SelectValueStringView.m; sourceTree = "<group>"; };
 		10BE55C615FD0546008983A6 /* SelectValueDictionaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectValueDictionaryView.h; path = SelectValueDictionaryView/SelectValueDictionaryView.h; sourceTree = "<group>"; };
@@ -247,6 +247,8 @@
 		10FCD0951607AFA0005C877D /* AboutProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutProgramViewController.h; path = AboutProgramViewController/AboutProgramViewController.h; sourceTree = "<group>"; };
 		10FCD0961607AFA0005C877D /* AboutProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutProgramViewController.m; path = AboutProgramViewController/AboutProgramViewController.m; sourceTree = "<group>"; };
 		10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutProgramViewController.xib; path = AboutProgramViewController/AboutProgramViewController.xib; sourceTree = "<group>"; };
+		BE02048216159DD700ABBCC3 /* SelectValuePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectValuePhotoViewController.xib; sourceTree = "<group>"; };
+		BE0204891615AC7800ABBCC3 /* SelectValuePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectValuePhotoViewController.m; sourceTree = "<group>"; };
 		BE26EB8A160C697600530E7D /* KVNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVNetworkManager.h; sourceTree = "<group>"; };
 		BE26EB8B160C697600530E7D /* KVNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVNetworkManager.m; sourceTree = "<group>"; };
 		BE26EB8C160C697600530E7D /* KVUrlRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVUrlRequest.h; sourceTree = "<group>"; };
@@ -477,8 +479,9 @@
 		10BE55BC15FD0329008983A6 /* SelectValuePhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				10BE55BD15FD0329008983A6 /* SelectValuePhotoView.h */,
-				10BE55BE15FD0329008983A6 /* SelectValuePhotoView.m */,
+				10BE55BD15FD0329008983A6 /* SelectValuePhotoViewController.h */,
+				BE0204891615AC7800ABBCC3 /* SelectValuePhotoViewController.m */,
+				BE02048216159DD700ABBCC3 /* SelectValuePhotoViewController.xib */,
 			);
 			path = SelectValuePhotoView;
 			sourceTree = "<group>";
@@ -1405,6 +1408,7 @@
 				BE3CFA58161305E00081CD64 /* egopv_right@2x.png in Resources */,
 				BE3CFA5F161312AF0081CD64 /* thumbnail_01.png in Resources */,
 				BE3CFA60161312AF0081CD64 /* thumbnail_02.png in Resources */,
+				BE02048316159DD700ABBCC3 /* SelectValuePhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1449,7 +1453,6 @@
 				10A3FB6315FC0F6C007FE234 /* SearchViewControllerOld.m in Sources */,
 				10A3FB6615FC1034007FE234 /* SearchViewController.m in Sources */,
 				10BE55B215FCF609008983A6 /* Search2ViewController.m in Sources */,
-				10BE55BF15FD0329008983A6 /* SelectValuePhotoView.m in Sources */,
 				10BE55C315FD03AD008983A6 /* SelectValueStringView.m in Sources */,
 				10BE55C815FD0546008983A6 /* SelectValueDictionaryView.m in Sources */,
 				10BE55D115FD08B3008983A6 /* SelectValueCell.m in Sources */,
@@ -1518,6 +1521,7 @@
 				BE3CFA5B161305E00081CD64 /* EGOPhotoScrollView.m in Sources */,
 				BE3CFA64161318AF0081CD64 /* PageControl.m in Sources */,
 				BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */,
+				BE02048A1615AC7800ABBCC3 /* SelectValuePhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

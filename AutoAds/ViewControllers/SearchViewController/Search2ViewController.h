@@ -12,6 +12,7 @@
 #import "SelectValueDelegate.h"
 #import "SelectValueDictionaryView.h"
 #import "SelectValueStringView.h"
+#import "SelectValuePhotoViewController.h"
 #import "KVDataManager.h"
 
 @interface Search2ViewController : UIViewController<SelectValueDelegate>

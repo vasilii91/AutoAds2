@@ -15,7 +15,7 @@
 #import "Constants.h"
 #import "KVNetworkManager.h"
 
-@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate>
+@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate>
 {
     PleaseWaitAlertView *pleaseWaitAlertView;
     
@@ -32,6 +32,8 @@
     AdvField *f0;
     AdvField *f1;
     AdvField *f2;
+    
+    OrderedDictionary *dictionaryPhotos;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewFields;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

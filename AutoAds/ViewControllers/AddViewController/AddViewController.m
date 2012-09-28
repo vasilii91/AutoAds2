@@ -202,7 +202,11 @@
 - (IBAction)clickOnAddAdvertisementButton:(id)sender
 {
     NSString *jsonString = [searchManager queryToAddAdvertisement:fields];
-    LOG(@"%@", jsonString);
+    LOG(@"%@ %@", jsonString, dictionaryPhotos);
+    
+    NSDictionary *dict = [searchManager parametersToAddAdvertisement:fields];
+    
+    [networkManager addAdvertisementWithParameters:dict images:[dictionaryPhotos allValues]];
 }
 
 #pragma mark - Table view data source
@@ -224,6 +228,15 @@
     NSString *title = field.nameRussian;
     NSString *value = field.selectedValue == nil ? field.valueByDefault : field.selectedValue;
     
+    if (field.valueType == ValueTypePhoto) {
+        if ([dictionaryPhotos count] != 0) {
+            value = @"Фото выбраны";
+        }
+        else {
+            value = nil;
+        }
+    }
+    
     [cell.textView setText:title];
     [cell.button setTitle:value forState:UIControlStateNormal];
     
@@ -242,9 +255,33 @@
 {
     lastSelectedField = [fields objectAtIndex:indexPath.row];
     
-    Search2ViewController *search2VC = [Search2ViewController new];
-    search2VC.field = lastSelectedField;
-    [self.navigationController pushViewController:search2VC animated:YES];
+    if (lastSelectedField.valueType == ValueTypePhoto) {
+        SelectValuePhotoViewController *photoVC = [[SelectValuePhotoViewController alloc] initWithNibName:@"SelectValuePhotoViewController" bundle:nil];
+        photoVC.labelName = lastSelectedField.nameRussian;
+        photoVC.selectedPhotos = dictionaryPhotos;
+        photoVC.delegate = self;
+        [self.navigationController pushViewController:photoVC animated:YES];
+    }
+    else {
+        Search2ViewController *search2VC = [Search2ViewController new];
+        search2VC.field = lastSelectedField;
+        [self.navigationController pushViewController:search2VC animated:YES];
+    }
+}
+
+
+#pragma mark - @protocol SelectValueDelegate <NSObject>
+
+- (void)valueWasSelected:(id)selectedValue
+{
+    OrderedDictionary *selectedPhotos = (OrderedDictionary *)selectedValue;
+    if ([selectedPhotos count] != 0) {
+        lastSelectedField.selectedValue = @"Фото выбраны";
+    }
+    else {
+        lastSelectedField.selectedValue = nil;
+    }
+    dictionaryPhotos = (OrderedDictionary *)selectedValue;
 }
 
 

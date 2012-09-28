@@ -142,7 +142,16 @@ static SearchManager *_sharedMySingleton = nil;
                 fieldValue = field.selectedValue;
             }
             
-            if (fieldValue != nil) {
+            if ([fieldValue length] == 0) {
+                if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
+                    fieldValue = [field.value valueForKey:field.valueByDefault];
+                }
+                else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+                    fieldValue = field.valueByDefault;
+                }
+            }
+            
+            if ([fieldName length] != 0 && [fieldValue length] != 0) {
                 if ([jsonString length] == 2) {
                     [jsonString appendFormat:@"%@:%@", fieldName, fieldValue];
                 }
@@ -157,6 +166,39 @@ static SearchManager *_sharedMySingleton = nil;
     return jsonString;
 }
 
+- (NSDictionary *)parametersToAddAdvertisement:(NSArray *)fields
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+
+    for (AdvField *field in fields) {
+        if (field.selectedValue != nil || field.valueByDefault != nil) {
+            NSString *fieldName = field.nameEnglish;
+            NSString *fieldValue = nil;
+            
+            if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
+                fieldValue = [field.value valueForKey:field.selectedValue];
+            }
+            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+                fieldValue = field.selectedValue;
+            }
+            
+            if ([fieldValue length] == 0) {
+                if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
+                    fieldValue = [field.value valueForKey:field.valueByDefault];
+                }
+                else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+                    fieldValue = field.valueByDefault;
+                }
+            }
+            
+            if ([fieldName length] != 0 && [fieldValue length] != 0) {
+                [parameters setValue:fieldValue forKey:fieldName];
+            }
+        }
+    }
+    
+    return parameters;
+}
 
 #pragma mark - Private methods
 

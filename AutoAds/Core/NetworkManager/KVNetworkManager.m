@@ -21,7 +21,7 @@ static KVNetworkManager *instance = nil;
 - (void)requestProcessed:(KVUrlRequest *)request;
 - (void)requestFailed:(KVUrlRequest *)request error:(NSString *)message code:(int)code;
 
-- (KVUrlRequest *)createMultipartFormRequest:(NSOutputStream*)outputStream url:(NSString*)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier jsonString:(NSString *)jsonString;
+- (KVUrlRequest *)createMultipartFormRequest:(NSOutputStream*)outputStream url:(NSString*)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters withImages:(NSArray *)images;
 - (KVUrlRequest *)requestToServer:(NSOutputStream *)outputStream url:(NSString *)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier jsonString:(NSString *)jsonString httpMethod:(NSString *)httpMethod;
 
 + (NSString*)getRequestKey:(int)type forId:(NSString *)identifier;
@@ -99,10 +99,8 @@ static KVNetworkManager *instance = nil;
     }
 }
 
-- (KVUrlRequest *)createMultipartFormRequest:(NSOutputStream*)outputStream url:(NSString*)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier jsonString:(NSString *)jsonString withImages:(NSArray *)images
+- (KVUrlRequest *)createMultipartFormRequest:(NSOutputStream*)outputStream url:(NSString*)urlStr requestType:(RequestType)requestType requestIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters withImages:(NSArray *)images
 {
-    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    
     static NSString* const BOUNDRY = @"6490653261771490969735433975";
     
     NSMutableURLRequest *request = [NSMutableURLRequest
@@ -120,11 +118,17 @@ static KVNetworkManager *instance = nil;
         }
     }
     
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n",@"request.json"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:data];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
+    for (NSString *key in [parameters allKeys]) {
+        NSString *value = [parameters valueForKey:key];
+        NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
+        
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:data];
+        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", BOUNDRY] dataUsingEncoding:NSUTF8StringEncoding]];
     
     [request setHTTPMethod:@"POST"];
     [request addValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", BOUNDRY] forHTTPHeaderField:@"Content-Type"];
@@ -205,14 +209,13 @@ static KVNetworkManager *instance = nil;
     NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
     NSString *serverURL = [AdvDictionaries valueFromDictionary:[AdvDictionaries HostLinks] forKeyOrValue:currentNameOfGroup];
     
-    NSString *getOrPost = nil;
+    NSString *url = nil;
     if (apiCall == ApiCallGET) {
-        getOrPost = SERVER_URL_GET_FORMAT;
+        url = [NSString stringWithFormat:SERVER_URL_GET_FORMAT, serverURL, actionName, parameters];
     }
     else {
-        getOrPost = SERVER_URL_POST_FORMAT;
+        url = [NSString stringWithFormat:SERVER_URL_POST_FORMAT, serverURL, actionName];
     }
-    NSString *url = [NSString stringWithFormat:getOrPost, serverURL, actionName, parameters];
     
     return url;
 }
@@ -305,11 +308,11 @@ static KVNetworkManager *instance = nil;
     }
 }
 
-- (void)addAdvertisementWithJsonString:(NSString *)jsonString images:(NSArray *)images
+- (void)addAdvertisementWithParameters:(NSDictionary *)parameters images:(NSArray *)images
 {
-    NSString *url = [self urlGetWithActionName:@"AddAdvertisement" parameters:jsonString apiCall:ApiCallGET];
+    NSString *url = [self urlGetWithActionName:@"AddAdvertisement" parameters:nil apiCall:ApiCallPOST];
     
-    KVUrlRequest *urlRequest = [self createMultipartFormRequest:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeAddAdvertisement requestIdentifier:@"" jsonString:jsonString];
+    KVUrlRequest *urlRequest = [self createMultipartFormRequest:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeAddAdvertisement requestIdentifier:@"" parameters:parameters withImages:images];
     [self addRequest:urlRequest];
 }
 
