@@ -150,58 +150,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/ListOfAdverisementViewController/ListOfAdverisementViewController.m"
-         timestampString = "370474504.55714"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/AdvertisementViewController/AdvertisementViewController.m"
-         timestampString = "370474546.231471"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/NetworkManager/KVNetworkManager.m"
-         timestampString = "370474554.512545"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "269"
-         endingLineNumber = "269"
-         landmarkName = "-savePhotosByPhotoContainer:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/NetworkManager/KVNetworkManager.m"
-         timestampString = "370475066.502892"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "272"
-         endingLineNumber = "272"
-         landmarkName = "-savePhotosByPhotoContainer:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/Entities/PhotoEntities/PhotoContainer.m"
          timestampString = "370475627.988737"
          startingColumnNumber = "9223372036854775807"
@@ -228,26 +176,39 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/Jastor/JastorRuntimeHelper.m"
-         timestampString = "370476117.711239"
+         filePath = "AutoAds/Core/NetworkManager/KVNetworkManager.m"
+         timestampString = "370613624.630363"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
-         landmarkName = "+propertyClassForPropertyName:ofClass:"
+         startingLineNumber = "315"
+         endingLineNumber = "315"
+         landmarkName = "-addAdvertisementWithParameters:images:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/Jastor/JastorRuntimeHelper.m"
-         timestampString = "370476293.802841"
+         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
+         timestampString = "370614744.29643"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
-         landmarkName = "+propertyClassForPropertyName:ofClass:"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
+         landmarkName = "-parametersToAddAdvertisement:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
+         timestampString = "370620484.443576"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
+         landmarkName = "-saveData:withRequestType:identifier:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -67,8 +67,12 @@ static NSMutableDictionary *propertyClassByClassAndPropertyName;
 		if (strcmp(cPropertyName, name) == 0) {
 			free(properties);
 			NSString *className = [NSString stringWithUTF8String:property_getTypeName(property)];
-			[propertyClassByClassAndPropertyName setObject:className forKey:key];
-			return NSClassFromString(className);
+            LOG(@"%@", className);
+            if ([className length] != 0) {
+                [propertyClassByClassAndPropertyName setObject:className forKey:key];
+                return NSClassFromString(className);
+            }
+            return nil;
 		}
 	}
 	free(properties);

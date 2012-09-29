@@ -30,6 +30,8 @@
 @property (nonatomic, retain) NSDictionary *modificationsDictionary;
 
 @property (nonatomic, assign) NSInteger countOfLoadedImages;;
+@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) NSInteger totalCount;
 
 /**
  Method to save definitely data from stream

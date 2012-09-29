@@ -178,6 +178,12 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
     [self stop];
 }
 
+- (void)errorWasOccuredWithError:(NSString *)textError
+{
+    NSError *error = [self createErrorWithCode:0 description:textError reason:textError];
+    [_delegate requestFailed:self error:error];
+}
+
 
 #pragma mark - Memory management
 

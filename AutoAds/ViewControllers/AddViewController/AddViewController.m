@@ -322,6 +322,8 @@
 
 - (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
 {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alertView show];
     LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
 @end

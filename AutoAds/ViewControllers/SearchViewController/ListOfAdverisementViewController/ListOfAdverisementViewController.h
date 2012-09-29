@@ -15,6 +15,7 @@
 #import "KVDataManager.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
+#import "SVPullToRefresh.h"
 
 @interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol>
 {

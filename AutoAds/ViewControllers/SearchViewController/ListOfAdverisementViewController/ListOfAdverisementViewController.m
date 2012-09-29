@@ -78,6 +78,24 @@
                                             self.tableViewAdvertisement.frame.size.height - frameOfHeaderWhenShown.size.height);
     
     [self.view addSubview:listOfAdvertisementHeader];
+    
+//    // setup the pull-to-refresh view
+//    [self.tableViewAdvertisement addPullToRefreshWithActionHandler:^{
+//        NSLog(@"refresh dataSource");
+//        if (tableViewAdvertisement.pullToRefreshView.state == SVPullToRefreshStateLoading)
+//            NSLog(@"Pull to refresh is loading");
+//        [tableViewAdvertisement.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
+//    }];
+    
+    [self.tableViewAdvertisement addInfiniteScrollingWithActionHandler:^{
+//        NSLog(@"load more data");
+//        NSArray *arr = [dataManager advertisements];
+//        [searchedAdvertisements addObjectsFromArray:arr];
+//        [self.tableViewAdvertisement reloadData];
+    }];
+    
+    // you can also display the "last updated" date
+    tableViewAdvertisement.pullToRefreshView.lastUpdatedDate = [NSDate date];
 }
 
 - (void)viewDidUnload

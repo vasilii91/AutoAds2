@@ -11,5 +11,6 @@
 @protocol KVDataManagerDelegate <NSObject>
 
 - (void)dataWasSuccessfullyParsed;
+- (void)errorWasOccuredWithError:(NSString *)textError;
 
 @end

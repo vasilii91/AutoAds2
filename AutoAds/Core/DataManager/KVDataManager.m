@@ -64,26 +64,36 @@ static KVDataManager *instance = nil;
         SBJsonParser *parser = [[SBJsonParser alloc] init];
         NSDictionary *parseData = [parser objectWithString:str];
         
-        if (type == RequestTypeSearch) {
-            NSArray *advertisementsArray = [parseData valueForKey:@"Ads"];
-            self.advertisements = [NSMutableArray new];
-            
-            for (NSDictionary *d in advertisementsArray) {
-                Advertisement *advertisement = [[Advertisement alloc] initWithDictionary:d];
-                [self.advertisements addObject:advertisement];
-            }
-        }
-        else if (type == RequestTypeBrands) {
-            NSArray *arr = [parseData valueForKey:@"Brands"];
-            self.brands = [NSMutableArray new];
-            
-            for (NSDictionary *d in arr) {
-                VehicleBrand *brand = [[VehicleBrand alloc] initWithDictionary:d];
-                [self.brands addObject:brand];
-            }
-        }
+        NSInteger errorCode = [[parseData objectForKey:@"error"] integerValue];
         
-        [self.delegate dataWasSuccessfullyParsed];
+        if (errorCode == 0) {
+            if (type == RequestTypeSearch) {
+                _currentPage = [[parseData valueForKey:@"Page"] integerValue];
+                _totalCount = [[parseData valueForKey:@"Total"] integerValue];
+                
+                NSArray *advertisementsArray = [parseData valueForKey:@"Ads"];
+                self.advertisements = [NSMutableArray new];
+                
+                for (NSDictionary *d in advertisementsArray) {
+                    Advertisement *advertisement = [[Advertisement alloc] initWithDictionary:d];
+                    [self.advertisements addObject:advertisement];
+                }
+            }
+            else if (type == RequestTypeBrands) {
+                NSArray *arr = [parseData valueForKey:@"Brands"];
+                self.brands = [NSMutableArray new];
+                
+                for (NSDictionary *d in arr) {
+                    VehicleBrand *brand = [[VehicleBrand alloc] initWithDictionary:d];
+                    [self.brands addObject:brand];
+                }
+            }
+            [self.delegate dataWasSuccessfullyParsed];
+        }
+        else if (errorCode == 1) {
+            NSString *errorText = [parseData objectForKey:@"errorText"];
+            [self.delegate errorWasOccuredWithError:errorText];
+        }
     }
 }
 

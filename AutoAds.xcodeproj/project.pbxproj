@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104235161617308300941200 /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 104235151617308300941200 /* SVPullToRefresh.m */; };
 		10A3FB6315FC0F6C007FE234 /* SearchViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A3FB6215FC0F6C007FE234 /* SearchViewControllerOld.m */; };
 		10A3FB6615FC1034007FE234 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A3FB6515FC1034007FE234 /* SearchViewController.m */; };
 		10BE55B215FCF609008983A6 /* Search2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE55B115FCF609008983A6 /* Search2ViewController.m */; };
@@ -98,8 +99,8 @@
 		BE6FCEFD1611A35700C8E8ED /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF31611A35700C8E8ED /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE6FCEFE1611A35700C8E8ED /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF61611A35700C8E8ED /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE6FCEFF1611A35700C8E8ED /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF81611A35700C8E8ED /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		BE90E9C3160CA03700635EAC /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C0160CA03700635EAC /* Jastor.m */; };
-		BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */; };
+		BE90E9C3160CA03700635EAC /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C0160CA03700635EAC /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE90E9CB160CA69600635EAC /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9CA160CA69600635EAC /* Options.m */; };
 		BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = BE919FEF16133A500005FA8A /* AdvertisementAdd.m */; };
 		BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */; };
@@ -177,6 +178,8 @@
 
 /* Begin PBXFileReference section */
 		1021D64C15FFD2A000360903 /* AdvValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvValues.h; path = SearchManager/Entities/AdvValues.h; sourceTree = "<group>"; };
+		104235141617308300941200 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		104235151617308300941200 /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
 		10A3FB6215FC0F6C007FE234 /* SearchViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewControllerOld.m; sourceTree = "<group>"; };
 		10A3FB6415FC1034007FE234 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		10A3FB6515FC1034007FE234 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
@@ -465,6 +468,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104235131617308300941200 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				104235141617308300941200 /* SVPullToRefresh.h */,
+				104235151617308300941200 /* SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		10BE55B815FD02F1008983A6 /* SelectValueViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1087,7 @@
 			children = (
 				BE3CFA15161305E00081CD64 /* EGOPhotoViewer */,
 				BE6FCEE71611A35700C8E8ED /* SDWebImage */,
+				104235131617308300941200 /* SVPullToRefresh */,
 				BEDD195616036BEC00FACC4B /* Controls */,
 				BE2F84F015FF2B50008859B1 /* Entities */,
 				BE90E9BE160CA03700635EAC /* Jastor */,
@@ -1522,6 +1535,7 @@
 				BE3CFA64161318AF0081CD64 /* PageControl.m in Sources */,
 				BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */,
 				BE02048A1615AC7800ABBCC3 /* SelectValuePhotoViewController.m in Sources */,
+				104235161617308300941200 /* SVPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
