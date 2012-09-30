@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12C54" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FavoriteAdv" representedClassName="FavoriteAdv" syncable="YES">
+        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="favoriteId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Query" representedClassName="Query" syncable="YES">
+        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isSaved" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="queryString" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FavoriteAdv" positionX="-63" positionY="81" width="128" height="75"/>
+        <element name="Query" positionX="160" positionY="192" width="128" height="88"/>
+    </elements>
+</model>

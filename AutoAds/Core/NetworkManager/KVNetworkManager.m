@@ -206,8 +206,7 @@ static KVNetworkManager *instance = nil;
 
 - (NSString *)urlGetWithActionName:(NSString *)actionName parameters:(NSString *)parameters apiCall:(ApiCall)apiCall
 {
-    NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
-    NSString *serverURL = [AdvDictionaries valueFromDictionary:[AdvDictionaries HostLinks] forKeyOrValue:currentNameOfGroup];
+    NSString *serverURL = [self serverURL];
     
     NSString *url = nil;
     if (apiCall == ApiCallGET) {
@@ -223,6 +222,14 @@ static KVNetworkManager *instance = nil;
 
 #pragma mark -
 #pragma mark Public methods
+
+- (NSString *)serverURL
+{
+    NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
+    NSString *serverURL = [AdvDictionaries valueFromDictionary:[AdvDictionaries HostLinks] forKeyOrValue:currentNameOfGroup];
+    
+    return serverURL;
+}
 
 - (void)subscribe:(NSObject<KVNetworkDelegate> *)subscriber
 {    
@@ -313,6 +320,16 @@ static KVNetworkManager *instance = nil;
     NSString *url = [self urlGetWithActionName:@"AddAdvertisement" parameters:nil apiCall:ApiCallPOST];
     
     KVUrlRequest *urlRequest = [self createMultipartFormRequest:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeAddAdvertisement requestIdentifier:@"" parameters:parameters withImages:images];
+    [self addRequest:urlRequest];
+}
+
+- (void)getCaptcha
+{
+    NSString *serverURL = [self serverURL];
+    NSString *captchaURL = [NSString stringWithFormat:@"http://www.%@/service/captcha/", serverURL];
+    
+    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:captchaURL requestType:RequestTypeGetCaptcha requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
+    
     [self addRequest:urlRequest];
 }
 

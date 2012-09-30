@@ -14,6 +14,7 @@
 #import "SelectValueStringView.h"
 #import "SelectValuePhotoViewController.h"
 #import "KVDataManager.h"
+#import "SelectValueCaptchaView.h"
 
 @interface Search2ViewController : UIViewController<SelectValueDelegate>
 {

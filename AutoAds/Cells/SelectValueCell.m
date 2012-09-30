@@ -16,6 +16,7 @@
 - (void)awakeFromNib
 {
     [labelTitle setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:14]];
+    [labelTitle setTextColor:FONT_COLOR_MY_BLUE_COLOR];
     UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"50.png"]];
     [self setBackgroundView:iv];
 }

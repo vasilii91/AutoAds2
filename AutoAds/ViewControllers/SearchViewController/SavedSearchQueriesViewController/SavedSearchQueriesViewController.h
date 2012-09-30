@@ -13,11 +13,19 @@
 #import "SavedSearchCell.h"
 #import "SearchViewController.h"
 #import "KVNetworkManager.h"
+#import "DatabaseManager.h"
 
-@interface SavedSearchQueriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SavedSearchQueriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, KVNetworkDelegate>
 {
+    PleaseWaitAlertView *pleaseWaitAlertView;
+    
     NSMutableArray *latestSearchQueries;
     NSMutableArray *savedSearchQueries;
+    
+    DatabaseManager *databaseManager;
+    KVNetworkManager *networkManager;
+    
+    NSString *currentQueryString;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewSavedSearchQueries;

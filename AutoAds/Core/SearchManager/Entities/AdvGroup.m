@@ -21,4 +21,11 @@
     
     return result;
 }
+
+- (void)printFields
+{
+    for (AdvField *field in self.fields) {
+        LOG(@"%@", field.nameEnglish);
+    }
+}
 @end

@@ -1303,6 +1303,72 @@
 }
 
 
+#pragma mark - AddAdvertisement fields
+
++ (NSDictionary *)AddAdvertisementFields
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"rubric" forKey:F_RUBRIC_ENG];
+    [dictionary setValue:@"subrubric" forKey:F_SUBRUBRIC_ENG];
+    [dictionary setValue:@"Brand" forKey:F_BRAND_ENG];
+    [dictionary setValue:@"Model" forKey:F_MODEL_ENG];
+    [dictionary setValue:@"Modification" forKey:F_MODIFICATION_ENG];
+    [dictionary setValue:@"Year" forKey:F_YEAR_ENG];
+    [dictionary setValue:@"Mileage" forKey:F_MILEAGE_ENG];
+    [dictionary setValue:@"Color" forKey:F_COLOR_ENG];
+    [dictionary setValue:@"InternalColor" forKey:F_INTERNAL_COLOR_ENG];
+    [dictionary setValue:@"Metallic" forKey:F_METALLIC_ENG];
+    [dictionary setValue:@"Rudder" forKey:F_RUDDER_ENG];
+    [dictionary setValue:@"Gearbox" forKey:F_GEARBOX_ENG];
+    [dictionary setValue:@"Drive" forKey:F_DRIVE_ENG];
+    [dictionary setValue:@"BodyType" forKey:F_BODY_TYPE_ENG];
+    [dictionary setValue:@"Status" forKey:F_STATUS_ENG];
+    [dictionary setValue:@"EngineCapacity" forKey:F_ENGINE_CAPACITY_ENG];
+    [dictionary setValue:@"EnginePower" forKey:F_ENGINE_POWER_ENG];
+    [dictionary setValue:@"Fuel[]" forKey:F_FUEL_ENG];
+    [dictionary setValue:@"EngineType" forKey:F_ENGINE_TYPE_ENG];
+    [dictionary setValue:@"Destiny" forKey:F_DESTINY_ENG];
+    [dictionary setValue:@"Capacity" forKey:F_CAPACITY_ENG];
+    [dictionary setValue:@"VanVolume" forKey:F_VAN_VOLUME_ENG];
+    [dictionary setValue:@"Seats" forKey:F_SEATS_ENG];
+    [dictionary setValue:@"CabinType" forKey:F_CABIN_TYPE_ENG];
+    [dictionary setValue:@"AxisCount" forKey:F_AXIS_COUNT_ENG];
+    [dictionary setValue:@"MotoHours" forKey:F_MOTO_HOURS_ENG];
+    [dictionary setValue:@"Displacement" forKey:F_DISPLACEMENT_ENG];
+    [dictionary setValue:@"i_razdel" forKey:F_I_RAZDEL_ENG];
+    [dictionary setValue:@"rubricid" forKey:F_RUBRICID_ENG];
+    [dictionary setValue:@"Name" forKey:F_NAME_ENG];
+    [dictionary setValue:@"Seasonality" forKey:F_SEASONALITY_ENG];
+    [dictionary setValue:@"eSpikes" forKey:F_ESPIKES_ENG];
+    [dictionary setValue:@"Diameter" forKey:F_DIAMETER_ENG];
+    [dictionary setValue:@"WheelWidth" forKey:F_WHEEL_WIDTH_ENG];
+    [dictionary setValue:@"Width" forKey:F_WIDTH_ENG];
+    [dictionary setValue:@"Height" forKey:F_HEIGHT_ENG];
+    [dictionary setValue:@"Count" forKey:F_COUNT_ENG];
+    [dictionary setValue:@"Type" forKey:F_TYPE_ENG];
+    [dictionary setValue:@"Material" forKey:F_MATERIAL_ENG];
+    [dictionary setValue:@"HolesCount" forKey:F_HOLES_COUNT_ENG];
+    [dictionary setValue:@"HoleDiameter" forKey:F_HOLES_DIAMETER_ENG];
+    [dictionary setValue:@"Sortie" forKey:F_SORTIE_ENG];
+    [dictionary setValue:@"Options" forKey:F_OPTIONS_ENG];
+    [dictionary setValue:@"Price" forKey:F_PRICE_ENG];
+    [dictionary setValue:@"Chaffer" forKey:F_CHAFFER_ENG];
+    [dictionary setValue:@"Contacts" forKey:F_CONTACTS_ENG];
+    [dictionary setValue:@"Phone[]" forKey:F_PHONE_ENG];
+    [dictionary setValue:@"Email" forKey:F_EMAIL_ENG];
+    [dictionary setValue:@"Details" forKey:F_DETAILS_ENG];
+    [dictionary setValue:@"Period" forKey:F_PERIOD_ENG];
+    [dictionary setValue:@"CityCode" forKey:F_CITY_CODE_ENG];
+    [dictionary setValue:@"Photo[]" forKey:F_PHOTO_ENG];
+    [dictionary setValue:@"NumOfOwners" forKey:F_NUMBER_OF_OWNERS_ENG];
+    [dictionary setValue:@"VIN" forKey:F_VIN_ENG];
+    [dictionary setValue:@"FromOfficialDealer" forKey:F_FROM_OFFICIAL_DEALER_ENG];
+    [dictionary setValue:@"captcha_code" forKey:F_CAPTCHA_CODE_ENG];
+    
+    return dictionary;
+}
+
+
 #pragma mark - Public methods
 
 + (NSString *)valueFromDictionary:(NSDictionary *)dictionary forKeyOrValue:(NSString *)keyOrValue

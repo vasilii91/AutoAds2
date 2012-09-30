@@ -16,10 +16,10 @@
 
 - (void)awakeFromNib
 {
-    [self.labelName setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:20]];
+    [self.labelName setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:18]];
     [self.labelName setTextColor:FONT_COLOR_MY_BLUE_COLOR];
     
-    [self.labelName setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:18]];
+    [self.labelName setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:16]];
 }
 
 + (LinkCell *)loadView

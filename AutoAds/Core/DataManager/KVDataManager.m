@@ -36,14 +36,7 @@ static KVDataManager *instance = nil;
 
 - (void)saveData:(NSOutputStream *)outputStream withRequestType:(int)type identifier:(NSString *)identifier
 {
-    if (type == RequestTypeLogin) {
-        for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
-        {
-            NSString *currentCookie = [NSString stringWithFormat:@".ASPXAUTH: %@", [cookie value]];
-            LOG(@"cookie - %@", currentCookie);
-        }
-    }
-    else if (type == RequestTypePhotosOfCar) {
+    if (type == RequestTypePhotosOfCar) {
         [FileManagerCoreMethods createNewDirectoryWithName:DEFAULT_PHOTOS_DIRECTORY_NAME];
         
         NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
@@ -55,6 +48,12 @@ static KVDataManager *instance = nil;
         if (self.countOfLoadedImages == necessaryCount) {
             [self.delegate dataWasSuccessfullyParsed];
         }
+    }
+    else if (type == RequestTypeGetCaptcha) {
+        NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+        [data writeToFile:PATH_TO_CAPTCHA_IMAGE atomically:YES];
+        
+        [self.delegate dataWasSuccessfullyParsed];
     }
     else {
         NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];

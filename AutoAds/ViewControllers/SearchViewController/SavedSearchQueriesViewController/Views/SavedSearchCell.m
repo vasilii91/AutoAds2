@@ -19,8 +19,10 @@
 {
     [labelBig setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:14]];
     [labelBig setTextColor:FONT_COLOR_MY_BLUE_COLOR];
+    [labelBig setBackgroundColor:[UIColor clearColor]];
     
     [labelSmall setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:11]];
+    [labelSmall setBackgroundColor:[UIColor clearColor]];
 }
 
 + (SavedSearchCell *)loadView

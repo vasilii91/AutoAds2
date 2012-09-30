@@ -38,6 +38,8 @@
     AdvField *f0;
     AdvField *f1;
     AdvField *f2;
+    
+    NSString *queryString;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 

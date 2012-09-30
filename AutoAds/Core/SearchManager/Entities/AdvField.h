@@ -11,9 +11,9 @@
 
 enum
 {
+    ValueTypeCaptcha,
     ValueTypeString,
     ValueTypeNumber,
-    ValueTypeBoolean,
     ValueTypeDictionary,
     ValueTypePhoto,
     ValueTypeDictionaryFromInternet,

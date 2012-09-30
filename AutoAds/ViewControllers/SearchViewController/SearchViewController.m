@@ -187,8 +187,8 @@
 - (IBAction)clickOnSearchButton:(id)sender
 {
     [networkManager subscribe:self];
-    NSString *s = [searchManager queryToSearch:fields];
-    [networkManager searchWithQuery:s];
+    queryString = [searchManager queryToSearch:fields];
+    [networkManager searchWithQuery:queryString];
     
     [pleaseWaitAlertView show];
 }
@@ -266,6 +266,7 @@
     
     if (requestId == RequestTypeSearch) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
+        vc.queryString = queryString;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {

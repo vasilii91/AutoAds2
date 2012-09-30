@@ -42,5 +42,6 @@ typedef NSUInteger GroupType;
 @property (nonatomic, retain) NSArray *fields;
 
 - (NSArray *)getObligatoryFields;
+- (void)printFields;
 
 @end

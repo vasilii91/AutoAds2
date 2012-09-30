@@ -7,38 +7,12 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/SelectValueViews/SelectValueStringView/SelectValueStringView.m"
-         timestampString = "369168987.923572"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-textFieldShouldBeginEditing:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/SelectValueViews/SelectValueStringView/SelectValueStringView.m"
-         timestampString = "369168986.731207"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "-awakeFromNib"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
-         timestampString = "369606876.666324"
+         timestampString = "370694784.129073"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
-         timestampString = "369606876.666324"
+         timestampString = "370694784.129073"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
          landmarkName = "-clickOnAboutProgramButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -137,19 +111,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/Search2ViewController.m"
-         timestampString = "370130406.896305"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/Entities/PhotoEntities/PhotoContainer.m"
          timestampString = "370475627.988737"
          startingColumnNumber = "9223372036854775807"
@@ -176,39 +137,39 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/NetworkManager/KVNetworkManager.m"
-         timestampString = "370613624.630363"
+         filePath = "AutoAds/ViewControllers/SearchViewController/ListOfAdverisementViewController/ListOfAdverisementViewController.m"
+         timestampString = "370705902.492457"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "315"
-         endingLineNumber = "315"
-         landmarkName = "-addAdvertisementWithParameters:images:"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
+         landmarkName = "-clickOnSaveButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370614744.29643"
+         filePath = "AutoAds/ViewControllers/SearchViewController/ListOfAdverisementViewController/ListOfAdverisementViewController.m"
+         timestampString = "370705902.492457"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "200"
-         endingLineNumber = "200"
-         landmarkName = "-parametersToAddAdvertisement:"
+         startingLineNumber = "191"
+         endingLineNumber = "191"
+         landmarkName = "-setStateToSaveButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
-         timestampString = "370620484.443576"
+         filePath = "AutoAds/Core/SDWebImage/SDWebImageManager.m"
+         timestampString = "370729504.123694"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
-         landmarkName = "-saveData:withRequestType:identifier:"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "-downloadWithURL:delegate:retryFailed:lowPriority:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

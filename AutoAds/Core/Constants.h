@@ -43,9 +43,11 @@
 
 #define DEFAULT_PHOTOS_DIRECTORY_NAME @"photos"
 
+#define PATH_TO_CAPTCHA_IMAGE [NSString stringWithFormat:@"%@/%@.%@", DOCUMENTS_DIRECTORY, CAPTCHA_NAME, PHOTOS_EXTENSION]
 #define PHOTOS_DIRECTORY [NSString stringWithFormat:@"%@/%@", DOCUMENTS_DIRECTORY, DEFAULT_PHOTOS_DIRECTORY_NAME]
 #define COUNT_OF_PHOTOS_IN_CAR_PHOTOS @"count of photos in car photos"
 #define PHOTOS_EXTENSION @"png"
+#define CAPTCHA_NAME @"captcha"
 
 #define SELECTED_TAB_BAR_INDEX @"selected tab bar index"
 #define CURRENT_BRAND @"current brand"

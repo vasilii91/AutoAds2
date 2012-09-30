@@ -24,13 +24,11 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        latestSearchQueries = [NSMutableArray new];
-        [latestSearchQueries addObject:@"Mazda 3 [2] -- 650-270 тыс./руб., 2011г., >100000 км."];
+        databaseManager = [DatabaseManager sharedMySingleton];
+        networkManager = [KVNetworkManager sharedInstance];
         
+        latestSearchQueries = [NSMutableArray new];
         savedSearchQueries = [NSMutableArray new];
-        [savedSearchQueries addObject:@"Lada Priora [7] -- 150-270 тыс./руб., 2011г., >100000 км."];
-        [savedSearchQueries addObject:@"Lada Priora [9] -- 250-270 тыс./руб., 2011г., >100000 км."];
-        [savedSearchQueries addObject:@"Lada Priora [19] -- 350-270 тыс./руб., 2011г., >100000 км."];
     }
     return self;
 }
@@ -58,6 +56,14 @@
 //    [[KVNetworkManager sharedInstance] getModelsByRubric:@"motors" subrubric:@"foreign"];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self resetDataSourceOfTableView];
+    [self.tableViewSavedSearchQueries reloadData];
+}
+
 - (void)viewDidUnload
 {
     [self setButtonNewSearch:nil];
@@ -81,6 +87,30 @@
 }
 
 
+#pragma mark - Private methods
+
+- (void)resetDataSourceOfTableView
+{
+    NSArray *queriesLastest = [databaseManager getQueries:NO];
+    NSArray *queriesSaved = [databaseManager getQueries:YES];
+    [latestSearchQueries removeAllObjects];
+    [savedSearchQueries removeAllObjects];
+    [latestSearchQueries addObjectsFromArray:queriesLastest];
+    [savedSearchQueries addObjectsFromArray:queriesSaved];
+}
+
+
+#pragma mark - @protocol UIAlertViewDelegate <NSObject>
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [networkManager unsubscribe:self];
+        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    }
+}
+
+
 #pragma mark - @protocol UITableViewDataSource<NSObject>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -100,12 +130,15 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        Query *query = nil;
         if (indexPath.section == 0) {
-            [latestSearchQueries removeObjectAtIndex:indexPath.row];
+            query = [latestSearchQueries objectAtIndex:indexPath.row];
         }
         else {
-            [savedSearchQueries removeObjectAtIndex:indexPath.row];
+            query = [savedSearchQueries objectAtIndex:indexPath.row];
         }
+        [databaseManager deleteEntity:query];
+        [self resetDataSourceOfTableView];
         
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -122,15 +155,15 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSArray *adv = nil;
+    Query *query = nil;
     if (indexPath.section == 0) {
-        adv = [[latestSearchQueries objectAtIndex:indexPath.row] componentsSeparatedByString:@" -- "];
+        query = [latestSearchQueries objectAtIndex:indexPath.row];
     }
     else {
-        adv = [[savedSearchQueries objectAtIndex:indexPath.row] componentsSeparatedByString:@" -- "];
+        query = [savedSearchQueries objectAtIndex:indexPath.row];
     }
-    [cell.labelBig setText:[adv objectAtIndex:0]];
-    [cell.labelSmall setText:[adv objectAtIndex:1]];
+    [cell.labelBig setText:query.queryString];
+    [cell.labelSmall setText:query.queryString];
     
     return cell;
 }
@@ -163,7 +196,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Query *query = nil;
+    if (indexPath.section == 0) {
+        query = [latestSearchQueries objectAtIndex:indexPath.row];
+    }
+    else {
+        query = [savedSearchQueries objectAtIndex:indexPath.row];
+    }
+    currentQueryString = query.queryString;
+    
+    [networkManager subscribe:self];
+    [networkManager searchWithQuery:currentQueryString];
+    
+    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
+    [pleaseWaitAlertView show];
+}
 
+
+#pragma mark - @protocol KVNetworkDelegate
+
+- (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
+{
+    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    
+    if (requestId == RequestTypeSearch) {
+        ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
+        vc.queryString = currentQueryString;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+- (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
+{
+    LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
 
 @end

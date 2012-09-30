@@ -16,6 +16,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #import "SVPullToRefresh.h"
+#import "DatabaseManager.h"
 
 @interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol>
 {
@@ -29,8 +30,10 @@
     CGRect frameOfTableViewWhenShown;
     
     KVDataManager *dataManager;
+    DatabaseManager *databaseManager;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewAdvertisement;
+@property (nonatomic, retain) NSString *queryString;
 
 @end

@@ -81,7 +81,6 @@ static SearchManager *_sharedMySingleton = nil;
     AdvGroup *addAdvertisementGroup = [self findGroupByGroupType:GroupTypeAddAdvertisement];
     AdvGroup *generalGroup = [self findGroupByGroupType:GroupTypeGeneral];
     AdvGroup *mainGroup = [self findGroupByGroupType:GroupTypeMain];
-    
     AdvGroup *result = nil;
 //    if ([rubric isEqualToString:@"Диски"] == NO) {
         result = [self joinGroup:mainGroup withGroup:brandsGroup];
@@ -178,7 +177,7 @@ static SearchManager *_sharedMySingleton = nil;
             if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
                 fieldValue = [field.value valueForKey:field.selectedValue];
             }
-            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber || field.valueType == ValueTypeCaptcha) {
                 fieldValue = field.selectedValue;
             }
             
@@ -186,13 +185,16 @@ static SearchManager *_sharedMySingleton = nil;
                 if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
                     fieldValue = [field.value valueForKey:field.valueByDefault];
                 }
-                else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber) {
+                else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber || field.valueType == ValueTypeCaptcha) {
                     fieldValue = field.valueByDefault;
                 }
             }
             
             if ([fieldName length] != 0 && [fieldValue length] != 0) {
-                [parameters setValue:fieldValue forKey:fieldName];
+                fieldName = [[AdvDictionaries AddAdvertisementFields] valueForKey:fieldName];
+                if ([fieldName length] != 0) {
+                    [parameters setValue:fieldValue forKey:fieldName];
+                }
             }
         }
     }
@@ -257,7 +259,8 @@ static SearchManager *_sharedMySingleton = nil;
                 break;
             }
             else if ([self isSmallOne:littleField.nameEnglish synonimOfBigOne:bigField.nameEnglish] ||
-                     [bigField.nameEnglish isEqualToString:F_WITH_PHOTO_ENG]) {
+                     [bigField.nameEnglish isEqualToString:F_WITH_PHOTO_ENG] ||
+                     [bigField.nameEnglish isEqualToString:F_CAPTCHA_CODE_ENG]) {
                 [fields addObject:bigField];
                 break;
             }
@@ -361,18 +364,18 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f1 = [AdvField newAdvField:F_PRICE_ENG :F_PRICE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f2 = [AdvField newAdvField:F_BARGAIN_ENG :F_BARGAIN_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f3 = [AdvField newAdvField:F_CONTACT_NAME_ENG :F_CONTACT_NAME_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
-    AdvField *f4 = [AdvField newAdvField:F_CONTACT_PHONE_ENG :F_CONTACT_PHONE_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
+    AdvField *f3 = [AdvField newAdvField:F_CONTACTS_ENG :F_CONTACTS_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
+    AdvField *f4 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
     AdvField *f5 = [AdvField newAdvField:F_ADDITIONAL_INFO_ENG :F_ADDITIONAL_INFO_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f6 = [AdvField newAdvField:F_PHOTO_ENG :F_PHOTO_RUS :nil :nil :nil :ValueTypePhoto :YES :NO :YES :YES :YES :YES];
-    AdvField *f7 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
+//    AdvField *f7 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_PERIOD_ENG :F_PERIOD_RUS :[AdvDictionaries AdPeriods] :V_AD_PERIODS_8_WEEKS_RUS :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :NO];
     AdvField *f9 = [AdvField new]; // непонятно, что делать
     AdvField *f10 = [AdvField newAdvField:F_DATE_ENG :F_DATE_RUS :nil :nil :nil :ValueTypeString :NO :NO :NO :NO :YES :NO];
     AdvField *f11 = [AdvField newAdvField:nil :F_IS_RECEIVE_IMMEDIATELY_MESSAGES :[AdvDictionaries Bools] :V_YES_RUS :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :NO];
     AdvField *f12 = [AdvField newAdvField:nil :F_IS_AGREE_WITH_PLACEMENT_RULES :[AdvDictionaries Bools] :V_NO_RUS :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :NO];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12];
+    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f8, f9, f10, f11, f12];
     
     group.fields = fields;
     
@@ -765,19 +768,19 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f41 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     AdvField *f42 = [AdvField newAdvField:F_PRICE_ENG :F_PRICE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f43 = [AdvField newAdvField:F_BARGAIN_ENG :F_BARGAIN_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f44 = [AdvField newAdvField:F_CONTACT_NAME_ENG :F_CONTACT_NAME_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
-    AdvField *f45 = [AdvField newAdvField:F_CONTACT_PHONE_ENG :F_CONTACT_PHONE_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
+    AdvField *f44 = [AdvField newAdvField:F_CONTACTS_ENG :F_CONTACTS_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
+    AdvField *f45 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_ENG :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
     AdvField *f46 = [AdvField newAdvField:F_EMAIL_ENG :F_EMAIL_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f47 = [AdvField newAdvField:F_ADDITIONAL_INFO_ENG :F_ADDITIONAL_INFO_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f48 = [AdvField newAdvField:F_PERIOD_ENG :F_PERIOD_RUS :[AdvDictionaries AdPeriods] :V_AD_PERIODS_8_WEEKS_RUS :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :NO];
-    AdvField *f49 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
+//    AdvField *f49 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f50 = [AdvField newAdvField:F_PHOTO_ENG :F_PHOTO_RUS :nil :nil :nil :ValueTypePhoto :YES :NO :YES :YES :YES :YES];
     AdvField *f51 = [AdvField newAdvField:F_NUMBER_OF_OWNERS_ENG :F_NUMBER_OF_OWNERS_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f52 = [AdvField newAdvField:F_VIN_ENG :F_VIN_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f53 = [AdvField newAdvField:F_FROM_OFFICIAL_DEALER_ENG :F_FROM_OFFICIAL_DEALER_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f54 = [AdvField newAdvField:F_CAPTCHA_CODE_ENG :F_CAPTCHA_CODE_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
+    AdvField *f54 = [AdvField newAdvField:F_CAPTCHA_CODE_ENG :F_CAPTCHA_CODE_RUS :nil :nil :nil :ValueTypeCaptcha :YES :NO :NO :NO :NO :NO];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f49, f50, f51, f52, f53, f54];
+    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f50, f51, f52, f53, f54];
     
     group.fields = fields;
     

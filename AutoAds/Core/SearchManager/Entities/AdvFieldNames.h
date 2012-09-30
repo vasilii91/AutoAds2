@@ -59,12 +59,6 @@
 #define F_CONFIRMATION_CODE_RUS @""
 #define F_CONFIRMATION_CODE_ENG @""
 
-#define F_CONTACT_NAME_RUS @"Имя контактного лица"
-#define F_CONTACT_NAME_ENG @"ContactName"
-
-#define F_CONTACT_PHONE_RUS @"Контактный телефон"
-#define F_CONTACT_PHONE_ENG @"ContactPhone"
-
 #define F_CONTACTS_RUS @"Контактное лицо"
 #define F_CONTACTS_ENG @"Contacts"
 

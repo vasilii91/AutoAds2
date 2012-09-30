@@ -16,7 +16,7 @@
 @class KVDataManager;
 
 typedef enum {
-    RequestTypeLogin,
+    RequestTypeGetCaptcha,
     RequestTypeSearch,
     RequestTypeBrands,
     RequestTypePhotosOfCar,

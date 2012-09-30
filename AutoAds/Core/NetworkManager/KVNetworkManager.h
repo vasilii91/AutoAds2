@@ -58,6 +58,8 @@ typedef enum {
  */
 - (void)connectToServerWithUsername:(NSString *)username password:(NSString *)password;
 
+- (NSString *)serverURL;
+- (void)getCaptcha;
 - (void)searchWithQuery:(NSString *)queryString;
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (void)savePhotosByPhotoContainer:(NSArray *)photoContainers;

@@ -29,7 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         dataManager = [KVDataManager sharedInstance];
-        
+        databaseManager = [DatabaseManager sharedMySingleton];
         searchedAdvertisements = [dataManager advertisements];
     }
     return self;
@@ -53,6 +53,9 @@
     UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnSortButton:) frame:CGRectMake(0, 0, 33, 33) imageName:SORT_BUTTON_IMAGE_DESELECTED text:nil];
     UIBarButtonItem *bbi3 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnSaveButton:) frame:CGRectMake(0, 0, 33, 33) imageName:SAVE_BUTTON_IMAGE_DESELECTED text:nil];
     self.navigationItem.rightBarButtonItems = @[bbi2, bbi3];
+    
+    [self setStateToSaveButton:(UIButton *)bbi3.customView];
+    [self saveQuery:NO];
     
     self.tableViewAdvertisement.backgroundColor = [UIColor clearColor];
     
@@ -142,24 +145,60 @@
 
 - (void)clickOnSaveButton:(UIButton *)button
 {
-    isSaved = !isSaved;
+    Query *query = [databaseManager findQueryByQueryString:self.queryString isSaved:YES];
+    
+    isSaved = (query == nil) ? NO : YES;
+    
+    UIAlertView *alert = nil;
+    
+    if (!isSaved) {
+        [self saveQuery:YES];
+        
+        alert = [[UIAlertView alloc] initWithTitle:@"Сохранение"
+                                           message:@"Ваш поисковой запрос сохранен"
+                                          delegate:nil
+                                 cancelButtonTitle:@"Ok"
+                                 otherButtonTitles: nil];
+    }
+    else {
+        [databaseManager deleteEntity:query];
+        
+        alert = [[UIAlertView alloc] initWithTitle:@"Удаление"
+                                           message:@"Ваш поисковой запрос удален"
+                                          delegate:nil
+                                 cancelButtonTitle:@"Ok"
+                                 otherButtonTitles: nil];
+    }
+    [alert show];
+    
+    [self setStateToSaveButton:button];
+}
+
+
+#pragma mark - Private methods
+
+- (void)saveQuery:(BOOL)isSaved
+{
+    Query *query = (Query *)[databaseManager createEntityByClass:[Query class]];
+    query.dateAdded = [NSDate date];
+    query.isSaved = @(isSaved);
+    query.queryString = self.queryString;
+    [databaseManager saveAll];
+}
+
+- (void)setStateToSaveButton:(UIButton *)button
+{
+    Query *query = [databaseManager findQueryByQueryString:self.queryString isSaved:YES];
+    
+    isSaved = (query == nil) ? NO : YES;
+    
     if (isSaved) {
         [button setBackgroundImage:[UIImage imageNamed:SAVE_BUTTON_IMAGE_SELECTED] forState:UIControlStateNormal];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранение"
-                                                        message:@"Ваш поисковой запрос сохранен"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles: nil];
-        [alert show];
     }
     else {
         [button setBackgroundImage:[UIImage imageNamed:SAVE_BUTTON_IMAGE_DESELECTED] forState:UIControlStateNormal];
     }
 }
-
-
-#pragma mark - Private methods
 
 - (void)sortAdvertisementsBySortType:(TypeOfSort)sortType
 {

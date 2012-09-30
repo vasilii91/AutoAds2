@@ -201,10 +201,8 @@
 
 - (IBAction)clickOnAddAdvertisementButton:(id)sender
 {
-    NSString *jsonString = [searchManager queryToAddAdvertisement:fields];
-    LOG(@"%@ %@", jsonString, dictionaryPhotos);
-    
     NSDictionary *dict = [searchManager parametersToAddAdvertisement:fields];
+    LOG(@"%@", dict);
     
     [networkManager addAdvertisementWithParameters:dict images:[dictionaryPhotos allValues]];
 }

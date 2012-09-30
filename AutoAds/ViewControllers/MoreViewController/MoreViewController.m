@@ -24,13 +24,11 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        dictionaryLinks =
-        @{
-            @"74.ru" : @"http://74.ru",
-            @"Работа: вакансии и резюме" : @"http://74.ru/job/",
-            @"Недвижимость" : @"http://domchel.ru/",
-            @"Финансы" : @"http://chelfin.ru"
-        };
+        dictionaryLinks = [OrderedDictionary new];
+        [dictionaryLinks setValue:@"http://74.ru" forKey:@"74.ru"];
+        [dictionaryLinks setValue:@"http://74.ru/job/" forKey:@"Работа: вакансии и резюме"];
+        [dictionaryLinks setValue:@"Недвижимость" forKey:@"http://domchel.ru/"];
+        [dictionaryLinks setValue:@"Финансы" forKey:@"http://chelfin.ru"];
     }
     
     return self;
@@ -105,8 +103,8 @@
     NSString *link = [[dictionaryLinks allKeys] objectAtIndex:indexPath.row];
     NSString *name = [dictionaryLinks valueForKey:link];
     
-    [cell.labelName setText:name];
-    [cell.labelLink setText:link];
+    [cell.labelName setText:link];
+    [cell.labelLink setText:name];
     
     return cell;
 }

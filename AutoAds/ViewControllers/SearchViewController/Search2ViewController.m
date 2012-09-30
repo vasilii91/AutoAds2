@@ -42,9 +42,12 @@
     self.navigationItem.leftBarButtonItem = bbi;
     
     switch (self.field.valueType) {
-        case ValueTypeBoolean:
+        case ValueTypeCaptcha:
         {
-            
+            SelectValueCaptchaView *captchaView = [SelectValueCaptchaView loadView];
+            captchaView.labelHeader.text = self.field.nameRussian;
+            captchaView.delegate = self;
+            [self.view addSubview:captchaView];
             break;
         }
         case ValueTypeDictionary:

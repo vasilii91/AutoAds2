@@ -114,6 +114,11 @@
 + (NSDictionary *)SynonimsOfFields;
 
 
+#pragma mark - AddAdvertisement fields
+
++ (NSDictionary *)AddAdvertisementFields;
+
+
 #pragma mark - Public methods
 
 + (NSString *)valueFromDictionary:(NSDictionary *)dictionary forKeyOrValue:(NSString *)keyOrValue;

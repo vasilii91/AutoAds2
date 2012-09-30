@@ -15,4 +15,6 @@
     #import "Core/Constants.h"
     #import "Core/logger.h"
     #import "MainController.h"
+#define MR_SHORTHAND
+    #import "CoreData+MagicalRecord.h"
 #endif
