@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		104235161617308300941200 /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 104235151617308300941200 /* SVPullToRefresh.m */; };
+		1086A4B4161A2A5200F4767B /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1086A4B3161A2A5200F4767B /* checkbox.png */; };
 		108CBC19161870080054B3AF /* AutoAdsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108CBC17161870080054B3AF /* AutoAdsModel.xcdatamodeld */; };
 		108CBC561618703E0054B3AF /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 108CBC1E1618703E0054B3AF /* MagicalImportFunctions.m */; };
 		108CBC571618703E0054B3AF /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 108CBC201618703E0054B3AF /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -213,6 +214,7 @@
 		1021D64C15FFD2A000360903 /* AdvValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvValues.h; path = SearchManager/Entities/AdvValues.h; sourceTree = "<group>"; };
 		104235141617308300941200 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		104235151617308300941200 /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
+		1086A4B3161A2A5200F4767B /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
 		108CBC18161870080054B3AF /* AutoAdsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AutoAdsModel.xcdatamodel; sourceTree = "<group>"; };
 		108CBC1D1618703E0054B3AF /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		108CBC1E1618703E0054B3AF /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
@@ -1115,6 +1117,7 @@
 		BE3CFA5C161312AF0081CD64 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1086A4B3161A2A5200F4767B /* checkbox.png */,
 				BE3CFA5D161312AF0081CD64 /* thumbnail_01.png */,
 				BE3CFA5E161312AF0081CD64 /* thumbnail_02.png */,
 			);
@@ -1675,6 +1678,7 @@
 				BE02048316159DD700ABBCC3 /* SelectValuePhotoViewController.xib in Resources */,
 				109DC5E01618CD0300AE2B52 /* SelectValueCaptchaView.xib in Resources */,
 				BE7F2B3A1619C7DC001A26A1 /* SelectValueOptionsView.xib in Resources */,
+				1086A4B4161A2A5200F4767B /* checkbox.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

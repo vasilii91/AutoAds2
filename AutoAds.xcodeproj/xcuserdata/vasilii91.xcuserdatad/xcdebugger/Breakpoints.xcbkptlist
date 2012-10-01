@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "370297932.092425"
+         timestampString = "370814308.601659"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "105"
+         endingLineNumber = "105"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -150,26 +150,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/ListOfAdverisementViewController/ListOfAdverisementViewController.m"
-         timestampString = "370705902.492457"
+         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
+         timestampString = "370817896.079134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
-         landmarkName = "-setStateToSaveButton:"
+         startingLineNumber = "105"
+         endingLineNumber = "105"
+         landmarkName = "-queryToSearch:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/SDWebImage/SDWebImageManager.m"
-         timestampString = "370729504.123694"
+         filePath = "AutoAds/ViewControllers/SearchViewController/Search2ViewController.m"
+         timestampString = "370818839.094792"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
-         landmarkName = "-downloadWithURL:delegate:retryFailed:lowPriority:"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -7,11 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Option.h"
+#import "KVDataManager.h"
+
+enum
+{
+    SelectValueDictionaryModels,
+    SelectValueDictionaryFuel,
+    SelectValueDictionaryStates,
+    SelectValueDictionaryOptions,
+    SelectValueDictionaryUnknown
+};
+typedef NSUInteger SelectValueDictionary;
 
 @interface SelectValueCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UIButton *buttonChecked;
+@property (nonatomic, assign) BOOL isChecked;
+@property (nonatomic, retain) Option *option;
+@property (nonatomic, assign) SelectValueDictionary selectValueDictionaryType;
 
-+ (SelectValueCell *)loadView;
++ (SelectValueCell *)loadViewWithCheckedButtonHiddenState:(BOOL)state;
+- (IBAction)clickOnCheckButton:(id)sender;
 
 @end

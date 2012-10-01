@@ -62,8 +62,10 @@
     static NSString *cellIdentifier = @"Cell identifier";
     SelectValueCell *cell = [self.tableViewDictionary dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [SelectValueCell loadView];
+        cell = [SelectValueCell loadViewWithCheckedButtonHiddenState:NO];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectValueDictionaryType = SelectValueDictionaryOptions;
     
     Option *option = nil;
     if (isOptions) {
@@ -72,6 +74,13 @@
     else {
         OptionsCategory *optionCategory = [self.options objectAtIndex:indexPath.section];
         option = [optionCategory.fields objectAtIndex:indexPath.row];
+    }
+    cell.option = option;
+    if ([[KVDataManager sharedInstance].selectedOptions containsObject:option]) {
+        cell.isChecked = YES;
+    }
+    else {
+        cell.isChecked = NO;
     }
     
     cell.labelTitle.text = option.title;

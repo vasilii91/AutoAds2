@@ -14,6 +14,7 @@
 #import "SavedSearchQueriesViewController.h"
 #import "Constants.h"
 #import "KVNetworkManager.h"
+#import "KVDataManager.h"
 
 @interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate>
 {
@@ -21,6 +22,7 @@
     
     SearchManager *searchManager;
     KVNetworkManager *networkManager;
+    KVDataManager *dataManager;
     
     NSArray *fields;
     AdvField *lastSelectedField;

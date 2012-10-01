@@ -18,6 +18,7 @@
 #import "SavedSearchQueriesViewController.h"
 #import "ListOfAdverisementViewController.h"
 #import "KVNetworkManager.h"
+#import "KVDataManager.h"
 
 @interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ButtonCellDelegate, KVNetworkDelegate, UIAlertViewDelegate>
 {
@@ -25,6 +26,7 @@
     PleaseWaitAlertView *pleaseWaitAlertView;
     
     SearchManager *searchManager;
+    KVDataManager *dataManager;
     
     NSArray *fields;
     AdvField *lastSelectedField;

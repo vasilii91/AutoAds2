@@ -25,7 +25,6 @@
 - (AdvGroup *)categorySearchByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (AdvGroup *)categoryAddAdvertisementByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (NSString *)queryToSearch:(NSArray *)fields;
-- (NSString *)queryToAddAdvertisement:(NSArray *)fields;
 - (NSDictionary *)parametersToAddAdvertisement:(NSArray *)fields;
 
 @end

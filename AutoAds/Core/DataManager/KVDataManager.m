@@ -18,6 +18,10 @@ static KVDataManager *instance = nil;
 {
     self = [super init];
     if (self) {
+        self.selectedOptions = [NSMutableSet new];
+        self.selectedFuels = [NSMutableSet new];
+        self.selectedModels = [NSMutableSet new];
+        self.selectedStates = [NSMutableSet new];
     }
     
     return self;
@@ -242,6 +246,14 @@ static KVDataManager *instance = nil;
     }
     
     return currentModel;
+}
+
+- (void)cleanAllTempData
+{
+    [self.selectedFuels removeAllObjects];
+    [self.selectedModels removeAllObjects];
+    [self.selectedOptions removeAllObjects];
+    [self.selectedStates removeAllObjects];
 }
 
 @end

@@ -8,8 +8,14 @@
 
 #import "SelectValueCell.h"
 
+#define CHECKBOX_NAME @"checkbox.png"
+
 @implementation SelectValueCell
+@synthesize buttonChecked;
 @synthesize labelTitle;
+@synthesize isChecked;
+@synthesize selectValueDictionaryType;
+
 
 #pragma mark - Initialization
 
@@ -21,9 +27,73 @@
     [self setBackgroundView:iv];
 }
 
-+ (SelectValueCell *)loadView
++ (SelectValueCell *)loadViewWithCheckedButtonHiddenState:(BOOL)state
 {
-    return [[[NSBundle mainBundle] loadNibNamed:@"SelectValueCell" owner:nil options:nil] lastObject];
+    SelectValueCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SelectValueCell" owner:nil options:nil] lastObject];
+    cell.buttonChecked.hidden = state;
+    return cell;
+}
+
+- (IBAction)clickOnCheckButton:(id)sender
+{
+    isChecked = !isChecked;
+    
+    [self setStateOfCheckButton];
+}
+
+- (void)setIsChecked:(BOOL)_isChecked
+{
+    isChecked = _isChecked;
+    [self setStateOfCheckButton];
+}
+
+- (void)setStateOfCheckButton
+{
+    if (isChecked) {
+        [self.buttonChecked setImage:[UIImage imageNamed:CHECKBOX_NAME] forState:UIControlStateNormal];
+        [self addOptionToSelected];
+    }
+    else {
+        [self.buttonChecked setImage:nil forState:UIControlStateNormal];
+        [self removeOptionFromSelected];
+    }
+    self.buttonChecked.backgroundColor = [UIColor grayColor];
+}
+
+- (void)addOptionToSelected
+{
+    KVDataManager *dataManager = [KVDataManager sharedInstance];
+    
+    if (selectValueDictionaryType == SelectValueDictionaryOptions) {
+        [dataManager.selectedOptions addObject:self.option];
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryFuel) {
+        [dataManager.selectedFuels addObject:self.labelTitle.text];
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryModels) {
+        [dataManager.selectedModels addObject:self.labelTitle.text];
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryStates) {
+        [dataManager.selectedStates addObject:self.labelTitle.text];
+    }
+}
+
+- (void)removeOptionFromSelected
+{
+    KVDataManager *dataManager = [KVDataManager sharedInstance];
+    
+    if (selectValueDictionaryType == SelectValueDictionaryOptions) {
+        [dataManager.selectedOptions removeObject:self.option];
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryFuel) {
+        [dataManager.selectedFuels removeObject:self.labelTitle.text];
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryModels) {
+        [dataManager.selectedModels removeObject:self.labelTitle.text];
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryStates) {
+        [dataManager.selectedStates removeObject:self.labelTitle.text];
+    }
 }
 
 

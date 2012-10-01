@@ -39,6 +39,7 @@
     if (self) {
         searchManager = [SearchManager sharedMySingleton];
         networkManager = [KVNetworkManager sharedInstance];
+        dataManager = [KVDataManager sharedInstance];
         fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     }
     return self;
@@ -133,6 +134,12 @@
 
 #pragma mark - Private methods
 
+- (void)reloadData
+{
+    [self.tableView reloadData];
+    [[KVDataManager sharedInstance] cleanAllTempData];
+}
+
 - (void)cleanQueryToDefaultState
 {
     lastSelectedRubric = nil;
@@ -143,7 +150,7 @@
     }
     fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 - (void)cleanQueryToDefaultStateWithoutCleaningRubAndSub
@@ -160,7 +167,7 @@
     }
     fields = [[searchManager findGroupByGroupType:GroupTypeMain] getObligatoryFields];
     
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 - (void)cleanQueryExceptRubricAndSubrubric
@@ -173,7 +180,7 @@
         }
     }
     
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 
@@ -238,6 +245,19 @@
     AdvField *field = [fields objectAtIndex:indexPath.row];
     NSString *title = field.nameRussian;
     NSString *value = field.selectedValue == nil ? field.valueByDefault : field.selectedValue;
+    
+    if ([field.nameEnglish isEqualToString:F_MODEL_ENG]) {
+        value = [dataManager.selectedModels count] != 0 ? @"Модели выбраны" : nil;
+    }
+    else if ([field.nameEnglish isEqualToString:F_FUEL_ENG]) {
+        value = [dataManager.selectedFuels count] != 0 ? @"Топливо выбрано" : nil;
+    }
+    else if ([field.nameEnglish isEqualToString:F_STATES_ENG]) {
+        value = [dataManager.selectedStates count] != 0 ? @"Состояния выбраны" : nil;
+    }
+    else if ([field.nameEnglish isEqualToString:F_OPTIONS_ENG]) {
+        value = [dataManager.selectedOptions count] != 0 ? @"Комплектация выбрана" : nil;
+    }
     
     [cell.textView setText:title];
     [cell.button setTitle:value forState:UIControlStateNormal];

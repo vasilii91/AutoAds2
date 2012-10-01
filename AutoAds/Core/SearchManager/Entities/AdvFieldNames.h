@@ -385,7 +385,7 @@
 #define F_SPIKES_ENG @"eSpikes"
 
 #define F_STATES_RUS @"Cостояния"
-#define F_STATES_ENG @"states"
+#define F_STATES_ENG @"states[]"
 
 #define F_STATUS_RUS @"Состояние"
 #define F_STATUS_ENG @"Status"

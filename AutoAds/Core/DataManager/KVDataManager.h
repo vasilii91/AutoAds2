@@ -28,6 +28,11 @@
 @property (nonatomic, retain) NSMutableArray *advertisements;
 @property (nonatomic, retain) NSMutableArray *brands;
 @property (nonatomic, retain) NSMutableArray *options;
+@property (nonatomic, retain) NSMutableSet *selectedOptions;
+@property (nonatomic, retain) NSMutableSet *selectedModels;
+@property (nonatomic, retain) NSMutableSet *selectedFuels;
+@property (nonatomic, retain) NSMutableSet *selectedStates;
+
 @property (nonatomic, retain) NSDictionary *brandsDictionary;
 @property (nonatomic, retain) NSDictionary *modelsDictionary;
 @property (nonatomic, retain) NSDictionary *modificationsDictionary;
@@ -46,5 +51,6 @@
 - (NSString *)brandNameById:(NSString *)brandId;
 - (NSString *)modelNameById:(NSString *)modelId;
 - (NSString *)modificationNameById:(NSString *)modificationId;
+- (void)cleanAllTempData;
 
 @end

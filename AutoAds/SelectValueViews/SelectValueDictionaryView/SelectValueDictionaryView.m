@@ -10,6 +10,8 @@
 
 @implementation SelectValueDictionaryView
 @synthesize tableViewDictionary;
+@synthesize selectValueDictionaryType;
+
 
 #pragma mark - Initialization
 
@@ -41,11 +43,36 @@
     static NSString *cellIdentifier = @"Cell identifier";
     SelectValueCell *cell = [self.tableViewDictionary dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [SelectValueCell loadView];
+        if (self.selectValueDictionaryType == SelectValueDictionaryUnknown) {
+            cell = [SelectValueCell loadViewWithCheckedButtonHiddenState:YES];
+        }
+        else {
+            cell = [SelectValueCell loadViewWithCheckedButtonHiddenState:NO];
+        }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectValueDictionaryType = selectValueDictionaryType;
     
     NSString *value = [[self.dictionary allKeys] objectAtIndex:indexPath.row];
     cell.labelTitle.text = value;
+    
+    KVDataManager *dataManager = [KVDataManager sharedInstance];
+    NSMutableSet *dataSource = nil;
+    if (selectValueDictionaryType == SelectValueDictionaryStates) {
+        dataSource = dataManager.selectedStates;
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryFuel) {
+        dataSource = dataManager.selectedFuels;
+    }
+    else if (selectValueDictionaryType == SelectValueDictionaryModels) {
+        dataSource = dataManager.selectedModels;
+    }
+    if ([dataSource containsObject:value]) {
+        cell.isChecked = YES;
+    }
+    else {
+        cell.isChecked = NO;
+    }
     
     return cell;
 }
@@ -55,8 +82,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *selectedValue = [[self.dictionary allKeys] objectAtIndex:indexPath.row];
-    [self.delegate valueWasSelected:selectedValue];
+    if (selectValueDictionaryType == SelectValueDictionaryUnknown) {
+        NSString *selectedValue = [[self.dictionary allKeys] objectAtIndex:indexPath.row];
+        [self.delegate valueWasSelected:selectedValue];
+    }
 }
 
 @end

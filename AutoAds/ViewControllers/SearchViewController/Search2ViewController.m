@@ -68,6 +68,15 @@
             NSDictionary *dictionary = (NSDictionary *)self.field.value;
             dictionaryView.dictionary = dictionary;
             dictionaryView.delegate = self;
+            if ([self.field.nameEnglish isEqualToString:F_FUEL_ENG]) {
+                dictionaryView.selectValueDictionaryType = SelectValueDictionaryFuel;
+            }
+            else if ([self.field.nameEnglish isEqualToString:F_STATES_ENG]) {
+                dictionaryView.selectValueDictionaryType = SelectValueDictionaryStates;
+            }
+            else {
+                dictionaryView.selectValueDictionaryType = SelectValueDictionaryUnknown;
+            }
             [self.view addSubview:dictionaryView];
             
             break;
@@ -103,6 +112,13 @@
             
             dictionaryView.dictionary = dictionary;
             dictionaryView.delegate = self;
+            
+            if ([self.field.nameEnglish isEqualToString:F_MODEL_ENG]) {
+                dictionaryView.selectValueDictionaryType = SelectValueDictionaryModels;
+            }
+            else {
+                dictionaryView.selectValueDictionaryType = SelectValueDictionaryUnknown;
+            }
             [self.view addSubview:dictionaryView];
             
             break;
