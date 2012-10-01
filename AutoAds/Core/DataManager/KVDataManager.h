@@ -15,6 +15,8 @@
 #import "KVDataManagerDelegate.h"
 #import "OrderedDictionary.h"
 #import "FileManagerCoreMethods.h"
+#import "Option.h"
+#import "OptionsCategory.h"
 
 @class KVUrlRequest;
 
@@ -25,6 +27,7 @@
 @property (nonatomic, assign) NSObject<KVDataManagerDelegate> *delegate;
 @property (nonatomic, retain) NSMutableArray *advertisements;
 @property (nonatomic, retain) NSMutableArray *brands;
+@property (nonatomic, retain) NSMutableArray *options;
 @property (nonatomic, retain) NSDictionary *brandsDictionary;
 @property (nonatomic, retain) NSDictionary *modelsDictionary;
 @property (nonatomic, retain) NSDictionary *modificationsDictionary;

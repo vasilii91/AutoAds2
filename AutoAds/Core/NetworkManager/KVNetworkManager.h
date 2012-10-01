@@ -62,6 +62,7 @@ typedef enum {
 - (void)getCaptcha;
 - (void)searchWithQuery:(NSString *)queryString;
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (void)getOptionsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (void)savePhotosByPhotoContainer:(NSArray *)photoContainers;
 - (void)addAdvertisementWithParameters:(NSDictionary *)parameters images:(NSArray *)images;
 

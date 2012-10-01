@@ -10,4 +10,9 @@
 
 @implementation Option
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%d - %@", self.id, self.title];
+}
+
 @end

@@ -87,6 +87,41 @@ static KVDataManager *instance = nil;
                     [self.brands addObject:brand];
                 }
             }
+            else if (type == RequestTypeOptions) {
+                NSString *format = [parseData valueForKey:@"Format"];
+                self.options = [NSMutableArray new];
+                
+                if ([format isEqualToString:@"Options"]) {
+                    NSDictionary *dict = [parseData valueForKey:format];
+                    for (NSString *key in [dict allKeys]) {
+                        NSString *value = [dict objectForKey:key];
+                        Option *option = [Option new];
+                        option.id = [key integerValue];
+                        option.title = value;
+                        [self.options addObject:option];
+                    }
+                }
+                else if ([format isEqualToString:@"OptionsCategories"]) {
+                    NSArray *arr = [parseData valueForKey:format];
+                    for (NSDictionary *d in arr) {
+                        NSString *title = [d objectForKey:@"title"];
+                        NSDictionary *dict = [d objectForKey:@"fields"];
+                        
+                        OptionsCategory *optionCategory = [OptionsCategory new];
+                        optionCategory.title = title;
+                        
+                        for (NSString *key in [dict allKeys]) {
+                            NSString *value = [dict objectForKey:key];
+                            Option *option = [Option new];
+                            option.id = [key integerValue];
+                            option.title = value;
+                            [optionCategory.fields addObject:option];
+                        }
+                        [self.options addObject:optionCategory];
+                    }
+                }
+                
+            }
             [self.delegate dataWasSuccessfullyParsed];
         }
         else if (errorCode == 1) {

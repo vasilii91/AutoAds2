@@ -33,6 +33,9 @@
     AdvField *f1;
     AdvField *f2;
     
+    NSString *currentRubric;
+    NSString *currentSubrubric;
+    
     OrderedDictionary *dictionaryPhotos;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewFields;

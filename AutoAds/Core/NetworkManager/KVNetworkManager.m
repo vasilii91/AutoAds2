@@ -260,17 +260,6 @@ static KVNetworkManager *instance = nil;
 #pragma mark -
 #pragma mark Requests
 
-- (void)connectToServerWithUsername:(NSString *)username password:(NSString *)password
-{
-//    NSString *jsonString = [NSString stringWithFormat:@"UserName=%@&Password=%@&RememberMe=false", username, password];
-//    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:SERVER_URL_LOGIN requestType:RequestTypeLogin requestIdentifier:nil jsonString:jsonString httpMethod:@"POST"];
-//    
-//    [self addRequest:urlRequest];
-//    
-//    userName = username;
-//    userPassword = password;
-}
-
 - (void)searchWithQuery:(NSString *)queryString
 {
     NSString *url = [self urlGetWithActionName:@"Search" parameters:queryString apiCall:ApiCallGET];
@@ -285,6 +274,15 @@ static KVNetworkManager *instance = nil;
     NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
     NSString *url = [self urlGetWithActionName:@"Brands" parameters:jsonString apiCall:ApiCallGET];
     KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeBrands requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
+    
+    [self addRequest:urlRequest];
+}
+
+- (void)getOptionsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
+    NSString *url = [self urlGetWithActionName:@"Options" parameters:jsonString apiCall:ApiCallGET];
+    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeOptions requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
     
     [self addRequest:urlRequest];
 }

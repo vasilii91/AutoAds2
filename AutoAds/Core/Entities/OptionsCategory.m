@@ -10,4 +10,19 @@
 
 @implementation OptionsCategory
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.fields = [NSMutableArray new];
+    }
+    
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@, %@", self.title, self.fields];
+}
+
 @end

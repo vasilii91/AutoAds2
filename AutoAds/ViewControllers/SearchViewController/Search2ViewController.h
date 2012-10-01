@@ -13,6 +13,7 @@
 #import "SelectValueDictionaryView.h"
 #import "SelectValueStringView.h"
 #import "SelectValuePhotoViewController.h"
+#import "SelectValueOptionsView.h"
 #import "KVDataManager.h"
 #import "SelectValueCaptchaView.h"
 

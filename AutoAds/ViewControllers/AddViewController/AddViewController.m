@@ -107,10 +107,10 @@
             pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
             [pleaseWaitAlertView show];
             
-            NSString *rubric = [f1 valueForServerBySelectedValue];
-            NSString *subrubric = [f2 valueForServerBySelectedValue];
+            currentRubric = [f1 valueForServerBySelectedValue];
+            currentSubrubric = [f2 valueForServerBySelectedValue];
             
-            [networkManager getModelsByRubric:rubric subrubric:subrubric];
+            [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
         }
     }
     
@@ -315,7 +315,12 @@
 
 - (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
-    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    if (requestId == RequestTypeBrands) {
+        [networkManager getOptionsByRubric:currentRubric subrubric:currentSubrubric];
+    }
+    else if (requestId == RequestTypeOptions) {
+        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    }
 }
 
 - (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code

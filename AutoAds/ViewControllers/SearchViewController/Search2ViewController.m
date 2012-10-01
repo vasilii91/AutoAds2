@@ -42,6 +42,16 @@
     self.navigationItem.leftBarButtonItem = bbi;
     
     switch (self.field.valueType) {
+        case ValueTypeCheckboxDictionaryFromInternet:
+        {
+            SelectValueOptionsView *optionsView = [SelectValueOptionsView loadView];
+            optionsView.labelHeader.text = self.field.nameRussian;
+            optionsView.frame = CGRectMake(0, 0, 320, 460);
+            optionsView.delegate = self;
+            optionsView.options = [[KVDataManager sharedInstance] options];
+            [self.view addSubview:optionsView];
+            break;
+        }
         case ValueTypeCaptcha:
         {
             SelectValueCaptchaView *captchaView = [SelectValueCaptchaView loadView];

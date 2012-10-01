@@ -132,9 +132,10 @@
 		BE6FCEFD1611A35700C8E8ED /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF31611A35700C8E8ED /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE6FCEFE1611A35700C8E8ED /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF61611A35700C8E8ED /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE6FCEFF1611A35700C8E8ED /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF81611A35700C8E8ED /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7F2B381619C7C0001A26A1 /* SelectValueOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7F2B371619C7C0001A26A1 /* SelectValueOptionsView.m */; };
+		BE7F2B3A1619C7DC001A26A1 /* SelectValueOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7F2B391619C7DC001A26A1 /* SelectValueOptionsView.xib */; };
 		BE90E9C3160CA03700635EAC /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C0160CA03700635EAC /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		BE90E9CB160CA69600635EAC /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9CA160CA69600635EAC /* Options.m */; };
 		BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = BE919FEF16133A500005FA8A /* AdvertisementAdd.m */; };
 		BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */; };
 		BE96CF4F160338A20074A52B /* ListOfAdverisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */; };
@@ -438,12 +439,13 @@
 		BE6FCEF61611A35700C8E8ED /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		BE6FCEF71611A35700C8E8ED /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		BE6FCEF81611A35700C8E8ED /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		BE7F2B361619C7C0001A26A1 /* SelectValueOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectValueOptionsView.h; path = SelectValueOptionsView/SelectValueOptionsView.h; sourceTree = "<group>"; };
+		BE7F2B371619C7C0001A26A1 /* SelectValueOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectValueOptionsView.m; path = SelectValueOptionsView/SelectValueOptionsView.m; sourceTree = "<group>"; };
+		BE7F2B391619C7DC001A26A1 /* SelectValueOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectValueOptionsView.xib; path = SelectValueOptionsView/SelectValueOptionsView.xib; sourceTree = "<group>"; };
 		BE90E9BF160CA03700635EAC /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jastor.h; sourceTree = "<group>"; };
 		BE90E9C0160CA03700635EAC /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jastor.m; sourceTree = "<group>"; };
 		BE90E9C1160CA03700635EAC /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JastorRuntimeHelper.h; sourceTree = "<group>"; };
 		BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JastorRuntimeHelper.m; sourceTree = "<group>"; };
-		BE90E9C9160CA69600635EAC /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Options.h; path = Entities/Options.h; sourceTree = "<group>"; };
-		BE90E9CA160CA69600635EAC /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Options.m; path = Entities/Options.m; sourceTree = "<group>"; };
 		BE919FEE16133A500005FA8A /* AdvertisementAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementAdd.h; path = Entities/Advertisement/AdvertisementAdd.h; sourceTree = "<group>"; };
 		BE919FEF16133A500005FA8A /* AdvertisementAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvertisementAdd.m; path = Entities/Advertisement/AdvertisementAdd.m; sourceTree = "<group>"; };
 		BE96CF36160324870074A52B /* SavedSearchQueriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavedSearchQueriesViewController.h; path = SavedSearchQueriesViewController/SavedSearchQueriesViewController.h; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 				10BE55D415FD0ADA008983A6 /* SelectValueDelegate.h */,
 				109DC5DA1618CCBB00AE2B52 /* SelectValueCaptchaView */,
 				10BE55C415FD0523008983A6 /* SelectValueDictionaryView */,
+				BE7F2B351619C74D001A26A1 /* SelectValueOptionsView */,
 				10BE55C015FD035B008983A6 /* SelectValueStringView */,
 				10BE55BC15FD0329008983A6 /* SelectValuePhotoView */,
 			);
@@ -959,8 +962,6 @@
 				BE2F84FC15FF2EDA008859B1 /* Option.m */,
 				BE2F84FE15FF2FAE008859B1 /* OptionsCategory.h */,
 				BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */,
-				BE90E9C9160CA69600635EAC /* Options.h */,
-				BE90E9CA160CA69600635EAC /* Options.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -1151,6 +1152,16 @@
 				BE6FCEF81611A35700C8E8ED /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		BE7F2B351619C74D001A26A1 /* SelectValueOptionsView */ = {
+			isa = PBXGroup;
+			children = (
+				BE7F2B361619C7C0001A26A1 /* SelectValueOptionsView.h */,
+				BE7F2B371619C7C0001A26A1 /* SelectValueOptionsView.m */,
+				BE7F2B391619C7DC001A26A1 /* SelectValueOptionsView.xib */,
+			);
+			name = SelectValueOptionsView;
 			sourceTree = "<group>";
 		};
 		BE90E9BE160CA03700635EAC /* Jastor */ = {
@@ -1663,6 +1674,7 @@
 				BE3CFA60161312AF0081CD64 /* thumbnail_02.png in Resources */,
 				BE02048316159DD700ABBCC3 /* SelectValuePhotoViewController.xib in Resources */,
 				109DC5E01618CD0300AE2B52 /* SelectValueCaptchaView.xib in Resources */,
+				BE7F2B3A1619C7DC001A26A1 /* SelectValueOptionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1745,7 +1757,6 @@
 				BE26EBB2160C71A100530E7D /* KVDataLogic.m in Sources */,
 				BE90E9C3160CA03700635EAC /* Jastor.m in Sources */,
 				BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */,
-				BE90E9CB160CA69600635EAC /* Options.m in Sources */,
 				10D529A7160DD9DF0011F682 /* PhotoContainer.m in Sources */,
 				10D529AA160DDA380011F682 /* PhotoLarge.m in Sources */,
 				10D529AD160DDAAA0011F682 /* PhotoSmall.m in Sources */,
@@ -1808,6 +1819,7 @@
 				10D3CD661618744E00F25D1F /* FavoriteAdv.m in Sources */,
 				10D3CD6C1618782F00F25D1F /* Query.m in Sources */,
 				109DC5DE1618CCF000AE2B52 /* SelectValueCaptchaView.m in Sources */,
+				BE7F2B381619C7C0001A26A1 /* SelectValueOptionsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
