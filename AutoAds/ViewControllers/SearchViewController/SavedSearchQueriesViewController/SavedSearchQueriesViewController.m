@@ -206,7 +206,7 @@
     currentQueryString = query.queryString;
     
     [networkManager subscribe:self];
-    [networkManager searchWithQuery:currentQueryString];
+    [networkManager searchWithQuery:currentQueryString isSearchWithPage:NO];
     
     pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
     [pleaseWaitAlertView show];

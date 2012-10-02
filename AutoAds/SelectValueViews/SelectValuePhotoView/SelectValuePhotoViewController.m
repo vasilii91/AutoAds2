@@ -42,6 +42,9 @@
     
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
+    
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanCurrentValue) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    self.navigationItem.rightBarButtonItem = bbi2;
 }
 
 
@@ -56,11 +59,18 @@
     [self showGalery];
 }
 
+- (void)cleanCurrentValue
+{
+    [selectedPhotos removeAllObjects];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)goBack:(id)sender
 {
     [delegate valueWasSelected:selectedPhotos];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 
 #pragma mark - Table view data source
 

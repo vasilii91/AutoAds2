@@ -91,6 +91,12 @@
     BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
                             [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
     
+    if ([f1.selectedValue isEqualToString:lastSelectedRubric] == NO &&
+        [f2.selectedValue isEqualToString:lastSelectedSubrubric] == YES) {
+        f2.selectedValue = nil;
+        isNeedToUpdate = NO;
+    }
+    
     if (f1.selectedValue != nil && f2.selectedValue == nil) {
         [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];
     }
@@ -193,9 +199,8 @@
 
 - (IBAction)clickOnSearchButton:(id)sender
 {
-    [networkManager subscribe:self];
     queryString = [searchManager queryToSearch:fields];
-    [networkManager searchWithQuery:queryString];
+    [networkManager searchWithQuery:queryString isSearchWithPage:NO];
     
     [pleaseWaitAlertView show];
 }

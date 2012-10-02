@@ -42,6 +42,9 @@
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
     
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanCurrentValue) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    self.navigationItem.rightBarButtonItem = bbi2;
+    
     switch (self.field.valueType) {
         case ValueTypePhone:
         {
@@ -156,6 +159,13 @@
 
 - (void)goBack:(id)sender
 {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)cleanCurrentValue
+{
+    [dataManager cleanSelectedDataSourceByFieldName:field.nameEnglish];
+    field.selectedValue = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

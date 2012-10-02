@@ -71,7 +71,7 @@ static KVDataManager *instance = nil;
         NSInteger errorCode = [[parseData objectForKey:@"error"] integerValue];
         
         if (errorCode == 0) {
-            if (type == RequestTypeSearch) {
+            if (type == RequestTypeSearch || type == RequestTypeSearchWithPage) {
                 _currentPage = [[parseData valueForKey:@"Page"] integerValue];
                 _totalCount = [[parseData valueForKey:@"Total"] integerValue];
                 
@@ -247,6 +247,25 @@ static KVDataManager *instance = nil;
     }
     
     return currentModel;
+}
+
+- (void)cleanSelectedDataSourceByFieldName:(NSString *)fieldName
+{
+    if ([fieldName isEqualToString:F_STATES_RUS]) {
+        [self.selectedStates removeAllObjects];
+    }
+    else if ([fieldName isEqualToString:F_FUEL_ENG]) {
+        [self.selectedFuels removeAllObjects];
+    }
+    else if ([fieldName isEqualToString:F_MODEL_ENG]) {
+        [self.selectedModels removeAllObjects];
+    }
+    else if ([fieldName isEqualToString:F_PHONE_ENG]) {
+        [self.selectedPhones removeAllObjects];
+    }
+    else if ([fieldName isEqualToString:F_OPTIONS_ENG]) {
+        [self.selectedOptions removeAllObjects];
+    }
 }
 
 - (void)cleanAllTempData

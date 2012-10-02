@@ -51,8 +51,11 @@
         [self.scrollViewPhotos addSubview:carPhotoImageView];
     }
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnPhotoImageView:)];
-    gestureRecognizer.numberOfTapsRequired = 2;
+    gestureRecognizer.numberOfTapsRequired = 1;
     [self.scrollViewPhotos addGestureRecognizer:gestureRecognizer];
+    
+    UIPinchGestureRecognizer *pinchRecognize = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnPhotoImageView:)];
+    [self.scrollViewPhotos addGestureRecognizer:pinchRecognize];
     
     imageViewPhotoWidth = scrollViewFrame.size.width;
     
@@ -77,12 +80,20 @@
 
 #pragma mark - Actions
 
-- (void)clickOnPhotoImageView:(UITapGestureRecognizer *)gestureRecognizer
+- (void)clickOnPhotoImageView:(UIGestureRecognizer *)gestureRecognizer
 {
-    CGPoint point = [gestureRecognizer locationInView:self.scrollViewPhotos];
-    NSInteger indexOfPhoto = point.x / imageViewPhotoWidth;
+    BOOL isNeedToOpen = NO;
+    if (([gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]] && [gestureRecognizer state] == UIGestureRecognizerStateBegan) ||
+        [gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+        isNeedToOpen = YES;
+    }
     
-    [delegate userClickOnPhotoWithIndex:indexOfPhoto];
+    if (isNeedToOpen) {
+        CGPoint point = [gestureRecognizer locationInView:self.scrollViewPhotos];
+        NSInteger indexOfPhoto = point.x / imageViewPhotoWidth;
+        
+        [delegate userClickOnPhotoWithIndex:indexOfPhoto];
+    }
 }
 
 -(IBAction)clickOnCallButton:(id)sender

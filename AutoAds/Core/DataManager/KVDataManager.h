@@ -20,6 +20,8 @@
 
 @class KVUrlRequest;
 
+#define COUNT_ON_PAGE 20
+
 @interface KVDataManager : NSObject
 
 + (KVDataManager *)sharedInstance;
@@ -52,6 +54,7 @@
 - (NSString *)brandNameById:(NSString *)brandId;
 - (NSString *)modelNameById:(NSString *)modelId;
 - (NSString *)modificationNameById:(NSString *)modificationId;
+- (void)cleanSelectedDataSourceByFieldName:(NSString *)fieldName;
 - (void)cleanAllTempData;
 
 @end

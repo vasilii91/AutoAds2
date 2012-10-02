@@ -30,6 +30,8 @@
     if (self) {
         dataManager = [KVDataManager sharedInstance];
         databaseManager = [DatabaseManager sharedMySingleton];
+        networkManager = [KVNetworkManager sharedInstance];
+        searchManager = [SearchManager sharedMySingleton];
         searchedAdvertisements = [dataManager advertisements];
     }
     return self;
@@ -41,6 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    currentPage = 2;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbarBackground.png"] forBarMetrics:UIBarMetricsDefault];
     
@@ -91,14 +95,24 @@
 //    }];
     
     [self.tableViewAdvertisement addInfiniteScrollingWithActionHandler:^{
-//        NSLog(@"load more data");
-//        NSArray *arr = [dataManager advertisements];
-//        [searchedAdvertisements addObjectsFromArray:arr];
-//        [self.tableViewAdvertisement reloadData];
+        if ((currentPage - 1) * COUNT_ON_PAGE < dataManager.totalCount) {
+            [networkManager subscribe:self];
+            NSString *qStr = [NSString stringWithFormat:@"%@&page=%d", self.queryString, currentPage];
+            [networkManager searchWithQuery:qStr isSearchWithPage:YES];
+        }
+        else {
+            [self.tableViewAdvertisement setShowsInfiniteScrolling:NO];
+        }
     }];
     
     // you can also display the "last updated" date
     tableViewAdvertisement.pullToRefreshView.lastUpdatedDate = [NSDate date];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [networkManager unsubscribe:self];
 }
 
 - (void)viewDidUnload
@@ -263,6 +277,7 @@
         cell = [AdvertisementCell loadView];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setIsShowFavoriteButton:NO];
     
     Advertisement *adv = [searchedAdvertisements objectAtIndex:indexPath.row];
     NSURL *photoSmallURL = [NSURL URLWithString:[[[adv.Photo objectAtIndex:0] small] url]];
@@ -298,6 +313,24 @@
 - (void)userChoosenTypeOfSort:(TypeOfSort)typeOfSort
 {
     [self sortAdvertisementsBySortType:typeOfSort];
+}
+
+
+#pragma mark - @protocol KVNetworkDelegate
+
+- (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
+{
+    [networkManager unsubscribe:self];
+    [self.tableViewAdvertisement setShowsInfiniteScrolling:YES];
+    
+    currentPage++;
+    [searchedAdvertisements addObjectsFromArray:[dataManager advertisements]];
+    [self.tableViewAdvertisement reloadData];
+}
+
+- (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
+{
+    
 }
 
 

@@ -87,7 +87,13 @@
     [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
     BOOL isRubricAndSubWereSelected = f1.selectedValue != nil && f2.selectedValue != nil;
     BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
-    [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
+                            [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
+    
+    if ([f1.selectedValue isEqualToString:lastSelectedRubric] == NO &&
+        [f2.selectedValue isEqualToString:lastSelectedSubrubric] == YES) {
+        f2.selectedValue = nil;
+        isNeedToUpdate = NO;
+    }
     
     if (f1.selectedValue != nil && f2.selectedValue == nil) {
         [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];

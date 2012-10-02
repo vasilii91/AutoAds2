@@ -17,8 +17,10 @@
 #import "UIImageView+WebCache.h"
 #import "SVPullToRefresh.h"
 #import "DatabaseManager.h"
+#import "KVNetworkManager.h"
+#import "SearchManager.h"
 
-@interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol>
+@interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol, KVNetworkDelegate>
 {
     NSMutableArray *searchedAdvertisements;
     BOOL isShowHeader;
@@ -31,6 +33,10 @@
     
     KVDataManager *dataManager;
     DatabaseManager *databaseManager;
+    KVNetworkManager *networkManager;
+    SearchManager *searchManager;
+    
+    NSInteger currentPage;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewAdvertisement;

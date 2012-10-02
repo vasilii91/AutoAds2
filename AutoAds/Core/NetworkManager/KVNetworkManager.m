@@ -260,11 +260,12 @@ static KVNetworkManager *instance = nil;
 #pragma mark -
 #pragma mark Requests
 
-- (void)searchWithQuery:(NSString *)queryString
+- (void)searchWithQuery:(NSString *)queryString isSearchWithPage:(BOOL)isSearchWithPage
 {
     NSString *url = [self urlGetWithActionName:@"Search" parameters:queryString apiCall:ApiCallGET];
     LOG(@"%@", url);
-    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeSearch requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
+    RequestType requestType = isSearchWithPage ? RequestTypeSearchWithPage : RequestTypeSearch;
+    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:requestType requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
     
     [self addRequest:urlRequest];
 }

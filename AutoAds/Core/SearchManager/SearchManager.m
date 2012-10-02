@@ -131,12 +131,8 @@ static SearchManager *_sharedMySingleton = nil;
         
         if ([fieldName length] != 0 && [fieldValue length] != 0) {
             fieldName = [[AdvDictionaries AddAdvertisementFields] valueForKey:fieldName];
-            
-            NSArray *values = [fieldValue componentsSeparatedByString:@","];
-            for (NSString *str in values) {
-                if ([fieldName length] != 0) {
-                    [parameters setValue:str forKey:fieldName];
-                }
+            if ([fieldName length] != 0) {
+                [parameters setValue:fieldValue forKey:fieldName];
             }
         }
     }

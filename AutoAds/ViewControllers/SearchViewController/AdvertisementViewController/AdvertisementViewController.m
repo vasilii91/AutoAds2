@@ -159,6 +159,7 @@
     else if (carPhotosButtonType == CarPhotosButtonTypeCall) {
         if (self.advertisement.Phone != nil) {
             [self callToPhone:self.advertisement.Phone];
+            LOG(@"%@", self.advertisement.Phone);
         }
     }
     else if (carPhotosButtonType == CarPhotosButtonTypeSendSms) {
