@@ -135,6 +135,8 @@
 		BE6FCEFF1611A35700C8E8ED /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6FCEF81611A35700C8E8ED /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE7F2B381619C7C0001A26A1 /* SelectValueOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7F2B371619C7C0001A26A1 /* SelectValueOptionsView.m */; };
 		BE7F2B3A1619C7DC001A26A1 /* SelectValueOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7F2B391619C7DC001A26A1 /* SelectValueOptionsView.xib */; };
+		BE7F2B43161AF2C2001A26A1 /* SelectValuePhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7F2B42161AF2C2001A26A1 /* SelectValuePhoneView.m */; };
+		BE7F2B45161AF2D3001A26A1 /* SelectValuePhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7F2B44161AF2D3001A26A1 /* SelectValuePhoneView.xib */; };
 		BE90E9C3160CA03700635EAC /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C0160CA03700635EAC /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE90E9C4160CA03700635EAC /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE90E9C2160CA03700635EAC /* JastorRuntimeHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE919FF016133A500005FA8A /* AdvertisementAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = BE919FEF16133A500005FA8A /* AdvertisementAdd.m */; };
@@ -444,6 +446,9 @@
 		BE7F2B361619C7C0001A26A1 /* SelectValueOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectValueOptionsView.h; path = SelectValueOptionsView/SelectValueOptionsView.h; sourceTree = "<group>"; };
 		BE7F2B371619C7C0001A26A1 /* SelectValueOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectValueOptionsView.m; path = SelectValueOptionsView/SelectValueOptionsView.m; sourceTree = "<group>"; };
 		BE7F2B391619C7DC001A26A1 /* SelectValueOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectValueOptionsView.xib; path = SelectValueOptionsView/SelectValueOptionsView.xib; sourceTree = "<group>"; };
+		BE7F2B41161AF2C2001A26A1 /* SelectValuePhoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectValuePhoneView.h; path = SelectValuePhoneView/SelectValuePhoneView.h; sourceTree = "<group>"; };
+		BE7F2B42161AF2C2001A26A1 /* SelectValuePhoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectValuePhoneView.m; path = SelectValuePhoneView/SelectValuePhoneView.m; sourceTree = "<group>"; };
+		BE7F2B44161AF2D3001A26A1 /* SelectValuePhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectValuePhoneView.xib; path = SelectValuePhoneView/SelectValuePhoneView.xib; sourceTree = "<group>"; };
 		BE90E9BF160CA03700635EAC /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jastor.h; sourceTree = "<group>"; };
 		BE90E9C0160CA03700635EAC /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jastor.m; sourceTree = "<group>"; };
 		BE90E9C1160CA03700635EAC /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JastorRuntimeHelper.h; sourceTree = "<group>"; };
@@ -716,6 +721,7 @@
 				10BE55C415FD0523008983A6 /* SelectValueDictionaryView */,
 				BE7F2B351619C74D001A26A1 /* SelectValueOptionsView */,
 				10BE55C015FD035B008983A6 /* SelectValueStringView */,
+				BE7F2B3F161AF2A0001A26A1 /* SelectValuePhoneView */,
 				10BE55BC15FD0329008983A6 /* SelectValuePhotoView */,
 			);
 			path = SelectValueViews;
@@ -1165,6 +1171,16 @@
 				BE7F2B391619C7DC001A26A1 /* SelectValueOptionsView.xib */,
 			);
 			name = SelectValueOptionsView;
+			sourceTree = "<group>";
+		};
+		BE7F2B3F161AF2A0001A26A1 /* SelectValuePhoneView */ = {
+			isa = PBXGroup;
+			children = (
+				BE7F2B41161AF2C2001A26A1 /* SelectValuePhoneView.h */,
+				BE7F2B42161AF2C2001A26A1 /* SelectValuePhoneView.m */,
+				BE7F2B44161AF2D3001A26A1 /* SelectValuePhoneView.xib */,
+			);
+			name = SelectValuePhoneView;
 			sourceTree = "<group>";
 		};
 		BE90E9BE160CA03700635EAC /* Jastor */ = {
@@ -1679,6 +1695,7 @@
 				109DC5E01618CD0300AE2B52 /* SelectValueCaptchaView.xib in Resources */,
 				BE7F2B3A1619C7DC001A26A1 /* SelectValueOptionsView.xib in Resources */,
 				1086A4B4161A2A5200F4767B /* checkbox.png in Resources */,
+				BE7F2B45161AF2D3001A26A1 /* SelectValuePhoneView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1824,6 +1841,7 @@
 				10D3CD6C1618782F00F25D1F /* Query.m in Sources */,
 				109DC5DE1618CCF000AE2B52 /* SelectValueCaptchaView.m in Sources */,
 				BE7F2B381619C7C0001A26A1 /* SelectValueOptionsView.m in Sources */,
+				BE7F2B43161AF2C2001A26A1 /* SelectValuePhoneView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

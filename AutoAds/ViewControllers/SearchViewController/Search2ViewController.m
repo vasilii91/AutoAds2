@@ -14,6 +14,7 @@
 
 @implementation Search2ViewController
 @synthesize field;
+@synthesize typeOfSearch2ViewController;
 
 
 #pragma mark - Initialization
@@ -42,6 +43,14 @@
     self.navigationItem.leftBarButtonItem = bbi;
     
     switch (self.field.valueType) {
+        case ValueTypePhone:
+        {
+            SelectValuePhoneView *phoneView = [SelectValuePhoneView loadView];
+            phoneView.labelHeader.text = self.field.nameRussian;
+            phoneView.frame = CGRectMake(0, 0, 320, 460);
+            [self.view addSubview:phoneView];
+            break;
+        }
         case ValueTypeCheckboxDictionaryFromInternet:
         {
             SelectValueOptionsView *optionsView = [SelectValueOptionsView loadView];
@@ -68,15 +77,21 @@
             NSDictionary *dictionary = (NSDictionary *)self.field.value;
             dictionaryView.dictionary = dictionary;
             dictionaryView.delegate = self;
-            if ([self.field.nameEnglish isEqualToString:F_FUEL_ENG]) {
-                dictionaryView.selectValueDictionaryType = SelectValueDictionaryFuel;
-            }
-            else if ([self.field.nameEnglish isEqualToString:F_STATES_ENG]) {
-                dictionaryView.selectValueDictionaryType = SelectValueDictionaryStates;
+            if (typeOfSearch2ViewController == Search2ViewControllerTypeSearch) {
+                if ([self.field.nameEnglish isEqualToString:F_FUEL_ENG]) {
+                    dictionaryView.selectValueDictionaryType = SelectValueDictionaryFuel;
+                }
+                else if ([self.field.nameEnglish isEqualToString:F_STATES_ENG]) {
+                    dictionaryView.selectValueDictionaryType = SelectValueDictionaryStates;
+                }
+                else {
+                    dictionaryView.selectValueDictionaryType = SelectValueDictionaryUnknown;
+                }
             }
             else {
                 dictionaryView.selectValueDictionaryType = SelectValueDictionaryUnknown;
             }
+            
             [self.view addSubview:dictionaryView];
             
             break;
@@ -113,8 +128,13 @@
             dictionaryView.dictionary = dictionary;
             dictionaryView.delegate = self;
             
-            if ([self.field.nameEnglish isEqualToString:F_MODEL_ENG]) {
-                dictionaryView.selectValueDictionaryType = SelectValueDictionaryModels;
+            if (typeOfSearch2ViewController == Search2ViewControllerTypeSearch) {
+                if ([self.field.nameEnglish isEqualToString:F_MODEL_ENG]) {
+                    dictionaryView.selectValueDictionaryType = SelectValueDictionaryModels;
+                }
+                else {
+                    dictionaryView.selectValueDictionaryType = SelectValueDictionaryUnknown;
+                }
             }
             else {
                 dictionaryView.selectValueDictionaryType = SelectValueDictionaryUnknown;

@@ -1313,7 +1313,7 @@
     [dictionary setValue:@"rubric" forKey:F_RUBRIC_ENG];
     [dictionary setValue:@"subrubric" forKey:F_SUBRUBRIC_ENG];
     [dictionary setValue:@"Brand" forKey:F_BRAND_ENG];
-    [dictionary setValue:@"Model[]" forKey:F_MODEL_ENG];
+    [dictionary setValue:@"Model" forKey:F_MODEL_ENG];
     [dictionary setValue:@"Modification" forKey:F_MODIFICATION_ENG];
     [dictionary setValue:@"Year" forKey:F_YEAR_ENG];
     [dictionary setValue:@"Mileage" forKey:F_MILEAGE_ENG];
@@ -1325,6 +1325,7 @@
     [dictionary setValue:@"Drive" forKey:F_DRIVE_ENG];
     [dictionary setValue:@"BodyType" forKey:F_BODY_TYPE_ENG];
     [dictionary setValue:@"Status" forKey:F_STATES_ENG];
+    [dictionary setValue:@"Status" forKey:F_STATUS_ENG];
     [dictionary setValue:@"EngineCapacity" forKey:F_ENGINE_CAPACITY_ENG];
     [dictionary setValue:@"EnginePower" forKey:F_ENGINE_POWER_ENG];
     [dictionary setValue:@"Fuel[]" forKey:F_FUEL_ENG];

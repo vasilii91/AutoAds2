@@ -13,11 +13,14 @@
 #import "AdvValues.h"
 #import "AdvDictionaries.h"
 #import "OrderedDictionary.h"
+#import "KVDataManager.h"
+#import "Phone.h"
 #import "objc/runtime.h"
 
 @interface SearchManager : NSObject
 {
     NSMutableDictionary *groups;
+    KVDataManager *dataManager;
 }
 
 + (SearchManager *)sharedMySingleton;

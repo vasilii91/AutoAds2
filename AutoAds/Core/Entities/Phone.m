@@ -10,4 +10,8 @@
 
 @implementation Phone
 
+- (NSString *)fullPhone
+{
+    return [NSString stringWithFormat:@"%@%@%@", self.Extra, self.Code, self.Number];
+}
 @end

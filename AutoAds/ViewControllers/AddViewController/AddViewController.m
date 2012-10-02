@@ -233,17 +233,11 @@
     if ([field.nameEnglish isEqualToString:F_PHOTO_ENG]) {
         value = [dictionaryPhotos count] != 0 ? @"Фото выбраны" : nil;
     }
-    else if ([field.nameEnglish isEqualToString:F_MODEL_ENG]) {
-        value = [dataManager.selectedModels count] != 0 ? @"Модели выбраны" : nil;
-    }
-    else if ([field.nameEnglish isEqualToString:F_FUEL_ENG]) {
-        value = [dataManager.selectedFuels count] != 0 ? @"Топливо выбрано" : nil;
-    }
-    else if ([field.nameEnglish isEqualToString:F_STATES_ENG]) {
-        value = [dataManager.selectedStates count] != 0 ? @"Состояния выбраны" : nil;
-    }
     else if ([field.nameEnglish isEqualToString:F_OPTIONS_ENG]) {
         value = [dataManager.selectedOptions count] != 0 ? @"Комплектация выбрана" : nil;
+    }
+    else if ([field.nameEnglish isEqualToString:F_PHONE_ENG]) {
+        value = [dataManager.selectedPhones count] != 0 ? @"Телефоны добавлены" : nil;
     }
     
     [cell.textView setText:title];
@@ -273,6 +267,7 @@
     }
     else {
         Search2ViewController *search2VC = [Search2ViewController new];
+        search2VC.typeOfSearch2ViewController = Search2ViewControllerTypeAddAdvertisement;
         search2VC.field = lastSelectedField;
         [self.navigationController pushViewController:search2VC animated:YES];
     }

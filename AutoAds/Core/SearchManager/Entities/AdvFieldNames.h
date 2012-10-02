@@ -164,7 +164,7 @@
 #define F_FROM_OFFICIAL_DEALER_ENG @"FromOfficialDealer"
 
 #define F_FUEL_RUS @"Типы топлива"
-#define F_FUEL_ENG @"fuel"
+#define F_FUEL_ENG @"fuel[]"
 
 
 

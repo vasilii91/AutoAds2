@@ -32,6 +32,7 @@
 @property (nonatomic, retain) NSMutableSet *selectedModels;
 @property (nonatomic, retain) NSMutableSet *selectedFuels;
 @property (nonatomic, retain) NSMutableSet *selectedStates;
+@property (nonatomic, retain) NSMutableArray *selectedPhones;
 
 @property (nonatomic, retain) NSDictionary *brandsDictionary;
 @property (nonatomic, retain) NSDictionary *modelsDictionary;

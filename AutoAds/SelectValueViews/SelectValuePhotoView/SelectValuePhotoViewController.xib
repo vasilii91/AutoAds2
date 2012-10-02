@@ -59,7 +59,6 @@
 						<string key="NSFrame">{{20, 87}, {178, 32}}</string>
 						<reference key="NSSuperview" ref="835209005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="1018283940">
 							<int key="NSColorSpace">6</int>
@@ -155,7 +154,6 @@
 						<string key="NSFrame">{{7, 127}, {307, 252}}</string>
 						<reference key="NSSuperview" ref="835209005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="552122018"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -328,20 +326,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SelectValuePhotoViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="clickOnCompletedButton:">id</string>
-						<string key="clickOnSelectPhotoButton:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="clickOnCompletedButton:">
-							<string key="name">clickOnCompletedButton:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="clickOnSelectPhotoButton:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">clickOnSelectPhotoButton:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">clickOnSelectPhotoButton:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">clickOnSelectPhotoButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="buttonCompleted">UIButton</string>
 						<string key="buttonSelectPhoto">UIButton</string>

@@ -19,6 +19,7 @@ static SearchManager *_sharedMySingleton = nil;
 {
     self = [super init];
     if (self) {
+        dataManager = [KVDataManager sharedInstance];
         groups = [NSMutableDictionary new];
     }
     
@@ -100,16 +101,18 @@ static SearchManager *_sharedMySingleton = nil;
 //        if (field.isPrecondition && field.selectedValue == nil && field.valueByDefault == nil) {
 //            return nil;
 //        }
-        if (field.selectedValue != nil || field.valueByDefault != nil) {
-            NSString *fieldName = field.nameEnglish;
-            NSString *fieldValue = [self fieldValueByField:field];
+        NSString *fieldName = field.nameEnglish;
+        NSString *fieldValue = [self fieldValueByField:field];
+        
+        if (fieldValue != nil) {
             
-            if (fieldValue != nil) {
+            NSArray *values = [fieldValue componentsSeparatedByString:@","];
+            for (NSString *str in values) {
                 if ([stringQuery length] == 0) {
-                    [stringQuery appendFormat:@"%@=%@", fieldName, fieldValue];
+                    [stringQuery appendFormat:@"%@=%@", fieldName, str];
                 }
                 else {
-                    [stringQuery appendFormat:@"&%@=%@", fieldName, fieldValue];
+                    [stringQuery appendFormat:@"&%@=%@", fieldName, str];
                 }
             }
         }
@@ -123,14 +126,16 @@ static SearchManager *_sharedMySingleton = nil;
     NSMutableDictionary *parameters = [NSMutableDictionary new];
 
     for (AdvField *field in fields) {
-        if (field.selectedValue != nil || field.valueByDefault != nil) {
-            NSString *fieldName = field.nameEnglish;
-            NSString *fieldValue = [self fieldValueByField:field];
+        NSString *fieldName = field.nameEnglish;
+        NSString *fieldValue = [self fieldValueByField:field];
+        
+        if ([fieldName length] != 0 && [fieldValue length] != 0) {
+            fieldName = [[AdvDictionaries AddAdvertisementFields] valueForKey:fieldName];
             
-            if ([fieldName length] != 0 && [fieldValue length] != 0) {
-                fieldName = [[AdvDictionaries AddAdvertisementFields] valueForKey:fieldName];
+            NSArray *values = [fieldValue componentsSeparatedByString:@","];
+            for (NSString *str in values) {
                 if ([fieldName length] != 0) {
-                    [parameters setValue:fieldValue forKey:fieldName];
+                    [parameters setValue:str forKey:fieldName];
                 }
             }
         }
@@ -141,7 +146,7 @@ static SearchManager *_sharedMySingleton = nil;
 
 - (NSString *)fieldValueByField:(AdvField *)field
 {
-    NSString *fieldValue = nil;
+    NSString *fieldValue = @"";
     
     if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
         fieldValue = [field.value valueForKey:field.selectedValue];
@@ -151,11 +156,61 @@ static SearchManager *_sharedMySingleton = nil;
     }
     
     if ([fieldValue length] == 0) {
-        if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
-            fieldValue = [field.value valueForKey:field.valueByDefault];
+        fieldValue = @"";
+        id dataSource = nil;
+        BOOL isOptions = NO;
+        if ([field.nameEnglish isEqualToString:F_MODEL_ENG]) {
+            dataSource = dataManager.selectedModels;
         }
-        else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber || field.valueType == ValueTypeCaptcha) {
-            fieldValue = field.valueByDefault;
+        else if ([field.nameEnglish isEqualToString:F_FUEL_ENG]) {
+            dataSource = dataManager.selectedFuels;
+        }
+        else if ([field.nameEnglish isEqualToString:F_STATES_ENG]) {
+            dataSource = dataManager.selectedStates;
+        }
+        else if ([field.nameEnglish isEqualToString:F_OPTIONS_ENG]) {
+            dataSource = dataManager.selectedOptions;
+            isOptions = YES;
+        }
+        
+        if ([dataSource count] != 0) {
+            NSInteger index = 0;
+            for (id obj in dataSource) {
+                NSString *str = nil;
+                if (isOptions) {
+                    str = [NSString stringWithFormat:@"%d", ((Option *)obj).id];
+                }
+                else {
+                    str = [field.value valueForKey:(NSString *)obj];
+                }
+                if (index == 0) {
+                    fieldValue = [fieldValue stringByAppendingString:str];
+                }
+                else {
+                    fieldValue = [fieldValue stringByAppendingFormat:@",%@", str];
+                }
+                index++;
+            }
+        }
+        // у телефонов свой формат, поэтому обрабатывается отдельно
+        else if ([field.nameEnglish isEqualToString:F_PHONE_ENG]) {
+            NSInteger index = 0;
+            for (Phone *phone in dataManager.selectedPhones) {
+                if (index != 0) {
+                    fieldValue = [fieldValue stringByAppendingString:@","];
+                }
+                fieldValue = [fieldValue stringByAppendingFormat:@"{\"Code\":%@, \"Number\":%@, \"Extra\":%@}", phone.Code, phone.Number, phone.Extra];
+                index++;
+            }
+            fieldValue = [NSString stringWithFormat:@"[%@]", fieldValue];
+        }
+        else {
+            if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
+                fieldValue = [field.value valueForKey:field.valueByDefault];
+            }
+            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber || field.valueType == ValueTypeCaptcha) {
+                fieldValue = field.valueByDefault;
+            }
         }
     }
     
@@ -326,7 +381,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f1 = [AdvField newAdvField:F_PRICE_ENG :F_PRICE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f2 = [AdvField newAdvField:F_BARGAIN_ENG :F_BARGAIN_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f3 = [AdvField newAdvField:F_CONTACTS_ENG :F_CONTACTS_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
-    AdvField *f4 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
+    AdvField *f4 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_RUS :nil :nil :nil :ValueTypePhone :YES :YES :NO :NO :NO :YES];
     AdvField *f5 = [AdvField newAdvField:F_ADDITIONAL_INFO_ENG :F_ADDITIONAL_INFO_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f6 = [AdvField newAdvField:F_PHOTO_ENG :F_PHOTO_RUS :nil :nil :nil :ValueTypePhoto :YES :NO :YES :YES :YES :YES];
 //    AdvField *f7 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
@@ -730,7 +785,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f42 = [AdvField newAdvField:F_PRICE_ENG :F_PRICE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f43 = [AdvField newAdvField:F_BARGAIN_ENG :F_BARGAIN_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f44 = [AdvField newAdvField:F_CONTACTS_ENG :F_CONTACTS_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
-    AdvField *f45 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_ENG :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
+    AdvField *f45 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_RUS :nil :nil :nil :ValueTypePhone :YES :YES :NO :NO :NO :YES];
     AdvField *f46 = [AdvField newAdvField:F_EMAIL_ENG :F_EMAIL_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f47 = [AdvField newAdvField:F_ADDITIONAL_INFO_ENG :F_ADDITIONAL_INFO_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f48 = [AdvField newAdvField:F_PERIOD_ENG :F_PERIOD_RUS :[AdvDictionaries AdPeriods] :V_AD_PERIODS_8_WEEKS_RUS :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :NO];

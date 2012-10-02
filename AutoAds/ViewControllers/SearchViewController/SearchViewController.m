@@ -273,6 +273,7 @@
     lastSelectedField = [fields objectAtIndex:indexPath.row];
     
     Search2ViewController *search2VC = [Search2ViewController new];
+    search2VC.typeOfSearch2ViewController = Search2ViewControllerTypeSearch;
     search2VC.field = lastSelectedField;
     [self.navigationController pushViewController:search2VC animated:YES];
 }

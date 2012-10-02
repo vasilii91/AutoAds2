@@ -22,6 +22,7 @@ static KVDataManager *instance = nil;
         self.selectedFuels = [NSMutableSet new];
         self.selectedModels = [NSMutableSet new];
         self.selectedStates = [NSMutableSet new];
+        self.selectedPhones = [NSMutableArray new];
     }
     
     return self;
@@ -254,6 +255,7 @@ static KVDataManager *instance = nil;
     [self.selectedModels removeAllObjects];
     [self.selectedOptions removeAllObjects];
     [self.selectedStates removeAllObjects];
+    [self.selectedPhones removeAllObjects];
 }
 
 @end

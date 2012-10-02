@@ -13,6 +13,7 @@ enum
 {
     ValueTypeCaptcha,
     ValueTypeString,
+    ValueTypePhone,
     ValueTypeNumber,
     ValueTypeDictionary,
     ValueTypePhoto,
