@@ -417,7 +417,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f14 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f15 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f16 = [AdvField newAdvField:F_ENGINE_TYPE_ENG :F_ENGINE_TYPE_RUS :[AdvDictionaries EngineTypes] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
-    AdvField *f17 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f17 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17];
     
@@ -466,7 +466,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f15 = [AdvField newAdvField:F_VAN_VOLUME_ENG :F_VAN_VOLUME_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f16 = [AdvField newAdvField:F_SEATS_ENG :F_SEATS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f17 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f18 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f18 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18];
     
@@ -495,7 +495,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f15 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f16 = [AdvField newAdvField:F_CABIN_TYPE_ENG :F_CABIN_TYPE_RUS :[AdvDictionaries CabinTypes] :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f17 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f18 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f18 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18];
     
@@ -525,7 +525,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f16 = [AdvField newAdvField:F_SEATS_ENG :F_SEATS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f17 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f18 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f19 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f19 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19];
     
@@ -547,7 +547,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f8 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesTrailers] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
     AdvField *f10 = [AdvField newAdvField:F_AXIS_COUNT_ENG :F_AXIS_COUNT_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
-    AdvField *f11 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f11 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11];
     
@@ -594,7 +594,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f10 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
     AdvField *f11 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f12 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f13 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f13 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12, f13];
     
@@ -617,7 +617,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f9 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f11 = [AdvField newAdvField:F_MOTO_HOURS_ENG :F_MOTO_HOURS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
-    AdvField *f12 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f12 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11, f12];
     
@@ -639,7 +639,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f8 = [AdvField newAdvField:F_DISPLACEMENT_ENG :F_DISPLACEMENT_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f10 = [AdvField newAdvField:F_SEATS_ENG :F_SEATS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
-    AdvField *f11 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f11 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10, f11];
     
@@ -658,7 +658,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
-    AdvField *f8 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f8 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8];
     
@@ -781,7 +781,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f38 = [AdvField newAdvField:F_HOLES_COUNT_ENG :F_HOLES_COUNT_RUS :[AdvDictionaries WheelHoleCounts] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :NO :YES];
     AdvField *f39 = [AdvField newAdvField:F_HOLES_DIAMETER_ENG :F_HOLES_DIAMETER_RUS :[AdvDictionaries WheelHoleDiameters] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :NO :YES];
     AdvField *f40 = [AdvField newAdvField:F_SORTIE_ENG :F_SORTIE_RUS :[AdvDictionaries WheelSorties] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f41 = [AdvField newAdvField:F_COMPLECTATION_ENG :F_COMPLECTATION_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
+    AdvField *f41 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     AdvField *f42 = [AdvField newAdvField:F_PRICE_ENG :F_PRICE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
     AdvField *f43 = [AdvField newAdvField:F_BARGAIN_ENG :F_BARGAIN_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f44 = [AdvField newAdvField:F_CONTACTS_ENG :F_CONTACTS_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
