@@ -10,7 +10,7 @@
 
 @interface Option : NSObject
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, retain) NSNumber *id;
 @property (nonatomic, retain) NSString *title;
 
 @end

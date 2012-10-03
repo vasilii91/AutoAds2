@@ -142,7 +142,12 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
 }
 
 - (void)connection:(NSURLConnection *)theConnection didReceiveResponse:(NSURLResponse*)response 
-{	
+{
+    if (self.type == RequestTypeBrands || self.type == RequestTypeOptions) {
+        NSDictionary *headers = ((NSHTTPURLResponse *)response).allHeaderFields;
+        LOG(@"%@", headers);
+    }
+    
 	_httpResponse = (NSHTTPURLResponse*)response;
 	[_httpResponse retain];
 }
@@ -155,11 +160,18 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection*)theConnection 
-{	
+{
     NSInteger statusCode = [_httpResponse statusCode];
     LOG(@"%d", statusCode);
     
     if (statusCode == 200) {
+        NSURLCache *cache = [NSURLCache sharedURLCache];
+        NSCachedURLResponse *response = [cache cachedResponseForRequest:self.request];
+        NSData *data = [response data];
+        NSDictionary *userInfo = [response userInfo];
+        
+        LOG(@"data - %@, userInfo - %@", data, userInfo);
+        
         [dataManager saveData:_outputStream withRequestType:_tag identifier:_identifier];
     }
     else {
@@ -168,7 +180,6 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
         [_delegate requestFailed:self error:error];
     }
 }
-
 
 #pragma mark - @protocol KVDataManagerDelegate <NSObject>
 

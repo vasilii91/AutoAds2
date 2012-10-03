@@ -91,6 +91,32 @@ static SearchManager *_sharedMySingleton = nil;
     AdvGroup *result2 = [self mergeLittleGroup:subrubricGroup withBigGroup:addAdvertisementGroup];
     result = [self joinGroup:result withGroup:result2];
     
+    for (AdvField *field in result.fields) {
+        if ([field.attentionText length] == 0) {
+            switch (field.valueType) {
+                case ValueTypeNumber:
+                case ValueTypeString:
+                case ValueTypePhone:
+                    field.attentionText = STANDART_ATTENTION_TEXT_FOR_TEXT_FIELD;
+                    break;
+                    
+                case ValueTypeDictionaryFromInternet:
+                case ValueTypeCheckboxDictionaryFromInternet:
+                case ValueTypeDictionary:
+                    field.attentionText = STANDART_ATTENTION_TEXT_FOR_DICTIONARY;
+                    break;
+                    
+                case ValueTypeEmail:
+                    field.attentionText = STANDART_ATTENTION_TEXT_FOR_EMAIL;
+                    break;
+                    
+                default:
+                    field.attentionText = STANDART_ATTENTION_TEXT_FOR_TEXT_FIELD;
+                    break;
+            }
+        }
+    }
+    
     return result;
 }
 
@@ -147,7 +173,11 @@ static SearchManager *_sharedMySingleton = nil;
     if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
         fieldValue = [field.value valueForKey:field.selectedValue];
     }
-    else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber || field.valueType == ValueTypeCaptcha) {
+    else if (field.valueType == ValueTypeString ||
+             field.valueType == ValueTypeNumber ||
+             field.valueType == ValueTypeCaptcha ||
+             field.valueType == ValueTypeEmail) {
+        
         fieldValue = field.selectedValue;
     }
     
@@ -174,7 +204,7 @@ static SearchManager *_sharedMySingleton = nil;
             for (id obj in dataSource) {
                 NSString *str = nil;
                 if (isOptions) {
-                    str = [NSString stringWithFormat:@"%d", ((Option *)obj).id];
+                    str = [NSString stringWithFormat:@"%@", ((Option *)obj).id];
                 }
                 else {
                     str = [field.value valueForKey:(NSString *)obj];
@@ -204,7 +234,11 @@ static SearchManager *_sharedMySingleton = nil;
             if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
                 fieldValue = [field.value valueForKey:field.valueByDefault];
             }
-            else if (field.valueType == ValueTypeString || field.valueType == ValueTypeNumber || field.valueType == ValueTypeCaptcha) {
+            else if (field.valueType == ValueTypeString ||
+                     field.valueType == ValueTypeNumber ||
+                     field.valueType == ValueTypeCaptcha ||
+                     field.valueType == ValueTypeEmail) {
+                
                 fieldValue = field.valueByDefault;
             }
         }
@@ -267,12 +301,16 @@ static SearchManager *_sharedMySingleton = nil;
         for (AdvField *littleField in littleGroup.fields) {
             if ([littleField.nameEnglish isEqualToString:bigField.nameEnglish]) {
                 
+                // add attention text to field from small group
+                littleField.attentionText = bigField.attentionText;
+                
                 [fields addObject:littleField];
                 break;
             }
             else if ([self isSmallOne:littleField.nameEnglish synonimOfBigOne:bigField.nameEnglish] ||
                      [bigField.nameEnglish isEqualToString:F_WITH_PHOTO_ENG] ||
-                     [bigField.nameEnglish isEqualToString:F_CAPTCHA_CODE_ENG]) {
+                     [bigField.nameEnglish isEqualToString:F_CAPTCHA_CODE_ENG] ||
+                     [bigField.nameEnglish isEqualToString:F_EMAIL_ENG]) {
                 [fields addObject:bigField];
                 break;
             }
@@ -790,9 +828,10 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f51 = [AdvField newAdvField:F_NUMBER_OF_OWNERS_ENG :F_NUMBER_OF_OWNERS_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f52 = [AdvField newAdvField:F_VIN_ENG :F_VIN_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f53 = [AdvField newAdvField:F_FROM_OFFICIAL_DEALER_ENG :F_FROM_OFFICIAL_DEALER_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f54 = [AdvField newAdvField:F_CAPTCHA_CODE_ENG :F_CAPTCHA_CODE_RUS :nil :nil :nil :ValueTypeCaptcha :YES :NO :NO :NO :NO :NO];
+    AdvField *f54 = [AdvField newAdvField:F_EMAIL_ENG :F_EMAIL_RUS :nil :nil :nil :ValueTypeEmail :YES :YES :YES :NO :NO :NO];
+    AdvField *f55 = [AdvField newAdvField:F_CAPTCHA_CODE_ENG :F_CAPTCHA_CODE_RUS :nil :nil :nil :ValueTypeCaptcha :YES :YES :YES :NO :NO :NO];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f50, f51, f52, f53, f54];
+    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f50, f51, f52, f53, f54, f55];
     
     group.fields = fields;
     

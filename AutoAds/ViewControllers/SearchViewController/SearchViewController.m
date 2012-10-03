@@ -119,6 +119,11 @@
             NSString *rubric = [f1 valueForServerBySelectedValue];
             NSString *subrubric = [f2 valueForServerBySelectedValue];
             
+            NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
+            [defauls setValue:rubric forKey:CURRENT_RUBRIC];
+            [defauls setValue:subrubric forKey:CURRENT_SUBRUBRIC];
+            [defauls synchronize];
+            
             [networkManager getModelsByRubric:rubric subrubric:subrubric];
         }
     }
@@ -206,14 +211,6 @@
 }
 
 
-#pragma mark - @protocol ButtonCellDelegate <NSObject>
-
-- (void)didTapButtonInButtonCell:(ButtonCell *)cell
-{
-    
-}
-
-
 #pragma mark - @protocol UIAlertViewDelegate <NSObject>
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -266,6 +263,7 @@
     
     [cell.textView setText:title];
     [cell.button setTitle:value forState:UIControlStateNormal];
+    [cell setAttentionState:NO];
     
     return cell;
 }

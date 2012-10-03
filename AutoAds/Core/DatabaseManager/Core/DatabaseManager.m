@@ -72,4 +72,150 @@ static DatabaseManager *_sharedMySingleton = nil;
     return [result count] == 0 ? nil : [result objectAtIndex:0];
 }
 
+- (void)addBrands:(NSMutableArray *)brands forRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    CachedData *cachedData = [self findCachedDataByRubric:rubric subrubric:subrubric isBrands:YES]; 
+    if ([cachedData.brands count] != 0) {
+        [cachedData removeBrands:cachedData.brands];
+    }
+    
+    for (VehicleBrand *brand in brands) {
+        Brand *_brand = (Brand *)[self createEntityByClass:[Brand class]];
+        _brand.id = brand.id;
+        _brand.title = brand.title;
+        _brand.order = brand.order;
+        
+        for (VehicleModel *model in brand.vehicleModels) {
+            Model *_model = (Model *)[self createEntityByClass:[Model class]];
+            _model.id = model.id;
+            _model.title = model.title;
+            _model.order = model.order;
+            
+            for (VehicleModification *modification in model.vehicleModifications) {
+                Modification *_modification = (Modification *)[self createEntityByClass:[Modification class]];
+                _modification.id = modification.id;
+                _modification.title = modification.title;
+                
+                // add modifications to model
+                [_model addModificationsObject:_modification];
+            }
+            
+            // add models to brand
+            [_brand addModelsObject:_model];
+        }
+        
+        // add brands to cached data
+        [cachedData addBrandsObject:_brand];
+    }
+    
+    [self saveAll];
+}
+
+- (void)addOptionsCategory:(NSMutableArray *)optionsCategory forRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    CachedData *cachedData = [self findCachedDataByRubric:rubric subrubric:subrubric isBrands:NO];
+    if ([cachedData.optionCategories count] != 0) {
+        [cachedData removeOptionCategories:cachedData.optionCategories];
+    }
+    
+    for (OptionsCategory *optionCategory in optionsCategory) {
+        OptionsCategories *_optionCategory = (OptionsCategories *)[self createEntityByClass:[OptionsCategories class]];
+        _optionCategory.title = optionCategory.title;
+        
+        for (Option *option in optionCategory.fields) {
+            Options *_option = (Options *)[self createEntityByClass:[Options class]];
+            _option.title = option.title;
+            _option.id = option.id;
+            
+            // add options to category
+            [_optionCategory addOptionsObject:_option];
+        }
+        
+        // add categories to cached data
+        [cachedData addOptionCategoriesObject:_optionCategory];
+    }
+    
+    [self saveAll];
+}
+
+- (NSMutableArray *)brandsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    CachedData *cachedData = [self findCachedDataByRubric:rubric subrubric:subrubric isBrands:YES];
+    NSMutableArray *brands = [NSMutableArray new];
+    
+    for (Brand *_brand in cachedData.brands) {
+        VehicleBrand *brand = [VehicleBrand new];
+        brand.id = _brand.id;
+        brand.title = _brand.title;
+        brand.order = _brand.order;
+        
+        NSMutableArray *models = [NSMutableArray new];
+        for (Model *_model in _brand.models) {
+            VehicleModel *model = [VehicleModel new];
+            model.id = _model.id;
+            model.title = _model.title;
+            model.order = _model.order;
+            
+            NSMutableArray *modifications = [NSMutableArray new];
+            for (Modification *_modification in _model.modifications) {
+                VehicleModification *modification = [VehicleModification new];
+                modification.id = _modification.id;
+                modification.title = _modification.title;
+                
+                [modifications addObject:modification];
+            }
+            model.vehicleModifications = modifications;
+            
+            [models addObject:model];
+        }
+        brand.vehicleModels = models;
+        
+        [brands addObject:brand];
+    }
+    
+    return brands;
+}
+
+- (NSMutableArray *)optionCategoriesByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
+{
+    CachedData *cachedData = [self findCachedDataByRubric:rubric subrubric:subrubric isBrands:NO];
+    NSMutableArray *optionCategories = [NSMutableArray new];
+    
+    for (OptionsCategories *_optionCategory in cachedData.optionCategories) {
+        OptionsCategory *optionCategory = [OptionsCategory new];
+        optionCategory.title = _optionCategory.title;
+        
+        NSMutableArray *options = [NSMutableArray new];
+        for (Options *_option in _optionCategory.options) {
+            Option *option = [Option new];
+            option.id = _option.id;
+            option.title = _option.title;
+            
+            [options addObject:option];
+        }
+        
+        [optionCategories addObject:optionCategory];
+    }
+    
+    return optionCategories;
+}
+
+
+#pragma mark - Private methods
+
+- (CachedData *)findCachedDataByRubric:(NSString *)rubric subrubric:(NSString *)subrubric isBrands:(BOOL)isBrands
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(rubric == %@) AND (subrubric == %@)", rubric, subrubric];
+    NSArray *result = [CachedData findAllWithPredicate:predicate];
+    
+    CachedData *cachedData = [result count] == 0 ? nil : [result objectAtIndex:0];
+    if (cachedData == nil) {
+        cachedData = (CachedData *)[self createEntityByClass:[CachedData class]];
+        cachedData.rubric = rubric;
+        cachedData.subrubric = subrubric;
+    }
+    
+    return cachedData;
+}
+
 @end

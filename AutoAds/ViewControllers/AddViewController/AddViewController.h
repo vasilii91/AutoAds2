@@ -15,8 +15,9 @@
 #import "Constants.h"
 #import "KVNetworkManager.h"
 #import "KVDataManager.h"
+#import "OLGhostAlertView.h"
 
-@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate>
+@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate, ButtonCellDelegate>
 {
     PleaseWaitAlertView *pleaseWaitAlertView;
     

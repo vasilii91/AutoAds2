@@ -55,3 +55,7 @@
 #define CURRENT_RUBRIC @"current rubric"
 #define CURRENT_SUBRUBRIC @"current subrubric"
 #define CURRENT_NAME_OF_GROUP_OF_CITIES @"current number of group of cities"
+
+#define STANDART_ATTENTION_TEXT_FOR_TEXT_FIELD @"Пожалуйста, заполните это поле"
+#define STANDART_ATTENTION_TEXT_FOR_DICTIONARY @"Пожалуйста, выберите значение"
+#define STANDART_ATTENTION_TEXT_FOR_EMAIL @"Пожалуйста, укажите Ваш электронный ящик"

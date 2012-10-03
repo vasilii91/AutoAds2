@@ -97,6 +97,13 @@
 		BE2F84FA15FF2CE2008859B1 /* Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84F915FF2CE2008859B1 /* Phone.m */; };
 		BE2F84FD15FF2EDA008859B1 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84FC15FF2EDA008859B1 /* Option.m */; };
 		BE2F850015FF2FAE008859B1 /* OptionsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */; };
+		BE37F4A5161C403900508636 /* CachedData.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37F4A4161C403900508636 /* CachedData.m */; };
+		BE37F4AB161C403A00508636 /* OptionsCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37F4AA161C403A00508636 /* OptionsCategories.m */; };
+		BE37F4B4161C403A00508636 /* Modification.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37F4B3161C403A00508636 /* Modification.m */; };
+		BE37F4BD161C4D0100508636 /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37F4BC161C4D0000508636 /* Brand.m */; };
+		BE37F4C0161C4D0200508636 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37F4BF161C4D0200508636 /* Model.m */; };
+		BE37F4C3161C56B800508636 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = BE37F4C2161C56B800508636 /* Options.m */; };
+		BE37F4C9161C80FC00508636 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = BE37F4C8161C80FC00508636 /* info.png */; };
 		BE3CF9C61612FAD70081CD64 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3CF9C51612FAD70081CD64 /* QuartzCore.framework */; };
 		BE3CFA46161305E00081CD64 /* EGOPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3CFA19161305E00081CD64 /* EGOPhotoViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE3CFA47161305E00081CD64 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3CFA1E161305E00081CD64 /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -143,6 +150,8 @@
 		BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */; };
 		BE96CF4F160338A20074A52B /* ListOfAdverisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */; };
 		BE96CF50160338A20074A52B /* ListOfAdverisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE96CF4E160338A20074A52B /* ListOfAdverisementViewController.xib */; };
+		BEB4A5CE161C931E006814DA /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A5CC161C931E006814DA /* OLGhostAlertView.m */; };
+		BEB4A5CF161C931E006814DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BEB4A5CD161C931E006814DA /* README.md */; };
 		BEC9940615F88A8A006BDCA9 /* DINPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E015F88A8A006BDCA9 /* DINPro-Black.otf */; };
 		BEC9940715F88A8A006BDCA9 /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E115F88A8A006BDCA9 /* DINPro-Bold.otf */; };
 		BEC9940815F88A8A006BDCA9 /* DINPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E215F88A8A006BDCA9 /* DINPro-Light.otf */; };
@@ -383,6 +392,19 @@
 		BE2F84FC15FF2EDA008859B1 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Option.m; path = Entities/Option.m; sourceTree = "<group>"; };
 		BE2F84FE15FF2FAE008859B1 /* OptionsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsCategory.h; path = Entities/OptionsCategory.h; sourceTree = "<group>"; };
 		BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsCategory.m; path = Entities/OptionsCategory.m; sourceTree = "<group>"; };
+		BE37F4A3161C403900508636 /* CachedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CachedData.h; path = DatabaseManager/Entities/CachedData/CachedData.h; sourceTree = "<group>"; };
+		BE37F4A4161C403900508636 /* CachedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CachedData.m; path = DatabaseManager/Entities/CachedData/CachedData.m; sourceTree = "<group>"; };
+		BE37F4A9161C403A00508636 /* OptionsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsCategories.h; path = DatabaseManager/Entities/CachedData/OptionsCategories.h; sourceTree = "<group>"; };
+		BE37F4AA161C403A00508636 /* OptionsCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsCategories.m; path = DatabaseManager/Entities/CachedData/OptionsCategories.m; sourceTree = "<group>"; };
+		BE37F4B2161C403A00508636 /* Modification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Modification.h; path = DatabaseManager/Entities/CachedData/Modification.h; sourceTree = "<group>"; };
+		BE37F4B3161C403A00508636 /* Modification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Modification.m; path = DatabaseManager/Entities/CachedData/Modification.m; sourceTree = "<group>"; };
+		BE37F4BB161C4D0000508636 /* Brand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Brand.h; path = DatabaseManager/Entities/CachedData/Brand.h; sourceTree = "<group>"; };
+		BE37F4BC161C4D0000508636 /* Brand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brand.m; path = DatabaseManager/Entities/CachedData/Brand.m; sourceTree = "<group>"; };
+		BE37F4BE161C4D0100508636 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = DatabaseManager/Entities/CachedData/Model.h; sourceTree = "<group>"; };
+		BE37F4BF161C4D0200508636 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = DatabaseManager/Entities/CachedData/Model.m; sourceTree = "<group>"; };
+		BE37F4C1161C56B800508636 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Options.h; path = DatabaseManager/Entities/CachedData/Options.h; sourceTree = "<group>"; };
+		BE37F4C2161C56B800508636 /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Options.m; path = DatabaseManager/Entities/CachedData/Options.m; sourceTree = "<group>"; };
+		BE37F4C8161C80FC00508636 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		BE3CF9C51612FAD70081CD64 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BE3CFA18161305E00081CD64 /* EGOPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOPhotoViewController.h; sourceTree = "<group>"; };
 		BE3CFA19161305E00081CD64 /* EGOPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoViewController.m; sourceTree = "<group>"; };
@@ -460,6 +482,9 @@
 		BE96CF4C160338A20074A52B /* ListOfAdverisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListOfAdverisementViewController.h; path = ListOfAdverisementViewController/ListOfAdverisementViewController.h; sourceTree = "<group>"; };
 		BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListOfAdverisementViewController.m; path = ListOfAdverisementViewController/ListOfAdverisementViewController.m; sourceTree = "<group>"; };
 		BE96CF4E160338A20074A52B /* ListOfAdverisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListOfAdverisementViewController.xib; path = ListOfAdverisementViewController/ListOfAdverisementViewController.xib; sourceTree = "<group>"; };
+		BEB4A5CB161C931E006814DA /* OLGhostAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
+		BEB4A5CC161C931E006814DA /* OLGhostAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
+		BEB4A5CD161C931E006814DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		BEC993E015F88A8A006BDCA9 /* DINPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Black.otf"; sourceTree = "<group>"; };
 		BEC993E115F88A8A006BDCA9 /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
 		BEC993E215F88A8A006BDCA9 /* DINPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Light.otf"; sourceTree = "<group>"; };
@@ -819,6 +844,7 @@
 		10D3CD621618742D00F25D1F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BE37F483161C2B5E00508636 /* CachedData */,
 				10D3CD641618744E00F25D1F /* FavoriteAdv.h */,
 				10D3CD651618744E00F25D1F /* FavoriteAdv.m */,
 				10D3CD6A1618782F00F25D1F /* Query.h */,
@@ -974,6 +1000,25 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		BE37F483161C2B5E00508636 /* CachedData */ = {
+			isa = PBXGroup;
+			children = (
+				BE37F4A3161C403900508636 /* CachedData.h */,
+				BE37F4A4161C403900508636 /* CachedData.m */,
+				BE37F4A9161C403A00508636 /* OptionsCategories.h */,
+				BE37F4AA161C403A00508636 /* OptionsCategories.m */,
+				BE37F4C1161C56B800508636 /* Options.h */,
+				BE37F4C2161C56B800508636 /* Options.m */,
+				BE37F4BE161C4D0100508636 /* Model.h */,
+				BE37F4BF161C4D0200508636 /* Model.m */,
+				BE37F4BB161C4D0000508636 /* Brand.h */,
+				BE37F4BC161C4D0000508636 /* Brand.m */,
+				BE37F4B2161C403A00508636 /* Modification.h */,
+				BE37F4B3161C403A00508636 /* Modification.m */,
+			);
+			name = CachedData;
+			sourceTree = "<group>";
+		};
 		BE3CFA15161305E00081CD64 /* EGOPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,6 +1168,7 @@
 		BE3CFA5C161312AF0081CD64 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				BE37F4C8161C80FC00508636 /* info.png */,
 				1086A4B3161A2A5200F4767B /* checkbox.png */,
 				BE3CFA5D161312AF0081CD64 /* thumbnail_01.png */,
 				BE3CFA5E161312AF0081CD64 /* thumbnail_02.png */,
@@ -1213,6 +1259,17 @@
 				BE96CF4E160338A20074A52B /* ListOfAdverisementViewController.xib */,
 			);
 			name = ListOfAdverisementViewController;
+			sourceTree = "<group>";
+		};
+		BEB4A5CA161C931E006814DA /* OLGhostAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				BEB4A5CB161C931E006814DA /* OLGhostAlertView.h */,
+				BEB4A5CC161C931E006814DA /* OLGhostAlertView.m */,
+				BEB4A5CD161C931E006814DA /* README.md */,
+			);
+			name = OLGhostAlertView;
+			path = Controls/OLGhostAlertView;
 			sourceTree = "<group>";
 		};
 		BEC993DE15F88A8A006BDCA9 /* Resources */ = {
@@ -1458,6 +1515,7 @@
 				10D529E2160E10B00011F682 /* PleaseWaitAlertView */,
 				10D529D4160E09990011F682 /* SSIndicatorLabel */,
 				BEDD195716036C0B00FACC4B /* CirculationView */,
+				BEB4A5CA161C931E006814DA /* OLGhostAlertView */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -1696,6 +1754,8 @@
 				BE7F2B3A1619C7DC001A26A1 /* SelectValueOptionsView.xib in Resources */,
 				1086A4B4161A2A5200F4767B /* checkbox.png in Resources */,
 				BE7F2B45161AF2D3001A26A1 /* SelectValuePhoneView.xib in Resources */,
+				BE37F4C9161C80FC00508636 /* info.png in Resources */,
+				BEB4A5CF161C931E006814DA /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1842,6 +1902,13 @@
 				109DC5DE1618CCF000AE2B52 /* SelectValueCaptchaView.m in Sources */,
 				BE7F2B381619C7C0001A26A1 /* SelectValueOptionsView.m in Sources */,
 				BE7F2B43161AF2C2001A26A1 /* SelectValuePhoneView.m in Sources */,
+				BE37F4A5161C403900508636 /* CachedData.m in Sources */,
+				BE37F4AB161C403A00508636 /* OptionsCategories.m in Sources */,
+				BE37F4B4161C403A00508636 /* Modification.m in Sources */,
+				BE37F4BD161C4D0100508636 /* Brand.m in Sources */,
+				BE37F4C0161C4D0200508636 /* Model.m in Sources */,
+				BE37F4C3161C56B800508636 /* Options.m in Sources */,
+				BEB4A5CE161C931E006814DA /* OLGhostAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

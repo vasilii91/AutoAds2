@@ -59,19 +59,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370861969.13632"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "-queryToSearch:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/SelectValueViews/SelectValuePhotoView/SelectValuePhotoView.m"
          timestampString = "370518935.557983"
          startingColumnNumber = "9223372036854775807"
@@ -112,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/NetworkManager/KVNetworkManager.m"
-         timestampString = "370781166.53219"
+         timestampString = "370957559.14514"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "313"
-         endingLineNumber = "313"
+         startingLineNumber = "331"
+         endingLineNumber = "331"
          landmarkName = "-savePhotosByPhotoContainer:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,39 +150,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
-         timestampString = "370866292.50269"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
-         landmarkName = "-saveData:withRequestType:identifier:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370861969.13632"
+         timestampString = "370970167.160343"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
          landmarkName = "-queryToSearch:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370863745.482694"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
-         landmarkName = "-parametersToAddAdvertisement:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -216,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370870247.58632"
+         timestampString = "370970167.160343"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
          landmarkName = "-fieldValueByField:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,12 +190,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370869957.143139"
+         timestampString = "370970576.070674"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
-         landmarkName = "-fieldValueByField:"
+         startingLineNumber = "162"
+         endingLineNumber = "162"
+         landmarkName = "-parametersToAddAdvertisement:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
+         timestampString = "370954573.533253"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
+         landmarkName = "-saveData:withRequestType:identifier:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/NetworkManager/KVNetworkManager.m"
+         timestampString = "370957559.14514"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "293"
+         endingLineNumber = "293"
+         landmarkName = "-getOptionsByRubric:subrubric:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -242,11 +229,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/SearchManager/SearchManager.m"
-         timestampString = "370870054.877214"
+         timestampString = "370970167.160343"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "301"
+         endingLineNumber = "301"
+         landmarkName = "-mergeLittleGroup:withBigGroup:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/SearchManager/SearchManager.m"
+         timestampString = "370970585.250268"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "152"
+         endingLineNumber = "152"
          landmarkName = "-parametersToAddAdvertisement:"
          landmarkType = "5">
       </FileBreakpoint>

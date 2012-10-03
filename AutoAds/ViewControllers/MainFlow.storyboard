@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HIY-ih-cJ9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HIY-ih-cJ9">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -218,7 +218,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eXQ-yF-Tfa">
-                                        <rect key="frame" x="0.0" y="127" width="320" height="240"/>
+                                        <rect key="frame" x="0.0" y="64" width="320" height="303"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -227,7 +227,7 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vzi-tC-1LM">
-                                        <rect key="frame" x="0.0" y="62" width="320" height="63"/>
+                                        <rect key="frame" x="0.0" y="1" width="320" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -240,22 +240,6 @@
                                         </state>
                                         <connections>
                                             <action selector="clickOnAboutProgramButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="H39-C4-dQL"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fRY-2g-wT8">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Техподдержка" image="77@2x.png" backgroundImage="77@2x.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickOnTechnicalHelpButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="Isq-FI-Rub"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -335,7 +319,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qnu-kQ-3W1">
-                                <rect key="frame" x="0.0" y="80" width="320" height="77"/>
+                                <rect key="frame" x="0.0" y="80" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -355,7 +339,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X9b-io-JkK">
-                                <rect key="frame" x="0.0" y="157" width="320" height="77"/>
+                                <rect key="frame" x="0.0" y="167" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -374,7 +358,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BIV-rO-Zta">
-                                <rect key="frame" x="0.0" y="234" width="320" height="77"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -393,7 +377,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xSO-Re-oPU">
-                                <rect key="frame" x="0.0" y="311" width="320" height="77"/>
+                                <rect key="frame" x="0.0" y="341" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -412,43 +396,16 @@
                                     <segue destination="sQh-8b-pyF" kind="custom" identifier="flipSegue" customClass="FlipSegue" id="RUh-nQ-Sg3"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="5n4-pm-FWJ">
-                                <rect key="frame" x="0.0" y="388" width="320" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="divider.png" id="1ST-pd-bo2">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nwf-jp-liS">
-                                        <rect key="frame" x="11" y="16" width="299" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
-                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                        <state key="normal" title="Полезная информация" image="infoIcon.png" backgroundImage="infoButton@2x.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clickOnButton:" destination="HIY-ih-cJ9" eventType="touchUpInside" id="qtm-5F-h8z"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="divider.png" id="1ST-pd-bo2">
+                                <rect key="frame" x="0.0" y="427" width="320" height="33"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="_addButton" destination="X9b-io-JkK" id="8mx-Zi-OZN"/>
-                        <outlet property="_bottomBar" destination="5n4-pm-FWJ" id="6uq-Qq-FFV"/>
                         <outlet property="_favButton" destination="BIV-rO-Zta" id="wXj-Sq-3GX"/>
-                        <outlet property="_infoButton" destination="Nwf-jp-liS" id="bvs-9w-QVn"/>
                         <outlet property="_moreButton" destination="xSO-Re-oPU" id="U0w-0x-TID"/>
                         <outlet property="_searchButton" destination="qnu-kQ-3W1" id="YY2-0x-phk"/>
                     </connections>
@@ -466,8 +423,6 @@
         <image name="backgroundDark@2x.png" width="640" height="960"/>
         <image name="backgroundLight@2x.png" width="640" height="960"/>
         <image name="divider.png" width="16" height="16"/>
-        <image name="infoButton@2x.png" width="598" height="94"/>
-        <image name="infoIcon.png" width="16" height="16"/>
         <image name="logo@2x.png" width="640" height="160"/>
         <image name="moreBlue.png" width="16" height="16"/>
         <image name="searchBlue.png" width="16" height="16"/>
@@ -522,6 +477,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="d6t-dF-Kbr"/>
+        <segue reference="FKk-0s-o2L"/>
     </inferredMetricsTieBreakers>
 </document>

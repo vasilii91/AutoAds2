@@ -19,6 +19,8 @@
 @property (nonatomic, assign) NSObject<SelectValueDelegate> *delegate;
 @property (nonatomic, assign) ValueType valueType;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
+@property (weak, nonatomic) IBOutlet UILabel *labelEmail;
+@property (nonatomic, retain) NSString *selectedValue;
 
 + (SelectValueStringView *)loadView;
 - (IBAction)clickOnOkButton:(id)sender;

@@ -101,11 +101,13 @@
         }
         case ValueTypeString:
         case ValueTypeNumber:
+        case ValueTypeEmail:
         {
             SelectValueStringView *stringView = [SelectValueStringView loadView];
             stringView.labelHeader.text = self.field.nameRussian;
             stringView.valueType = self.field.valueType;
             stringView.delegate = self;
+            stringView.selectedValue = self.field.selectedValue;
             [self.view addSubview:stringView];
             break;
         }

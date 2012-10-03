@@ -13,7 +13,8 @@
 @synthesize textView;
 @synthesize button;
 @synthesize delegate = _delegate;
-
+@synthesize redLabel;
+@synthesize field;
 
 #pragma mark - Initialization
 
@@ -25,6 +26,9 @@
     [self.button.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:12.]];
     [self.button setBackgroundImage:[[UIImage imageNamed:@"tableButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)] forState:UIControlStateNormal];
     [self.button addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.buttonInfo setHidden:YES];
+    self.redLabel.hidden = YES;
     
     UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"50.png"]];
     [self setBackgroundView:iv];
@@ -43,11 +47,18 @@
 
 #pragma mark - Actions
 
-- (void)onButton:(id)sender
+- (IBAction)clickOnAttentionButton:(id)sender
 {
-    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(ButtonCellDelegate)] && [_delegate respondsToSelector:@selector(didTapButtonInButtonCell:)]) {
-        [_delegate didTapButtonInButtonCell:self];
-    }
+    [_delegate userClickedOnAttentionButton:self.field];
+}
+
+
+#pragma mark - Public methods
+
+- (void)setAttentionState:(BOOL)isAttention
+{
+    self.buttonInfo.hidden = !isAttention;
+    self.redLabel.hidden = !isAttention;
 }
 
 @end

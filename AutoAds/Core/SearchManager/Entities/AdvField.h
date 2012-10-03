@@ -13,6 +13,7 @@ enum
 {
     ValueTypeCaptcha,
     ValueTypeString,
+    ValueTypeEmail,
     ValueTypePhone,
     ValueTypeNumber,
     ValueTypeDictionary,
@@ -38,6 +39,7 @@ typedef NSUInteger ValueType;
 @property (nonatomic, assign) BOOL isFullOutput;
 @property (nonatomic, retain) AdvField *dependentField;
 @property (nonatomic, assign) BOOL isExistMainField;
+@property (nonatomic, retain) NSString *attentionText;
 
 + (AdvField *)newAdvField:(NSString *)nameE :(NSString *)nameR :(id)val :(id)valByDef :(id)selectedVal :(ValueType)valType :(BOOL)isShown :(BOOL)isPrecond :(BOOL)isShort :(BOOL)isExtended :(BOOL)isTable :(BOOL)isFull;
 

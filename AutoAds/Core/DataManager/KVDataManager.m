@@ -85,26 +85,39 @@ static KVDataManager *instance = nil;
             }
             else if (type == RequestTypeBrands) {
                 NSArray *arr = [parseData valueForKey:@"Brands"];
-                self.brands = [NSMutableArray new];
+                _brands = [NSMutableArray new];
                 
                 for (NSDictionary *d in arr) {
                     VehicleBrand *brand = [[VehicleBrand alloc] initWithDictionary:d];
-                    [self.brands addObject:brand];
+                    [_brands addObject:brand];
                 }
+                
+                NSString *currentRubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_RUBRIC];
+                NSString *currentSubrubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_SUBRUBRIC];
+                
+                [[DatabaseManager sharedMySingleton] addBrands:_brands forRubric:currentRubric subrubric:currentSubrubric];
             }
             else if (type == RequestTypeOptions) {
                 NSString *format = [parseData valueForKey:@"Format"];
-                self.options = [NSMutableArray new];
+                _options = [NSMutableArray new];
                 
                 if ([format isEqualToString:@"Options"]) {
+                    OptionsCategory *optionCategory = [OptionsCategory new];
+                    optionCategory.title = @"";
+                    
                     NSDictionary *dict = [parseData valueForKey:format];
+                    NSMutableArray *options = [NSMutableArray new];
+                    
                     for (NSString *key in [dict allKeys]) {
                         NSString *value = [dict objectForKey:key];
                         Option *option = [Option new];
-                        option.id = [key integerValue];
+                        option.id = @([key integerValue]);
                         option.title = value;
-                        [self.options addObject:option];
+                        [options addObject:option];
                     }
+                    optionCategory.fields = options;
+                    
+                    [_options addObject:optionCategory];
                 }
                 else if ([format isEqualToString:@"OptionsCategories"]) {
                     NSArray *arr = [parseData valueForKey:format];
@@ -118,14 +131,18 @@ static KVDataManager *instance = nil;
                         for (NSString *key in [dict allKeys]) {
                             NSString *value = [dict objectForKey:key];
                             Option *option = [Option new];
-                            option.id = [key integerValue];
+                            option.id = @([key integerValue]);
                             option.title = value;
                             [optionCategory.fields addObject:option];
                         }
-                        [self.options addObject:optionCategory];
+                        [_options addObject:optionCategory];
                     }
                 }
                 
+                NSString *currentRubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_RUBRIC];
+                NSString *currentSubrubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_SUBRUBRIC];
+                
+                [[DatabaseManager sharedMySingleton] addOptionsCategory:_options forRubric:currentRubric subrubric:currentSubrubric];
             }
             [self.delegate dataWasSuccessfullyParsed];
         }
@@ -134,6 +151,26 @@ static KVDataManager *instance = nil;
             [self.delegate errorWasOccuredWithError:errorText];
         }
     }
+}
+
+- (NSMutableArray *)brands
+{
+    NSComparisonResult (^sortBlock)(id, id) = ^(id obj1, id obj2) {
+        
+        NSInteger order1 = [((VehicleBrand *)obj1).order integerValue];
+        NSInteger order2 = [((VehicleBrand *)obj2).order integerValue];
+        
+        if (order1 > order2) {
+            return NSOrderedDescending;
+        }
+        else if (order1 < order2) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedSame;
+    };
+    
+    NSMutableArray *result = [[NSMutableArray alloc] initWithArray:[_brands sortedArrayUsingComparator:sortBlock]];
+    return result;
 }
 
 - (NSDictionary *)brandsDictionary

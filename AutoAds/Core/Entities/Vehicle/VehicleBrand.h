@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSString *id;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSDictionary *subrubrics;
-@property (nonatomic, retain) NSString *order;
+@property (nonatomic, retain) NSNumber *order;
 
 @property (nonatomic, retain) NSMutableArray *vehicleModels;
 

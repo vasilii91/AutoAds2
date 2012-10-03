@@ -271,21 +271,39 @@ static KVNetworkManager *instance = nil;
 }
 
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
-{
-    NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
-    NSString *url = [self urlGetWithActionName:@"Brands" parameters:jsonString apiCall:ApiCallGET];
-    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeBrands requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
-    
-    [self addRequest:urlRequest];
+{    
+    NSMutableArray *brands = [[DatabaseManager sharedMySingleton] brandsByRubric:rubric subrubric:subrubric];
+    if ([brands count] != 0) {
+        [KVDataManager sharedInstance].brands = brands;
+        for (NSObject<KVNetworkDelegate> *subscriber in subscribers) {
+            [subscriber requestProcessed:RequestTypeBrands forId:@""];
+        }
+    }
+    else {
+        NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
+        NSString *url = [self urlGetWithActionName:@"Brands" parameters:jsonString apiCall:ApiCallGET];
+        KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeBrands requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
+        
+        [self addRequest:urlRequest];
+    }
 }
 
 - (void)getOptionsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
 {
-    NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
-    NSString *url = [self urlGetWithActionName:@"Options" parameters:jsonString apiCall:ApiCallGET];
-    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeOptions requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
-    
-    [self addRequest:urlRequest];
+    NSMutableArray *optionCategories = [[DatabaseManager sharedMySingleton] optionCategoriesByRubric:rubric subrubric:subrubric];
+    if ([optionCategories count] != 0) {
+        [KVDataManager sharedInstance].options = optionCategories;
+        for (NSObject<KVNetworkDelegate> *subscriber in subscribers) {
+            [subscriber requestProcessed:RequestTypeOptions forId:@""];
+        }
+    }
+    else {
+        NSString *jsonString = [NSString stringWithFormat:@"rubric=%@&subrubric=%@", rubric, subrubric];
+        NSString *url = [self urlGetWithActionName:@"Options" parameters:jsonString apiCall:ApiCallGET];
+        KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeOptions requestIdentifier:@"" jsonString:nil httpMethod:@"GET"];
+        
+        [self addRequest:urlRequest];
+    }
 }
 
 - (void)savePhotosByPhotoContainer:(NSArray *)photoContainers

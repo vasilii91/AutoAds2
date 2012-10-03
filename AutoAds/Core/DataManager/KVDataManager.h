@@ -17,6 +17,7 @@
 #import "FileManagerCoreMethods.h"
 #import "Option.h"
 #import "OptionsCategory.h"
+#import "DatabaseManager.h"
 
 @class KVUrlRequest;
 

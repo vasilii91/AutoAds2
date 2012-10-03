@@ -191,11 +191,11 @@
 
 #pragma mark - Private methods
 
-- (void)saveQuery:(BOOL)isSaved
+- (void)saveQuery:(BOOL)_isSaved
 {
     Query *query = (Query *)[databaseManager createEntityByClass:[Query class]];
     query.dateAdded = [NSDate date];
-    query.isSaved = @(isSaved);
+    query.isSaved = @(_isSaved);
     query.queryString = self.queryString;
     [databaseManager saveAll];
 }

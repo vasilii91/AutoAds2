@@ -117,6 +117,11 @@
             currentRubric = [f1 valueForServerBySelectedValue];
             currentSubrubric = [f2 valueForServerBySelectedValue];
             
+            NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
+            [defauls setValue:currentRubric forKey:CURRENT_RUBRIC];
+            [defauls setValue:currentSubrubric forKey:CURRENT_SUBRUBRIC];
+            [defauls synchronize];
+            
             [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
         }
     }
@@ -231,6 +236,7 @@
     if (cell == nil) {
         cell = [ButtonCell loadView];
     }
+    cell.delegate = self;
     
     AdvField *field = [fields objectAtIndex:indexPath.row];
     NSString *title = field.nameRussian;
@@ -244,6 +250,17 @@
     }
     else if ([field.nameEnglish isEqualToString:F_PHONE_ENG]) {
         value = [dataManager.selectedPhones count] != 0 ? @"Телефоны добавлены" : nil;
+    }
+    
+    cell.field = field;
+    
+    if (field.isPrecondition) {
+        if ([value length] == 0) {
+            [cell setAttentionState:YES];
+        }
+        else {
+            [cell setAttentionState:NO];
+        }
     }
     
     [cell.textView setText:title];
@@ -341,4 +358,14 @@
     [alertView show];
     LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
+
+
+#pragma mark - @protocol ButtonCellDelegate <NSObject>
+
+- (void)userClickedOnAttentionButton:(AdvField *)field
+{
+    OLGhostAlertView *alert = [[OLGhostAlertView alloc] initWithTitle:@"" message:field.attentionText timeout:2 dismissible:YES];
+    [alert show];
+}
+
 @end

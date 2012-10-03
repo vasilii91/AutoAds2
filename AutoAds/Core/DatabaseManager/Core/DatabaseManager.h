@@ -9,6 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "FavoriteAdv.h"
 #import "Query.h"
+#import "VehicleBrand.h"
+#import "VehicleModel.h"
+#import "VehicleModification.h"
+#import "Option.h"
+#import "OptionsCategory.h"
+
+#import "CachedData.h"
+#import "OptionsCategories.h"
+#import "Options.h"
+#import "Brand.h"
+#import "Model.h"
+#import "Modification.h"
 
 @interface DatabaseManager : NSObject
 {
@@ -23,5 +35,10 @@
 
 - (NSArray *)getQueries:(BOOL)isSaved;
 - (Query *)findQueryByQueryString:(NSString *)queryString isSaved:(BOOL)isSaved;
+
+- (void)addBrands:(NSMutableArray *)brands forRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (void)addOptionsCategory:(NSMutableArray *)optionsCategory forRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (NSMutableArray *)brandsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
+- (NSMutableArray *)optionCategoriesByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 
 @end
