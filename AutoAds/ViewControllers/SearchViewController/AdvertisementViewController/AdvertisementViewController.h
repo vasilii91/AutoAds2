@@ -18,6 +18,7 @@
 #import "MyPhoto.h"
 #import "MyPhotoSource.h"
 #import <MessageUI/MFMessageComposeViewController.h>
+#import "SVProgressHUD.h"
 
 @interface AdvertisementViewController : UIViewController<CarPhotosProtocol, KVNetworkDelegate, UIAlertViewDelegate, MFMessageComposeViewControllerDelegate>
 {

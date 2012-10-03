@@ -10,6 +10,205 @@
 
 @implementation AdvDictionaries
 
+#pragma mark - Logo
+
++ (NSString *)Logo
+{
+    NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
+    
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"autochel (74.ru).gif , autochel.ru" forKey:@"74"];
+    [dictionary setValue:@"ufa1-logo.gif , 102km.ru" forKey:@"2"];
+    [dictionary setValue:@"161-logo.gif , 161auto.ru" forKey:@"61"];
+    [dictionary setValue:@"72-logo.gif , 72avto.ru" forKey:@"72"];
+    [dictionary setValue:@"59-logo.gif , avto59.ru" forKey:@"59"];
+    [dictionary setValue:@"63-logo.gif , doroga63.ru" forKey:@"63"];
+    [dictionary setValue:@"V1-logo.gif , 34auto.ru" forKey:@"34"];
+    [dictionary setValue:@"116-logo.gif , 116auto.ru" forKey:@"16"];
+    [dictionary setValue:@"29logo.gif , 29.ru" forKey:@"29"];
+    [dictionary setValue:@"76-logo.gif , 76.ru" forKey:@"76"];
+    
+    return [dictionary valueForKey:currentNameOfGroup];
+}
+
+
+#pragma mark - Our projects
+
++ (NSDictionary *)OurProjects
+{
+    NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
+    
+    NSString *selectorName = [NSString stringWithFormat:@"OurProjects%@", currentNameOfGroup];
+    SEL selector = NSSelectorFromString(selectorName);
+    
+    NSDictionary *dictionary = nil;
+    if ([[AdvDictionaries class] respondsToSelector:selector]) {
+        dictionary = [[AdvDictionaries class] performSelector:selector];
+    }
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects2
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://ufa1.ru/" forKey:@"ufa1.ru"];
+    [dictionary setValue:@"http://ufa1.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://ufa1.ru/weather/Ufa/" forKey:@"Погода"];
+    [dictionary setValue:@"http://102banka.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://ufa1.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://102km.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://102metra.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://ufa1.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://102vechera.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects16
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://116.ru/" forKey:@"116.ru"];
+    [dictionary setValue:@"http://116.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://116.ru/weather/Kazan/" forKey:@"Погода"];
+    [dictionary setValue:@"http://116dengi.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://116.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://116auto.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://116metrov.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://116.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://116vecherov.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects29
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://29.ru/" forKey:@"29.ru"];
+    [dictionary setValue:@"http://29.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://29.ru/weather/Arxangelsk/" forKey:@"Погода"];
+    [dictionary setValue:@"http://29.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://29.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://29.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://29.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://29.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://29.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects34
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://v1.ru/" forKey:@"v1.ru"];
+    [dictionary setValue:@"http://v1.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://v1.ru/weather/Volgograd/" forKey:@"Погода"];
+    [dictionary setValue:@"http://34banka.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://v1.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://34auto.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://34metra.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://v1.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://34vechera.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects59
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://59.ru/" forKey:@"59.ru"];
+    [dictionary setValue:@"http://59.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://59.ru/weather/Perm/" forKey:@"Погода"];
+    [dictionary setValue:@"http://dengi59.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://59.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://avto59.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://kvartira59.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://59.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://afisha59.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects61
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://161.ru/" forKey:@"161.ru"];
+    [dictionary setValue:@"http://161.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://161.ru/weather/Rostov-na-Donu/" forKey:@"Погода"];
+    [dictionary setValue:@"http://161bank.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://161.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://161auto.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://161metr.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://161.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://161vecher.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects63
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://63.ru/" forKey:@"63.ru"];
+    [dictionary setValue:@"http://63.ru/text/factsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://63.ru/weather/Samara/" forKey:@"Погода"];
+    [dictionary setValue:@"http://dengi63.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://63.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://doroga63.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://dom63.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://63.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://freetime63.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects72
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://72.ru/" forKey:@"72.ru"];
+    [dictionary setValue:@"http://72.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://72.ru/weather/Tyumen/" forKey:@"Погода"];
+    [dictionary setValue:@"http://72dengi.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://72.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://72avto.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://72doma.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://72.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://72afisha.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects74
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://74.ru/" forKey:@"74.ru"];
+    [dictionary setValue:@"http://chelyabinsk.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://74.ru/weather/Chelyabinsk/" forKey:@"Погода"];
+    [dictionary setValue:@"http://chelfin.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://74.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://autochel.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://domchel.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://74.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://mychel.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)OurProjects76
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"http://76.ru/" forKey:@"76.ru"];
+    [dictionary setValue:@"http://76.ru/text/newsline/" forKey:@"Новости"];
+    [dictionary setValue:@"http://76.ru/weather/Yaroslavl/" forKey:@"Погода"];
+    [dictionary setValue:@"http://76.ru/exchange/" forKey:@"Курсы валют"];
+    [dictionary setValue:@"http://76.ru/job/" forKey:@"Работа"];
+    [dictionary setValue:@"http://76.ru/car/" forKey:@"Авто"];
+    [dictionary setValue:@"http://76.ru/realty/" forKey:@"Недвижимость"];
+    [dictionary setValue:@"http://76.ru/baraholka/" forKey:@"Барахолка"];
+    [dictionary setValue:@"http://76.ru/afisha/" forKey:@"Афиша"];
+    
+    return dictionary;
+}
+
 
 #pragma mark - Cities
 
@@ -17,36 +216,12 @@
 {
     NSString *currentNameOfGroup = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
     
+    NSString *selectorName = [NSString stringWithFormat:@"Cities%@", currentNameOfGroup];
+    SEL selector = NSSelectorFromString(selectorName);
+    
     NSDictionary *dictionary = nil;
-    if ([currentNameOfGroup isEqualToString:@"2"]) {
-        dictionary = [AdvDictionaries Cities2];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"16"]) {
-        dictionary = [AdvDictionaries Cities16];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"29"]) {
-        dictionary = [AdvDictionaries Cities29];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"34"]) {
-        dictionary = [AdvDictionaries Cities34];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"59"]) {
-        dictionary = [AdvDictionaries Cities59];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"61"]) {
-        dictionary = [AdvDictionaries Cities61];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"63"]) {
-        dictionary = [AdvDictionaries Cities63];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"72"]) {
-        dictionary = [AdvDictionaries Cities72];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"74"]) {
-        dictionary = [AdvDictionaries Cities74];
-    }
-    else if ([currentNameOfGroup isEqualToString:@"76"]) {
-        dictionary = [AdvDictionaries Cities76];
+    if ([[AdvDictionaries class] respondsToSelector:selector]) {
+        dictionary = [[AdvDictionaries class] performSelector:selector];
     }
     
     OrderedDictionary *newDictionary = [OrderedDictionary new];

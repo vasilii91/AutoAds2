@@ -54,8 +54,11 @@
     [[NSUserDefaults standardUserDefaults] setValue:@([self.advertisement.Photo count]) forKey:COUNT_OF_PHOTOS_IN_CAR_PHOTOS];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Загружаются фотографии...\n\n\n" delegate:self cancelButtonTitle:@"Остановить" otherButtonTitles: nil];
-    [pleaseWaitAlertView show];
+//    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Загружаются фотографии...\n\n\n" delegate:self cancelButtonTitle:@"Остановить" otherButtonTitles: nil];
+//    [pleaseWaitAlertView show];
+    
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT_PHOTOS];
+    
     [networkManager savePhotosByPhotoContainer:self.advertisement.Photo];
 }
 
@@ -63,6 +66,13 @@
 {
     [self setScrollView:nil];
     [super viewDidUnload];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [networkManager unsubscribe:self];
+    [SVProgressHUD dismiss];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -75,7 +85,8 @@
 
 - (void)addComponentsOnView
 {
-    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS_PHOTOS];
+//    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
     [networkManager unsubscribe:self];
     
     AdvertisementHeader *header = [AdvertisementHeader loadView];

@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1017C4DA161CA8BA00694563 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4D7161CA8BA00694563 /* SVProgressHUD.bundle */; };
+		1017C4DB161CA8BA00694563 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1017C4D9161CA8BA00694563 /* SVProgressHUD.m */; };
+		1017C500161CF07000694563 /* 116-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4F6161CF07000694563 /* 116-logo.gif */; };
+		1017C501161CF07000694563 /* 161-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4F7161CF07000694563 /* 161-logo.gif */; };
+		1017C502161CF07000694563 /* 29logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4F8161CF07000694563 /* 29logo.gif */; };
+		1017C503161CF07000694563 /* 59-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4F9161CF07000694563 /* 59-logo.gif */; };
+		1017C504161CF07000694563 /* 63-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FA161CF07000694563 /* 63-logo.gif */; };
+		1017C505161CF07000694563 /* 72-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FB161CF07000694563 /* 72-logo.gif */; };
+		1017C506161CF07000694563 /* 76-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FC161CF07000694563 /* 76-logo.gif */; };
+		1017C507161CF07000694563 /* autochel (74.ru).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FD161CF07000694563 /* autochel (74.ru).gif */; };
+		1017C508161CF07000694563 /* ufa1-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FE161CF07000694563 /* ufa1-logo.gif */; };
+		1017C509161CF07000694563 /* V1-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FF161CF07000694563 /* V1-logo.gif */; };
 		104235161617308300941200 /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 104235151617308300941200 /* SVPullToRefresh.m */; };
 		1086A4B4161A2A5200F4767B /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1086A4B3161A2A5200F4767B /* checkbox.png */; };
 		108CBC19161870080054B3AF /* AutoAdsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108CBC17161870080054B3AF /* AutoAdsModel.xcdatamodeld */; };
@@ -222,6 +234,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1017C4D7161CA8BA00694563 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		1017C4D8161CA8BA00694563 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		1017C4D9161CA8BA00694563 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		1017C4F6161CF07000694563 /* 116-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "116-logo.gif"; sourceTree = "<group>"; };
+		1017C4F7161CF07000694563 /* 161-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "161-logo.gif"; sourceTree = "<group>"; };
+		1017C4F8161CF07000694563 /* 29logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 29logo.gif; sourceTree = "<group>"; };
+		1017C4F9161CF07000694563 /* 59-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "59-logo.gif"; sourceTree = "<group>"; };
+		1017C4FA161CF07000694563 /* 63-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "63-logo.gif"; sourceTree = "<group>"; };
+		1017C4FB161CF07000694563 /* 72-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "72-logo.gif"; sourceTree = "<group>"; };
+		1017C4FC161CF07000694563 /* 76-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "76-logo.gif"; sourceTree = "<group>"; };
+		1017C4FD161CF07000694563 /* autochel (74.ru).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "autochel (74.ru).gif"; sourceTree = "<group>"; };
+		1017C4FE161CF07000694563 /* ufa1-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ufa1-logo.gif"; sourceTree = "<group>"; };
+		1017C4FF161CF07000694563 /* V1-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "V1-logo.gif"; sourceTree = "<group>"; };
 		1021D64C15FFD2A000360903 /* AdvValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvValues.h; path = SearchManager/Entities/AdvValues.h; sourceTree = "<group>"; };
 		104235141617308300941200 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		104235151617308300941200 /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
@@ -599,6 +624,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1017C4D6161CA8BA00694563 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				1017C4D7161CA8BA00694563 /* SVProgressHUD.bundle */,
+				1017C4D8161CA8BA00694563 /* SVProgressHUD.h */,
+				1017C4D9161CA8BA00694563 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = Controls/SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		1017C4F5161CF07000694563 /* logos */ = {
+			isa = PBXGroup;
+			children = (
+				1017C4F6161CF07000694563 /* 116-logo.gif */,
+				1017C4F7161CF07000694563 /* 161-logo.gif */,
+				1017C4F8161CF07000694563 /* 29logo.gif */,
+				1017C4F9161CF07000694563 /* 59-logo.gif */,
+				1017C4FA161CF07000694563 /* 63-logo.gif */,
+				1017C4FB161CF07000694563 /* 72-logo.gif */,
+				1017C4FC161CF07000694563 /* 76-logo.gif */,
+				1017C4FD161CF07000694563 /* autochel (74.ru).gif */,
+				1017C4FE161CF07000694563 /* ufa1-logo.gif */,
+				1017C4FF161CF07000694563 /* V1-logo.gif */,
+			);
+			path = logos;
+			sourceTree = "<group>";
+		};
 		104235131617308300941200 /* SVPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1296,6 +1349,7 @@
 		BEC993E515F88A8A006BDCA9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1017C4F5161CF07000694563 /* logos */,
 				BE3CFA5C161312AF0081CD64 /* General */,
 				BEC993E615F88A8A006BDCA9 /* backgroundDark@2x.png */,
 				BEC993E715F88A8A006BDCA9 /* backgroundLight@2x.png */,
@@ -1511,6 +1565,7 @@
 		BEDD195616036BEC00FACC4B /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				1017C4D6161CA8BA00694563 /* SVProgressHUD */,
 				BE3CFA61161318890081CD64 /* PageControl */,
 				10D529E2160E10B00011F682 /* PleaseWaitAlertView */,
 				10D529D4160E09990011F682 /* SSIndicatorLabel */,
@@ -1756,6 +1811,17 @@
 				BE7F2B45161AF2D3001A26A1 /* SelectValuePhoneView.xib in Resources */,
 				BE37F4C9161C80FC00508636 /* info.png in Resources */,
 				BEB4A5CF161C931E006814DA /* README.md in Resources */,
+				1017C4DA161CA8BA00694563 /* SVProgressHUD.bundle in Resources */,
+				1017C500161CF07000694563 /* 116-logo.gif in Resources */,
+				1017C501161CF07000694563 /* 161-logo.gif in Resources */,
+				1017C502161CF07000694563 /* 29logo.gif in Resources */,
+				1017C503161CF07000694563 /* 59-logo.gif in Resources */,
+				1017C504161CF07000694563 /* 63-logo.gif in Resources */,
+				1017C505161CF07000694563 /* 72-logo.gif in Resources */,
+				1017C506161CF07000694563 /* 76-logo.gif in Resources */,
+				1017C507161CF07000694563 /* autochel (74.ru).gif in Resources */,
+				1017C508161CF07000694563 /* ufa1-logo.gif in Resources */,
+				1017C509161CF07000694563 /* V1-logo.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1909,6 +1975,7 @@
 				BE37F4C0161C4D0200508636 /* Model.m in Sources */,
 				BE37F4C3161C56B800508636 /* Options.m in Sources */,
 				BEB4A5CE161C931E006814DA /* OLGhostAlertView.m in Sources */,
+				1017C4DB161CA8BA00694563 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

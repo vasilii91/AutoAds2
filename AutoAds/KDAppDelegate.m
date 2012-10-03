@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[NSUserDefaults standardUserDefaults] setValue:@"16" forKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
+    [[NSUserDefaults standardUserDefaults] setValue:@"74" forKey:CURRENT_NAME_OF_GROUP_OF_CITIES];
 
     NSManagedObjectContext* managedOC = [self managedObjectContext];
     if (managedOC == nil){

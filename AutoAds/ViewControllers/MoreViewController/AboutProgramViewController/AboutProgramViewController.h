@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PrettyViews.h"
 #import <MessageUI/MessageUI.h>
+#import "AdvDictionaries.h"
 
 @interface AboutProgramViewController : UIViewController<MFMailComposeViewControllerDelegate>
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelAutoChelRu;
 @property (weak, nonatomic) IBOutlet UILabel *labelDeveloper;
 @property (weak, nonatomic) IBOutlet UILabel *labelCopyright;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewLogo;
 
 - (IBAction)clickOnButton:(UIButton *)sender;
 @end

@@ -13,6 +13,16 @@
 
 @interface AdvDictionaries : NSObject
 
+#pragma mark - Logo
+
++ (NSString *)Logo;
+
+
+#pragma mark - Our projects
+
++ (NSDictionary *)OurProjects;
+
+
 #pragma mark - Cities
 
 + (NSDictionary *)Cities;

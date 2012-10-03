@@ -113,8 +113,10 @@
             currentGroup = [searchManager categorySearchByRubric:f1.selectedValue subrubric:f2.selectedValue];
             fields = [currentGroup getObligatoryFields];
             
-            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
-            [pleaseWaitAlertView show];
+//            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
+//            [pleaseWaitAlertView show];
+            
+            [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
             
             NSString *rubric = [f1 valueForServerBySelectedValue];
             NSString *subrubric = [f2 valueForServerBySelectedValue];
@@ -135,6 +137,8 @@
 {
     [super viewWillDisappear:animated];
     [networkManager unsubscribe:self];
+    
+    [SVProgressHUD dismiss];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -207,7 +211,8 @@
     queryString = [searchManager queryToSearch:fields];
     [networkManager searchWithQuery:queryString isSearchWithPage:NO];
     
-    [pleaseWaitAlertView show];
+//    [pleaseWaitAlertView show];
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
 }
 
 
@@ -217,7 +222,8 @@
 {
     if (buttonIndex == 0) {
         [networkManager unsubscribe:self];
-        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+//        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     }
 }
 
@@ -286,7 +292,8 @@
 
 - (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
-    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+//    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     
     if (requestId == RequestTypeSearch) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
@@ -300,6 +307,7 @@
 - (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
 {
     LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
+    [SVProgressHUD showErrorWithStatus:PROGRESS_STATUS_ERROR];
 }
 
 @end

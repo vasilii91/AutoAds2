@@ -14,10 +14,11 @@
 #import "TechnicalHelpViewController.h"
 #import "AboutProgramViewController.h"
 #import "OrderedDictionary.h"
+#import "AdvDictionaries.h"
 
 @interface MoreViewController : UIViewController
 {
-    OrderedDictionary *dictionaryLinks;
+    NSDictionary *dictionaryLinks;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

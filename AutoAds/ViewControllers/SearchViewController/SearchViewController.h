@@ -19,6 +19,7 @@
 #import "ListOfAdverisementViewController.h"
 #import "KVNetworkManager.h"
 #import "KVDataManager.h"
+#import "SVProgressHUD.h"
 
 @interface SearchViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ButtonCellDelegate, KVNetworkDelegate, UIAlertViewDelegate>
 {

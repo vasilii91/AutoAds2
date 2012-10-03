@@ -111,8 +111,10 @@
             currentGroup = [searchManager categoryAddAdvertisementByRubric:f1.selectedValue subrubric:f2.selectedValue];
             fields = [currentGroup getObligatoryFields];
             
-            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
-            [pleaseWaitAlertView show];
+//            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
+//            [pleaseWaitAlertView show];
+
+            [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
             
             currentRubric = [f1 valueForServerBySelectedValue];
             currentSubrubric = [f2 valueForServerBySelectedValue];
@@ -133,6 +135,7 @@
 {
     [super viewWillDisappear:animated];
     [networkManager unsubscribe:self];
+    [SVProgressHUD dismiss];
 }
 
 
@@ -318,7 +321,8 @@
 {
     if (buttonIndex == 0) {
         [networkManager unsubscribe:self];
-        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+//        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     }
 }
 
@@ -348,14 +352,14 @@
         [networkManager getOptionsByRubric:currentRubric subrubric:currentSubrubric];
     }
     else if (requestId == RequestTypeOptions) {
-        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+//        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     }
 }
 
 - (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alertView show];
+    [SVProgressHUD showErrorWithStatus:PROGRESS_STATUS_ERROR];
     LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
 

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
-         timestampString = "370694784.129073"
+         timestampString = "370994514.080735"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "91"
-         endingLineNumber = "91"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
-         timestampString = "370694784.129073"
+         timestampString = "370994514.080735"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
          landmarkName = "-clickOnAboutProgramButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "140"
          endingLineNumber = "140"
-         landmarkName = "-parametersToAddAdvertisement:"
+         landmarkName = "-queryToSearch:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -248,6 +248,32 @@
          startingLineNumber = "265"
          endingLineNumber = "265"
          landmarkName = "-searchWithQuery:isSearchWithPage:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/DatabaseManager/Core/DatabaseManager.m"
+         timestampString = "370976157.555799"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
+         landmarkName = "-brandsByRubric:subrubric:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/DatabaseManager/Core/DatabaseManager.m"
+         timestampString = "370976244.960831"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "211"
+         endingLineNumber = "211"
+         landmarkName = "-findCachedDataByRubric:subrubric:isBrands:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

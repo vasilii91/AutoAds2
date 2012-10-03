@@ -16,6 +16,7 @@
 #import "KVNetworkManager.h"
 #import "KVDataManager.h"
 #import "OLGhostAlertView.h"
+#import "SVProgressHUD.h"
 
 @interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate, ButtonCellDelegate>
 {

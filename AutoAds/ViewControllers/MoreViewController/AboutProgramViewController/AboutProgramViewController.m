@@ -20,6 +20,7 @@
 @synthesize labelAutoChelRu;
 @synthesize labelDeveloper;
 @synthesize labelCopyright;
+@synthesize imageViewLogo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +51,13 @@
     self.labelAutoChelRu.font = [UIFont fontWithName:FONT_DINPro_BOLD size:fontSize];
     self.labelDeveloper.font = [UIFont fontWithName:FONT_DINPro_BOLD size:fontSize];
     self.labelCopyright.font = [UIFont fontWithName:FONT_DINPro_MEDIUM size:fontSize];
+    
+    NSArray *logoData = [[AdvDictionaries Logo] componentsSeparatedByString:@" , "];
+    NSString *nameOfLogoImage = [logoData objectAtIndex:0];
+    NSString *urlByLogo = [logoData objectAtIndex:1];
+    
+    self.labelAutoChelRu.text = [urlByLogo capitalizedString];
+    self.imageViewLogo.image = [UIImage imageNamed:nameOfLogoImage];
 }
 
 - (void)viewDidUnload
@@ -59,6 +67,7 @@
     [self setLabelAutoChelRu:nil];
     [self setLabelDeveloper:nil];
     [self setLabelCopyright:nil];
+    [self setImageViewLogo:nil];
     [super viewDidUnload];
 }
 

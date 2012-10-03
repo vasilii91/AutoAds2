@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">12B19</string>
+		<string key="IBDocument.SystemVersion">12C54</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
-		<string key="IBDocument.AppKitVersion">1187</string>
-		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1498</string>
@@ -107,7 +107,7 @@
 					<object class="IBUILabel" id="791041906">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{55, 89}, {91, 21}}</string>
+						<string key="NSFrame">{{37, 89}, {107, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="120737005"/>
@@ -128,7 +128,7 @@
 					<object class="IBUILabel" id="765747978">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{12, 339}, {75, 21}}</string>
+						<string key="NSFrame">{{12, 335}, {198, 25}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -137,7 +137,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Copyright</string>
+						<string key="IBUIText">ООО "Интернет Технологии"</string>
 						<reference key="IBUITextColor" ref="139936340"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -153,19 +153,32 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="418679524"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<object class="NSColor" key="IBUIBackgroundColor" id="550040020">
+							<int key="NSColorSpace">6</int>
+							<string key="NSCatalogName">System</string>
+							<string key="NSColorName">controlShadowColor</string>
+							<object class="NSColor" key="NSColor">
+								<int key="NSColorSpace">3</int>
+								<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+							</object>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Позвонить</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="338026819">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						<object class="NSColor" key="IBUINormalTitleColor" id="147233616">
+							<int key="NSColorSpace">6</int>
+							<string key="NSCatalogName">System</string>
+							<string key="NSColorName">selectedControlTextColor</string>
+							<object class="NSColor" key="NSColor">
+								<int key="NSColorSpace">3</int>
+								<bytes key="NSWhite">MAA</bytes>
+							</object>
 						</object>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="169709936">
 							<int key="NSColorSpace">3</int>
@@ -189,18 +202,15 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="333382694"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<reference key="IBUIBackgroundColor" ref="550040020"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">1</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Написать</string>
 						<reference key="IBUIHighlightedTitleColor" ref="338026819"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="147233616"/>
 						<reference key="IBUINormalTitleShadowColor" ref="169709936"/>
 						<reference key="IBUIFontDescription" ref="15699073"/>
 						<reference key="IBUIFont" ref="357491307"/>
@@ -213,18 +223,15 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="705341366"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<reference key="IBUIBackgroundColor" ref="550040020"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">2</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Позвонить</string>
 						<reference key="IBUIHighlightedTitleColor" ref="338026819"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="147233616"/>
 						<reference key="IBUINormalTitleShadowColor" ref="169709936"/>
 						<reference key="IBUIFontDescription" ref="15699073"/>
 						<reference key="IBUIFont" ref="357491307"/>
@@ -237,18 +244,15 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="765747978"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<reference key="IBUIBackgroundColor" ref="550040020"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">3</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Написать</string>
 						<reference key="IBUIHighlightedTitleColor" ref="338026819"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="147233616"/>
 						<reference key="IBUINormalTitleShadowColor" ref="169709936"/>
 						<reference key="IBUIFontDescription" ref="15699073"/>
 						<reference key="IBUIFont" ref="357491307"/>
@@ -256,11 +260,12 @@
 					<object class="IBUIImageView" id="120737005">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{175, 79}, {67, 41}}</string>
+						<string key="NSFrame">{{143, 79}, {157, 41}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1011876461"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage" id="1021033751">
@@ -386,6 +391,14 @@
 						<reference key="destination" ref="765747978"/>
 					</object>
 					<int key="connectionID">21</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">imageViewLogo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="120737005"/>
+					</object>
+					<int key="connectionID">27</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -554,28 +567,26 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">26</int>
+			<int key="maxID">27</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">AboutProgramViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="clickOnButton:">id</string>
-						<string key="clickOnCall1Button:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="clickOnButton:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">clickOnButton:</string>
+						<string key="NS.object.0">UIButton</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">clickOnButton:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">clickOnButton:</string>
-							<string key="candidateClassName">id</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBActionInfo" key="clickOnCall1Button:">
-							<string key="name">clickOnCall1Button:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="imageViewLogo">UIImageView</string>
 						<string key="labelAutoChelRu">UILabel</string>
 						<string key="labelAutoadvertisement">UILabel</string>
 						<string key="labelCopyright">UILabel</string>
@@ -583,6 +594,10 @@
 						<string key="labelVersion">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="imageViewLogo">
+							<string key="name">imageViewLogo</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="labelAutoChelRu">
 							<string key="name">labelAutoChelRu</string>
 							<string key="candidateClassName">UILabel</string>

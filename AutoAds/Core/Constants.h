@@ -59,3 +59,9 @@
 #define STANDART_ATTENTION_TEXT_FOR_TEXT_FIELD @"Пожалуйста, заполните это поле"
 #define STANDART_ATTENTION_TEXT_FOR_DICTIONARY @"Пожалуйста, выберите значение"
 #define STANDART_ATTENTION_TEXT_FOR_EMAIL @"Пожалуйста, укажите Ваш электронный ящик"
+
+#define PROGRESS_STATUS_PLEASE_WAIT @"Пожалуйста, подождите..."
+#define PROGRESS_STATUS_PLEASE_WAIT_PHOTOS @"Загружаются фотографии. Пожалуйста, подождите..."
+#define PROGRESS_STATUS_SUCCESS @"Данные успешно получены"
+#define PROGRESS_STATUS_SUCCESS_PHOTOS @"Фотографии успешно загружены"
+#define PROGRESS_STATUS_ERROR @"Произошла ошибка"

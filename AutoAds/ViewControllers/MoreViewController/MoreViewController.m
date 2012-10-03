@@ -24,11 +24,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        dictionaryLinks = [OrderedDictionary new];
-        [dictionaryLinks setValue:@"http://74.ru" forKey:@"74.ru"];
-        [dictionaryLinks setValue:@"http://74.ru/job/" forKey:@"Работа: вакансии и резюме"];
-        [dictionaryLinks setValue:@"Недвижимость" forKey:@"http://domchel.ru/"];
-        [dictionaryLinks setValue:@"Финансы" forKey:@"http://chelfin.ru"];
+        dictionaryLinks = [AdvDictionaries OurProjects];
     }
     
     return self;
