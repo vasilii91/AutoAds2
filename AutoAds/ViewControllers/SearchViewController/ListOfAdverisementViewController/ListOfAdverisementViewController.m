@@ -8,8 +8,8 @@
 
 #import "ListOfAdverisementViewController.h"
 
-#define SORT_BUTTON_IMAGE_SELECTED @"moreBlue.png"
-#define SORT_BUTTON_IMAGE_DESELECTED @"moreBarIcon.png"
+#define SORT_BUTTON_IMAGE_SELECTED @"list_button_selected.png"
+#define SORT_BUTTON_IMAGE_DESELECTED @"list_button.png"
 
 #define SAVE_BUTTON_IMAGE_SELECTED @"addBlue.png"
 #define SAVE_BUTTON_IMAGE_DESELECTED @"addBarIcon.png"
@@ -51,11 +51,11 @@
     UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Список"];
     self.navigationItem.titleView = textLabel;
     
-    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:)];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnSortButton:) frame:CGRectMake(0, 0, 33, 33) imageName:SORT_BUTTON_IMAGE_DESELECTED text:nil];
-    UIBarButtonItem *bbi3 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnSaveButton:) frame:CGRectMake(0, 0, 33, 33) imageName:SAVE_BUTTON_IMAGE_DESELECTED text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnSortButton:) frame:CGRectMake(0, 0, 33, 33) imageName:SORT_BUTTON_IMAGE_DESELECTED imageNameSelected:SORT_BUTTON_IMAGE_DESELECTED text:nil];
+    UIBarButtonItem *bbi3 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnSaveButton:) frame:CGRectMake(0, 0, 33, 33) imageName:SAVE_BUTTON_IMAGE_DESELECTED imageNameSelected:SAVE_BUTTON_IMAGE_DESELECTED text:nil];
     self.navigationItem.rightBarButtonItems = @[bbi2, bbi3];
     
     [self setStateToSaveButton:(UIButton *)bbi3.customView];

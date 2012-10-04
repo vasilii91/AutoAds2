@@ -8,8 +8,8 @@
 
 #import "AdvertisementViewController.h"
 
-#define FAVORITE_BUTTON_IMAGE_SELECTED @"starBlue.png"
-#define FAVORITE_BUTTON_IMAGE_DESELECTED @"starBarIcon.png"
+#define FAVORITE_BUTTON_IMAGE_SELECTED @"star_button_selected.png"
+#define FAVORITE_BUTTON_IMAGE_DESELECTED @"star_button.png"
 
 @interface AdvertisementViewController ()
 
@@ -43,10 +43,10 @@
     UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Объявление"];
     self.navigationItem.titleView = textLabel;
     
-    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:)];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnFavoriteButton:) frame:CGRectMake(0, 0, 33, 33) imageName:FAVORITE_BUTTON_IMAGE_DESELECTED text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnFavoriteButton:) frame:CGRectMake(0, 0, 33, 33) imageName:FAVORITE_BUTTON_IMAGE_DESELECTED imageNameSelected:FAVORITE_BUTTON_IMAGE_DESELECTED text:nil];
     self.navigationItem.rightBarButtonItems = @[bbi2];
     
     [self.scrollView setBackgroundColor:[UIColor clearColor]];
@@ -199,7 +199,7 @@
     
     [photoController moveToPhotoAtIndex:photoIndex animated:NO];
     
-    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBackFromPhotoViewer:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBackFromPhotoViewer:)];
     photoController.navigationItem.leftBarButtonItem = bbi;
 }
 

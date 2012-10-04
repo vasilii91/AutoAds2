@@ -40,10 +40,10 @@
     
     self.tableViewSelectedPhotos.backgroundColor = [UIColor clearColor];
     
-    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:)];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanCurrentValue) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanCurrentValue) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" imageNameSelected:@"addBarIcon.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
 }
 

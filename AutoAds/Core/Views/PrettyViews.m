@@ -26,10 +26,11 @@
     return label;
 }
 
-+ (UIBarButtonItem *)backBarButtonWithTarget:(id)target action:(SEL)action frame:(CGRect)frame imageName:(NSString *)imageName text:(NSString *)text
++ (UIBarButtonItem *)backBarButtonWithTarget:(id)target action:(SEL)action frame:(CGRect)frame imageName:(NSString *)imageName imageNameSelected:(NSString *)imageNameSelected text:(NSString *)text
 {
     UIButton *back = [[UIButton alloc] initWithFrame:frame];
     [back setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [back setBackgroundImage:[UIImage imageNamed:imageNameSelected] forState:UIControlStateHighlighted];
     [back setTitle:text forState:UIControlStateNormal];
     [back.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:13.]];
     [back.titleLabel setTextColor:[UIColor whiteColor]];
@@ -41,6 +42,13 @@
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:back];
     
     return barButtonItem;
+}
+
++ (UIBarButtonItem *)backBarButtonWithTarget:(id)target action:(SEL)action
+{
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:target action:action frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" imageNameSelected:@"backButton.png" text:@"Назад"];
+    
+    return bbi;
 }
 
 @end

@@ -49,7 +49,7 @@
     UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Поиск"];
     self.navigationItem.titleView = textLabel;
     
-    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:)];
     self.navigationItem.leftBarButtonItem = bbi;
     
     self.tableViewSavedSearchQueries.backgroundColor = [UIColor clearColor];

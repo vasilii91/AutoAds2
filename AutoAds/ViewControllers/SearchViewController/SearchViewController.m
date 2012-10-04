@@ -61,10 +61,10 @@
     UILabel *textLabel = [PrettyViews labelToNavigationBarWithTitle:@"Поиск"];
     self.navigationItem.titleView = textLabel;
     
-    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" text:@"Назад"];
+    UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:) frame:CGRectMake(0, 0, 68, 33) imageName:@"backButton.png" imageNameSelected:@"backButton.png"  text:@"Назад"];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQueryToDefaultState) frame:CGRectMake(0, 0, 39, 39) imageName:@"addBarIcon.png" text:nil];
+    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(cleanQueryToDefaultState) frame:CGRectMake(0, 0, 39, 39) imageName:@"clean_button.png" imageNameSelected:@"clean_button_selected.png" text:nil];
     self.navigationItem.rightBarButtonItem = bbi2;
     
     f0 = (AdvField *)[fields objectAtIndex:0];

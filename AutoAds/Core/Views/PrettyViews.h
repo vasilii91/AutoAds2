@@ -11,6 +11,7 @@
 @interface PrettyViews : NSObject
 
 + (UILabel *)labelToNavigationBarWithTitle:(NSString *)title;
-+ (UIBarButtonItem *)backBarButtonWithTarget:(id)target action:(SEL)action frame:(CGRect)frame imageName:(NSString *)imageName text:(NSString *)text;
++ (UIBarButtonItem *)backBarButtonWithTarget:(id)target action:(SEL)action frame:(CGRect)frame imageName:(NSString *)imageName imageNameSelected:(NSString *)imageNameSelected text:(NSString *)text;
++ (UIBarButtonItem *)backBarButtonWithTarget:(id)target action:(SEL)action;
 
 @end
