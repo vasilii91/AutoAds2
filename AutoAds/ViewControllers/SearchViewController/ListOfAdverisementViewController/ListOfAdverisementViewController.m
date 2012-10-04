@@ -163,27 +163,16 @@
     
     isSaved = (query == nil) ? NO : YES;
     
-    UIAlertView *alert = nil;
-    
     if (!isSaved) {
         [self saveQuery:YES];
         
-        alert = [[UIAlertView alloc] initWithTitle:@"Сохранение"
-                                           message:@"Ваш поисковой запрос сохранен"
-                                          delegate:nil
-                                 cancelButtonTitle:@"Ok"
-                                 otherButtonTitles: nil];
+        [SVProgressHUD showSuccessWithStatus:@"Ваш поисковой запрос сохранен"];
     }
     else {
         [databaseManager deleteEntity:query];
         
-        alert = [[UIAlertView alloc] initWithTitle:@"Удаление"
-                                           message:@"Ваш поисковой запрос удален"
-                                          delegate:nil
-                                 cancelButtonTitle:@"Ok"
-                                 otherButtonTitles: nil];
+        [SVProgressHUD showErrorWithStatus:@"Ваш поисковой запрос удален"];
     }
-    [alert show];
     
     [self setStateToSaveButton:button];
 }

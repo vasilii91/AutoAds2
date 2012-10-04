@@ -820,7 +820,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f43 = [AdvField newAdvField:F_BARGAIN_ENG :F_BARGAIN_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f44 = [AdvField newAdvField:F_CONTACTS_ENG :F_CONTACTS_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :NO :YES];
     AdvField *f45 = [AdvField newAdvField:F_PHONE_ENG :F_PHONE_RUS :nil :nil :nil :ValueTypePhone :YES :YES :NO :NO :NO :YES];
-    AdvField *f46 = [AdvField newAdvField:F_EMAIL_ENG :F_EMAIL_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
+    AdvField *f46 = [AdvField newAdvField:F_EMAIL_ENG :F_EMAIL_RUS :nil :nil :nil :ValueTypeEmail :YES :YES :YES :NO :NO :NO];
     AdvField *f47 = [AdvField newAdvField:F_ADDITIONAL_INFO_ENG :F_ADDITIONAL_INFO_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f48 = [AdvField newAdvField:F_PERIOD_ENG :F_PERIOD_RUS :[AdvDictionaries AdPeriods] :V_AD_PERIODS_8_WEEKS_RUS :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :NO];
 //    AdvField *f49 = [AdvField newAdvField:F_CITY_CODE_ENG :F_CITY_CODE_RUS :nil :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
@@ -828,10 +828,9 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f51 = [AdvField newAdvField:F_NUMBER_OF_OWNERS_ENG :F_NUMBER_OF_OWNERS_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f52 = [AdvField newAdvField:F_VIN_ENG :F_VIN_RUS :nil :nil :nil :ValueTypeString :YES :NO :NO :NO :NO :NO];
     AdvField *f53 = [AdvField newAdvField:F_FROM_OFFICIAL_DEALER_ENG :F_FROM_OFFICIAL_DEALER_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f54 = [AdvField newAdvField:F_EMAIL_ENG :F_EMAIL_RUS :nil :nil :nil :ValueTypeEmail :YES :YES :YES :NO :NO :NO];
-    AdvField *f55 = [AdvField newAdvField:F_CAPTCHA_CODE_ENG :F_CAPTCHA_CODE_RUS :nil :nil :nil :ValueTypeCaptcha :YES :YES :YES :NO :NO :NO];
+    AdvField *f54 = [AdvField newAdvField:F_CAPTCHA_CODE_ENG :F_CAPTCHA_CODE_RUS :nil :nil :nil :ValueTypeCaptcha :YES :YES :YES :NO :NO :NO];
     
-    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f50, f51, f52, f53, f54, f55];
+    NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21, f22, f23, f24, f25, f26, f27, f28, f29, f30, f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41, f42, f43, f44, f45, f46, f47, f48, f50, f51, f52, f53, f54];
     
     group.fields = fields;
     

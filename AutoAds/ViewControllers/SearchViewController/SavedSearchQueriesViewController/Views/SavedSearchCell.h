@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelBig;
 @property (weak, nonatomic) IBOutlet UILabel *labelSmall;
+@property (weak, nonatomic) IBOutlet UILabel *labelCount;
 + (SavedSearchCell *)loadView;
 
 @end

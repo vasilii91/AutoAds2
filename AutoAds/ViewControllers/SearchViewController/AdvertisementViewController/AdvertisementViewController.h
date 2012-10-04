@@ -22,8 +22,6 @@
 
 @interface AdvertisementViewController : UIViewController<CarPhotosProtocol, KVNetworkDelegate, UIAlertViewDelegate, MFMessageComposeViewControllerDelegate>
 {
-    PleaseWaitAlertView *pleaseWaitAlertView;
-    
     KVNetworkManager *networkManager;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

@@ -61,7 +61,48 @@ static DatabaseManager *_sharedMySingleton = nil;
 - (NSArray *)getQueries:(BOOL)isSaved
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSaved == %@", @(isSaved)];
-    return [Query findAllWithPredicate:predicate];
+    NSArray *result = [Query findAllWithPredicate:predicate];
+    
+    NSComparisonResult (^sortBlock)(id, id) = ^(id obj1, id obj2) {
+        
+        Query *query1 = (Query *)obj1;
+        Query *query2 = (Query *)obj2;
+        
+        NSComparisonResult result = [query1.dateAdded compare:query2.dateAdded];
+        if (result == NSOrderedAscending) {
+            return NSOrderedDescending;
+        }
+        else if (result == NSOrderedDescending) {
+            return NSOrderedAscending;
+        }
+        else {
+            return NSOrderedSame;
+        }
+    };
+    
+    result = [result sortedArrayUsingComparator:sortBlock];
+    
+    if (isSaved == NO) {
+        if ([result count] <= 3) {
+            return result;
+        }
+        else {
+            // we always have 4 queries. We should delete last object
+            NSMutableArray *newResult = [NSMutableArray new];
+            for (int i = 0; i < 3; i++) {
+                [newResult addObject:[result objectAtIndex:i]];
+            }
+            for (int i = 3; i < [result count]; i++) {
+                Query *query = [result objectAtIndex:i];
+                [currentManagedObjectContext deleteObject:query];
+            }
+            [self saveAll];
+            
+            return newResult;
+        }
+    }
+    
+    return result;
 }
 
 - (Query *)findQueryByQueryString:(NSString *)queryString isSaved:(BOOL)isSaved

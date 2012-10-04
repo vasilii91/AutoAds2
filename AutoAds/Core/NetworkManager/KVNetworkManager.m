@@ -270,6 +270,19 @@ static KVNetworkManager *instance = nil;
     [self addRequest:urlRequest];
 }
 
+- (void)countOfNewAdvertisementsByQuery:(NSString *)queryString lastDate:(NSDate *)lastDate indexOfQuery:(NSInteger)index
+{
+    NSString *indexStr = [NSString stringWithFormat:@"%d", index];
+    NSTimeInterval interval = [lastDate timeIntervalSince1970];
+    queryString = [NSString stringWithFormat:@"%@&LastDate=%.0f", queryString, interval];
+    
+    NSString *url = [self urlGetWithActionName:@"SearchCountNew" parameters:queryString apiCall:ApiCallGET];
+    LOG(@"%@", url);
+    KVUrlRequest *urlRequest = [self requestToServer:[NSOutputStream outputStreamToMemory] url:url requestType:RequestTypeSearchNew requestIdentifier:indexStr jsonString:nil httpMethod:@"GET"];
+    
+    [self addRequest:urlRequest];
+}
+
 - (void)getModelsByRubric:(NSString *)rubric subrubric:(NSString *)subrubric
 {    
     NSMutableArray *brands = [[DatabaseManager sharedMySingleton] brandsByRubric:rubric subrubric:subrubric];

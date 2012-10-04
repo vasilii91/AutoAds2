@@ -23,6 +23,7 @@ static KVDataManager *instance = nil;
         self.selectedModels = [NSMutableSet new];
         self.selectedStates = [NSMutableSet new];
         self.selectedPhones = [NSMutableArray new];
+        self.advCountDictionary = [NSMutableDictionary new];
     }
     
     return self;
@@ -59,6 +60,20 @@ static KVDataManager *instance = nil;
         [data writeToFile:PATH_TO_CAPTCHA_IMAGE atomically:YES];
         
         [self.delegate dataWasSuccessfullyParsed];
+    }
+    else if (type == RequestTypeSearchNew) {
+        NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSDictionary *parseData = [parser objectWithString:str];
+        
+        NSInteger necessaryCount = [[NSUserDefaults standardUserDefaults] integerForKey:COUNT_OF_NEW_ADVERTISEMENTS];
+        NSString *countOfNew = [NSString stringWithFormat:@"%@", [parseData valueForKey:@"count"]];
+        [self.advCountDictionary setValue:countOfNew forKey:identifier];
+        
+        if (necessaryCount == [self.advCountDictionary count]) {
+            [self.delegate dataWasSuccessfullyParsed];
+        }
     }
     else {
         NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
@@ -108,12 +123,14 @@ static KVDataManager *instance = nil;
                     NSDictionary *dict = [parseData valueForKey:format];
                     NSMutableArray *options = [NSMutableArray new];
                     
-                    for (NSString *key in [dict allKeys]) {
-                        NSString *value = [dict objectForKey:key];
-                        Option *option = [Option new];
-                        option.id = @([key integerValue]);
-                        option.title = value;
-                        [options addObject:option];
+                    if ([dict count] != 0) {
+                        for (NSString *key in [dict allKeys]) {
+                            NSString *value = [dict objectForKey:key];
+                            Option *option = [Option new];
+                            option.id = @([key integerValue]);
+                            option.title = value;
+                            [options addObject:option];
+                        }
                     }
                     optionCategory.fields = options;
                     

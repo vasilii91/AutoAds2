@@ -26,6 +26,7 @@
     if (self) {
         databaseManager = [DatabaseManager sharedMySingleton];
         networkManager = [KVNetworkManager sharedInstance];
+        dataManager = [KVDataManager sharedInstance];
         
         latestSearchQueries = [NSMutableArray new];
         savedSearchQueries = [NSMutableArray new];
@@ -64,6 +65,13 @@
     [self.tableViewSavedSearchQueries reloadData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [networkManager unsubscribe:self];
+    [SVProgressHUD dismiss];
+}
+
 - (void)viewDidUnload
 {
     [self setButtonNewSearch:nil];
@@ -97,16 +105,16 @@
     [savedSearchQueries removeAllObjects];
     [latestSearchQueries addObjectsFromArray:queriesLastest];
     [savedSearchQueries addObjectsFromArray:queriesSaved];
-}
-
-
-#pragma mark - @protocol UIAlertViewDelegate <NSObject>
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) {
-        [networkManager unsubscribe:self];
-        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:[savedSearchQueries count] forKey:COUNT_OF_NEW_ADVERTISEMENTS];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [dataManager.advCountDictionary removeAllObjects];
+    
+    [networkManager subscribe:self];
+    for (int i = 0; i < [savedSearchQueries count]; i++) {
+        Query *query = [savedSearchQueries objectAtIndex:i];
+        [networkManager countOfNewAdvertisementsByQuery:query.queryString lastDate:query.dateAdded indexOfQuery:i];
     }
 }
 
@@ -154,6 +162,18 @@
         cell = [SavedSearchCell loadView];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if (indexPath.section == 1) {
+        NSString *index = [NSString stringWithFormat:@"%d", indexPath.row];
+        NSString *count = [dataManager.advCountDictionary valueForKey:index];
+        
+        if ([count length] != 0) {
+            cell.labelCount.text = count;
+        }
+    }
+    else {
+        cell.labelCount.hidden = YES;
+    }
     
     Query *query = nil;
     if (indexPath.section == 0) {
@@ -205,11 +225,16 @@
     }
     currentQueryString = query.queryString;
     
+    // update last searched date
+    query.dateAdded = [NSDate date];
+    [databaseManager saveAll];
+    
     [networkManager subscribe:self];
     [networkManager searchWithQuery:currentQueryString isSearchWithPage:NO];
     
-    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
-    [pleaseWaitAlertView show];
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
+//    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
+//    [pleaseWaitAlertView show];
 }
 
 
@@ -217,12 +242,16 @@
 
 - (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
-    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+//    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
     
     if (requestId == RequestTypeSearch) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
         vc.queryString = currentQueryString;
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (requestId == RequestTypeSearchNew) {
+        [self.tableViewSavedSearchQueries reloadData];
     }
 }
 

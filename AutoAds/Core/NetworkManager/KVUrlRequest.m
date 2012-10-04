@@ -165,12 +165,12 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
     LOG(@"%d", statusCode);
     
     if (statusCode == 200) {
-        NSURLCache *cache = [NSURLCache sharedURLCache];
-        NSCachedURLResponse *response = [cache cachedResponseForRequest:self.request];
-        NSData *data = [response data];
-        NSDictionary *userInfo = [response userInfo];
-        
-        LOG(@"data - %@, userInfo - %@", data, userInfo);
+//        NSURLCache *cache = [NSURLCache sharedURLCache];
+//        NSCachedURLResponse *response = [cache cachedResponseForRequest:self.request];
+//        NSData *data = [response data];
+//        NSDictionary *userInfo = [response userInfo];
+//        
+//        LOG(@"data - %@, userInfo - %@", data, userInfo);
         
         [dataManager saveData:_outputStream withRequestType:_tag identifier:_identifier];
     }
@@ -186,7 +186,7 @@ static NSString *NAS_Error_Domain = @"NASAppErrorDomain";
 - (void)dataWasSuccessfullyParsed
 {
     [_delegate requestSuccess:self];
-    [self stop];
+//    [self stop];
 }
 
 - (void)errorWasOccuredWithError:(NSString *)textError

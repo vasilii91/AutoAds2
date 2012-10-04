@@ -14,6 +14,8 @@
 #import "SearchViewController.h"
 #import "KVNetworkManager.h"
 #import "DatabaseManager.h"
+#import "SVProgressHUD.h"
+#import "KVDataManager.h"
 
 @interface SavedSearchQueriesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, KVNetworkDelegate>
 {
@@ -24,8 +26,10 @@
     
     DatabaseManager *databaseManager;
     KVNetworkManager *networkManager;
+    KVDataManager *dataManager;
     
     NSString *currentQueryString;
+    NSInteger countOfGottenResponses;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewSavedSearchQueries;

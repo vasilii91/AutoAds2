@@ -46,6 +46,7 @@
 #define PATH_TO_CAPTCHA_IMAGE [NSString stringWithFormat:@"%@/%@.%@", DOCUMENTS_DIRECTORY, CAPTCHA_NAME, PHOTOS_EXTENSION]
 #define PHOTOS_DIRECTORY [NSString stringWithFormat:@"%@/%@", DOCUMENTS_DIRECTORY, DEFAULT_PHOTOS_DIRECTORY_NAME]
 #define COUNT_OF_PHOTOS_IN_CAR_PHOTOS @"count of photos in car photos"
+#define COUNT_OF_NEW_ADVERTISEMENTS @"count of new advertisements"
 #define PHOTOS_EXTENSION @"png"
 #define CAPTCHA_NAME @"captcha"
 

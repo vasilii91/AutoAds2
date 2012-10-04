@@ -40,6 +40,7 @@
 @property (nonatomic, retain) NSDictionary *brandsDictionary;
 @property (nonatomic, retain) NSDictionary *modelsDictionary;
 @property (nonatomic, retain) NSDictionary *modificationsDictionary;
+@property (nonatomic, retain) NSMutableDictionary *advCountDictionary;
 
 @property (nonatomic, assign) NSInteger countOfLoadedImages;;
 @property (nonatomic, assign) NSInteger currentPage;

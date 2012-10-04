@@ -19,6 +19,7 @@ typedef enum {
     RequestTypeGetCaptcha,
     RequestTypeSearch,
     RequestTypeSearchWithPage,
+    RequestTypeSearchNew,
     RequestTypeBrands,
     RequestTypeOptions,
     RequestTypePhotosOfCar,

@@ -19,6 +19,7 @@
 #import "DatabaseManager.h"
 #import "KVNetworkManager.h"
 #import "SearchManager.h"
+#import "SVProgressHUD.h"
 
 @interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol, KVNetworkDelegate>
 {
