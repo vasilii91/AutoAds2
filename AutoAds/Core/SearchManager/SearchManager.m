@@ -446,7 +446,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f9 = [AdvField newAdvField:F_GEARBOX_ENG :F_GEARBOX_RUS :[AdvDictionaries GearboxTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_DRIVE_ENG :F_DRIVE_RUS :[AdvDictionaries DriveTypesRusForeign] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f11 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesRusForeign] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
-    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f13 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f14 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f15 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
@@ -468,7 +468,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_DESTINY_ENG :F_DESTINY_RUS :[AdvDictionaries TrailerDestinies] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
@@ -494,7 +494,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f9 = [AdvField newAdvField:F_GEARBOX_ENG :F_GEARBOX_RUS :[AdvDictionaries GearboxTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_DRIVE_ENG :F_DRIVE_RUS :[AdvDictionaries DriveTypesBusesSmallSpecial] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f11 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesBuses] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f13 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
     AdvField *f14 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f15 = [AdvField newAdvField:F_VAN_VOLUME_ENG :F_VAN_VOLUME_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
@@ -523,7 +523,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f9 = [AdvField newAdvField:F_GEARBOX_ENG :F_GEARBOX_RUS :[AdvDictionaries GearboxTypesTrucks] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_DRIVE_ENG :F_DRIVE_RUS :[AdvDictionaries DriveTypesTrucks] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f11 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesTrucks] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f13 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
     AdvField *f14 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f15 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
@@ -552,7 +552,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f9 = [AdvField newAdvField:F_GEARBOX_ENG :F_GEARBOX_RUS :[AdvDictionaries GearboxTypesMKT] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_DRIVE_ENG :F_DRIVE_RUS :[AdvDictionaries DriveTypesBusesSmallSpecial] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f11 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesSmall] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f12 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f13 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
     AdvField *f14 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f15 = [AdvField newAdvField:F_VAN_VOLUME_ENG :F_VAN_VOLUME_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
@@ -576,7 +576,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesTrailers] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_CAPACITY_ENG :F_CAPACITY_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
@@ -598,7 +598,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesSpecial] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f9 = [AdvField newAdvField:F_MILEAGE_ENG :F_MILEAGE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
@@ -621,7 +621,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesBikes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_MILEAGE_ENG :F_MILEAGE_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :YES :YES :YES :YES];
@@ -645,9 +645,9 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesWater] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
-    AdvField *f8 = [AdvField newAdvField:F_TYPE_ENG :F_TYPE_ENG :[AdvDictionaries HydrosStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f8 = [AdvField newAdvField:F_TYPE_ENG :F_TYPE_ENG :[AdvDictionaries HydrosTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f9 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f10 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f11 = [AdvField newAdvField:F_MOTO_HOURS_ENG :F_MOTO_HOURS_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :NO :NO :YES];
@@ -668,7 +668,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesWater] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_DISPLACEMENT_ENG :F_DISPLACEMENT_RUS :nil :nil :nil :ValueTypeNumber :YES :YES :NO :YES :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
@@ -690,7 +690,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f4 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f5 = [AdvField newAdvField:F_METALLIC_ENG :F_METALLIC_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
-    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f6 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesWater] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     AdvField *f7 = [AdvField newAdvField:F_YEAR_ENG :F_YEAR_RUS :[AdvDictionaries Years] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_OPTIONS_ENG :F_OPTIONS_RUS :nil :nil :nil :ValueTypeCheckboxDictionaryFromInternet :YES :NO :NO :NO :NO :YES];
     
@@ -715,7 +715,7 @@ static SearchManager *_sharedMySingleton = nil;
     
     AdvField *f6 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
     AdvField *f7 = [AdvField newAdvField:F_NAME_ENG :F_NAME_RUS :nil :nil :nil :ValueTypeString :YES :YES :NO :NO :YES :YES];
-    AdvField *f8 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries GearsStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f8 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesGears] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     
     NSArray *fields = @[f1, f2, f6, f7, f8];
     
@@ -736,7 +736,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f7 = [AdvField newAdvField:F_WIDTH_ENG :F_WIDTH_RUS :[AdvDictionaries TiresWidthes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f8 = [AdvField newAdvField:F_HEIGHT_ENG :F_HEIGHT_RUS :[AdvDictionaries TiresHeights] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f9 = [AdvField newAdvField:F_HOLES_COUNT_ENG :F_HOLES_COUNT_RUS :[AdvDictionaries WheelHoleCounts] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
-    AdvField *f10 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f10 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesWater] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     
     NSArray *fields = @[f4, f5, f6, f7, f8, f9, f10];
     
@@ -760,7 +760,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f7 = [AdvField newAdvField:F_SORTIE_ENG :F_SORTIE_RUS :[AdvDictionaries WheelSorties] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f8 = [AdvField newAdvField:F_COUNT_ENG :F_COUNT_RUS :[AdvDictionaries WheelHoleCounts] :nil :nil :ValueTypeDictionary :YES :NO :NO :NO :NO :YES];
     AdvField *f9 = [AdvField newAdvField:F_COLOR_ENG :F_COLOR_RUS :[AdvDictionaries VehicleColors] :nil :nil :ValueTypeDictionary :YES :YES :NO :NO :YES :YES];
-    AdvField *f10 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries WaterStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
+    AdvField *f10 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesWater] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];
     
     NSArray *fields = @[f1, f2, f3, f4, f5, f6, f7, f8, f9, f10];
     
@@ -789,7 +789,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f12 = [AdvField newAdvField:F_GEARBOX_ENG :F_GEARBOX_RUS :[AdvDictionaries GearboxTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f13 = [AdvField newAdvField:F_DRIVE_ENG :F_DRIVE_RUS :[AdvDictionaries DriveTypesBusesSmallSpecial] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f14 = [AdvField newAdvField:F_BODY_TYPE_ENG :F_BODY_TYPE_RUS :[AdvDictionaries BodyTypesSmall] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f15 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f15 = [AdvField newAdvField:F_STATUS_ENG :F_STATUS_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f16 = [AdvField newAdvField:F_ENGINE_CAPACITY_ENG :F_ENGINE_CAPACITY_RUS :[AdvDictionaries EngineCapacities] :nil :nil :ValueTypeDictionary :YES :NO :NO :YES :YES :YES];
     AdvField *f17 = [AdvField newAdvField:F_ENGINE_POWER_ENG :F_ENGINE_POWER_RUS :nil :nil :nil :ValueTypeNumber :YES :NO :NO :YES :NO :YES];
     AdvField *f18 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
@@ -864,7 +864,7 @@ static SearchManager *_sharedMySingleton = nil;
     AdvField *f18 = [AdvField newAdvField:F_GEARBOX_ENG :F_GEARBOX_RUS :[AdvDictionaries GearboxTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f19 = [AdvField newAdvField:F_RUDDER_ENG :F_RUDDER_RUS :[AdvDictionaries Rudder] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f20 = [AdvField newAdvField:F_FUEL_ENG :F_FUEL_RUS :[AdvDictionaries FuelTypes] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
-    AdvField *f21 = [AdvField newAdvField:F_STATES_ENG :F_STATES_RUS :[AdvDictionaries CarStates] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
+    AdvField *f21 = [AdvField newAdvField:F_STATES_ENG :F_STATES_RUS :[AdvDictionaries StatesCar] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :YES :YES];
     AdvField *f22 = [AdvField newAdvField:F_PERIOD_ENG :F_PERIOD_RUS :[AdvDictionaries AdPeriods] :V_AD_PERIODS_8_WEEKS_RUS :nil :ValueTypeDictionary :YES :YES :NO :NO :NO :NO];
     AdvField *f24 = [AdvField newAdvField:F_WITH_PHOTO_ENG :F_WITH_PHOTO_RUS :[AdvDictionaries Bools] :nil :nil :ValueTypeDictionary :YES :YES :YES :YES :YES :YES];
     AdvField *f25 = [AdvField newAdvField:F_DESTINY_ENG :F_DESTINY_RUS :[AdvDictionaries TrailerDestinies] :nil :nil :ValueTypeDictionary :YES :YES :NO :YES :NO :YES];

@@ -12,6 +12,7 @@
 #import "KVDataManager.h"
 #import "AdvDictionaries.h"
 #import "KVDataLogic.h"
+#import "AdvValues.h"
 
 @interface Advertisement : Jastor
 
@@ -88,5 +89,6 @@
 - (NSString *)getCarPrice;
 - (NSString *)getOtherInfo;
 - (NSString *)getNameAndCity;
+- (NSString *)getAdvertisementInfo;
 
 @end

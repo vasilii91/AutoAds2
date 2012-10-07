@@ -122,12 +122,24 @@
                                  200);
     advOtherInfo.frame = advFrame;
     
-    [advOtherInfo addKey:@"Город:" value:@"Минск"];
-    [advOtherInfo addKey:@"Avto" value:@"Reno"];
-    [advOtherInfo addDelimeter];
+    [advOtherInfo addKey:@"Год выпуска:" value:_advertisement.Year];
+    [advOtherInfo addKey:@"Пробег:" value:_advertisement.Mileage];
+    [advOtherInfo addKey:@"Объём двигателя:" value:_advertisement.EngineCapacity];
+    [advOtherInfo addKey:@"Мощность:" value:_advertisement.EnginePower];
+    [advOtherInfo addKey:@"Коробка передач:" value:_advertisement.Gearbox];
+    [advOtherInfo addKey:@"Тип руля:" value:_advertisement.Rudder];
+    [advOtherInfo addKey:@"Тип привода:" value:_advertisement.Drive];
+    [advOtherInfo addKey:@"Тип двигателя:" value:_advertisement.EngineType];
+    [advOtherInfo addKey:@"Топливо:" value:_advertisement.Fuel];
+    [advOtherInfo addKey:@"Тип кузова:" value:_advertisement.BodyType];
+    [advOtherInfo addKey:@"Состояние:" value:_advertisement.Status];
+    [advOtherInfo addKey:@"Цвет кузова:" value:_advertisement.Color];
+    [advOtherInfo addKey:@"Цвет металлик:" value:_advertisement.Metalic];
+    
+    [advOtherInfo addDelimeterWithText:@"Дополнительная информация"];
     [advOtherInfo addKey:@"Avto" value:@"Reno"];
     [advOtherInfo addKey:@"Диаметр расположения крепежных отверстий" value:@"Reno"];
-    [advOtherInfo addDelimeter];
+    [advOtherInfo addDelimeterWithText:@"Экстерьер"];
     [advOtherInfo addKey:@"Диаметр колеса" value:@"Reno"];
     [advOtherInfo addKey:@"Avto asdf asd fad sdf ;asd fkasdf " value:@"Reno 2"];
     

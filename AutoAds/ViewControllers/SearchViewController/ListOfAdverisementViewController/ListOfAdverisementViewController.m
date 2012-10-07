@@ -270,10 +270,11 @@
     
     Advertisement *adv = [searchedAdvertisements objectAtIndex:indexPath.row];
     NSURL *photoSmallURL = [NSURL URLWithString:[[[adv.Photo objectAtIndex:0] small] url]];
+    NSString *otherInfo = [adv getAdvertisementInfo];
     
     [cell.labelCarName setText:adv.Name];
     [cell.labelPrice setText:adv.getCarPrice];
-    [cell.labelOtherInfo setText:adv.getOtherInfo];
+    [cell.labelOtherInfo setText:otherInfo];
     [cell.imageViewPhoto setImageWithURL:photoSmallURL placeholderImage:[UIImage imageNamed:@"thumbnail_02.png"]];
     
     return cell;

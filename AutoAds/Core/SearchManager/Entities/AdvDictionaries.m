@@ -1156,49 +1156,6 @@
     return dictionary;
 }
 
-+ (NSDictionary *)GearsStates
-{
-    OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"10" forKey:@"Б/у"];
-    [dictionary setValue:@"11" forKey:@"Новое"];
-    
-    return dictionary;
-}
-
-+ (NSDictionary *)WaterStates
-{
-    OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"0" forKey:@"Отличное"];
-    [dictionary setValue:@"1" forKey:@"Хорошее"];
-    [dictionary setValue:@"2" forKey:@"Среднее"];
-    
-    return dictionary;
-}
-
-+ (NSDictionary *)CarStates
-{
-    OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"0" forKey:@"Отличное"];
-    [dictionary setValue:@"1" forKey:@"Хорошее"];
-    [dictionary setValue:@"2" forKey:@"Среднее"];
-    [dictionary setValue:@"3" forKey:@"Битый"];
-    [dictionary setValue:@"4" forKey:@"Аварийный"];
-    [dictionary setValue:@"5" forKey:@"На запчасти"];
-    
-    return dictionary;
-}
-
-+ (NSDictionary *)HydrosStates
-{
-    OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"1" forKey:@"Cпортивно-туристический"];
-    [dictionary setValue:@"2" forKey:@"Спортивный"];
-    [dictionary setValue:@"3" forKey:@"Спортивный стоячий"];
-    [dictionary setValue:@"4" forKey:@"Туристический"];
-    
-    return dictionary;
-}
-
 + (NSDictionary *)EngineCapacities
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
@@ -1309,6 +1266,52 @@
     [dictionary setValue:@"4" forKey:@"Текст объявления должен быть набран кириллицей. Запрещается набирать текст или некоторые слова целиком заглавными буквами, выделять цветом, использовать посторонние символы и так далее."];
     [dictionary setValue:@"5" forKey:@"Запрещается размещать объявления с недостоверными данными."];
     [dictionary setValue:@"6" forKey:@"Не верно указан формат  мобильного телефона. Код оператора (три цифры)  надо писать отдельно. Пример правильного заполнения:  8 (922) 1234567."];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)HydrosTypes
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"1" forKey:@"Cпортивно-туристический"];
+    [dictionary setValue:@"2" forKey:@"Спортивный"];
+    [dictionary setValue:@"3" forKey:@"Спортивный стоячий"];
+    [dictionary setValue:@"4" forKey:@"Туристический"];
+    
+    return dictionary;
+}
+
+
+#pragma mark - States
+
++ (NSDictionary *)StatesGears
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"10" forKey:@"Б/у"];
+    [dictionary setValue:@"11" forKey:@"Новое"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)StatesWater
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0" forKey:@"Отличное"];
+    [dictionary setValue:@"1" forKey:@"Хорошее"];
+    [dictionary setValue:@"2" forKey:@"Среднее"];
+    
+    return dictionary;
+}
+
++ (NSDictionary *)StatesCar
+{
+    OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0" forKey:@"Отличное"];
+    [dictionary setValue:@"1" forKey:@"Хорошее"];
+    [dictionary setValue:@"2" forKey:@"Среднее"];
+    [dictionary setValue:@"3" forKey:@"Битый"];
+    [dictionary setValue:@"4" forKey:@"Аварийный"];
+    [dictionary setValue:@"5" forKey:@"На запчасти"];
     
     return dictionary;
 }

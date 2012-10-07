@@ -85,10 +85,6 @@
 + (NSDictionary *)TrailerDestinies;
 + (NSDictionary *)AdPeriods;
 + (NSDictionary *)Bools;
-+ (NSDictionary *)GearsStates;
-+ (NSDictionary *)WaterStates;
-+ (NSDictionary *)CarStates;
-+ (NSDictionary *)HydrosStates;
 + (NSDictionary *)EngineCapacities;
 + (NSDictionary *)FuelTypes;
 + (NSDictionary *)Rudder;
@@ -99,6 +95,14 @@
 + (NSDictionary *)Years;
 + (NSDictionary *)Counts;
 + (NSDictionary *)ModerateStatuses;
++ (NSDictionary *)HydrosTypes;
+
+
+#pragma mark - States
+
++ (NSDictionary *)StatesGears;
++ (NSDictionary *)StatesWater;
++ (NSDictionary *)StatesCar;
 
 
 #pragma mark - Subrubrics

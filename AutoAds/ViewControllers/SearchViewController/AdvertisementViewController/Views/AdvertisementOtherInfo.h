@@ -15,7 +15,7 @@
 }
 
 - (void)addKey:(NSString *)key value:(NSString *)value;
-- (void)addDelimeter;
+- (void)addDelimeterWithText:(NSString *)text;
 - (CGFloat)height;
 
 @end

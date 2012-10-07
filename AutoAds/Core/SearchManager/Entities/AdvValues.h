@@ -29,3 +29,40 @@
 
 #define V_NO_RUS @"Нет"
 #define V_NO_ENG @"2"
+
+#define V_RUBRIC_MOTORS @"motors"
+#define V_RUBRIC_MOTORS_RUS @"rus"
+#define V_RUBRIC_MOTORS_FOREIGN @"foreign"
+#define V_RUBRIC_MOTORS_TRAILERS @"trailers"
+
+
+#define V_RUBRIC_COMMERCIAL @"commercial"
+#define V_RUBRIC_COMMERCIAL_BUSES @"buses"
+#define V_RUBRIC_COMMERCIAL_TRUCKS @"trucks"
+#define V_RUBRIC_COMMERCIAL_SMALL @"small"
+#define V_RUBRIC_COMMERCIAL_TRAILERS @"trailers"
+#define V_RUBRIC_COMMERCIAL_SPECIAL @"special"
+
+
+#define V_RUBRIC_MOTO @"moto"
+#define V_RUBRIC_MOTO_BIKES @"bikes"
+#define V_RUBRIC_MOTO_QUADRO @"quadro"
+#define V_RUBRIC_MOTO_SCOOTER @"scooter"
+#define V_RUBRIC_MOTO_SNOW @"snow"
+
+
+#define V_RUBRIC_WATER @"water"
+#define V_RUBRIC_WATER_HYDROS @"hydros"
+#define V_RUBRIC_WATER_YACHTS @"yachts"
+#define V_RUBRIC_WATER_BOATS @"boats"
+
+
+#define V_RUBRIC_PARTS @"parts"
+#define V_RUBRIC_PARTS_WHEELS @"wheels"
+#define V_RUBRIC_PARTS_TIRES @"tires"
+
+
+#define V_RUBRIC_GEARS @"gears"
+
+
+
