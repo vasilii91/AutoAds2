@@ -8,8 +8,8 @@
 
 #import "AdvertisementViewController.h"
 
-#define FAVORITE_BUTTON_IMAGE_SELECTED @"star_button_selected.png"
-#define FAVORITE_BUTTON_IMAGE_DESELECTED @"star_button.png"
+#define FAVORITE_BUTTON_IMAGE_SELECTED @"zvezda_selected.png"
+#define FAVORITE_BUTTON_IMAGE_DESELECTED @"zvezda.png"
 
 @interface AdvertisementViewController ()
 
@@ -136,12 +136,12 @@
     [advOtherInfo addKey:@"Цвет кузова:" value:_advertisement.Color];
     [advOtherInfo addKey:@"Цвет металлик:" value:_advertisement.Metalic];
     
-    [advOtherInfo addDelimeterWithText:@"Дополнительная информация"];
-    [advOtherInfo addKey:@"Avto" value:@"Reno"];
-    [advOtherInfo addKey:@"Диаметр расположения крепежных отверстий" value:@"Reno"];
-    [advOtherInfo addDelimeterWithText:@"Экстерьер"];
-    [advOtherInfo addKey:@"Диаметр колеса" value:@"Reno"];
-    [advOtherInfo addKey:@"Avto asdf asd fad sdf ;asd fkasdf " value:@"Reno 2"];
+    for (OptionsCategory *optionCategory in self.advertisement.Options) {
+        [advOtherInfo addDelimeterWithText:optionCategory.title];
+        for (Option *option in optionCategory.fields) {
+            [advOtherInfo addKey:nil value:option.title];
+        }
+    }
     
     [self.scrollView addSubview:advOtherInfo];
     

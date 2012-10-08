@@ -73,8 +73,6 @@
 		10BFB4A61622456C00E63BF5 /* mobil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB4981622456C00E63BF5 /* mobil@2x.png */; };
 		10BFB4A71622456C00E63BF5 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB4991622456C00E63BF5 /* sms.png */; };
 		10BFB4A81622456C00E63BF5 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB49A1622456C00E63BF5 /* sms@2x.png */; };
-		10BFB4A91622456C00E63BF5 /* trubka.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB49B1622456C00E63BF5 /* trubka.png */; };
-		10BFB4AA1622456C00E63BF5 /* trubka@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB49C1622456C00E63BF5 /* trubka@2x.png */; };
 		10BFB4AB1622456C00E63BF5 /* zvezda.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB49D1622456C00E63BF5 /* zvezda.png */; };
 		10BFB4AC1622456C00E63BF5 /* zvezda@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BFB49E1622456C00E63BF5 /* zvezda@2x.png */; };
 		10D1255F1605EF49003357E7 /* AdvertisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D1255D1605EF49003357E7 /* AdvertisementViewController.m */; };
@@ -109,6 +107,18 @@
 		10FCD0991607AFA0005C877D /* AboutProgramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */; };
 		BE02048316159DD700ABBCC3 /* SelectValuePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE02048216159DD700ABBCC3 /* SelectValuePhotoViewController.xib */; };
 		BE02048A1615AC7800ABBCC3 /* SelectValuePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0204891615AC7800ABBCC3 /* SelectValuePhotoViewController.m */; };
+		BE0F5C171622D87C00E6A3C6 /* zvezda_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C0F1622D87B00E6A3C6 /* zvezda_selected@2x.png */; };
+		BE0F5C181622D87C00E6A3C6 /* zvezda_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C101622D87B00E6A3C6 /* zvezda_selected.png */; };
+		BE0F5C191622D87C00E6A3C6 /* fon_zvezda.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C111622D87B00E6A3C6 /* fon_zvezda.png */; };
+		BE0F5C1A1622D87C00E6A3C6 /* fon_zvezda@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C121622D87C00E6A3C6 /* fon_zvezda@2x.png */; };
+		BE0F5C1B1622D87C00E6A3C6 /* sms_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C131622D87C00E6A3C6 /* sms_selected@2x.png */; };
+		BE0F5C1C1622D87C00E6A3C6 /* sms_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C141622D87C00E6A3C6 /* sms_selected.png */; };
+		BE0F5C241622DBB900E6A3C6 /* trubka_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C201622DBB800E6A3C6 /* trubka_selected.png */; };
+		BE0F5C251622DBB900E6A3C6 /* trubka_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C211622DBB800E6A3C6 /* trubka_selected@2x.png */; };
+		BE0F5C261622DBB900E6A3C6 /* trubka.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C221622DBB800E6A3C6 /* trubka.png */; };
+		BE0F5C271622DBB900E6A3C6 /* trubka@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C231622DBB800E6A3C6 /* trubka@2x.png */; };
+		BE0F5C2A1622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0F5C291622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m */; };
+		BE0F5C2C1622EA4500E6A3C6 /* AdvertisementOtherInfoOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0F5C2B1622EA4500E6A3C6 /* AdvertisementOtherInfoOption.xib */; };
 		BE186375161DAFB100F7DB8D /* clean_button.png in Resources */ = {isa = PBXBuildFile; fileRef = BE186369161DAFB100F7DB8D /* clean_button.png */; };
 		BE186376161DAFB100F7DB8D /* clean_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE18636A161DAFB100F7DB8D /* clean_button@2x.png */; };
 		BE186377161DAFB100F7DB8D /* clean_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = BE18636B161DAFB100F7DB8D /* clean_button_selected.png */; };
@@ -369,8 +379,6 @@
 		10BFB4981622456C00E63BF5 /* mobil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobil@2x.png"; sourceTree = "<group>"; };
 		10BFB4991622456C00E63BF5 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
 		10BFB49A1622456C00E63BF5 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
-		10BFB49B1622456C00E63BF5 /* trubka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trubka.png; sourceTree = "<group>"; };
-		10BFB49C1622456C00E63BF5 /* trubka@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trubka@2x.png"; sourceTree = "<group>"; };
 		10BFB49D1622456C00E63BF5 /* zvezda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zvezda.png; sourceTree = "<group>"; };
 		10BFB49E1622456C00E63BF5 /* zvezda@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zvezda@2x.png"; sourceTree = "<group>"; };
 		10D1255C1605EF49003357E7 /* AdvertisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementViewController.h; path = AdvertisementViewController/AdvertisementViewController.h; sourceTree = "<group>"; };
@@ -428,6 +436,19 @@
 		10FCD0971607AFA0005C877D /* AboutProgramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutProgramViewController.xib; path = AboutProgramViewController/AboutProgramViewController.xib; sourceTree = "<group>"; };
 		BE02048216159DD700ABBCC3 /* SelectValuePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectValuePhotoViewController.xib; sourceTree = "<group>"; };
 		BE0204891615AC7800ABBCC3 /* SelectValuePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectValuePhotoViewController.m; sourceTree = "<group>"; };
+		BE0F5C0F1622D87B00E6A3C6 /* zvezda_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zvezda_selected@2x.png"; sourceTree = "<group>"; };
+		BE0F5C101622D87B00E6A3C6 /* zvezda_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zvezda_selected.png; sourceTree = "<group>"; };
+		BE0F5C111622D87B00E6A3C6 /* fon_zvezda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fon_zvezda.png; sourceTree = "<group>"; };
+		BE0F5C121622D87C00E6A3C6 /* fon_zvezda@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fon_zvezda@2x.png"; sourceTree = "<group>"; };
+		BE0F5C131622D87C00E6A3C6 /* sms_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms_selected@2x.png"; sourceTree = "<group>"; };
+		BE0F5C141622D87C00E6A3C6 /* sms_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms_selected.png; sourceTree = "<group>"; };
+		BE0F5C201622DBB800E6A3C6 /* trubka_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trubka_selected.png; sourceTree = "<group>"; };
+		BE0F5C211622DBB800E6A3C6 /* trubka_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trubka_selected@2x.png"; sourceTree = "<group>"; };
+		BE0F5C221622DBB800E6A3C6 /* trubka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trubka.png; sourceTree = "<group>"; };
+		BE0F5C231622DBB800E6A3C6 /* trubka@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trubka@2x.png"; sourceTree = "<group>"; };
+		BE0F5C281622EA2E00E6A3C6 /* AdvertisementOtherInfoOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementOtherInfoOption.h; path = AdvertisementViewController/Views/AdvertisementOtherInfoOption.h; sourceTree = "<group>"; };
+		BE0F5C291622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvertisementOtherInfoOption.m; path = AdvertisementViewController/Views/AdvertisementOtherInfoOption.m; sourceTree = "<group>"; };
+		BE0F5C2B1622EA4500E6A3C6 /* AdvertisementOtherInfoOption.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvertisementOtherInfoOption.xib; path = AdvertisementViewController/Views/AdvertisementOtherInfoOption.xib; sourceTree = "<group>"; };
 		BE186369161DAFB100F7DB8D /* clean_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clean_button.png; sourceTree = "<group>"; };
 		BE18636A161DAFB100F7DB8D /* clean_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clean_button@2x.png"; sourceTree = "<group>"; };
 		BE18636B161DAFB100F7DB8D /* clean_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clean_button_selected.png; sourceTree = "<group>"; };
@@ -899,6 +920,12 @@
 		10BFB4901622456C00E63BF5 /* zvezda_sms_trubka */ = {
 			isa = PBXGroup;
 			children = (
+				BE0F5C201622DBB800E6A3C6 /* trubka_selected.png */,
+				BE0F5C211622DBB800E6A3C6 /* trubka_selected@2x.png */,
+				BE0F5C221622DBB800E6A3C6 /* trubka.png */,
+				BE0F5C231622DBB800E6A3C6 /* trubka@2x.png */,
+				BE0F5C111622D87B00E6A3C6 /* fon_zvezda.png */,
+				BE0F5C121622D87C00E6A3C6 /* fon_zvezda@2x.png */,
 				10BFB4911622456C00E63BF5 /* 1kluch.png */,
 				10BFB4921622456C00E63BF5 /* 1kluch@2x.png */,
 				10BFB4931622456C00E63BF5 /* 1mobil.png */,
@@ -909,10 +936,12 @@
 				10BFB4981622456C00E63BF5 /* mobil@2x.png */,
 				10BFB4991622456C00E63BF5 /* sms.png */,
 				10BFB49A1622456C00E63BF5 /* sms@2x.png */,
-				10BFB49B1622456C00E63BF5 /* trubka.png */,
-				10BFB49C1622456C00E63BF5 /* trubka@2x.png */,
+				BE0F5C141622D87C00E6A3C6 /* sms_selected.png */,
+				BE0F5C131622D87C00E6A3C6 /* sms_selected@2x.png */,
 				10BFB49D1622456C00E63BF5 /* zvezda.png */,
 				10BFB49E1622456C00E63BF5 /* zvezda@2x.png */,
+				BE0F5C101622D87B00E6A3C6 /* zvezda_selected.png */,
+				BE0F5C0F1622D87B00E6A3C6 /* zvezda_selected@2x.png */,
 			);
 			name = zvezda_sms_trubka;
 			path = Navigation/zvezda_sms_trubka;
@@ -944,6 +973,9 @@
 				10D1256F16060FA3003357E7 /* AdvertisementOtherInfoOne.h */,
 				10D1257016060FA4003357E7 /* AdvertisementOtherInfoOne.m */,
 				10D1257216060FCF003357E7 /* AdvertisementOtherInfoOne.xib */,
+				BE0F5C281622EA2E00E6A3C6 /* AdvertisementOtherInfoOption.h */,
+				BE0F5C291622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m */,
+				BE0F5C2B1622EA4500E6A3C6 /* AdvertisementOtherInfoOption.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1940,10 +1972,19 @@
 				10BFB4A61622456C00E63BF5 /* mobil@2x.png in Resources */,
 				10BFB4A71622456C00E63BF5 /* sms.png in Resources */,
 				10BFB4A81622456C00E63BF5 /* sms@2x.png in Resources */,
-				10BFB4A91622456C00E63BF5 /* trubka.png in Resources */,
-				10BFB4AA1622456C00E63BF5 /* trubka@2x.png in Resources */,
 				10BFB4AB1622456C00E63BF5 /* zvezda.png in Resources */,
 				10BFB4AC1622456C00E63BF5 /* zvezda@2x.png in Resources */,
+				BE0F5C171622D87C00E6A3C6 /* zvezda_selected@2x.png in Resources */,
+				BE0F5C181622D87C00E6A3C6 /* zvezda_selected.png in Resources */,
+				BE0F5C191622D87C00E6A3C6 /* fon_zvezda.png in Resources */,
+				BE0F5C1A1622D87C00E6A3C6 /* fon_zvezda@2x.png in Resources */,
+				BE0F5C1B1622D87C00E6A3C6 /* sms_selected@2x.png in Resources */,
+				BE0F5C1C1622D87C00E6A3C6 /* sms_selected.png in Resources */,
+				BE0F5C241622DBB900E6A3C6 /* trubka_selected.png in Resources */,
+				BE0F5C251622DBB900E6A3C6 /* trubka_selected@2x.png in Resources */,
+				BE0F5C261622DBB900E6A3C6 /* trubka.png in Resources */,
+				BE0F5C271622DBB900E6A3C6 /* trubka@2x.png in Resources */,
+				BE0F5C2C1622EA4500E6A3C6 /* AdvertisementOtherInfoOption.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2098,6 +2139,7 @@
 				BE37F4C3161C56B800508636 /* Options.m in Sources */,
 				BEB4A5CE161C931E006814DA /* OLGhostAlertView.m in Sources */,
 				1017C4DB161CA8BA00694563 /* SVProgressHUD.m in Sources */,
+				BE0F5C2A1622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

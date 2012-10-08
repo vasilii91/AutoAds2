@@ -234,6 +234,7 @@ static DatabaseManager *_sharedMySingleton = nil;
             
             [options addObject:option];
         }
+        optionCategory.fields = options;
         
         [optionCategories addObject:optionCategory];
     }

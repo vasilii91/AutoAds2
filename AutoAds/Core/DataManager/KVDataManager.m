@@ -75,6 +75,24 @@ static KVDataManager *instance = nil;
             [self.delegate dataWasSuccessfullyParsed];
         }
     }
+    else if (type == RequestTypeAddAdvertisement) {
+        NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+        NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        LOG(@"%@", str);
+        
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSDictionary *parseData = [parser objectWithString:str];
+        
+        NSInteger errorCode = [[parseData objectForKey:@"error"] integerValue];
+        
+        if (errorCode == 0) {
+            [self.delegate dataWasSuccessfullyParsed];
+        }
+        else {
+            NSString *errorText = [parseData objectForKey:@"errorText"];
+            [self.delegate errorWasOccuredWithError:errorText];
+        }
+    }
     else {
         NSData *data = [outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];

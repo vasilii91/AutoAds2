@@ -222,6 +222,7 @@
     NSDictionary *dict = [searchManager parametersToAddAdvertisement:fields];
     LOG(@"%@", dict);
     
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT_ADD_ADVERTISEMENT];
     [networkManager addAdvertisementWithParameters:dict images:[dictionaryPhotos allValues]];
 }
 
@@ -355,11 +356,15 @@
 //        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
         [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     }
+    
+    else if (requestId == RequestTypeAddAdvertisement) {
+        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS_ADD_ADVERTISEMENT];
+    }
 }
 
 - (void)requestFailed:(RequestType)requestId forId:(NSString *)identifier error:(NSString *)message code:(int)code
 {
-    [SVProgressHUD showErrorWithStatus:PROGRESS_STATUS_ERROR];
+    [SVProgressHUD showErrorWithStatus:message];
     LOG(@"request %d with id %@ was failed with error %@", requestId, identifier, message);
 }
 

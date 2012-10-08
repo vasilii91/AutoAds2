@@ -25,19 +25,26 @@
 
 - (void)addKey:(NSString *)key value:(NSString *)value
 {
-    if (value != nil) {
-        CGFloat fontSize = 20;
-        
+    CGFloat fontSize = 20;
+    CGRect rect = CGRectMake(10,
+                             currentY,
+                             300,
+                             fontSize);
+    if (value != nil && key != nil) {
         AdvertisementOtherInfoOne *advInfoOne = [AdvertisementOtherInfoOne loadView];
-        advInfoOne.frame = CGRectMake(10,
-                                      currentY,
-                                      300,
-                                      fontSize);
+        advInfoOne.frame = rect;
         advInfoOne.labelKey.text = key;
+        advInfoOne.labelValue.text = value;
+
+        currentY += 2 * fontSize;
+        [self addSubview:advInfoOne];
+    }
+    else if (value != nil && key == nil) {
+        AdvertisementOtherInfoOption *advInfoOne = [AdvertisementOtherInfoOption loadView];
+        advInfoOne.frame = rect;
         advInfoOne.labelValue.text = value;
         
         currentY += 2 * fontSize;
-
         [self addSubview:advInfoOne];
     }
 }

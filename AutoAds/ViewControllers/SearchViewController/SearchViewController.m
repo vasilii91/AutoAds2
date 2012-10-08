@@ -118,15 +118,15 @@
             
             [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
             
-            NSString *rubric = [f1 valueForServerBySelectedValue];
-            NSString *subrubric = [f2 valueForServerBySelectedValue];
+            currentRubric = [f1 valueForServerBySelectedValue];
+            currentSubrubric = [f2 valueForServerBySelectedValue];
             
             NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-            [defauls setValue:rubric forKey:CURRENT_RUBRIC];
-            [defauls setValue:subrubric forKey:CURRENT_SUBRUBRIC];
+            [defauls setValue:currentRubric forKey:CURRENT_RUBRIC];
+            [defauls setValue:currentSubrubric forKey:CURRENT_SUBRUBRIC];
             [defauls synchronize];
             
-            [networkManager getModelsByRubric:rubric subrubric:subrubric];
+            [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
         }
     }
     
@@ -296,6 +296,9 @@
     [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     
     if (requestId == RequestTypeSearch) {
+        [networkManager getOptionsByRubric:currentRubric subrubric:currentSubrubric];
+    }
+    else if (requestId == RequestTypeOptions) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
         vc.queryString = queryString;
         [self.navigationController pushViewController:vc animated:YES];

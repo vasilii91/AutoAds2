@@ -42,6 +42,9 @@
     AdvField *f1;
     AdvField *f2;
     
+    NSString *currentRubric;
+    NSString *currentSubrubric;
+    
     NSString *queryString;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;

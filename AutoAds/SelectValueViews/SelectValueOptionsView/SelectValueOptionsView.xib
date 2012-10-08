@@ -42,8 +42,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 69}, {320, 299}}</string>
 						<reference key="NSSuperview" ref="10953806"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -64,7 +62,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 78}</string>
 						<reference key="NSSuperview" ref="10953806"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="833562974"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -79,7 +76,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 11}, {320, 50}}</string>
 						<reference key="NSSuperview" ref="10953806"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="471792341"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -112,7 +108,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 368}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="541852776"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -224,32 +219,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">22</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">SelectValueOptionsView</string>
-					<string key="superclassName">UIView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="labelHeader">UILabel</string>
-						<string key="tableViewDictionary">UITableView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="labelHeader">
-							<string key="name">labelHeader</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tableViewDictionary">
-							<string key="name">tableViewDictionary</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SelectValueOptionsView.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AdvertisementOtherInfoOne.h"
+#import "AdvertisementOtherInfoOption.h"
 
 @interface AdvertisementOtherInfo : UIView
 {

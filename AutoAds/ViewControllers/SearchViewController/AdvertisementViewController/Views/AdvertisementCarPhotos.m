@@ -21,6 +21,8 @@
     [super awakeFromNib];
 
     [self.buttonShowOnSite.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:14]];
+    
+//    [self.buttonCall setBackgroundImage:[UIImage imageNamed:@"trubka@2x.png"] forState:UIControlStateNormal];
 }
 
 + (AdvertisementCarPhotos *)loadView

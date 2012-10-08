@@ -63,6 +63,8 @@
 
 #define PROGRESS_STATUS_PLEASE_WAIT @"Пожалуйста, подождите..."
 #define PROGRESS_STATUS_PLEASE_WAIT_PHOTOS @"Загружаются фотографии. Пожалуйста, подождите..."
+#define PROGRESS_STATUS_PLEASE_WAIT_ADD_ADVERTISEMENT @"Пожалуйста, подождите. Объявление добавляется..."
 #define PROGRESS_STATUS_SUCCESS @"Данные успешно получены"
 #define PROGRESS_STATUS_SUCCESS_PHOTOS @"Фотографии успешно загружены"
+#define PROGRESS_STATUS_SUCCESS_ADD_ADVERTISEMENT @"Объявление успешно добавлено"
 #define PROGRESS_STATUS_ERROR @"Произошла ошибка"

@@ -282,6 +282,37 @@
     return [AdvDictionaries valueFromDictionary:[AdvDictionaries Bools] forKeyOrValue:_Metalic];
 }
 
+- (NSArray *)Options
+{
+    NSString *rubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_RUBRIC];
+    NSString *subrubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_SUBRUBRIC];
+    DatabaseManager *databaseManager = [DatabaseManager sharedMySingleton];
+    NSMutableArray *optionCategories = [databaseManager optionCategoriesByRubric:rubric subrubric:subrubric];
+    
+    NSMutableArray *newOptionCategories = [NSMutableArray new];
+    for (OptionsCategory *optionCategory in optionCategories) {
+        
+        NSMutableArray *newOptions = [NSMutableArray new];
+        for (Option *option in optionCategory.fields) {
+            for (NSString *optionId in _Options) {
+                if ([option.id integerValue] == [optionId integerValue]) {
+                    [newOptions addObject:option];
+                    break;
+                }
+            }
+        }
+        
+        if ([newOptions count] != 0) {
+            OptionsCategory *category = [OptionsCategory new];
+            category.title = optionCategory.title;
+            category.fields = newOptions;
+            [newOptionCategories addObject:category];
+        }
+    }
+    
+    return newOptionCategories;
+}
+
 
 #pragma mark - Public methods
 
