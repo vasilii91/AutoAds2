@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SelectValueDelegate.h"
 #import "SearchManager.h"
+#import "PGSlider.h"
 
 @interface SelectValueStringView : UIView<UITextFieldDelegate>
 {
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
 @property (weak, nonatomic) IBOutlet UILabel *labelEmail;
 @property (nonatomic, retain) NSString *selectedValue;
+@property (weak, nonatomic) IBOutlet PGSlider *sliderView;
 
 + (SelectValueStringView *)loadView;
 - (IBAction)clickOnOkButton:(id)sender;

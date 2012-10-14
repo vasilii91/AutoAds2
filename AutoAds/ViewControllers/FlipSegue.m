@@ -22,7 +22,7 @@
     if ([dst isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tbc = (UITabBarController *)dst;
         tbc.selectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_TAB_BAR_INDEX];
-        [tbc.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbarBackground.png"]];
+//        [tbc.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbarBackground.png"]];
         
         NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:FONT_DINPro_REGULAR size:11.], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, [UIColor blackColor], UITextAttributeTextShadowColor, [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], UITextAttributeTextShadowOffset, nil];
         
@@ -36,12 +36,12 @@
         [item2 setTitle:@"Добавить"];
         [item2 setTitleTextAttributes:attr forState:UIControlStateNormal];
         
-        UITabBarItem *item3 = [tbc.tabBar.items objectAtIndex:2];
-        [item3 setFinishedSelectedImage:[UIImage imageNamed:@"starBarIconSelected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"starBarIcon.png"]];
-        [item3 setTitle:@"Избранные"];
-        [item3 setTitleTextAttributes:attr forState:UIControlStateNormal];
+//        UITabBarItem *item3 = [tbc.tabBar.items objectAtIndex:2];
+//        [item3 setFinishedSelectedImage:[UIImage imageNamed:@"starBarIconSelected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"starBarIcon.png"]];
+//        [item3 setTitle:@"Избранные"];
+//        [item3 setTitleTextAttributes:attr forState:UIControlStateNormal];
         
-        UITabBarItem *item4 = [tbc.tabBar.items objectAtIndex:3];
+        UITabBarItem *item4 = [tbc.tabBar.items objectAtIndex:2];
         [item4 setFinishedSelectedImage:[UIImage imageNamed:@"moreBarIconSelected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"moreBarIcon.png"]];
         [item4 setTitle:@"Еще"];
         [item4 setTitleTextAttributes:attr forState:UIControlStateNormal];

@@ -46,8 +46,8 @@
     UIBarButtonItem *bbi = [PrettyViews backBarButtonWithTarget:self action:@selector(goBack:)];
     self.navigationItem.leftBarButtonItem = bbi;
     
-    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnFavoriteButton:) frame:CGRectMake(0, 0, 33, 33) imageName:FAVORITE_BUTTON_IMAGE_DESELECTED imageNameSelected:FAVORITE_BUTTON_IMAGE_DESELECTED text:nil];
-    self.navigationItem.rightBarButtonItems = @[bbi2];
+//    UIBarButtonItem *bbi2 = [PrettyViews backBarButtonWithTarget:self action:@selector(clickOnFavoriteButton:) frame:CGRectMake(0, 0, 33, 33) imageName:FAVORITE_BUTTON_IMAGE_DESELECTED imageNameSelected:FAVORITE_BUTTON_IMAGE_DESELECTED text:nil];
+//    self.navigationItem.rightBarButtonItems = @[bbi2];
     
     [self.scrollView setBackgroundColor:[UIColor clearColor]];
     
@@ -151,18 +151,34 @@
 
 - (void)sendSMS:(NSString *)bodyOfMessage recipientList:(NSArray *)recipients
 {
+    NSMutableArray *convertedPhones = [NSMutableArray new];
+    for (NSString *phone in recipients) {
+        NSString *newPhoneFormat = [self convertPhoneToNormalFormat:phone];
+        [convertedPhones addObject:newPhoneFormat];
+    }
+    
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
         controller.body = bodyOfMessage;
-        controller.recipients = recipients;
+        controller.recipients = convertedPhones;
         controller.messageComposeDelegate = self;
         [self presentModalViewController:controller animated:YES];
     }    
 }
 
+- (NSString *)convertPhoneToNormalFormat:(NSString *)oldPhone
+{
+    oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@" " withString:@""];
+    oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@"(" withString:@"-"];
+    oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@")" withString:@"-"];
+    
+    return oldPhone;
+}
+
 - (void)callToPhone:(NSString *)phone
 {
+    phone = [self convertPhoneToNormalFormat:phone];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
     }

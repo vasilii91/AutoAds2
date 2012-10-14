@@ -33,19 +33,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
-         timestampString = "370994514.080735"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
-         landmarkName = "-clickOnAboutProgramButton:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/Controls/CirculationView/CirculationView.m"
          timestampString = "369686865.72481"
          startingColumnNumber = "9223372036854775807"
@@ -86,7 +73,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "370892653.551308"
+         timestampString = "371919830.117652"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "111"
@@ -150,19 +137,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/Search2ViewController.m"
-         timestampString = "370891241.654568"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "AutoAds/SelectValueViews/SelectValuePhotoView/SelectValuePhotoViewController.m"
          timestampString = "370892203.187663"
          startingColumnNumber = "9223372036854775807"
@@ -216,25 +190,103 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/Core/DatabaseManager/Core/DatabaseManager.m"
-         timestampString = "370976157.555799"
+         timestampString = "371502451.007568"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
-         landmarkName = "-addBrands:forRubric:subrubric:"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
+         landmarkName = "-addOptionsCategory:forRubric:subrubric:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/Core/Entities/Advertisement/Advertisement.m"
-         timestampString = "371342283.497822"
+         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
+         timestampString = "371502964.892602"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "388"
-         endingLineNumber = "388"
-         landmarkName = "-getAdvertisementInfo"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
+         landmarkName = "-saveData:withRequestType:identifier:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Core/DataManager/KVDataManager.m"
+         timestampString = "371503032.974803"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "-saveData:withRequestType:identifier:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/AdvertisementViewController/AdvertisementViewController.m"
+         timestampString = "371914835.658285"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "181"
+         endingLineNumber = "181"
+         landmarkName = "-callToPhone:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/Cells/ButtonCell.m"
+         timestampString = "371919911.285319"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-clickOnAttentionButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
+         timestampString = "371924296.346329"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "271"
+         endingLineNumber = "271"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
+         timestampString = "371925357.591942"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "280"
+         endingLineNumber = "280"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/Search2ViewController.m"
+         timestampString = "371925537.808714"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
+         landmarkName = "-valueWasSelected:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

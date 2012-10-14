@@ -38,9 +38,8 @@
     
     KVNetworkManager *networkManager;
     
-    AdvField *f0;
-    AdvField *f1;
-    AdvField *f2;
+    AdvField *f0, *f1, *f2;
+    BOOL isBrandSelected;
     
     NSString *currentRubric;
     NSString *currentSubrubric;

@@ -96,8 +96,18 @@
 	
 }
 
+- (NSString *)convertPhoneToNormalFormat:(NSString *)oldPhone
+{
+    oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@" " withString:@""];
+    oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@"(" withString:@"-"];
+    oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@")" withString:@"-"];
+    
+    return oldPhone;
+}
+
 - (void)callToPhone:(NSString *)phone
 {
+    phone = [self convertPhoneToNormalFormat:phone];
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]]) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
     }
@@ -126,7 +136,7 @@
         }
         case 2:
         {
-            [self callToPhone:@"+375-44-573-31-92"];
+            [self callToPhone:@"+375-4-4-5-7-3-31-92"];
             break;
         }
         case 3:

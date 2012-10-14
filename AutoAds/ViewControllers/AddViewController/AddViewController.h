@@ -37,6 +37,8 @@
     AdvField *f1;
     AdvField *f2;
     
+    BOOL isBrandSelected;
+    
     NSString *currentRubric;
     NSString *currentSubrubric;
     

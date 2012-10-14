@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HIY-ih-cJ9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HIY-ih-cJ9">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -20,7 +20,6 @@
                         <segue destination="HIY-ih-cJ9" kind="custom" identifier="flipSegue" customClass="FlipSegue" id="lXr-P4-bhK"/>
                         <segue destination="ulc-7X-PJR" kind="relationship" relationship="viewControllers" id="zdr-S5-CqQ"/>
                         <segue destination="wRE-Fe-Ezi" kind="relationship" relationship="viewControllers" id="89P-n7-vMb"/>
-                        <segue destination="KL4-9a-msd" kind="relationship" relationship="viewControllers" id="dRm-Bq-QV8"/>
                         <segue destination="gNT-j3-Nmk" kind="relationship" relationship="viewControllers" id="oED-dM-NNY"/>
                     </connections>
                 </tabBarController>
@@ -278,7 +277,7 @@
             <objects>
                 <viewController id="5KM-ZQ-QW4" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpJ-OK-U1P">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fon_zvezda@2x.png" id="Y2e-ze-2WI">
@@ -286,7 +285,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cFE-i6-bGV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -357,27 +356,8 @@
                                     <segue destination="sQh-8b-pyF" kind="custom" identifier="flip2Segue" customClass="FlipSegue" id="kdz-5I-STC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BIV-rO-Zta">
-                                <rect key="frame" x="0.0" y="254" width="320" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Избранные" image="starBlue.png" backgroundImage="77@2x.png">
-                                    <color key="titleColor" red="0.0" green="0.37647058820000001" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" image="starBlue.png">
-                                    <color key="titleColor" red="0.0" green="0.37647058820000001" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickOnButton:" destination="HIY-ih-cJ9" eventType="touchUpInside" id="PFc-am-3PY"/>
-                                    <segue destination="sQh-8b-pyF" kind="custom" identifier="flip3Segue" customClass="FlipSegue" id="d6t-dF-Kbr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xSO-Re-oPU">
-                                <rect key="frame" x="0.0" y="341" width="320" height="87"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="90" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -405,7 +385,6 @@
                     </view>
                     <connections>
                         <outlet property="_addButton" destination="X9b-io-JkK" id="8mx-Zi-OZN"/>
-                        <outlet property="_favButton" destination="BIV-rO-Zta" id="wXj-Sq-3GX"/>
                         <outlet property="_moreButton" destination="xSO-Re-oPU" id="U0w-0x-TID"/>
                         <outlet property="_searchButton" destination="qnu-kQ-3W1" id="YY2-0x-phk"/>
                     </connections>
@@ -429,7 +408,6 @@
         <image name="moreBlue.png" width="16" height="16"/>
         <image name="searchBlue.png" width="16" height="16"/>
         <image name="searchIcon.png" width="16" height="16"/>
-        <image name="starBlue.png" width="16" height="16"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

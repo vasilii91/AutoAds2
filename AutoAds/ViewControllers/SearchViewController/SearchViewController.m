@@ -267,6 +267,19 @@
         value = [dataManager.selectedOptions count] != 0 ? @"Комплектация выбрана" : nil;
     }
     
+    if ([field.nameEnglish isEqualToString:F_BRAND_ENG]) {
+        if (field.selectedValue == nil) {
+            isBrandSelected = NO;
+        }
+        else {
+            isBrandSelected = YES;
+        }
+    }
+    
+    if ([field.nameEnglish isEqualToString:F_MODEL_ENG]) {
+        cell.button.enabled = isBrandSelected;
+    }
+    
     [cell.textView setText:title];
     [cell.button setTitle:value forState:UIControlStateNormal];
     [cell setAttentionState:NO];
@@ -281,10 +294,22 @@
 {
     lastSelectedField = [fields objectAtIndex:indexPath.row];
     
-    Search2ViewController *search2VC = [Search2ViewController new];
-    search2VC.typeOfSearch2ViewController = Search2ViewControllerTypeSearch;
-    search2VC.field = lastSelectedField;
-    [self.navigationController pushViewController:search2VC animated:YES];
+    BOOL isOpenNewVC = NO;
+    if ([lastSelectedField.nameEnglish isEqualToString:F_MODEL_ENG]) {
+        if (isBrandSelected) {
+            isOpenNewVC = YES;
+        }
+    }
+    else {
+        isOpenNewVC = YES;
+    }
+    
+    if (isOpenNewVC) {
+        Search2ViewController *search2VC = [Search2ViewController new];
+        search2VC.typeOfSearch2ViewController = Search2ViewControllerTypeSearch;
+        search2VC.field = lastSelectedField;
+        [self.navigationController pushViewController:search2VC animated:YES];
+    }
 }
 
 

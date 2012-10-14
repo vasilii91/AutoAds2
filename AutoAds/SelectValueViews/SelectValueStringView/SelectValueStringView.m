@@ -14,6 +14,7 @@
 @synthesize valueType;
 @synthesize labelEmail;
 @synthesize selectedValue;
+@synthesize sliderView;
 
 #pragma mark - Initialization
 
@@ -23,6 +24,12 @@
     
     [self.labelHeader setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:18]];
     [self.labelEmail setHidden:YES];
+    
+    self.sliderView.minValue = 10;
+    self.sliderView.maxValue = 20;
+    self.sliderView.step = 5;
+    self.sliderView.stepping = YES;
+    self.sliderView.style = PGSliderStyleDarkBlue;
 }
 
 + (SelectValueStringView *)loadView
