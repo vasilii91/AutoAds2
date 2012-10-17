@@ -20,6 +20,7 @@
 @synthesize Status = _Status;
 @synthesize Color = _Color;
 @synthesize Metalic = _Metalic;
+@synthesize Destiny = _Destiny;
 
 
 #pragma mark - Private methods
@@ -145,6 +146,11 @@
 - (void)setMetalic:(NSString *)Metalic
 {
     _Metalic = [NSString stringWithFormat:@"%@", Metalic];
+}
+
+- (void)setDestiny:(NSString *)Destiny
+{
+    _Destiny = [NSString stringWithFormat:@"%@", Destiny];
 }
 
 
@@ -280,6 +286,11 @@
 - (NSString *)Metalic
 {
     return [AdvDictionaries valueFromDictionary:[AdvDictionaries Bools] forKeyOrValue:_Metalic];
+}
+
+- (NSString *)Destiny
+{
+    return [AdvDictionaries valueFromDictionary:[AdvDictionaries TrailerDestinies] forKeyOrValue:_Destiny];
 }
 
 - (NSArray *)Options
@@ -469,6 +480,196 @@
     }
     
     return result;
+}
+
+- (NSDictionary *)getAdvertisementKeyValues
+{
+    NSString *rubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_RUBRIC];
+    NSString *subrubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_SUBRUBRIC];
+    
+    OrderedDictionary *keyValues = [OrderedDictionary new];
+    
+    if (rubric != nil) {
+        if ([rubric isEqualToString:@"motors"]) {
+            if ([subrubric isEqualToString:@"rus"] ||
+                [subrubric isEqualToString:@"foreign"]) {
+                
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.Mileage forKey:@"Пробег:"];
+                [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.Gearbox forKey:@"Коробка передач:"];
+                [keyValues setValue:self.Rudder forKey:@"Тип руля:"];
+                [keyValues setValue:self.Drive forKey:@"Тип привода:"];
+                [keyValues setValue:self.EngineType forKey:@"Тип двигателя:"];
+                [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.Color forKey:@"Цвет кузова:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+            }
+            else if ([subrubric isEqualToString:@"trailers"]) {
+                
+                [keyValues setValue:self.Color forKey:@"Цвет кузова:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.Destiny forKey:@"Назначение:"];
+                [keyValues setValue:self.Capacity forKey:@"Грузоподъемность:"];
+            }
+        }
+        else if ([rubric isEqualToString:@"commercial"]) {
+            if ([subrubric isEqualToString:@"buses"]) {
+                
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.Mileage forKey:@"Пробег:"];
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Rudder forKey:@"Тип руля:"];
+                [keyValues setValue:self.Gearbox forKey:@"Коробка передач:"];
+                [keyValues setValue:self.Drive forKey:@"Тип привода:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.VanVolume forKey:@"Объем фургона:"];
+                [keyValues setValue:self.Seats forKey:@"Число мест:"];
+                [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+            }
+            else if ([subrubric isEqualToString:@"trucks"]) {
+                
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.Mileage forKey:@"Пробег:"];
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Rudder forKey:@"Тип руля:"];
+                [keyValues setValue:self.Gearbox forKey:@"Коробка передач:"];
+                [keyValues setValue:self.Drive forKey:@"Тип привода:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.VanVolume forKey:@"Объем фургона:"];
+                [keyValues setValue:self.CabinType forKey:@"Тип кабины:"];
+                [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+            }
+            else if ([subrubric isEqualToString:@"small"]) {
+                
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.Mileage forKey:@"Пробег:"];
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Rudder forKey:@"Тип руля:"];
+                [keyValues setValue:self.Gearbox forKey:@"Коробка передач:"];
+                [keyValues setValue:self.Drive forKey:@"Тип привода:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.VanVolume forKey:@"Объем фургона:"];
+                [keyValues setValue:self.Seats forKey:@"Число мест:"];
+                [keyValues setValue:self.CabinType forKey:@"Тип кабины:"];
+                [keyValues setValue:self.Capacity forKey:@"Грузоподъемность:"];
+                [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+            }
+            else if ([subrubric isEqualToString:@"trailers"]) {
+                
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Capacity forKey:@"Грузоподъемность:"];
+                [keyValues setValue:self.AxisCount forKey:@"Число осей:"];
+            }
+            else if ([subrubric isEqualToString:@"special"]) {
+                
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Mileage forKey:@"Пробег:"];
+                [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+            }
+        }
+        else if ([rubric isEqualToString:@"moto"]) {
+            
+            [keyValues setValue:self.Color forKey:@"Цвет:"];
+            [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+            [keyValues setValue:self.Status forKey:@"Состояние:"];
+            [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+            [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+            [keyValues setValue:self.Mileage forKey:@"Пробег:"];
+            [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+            [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+            [keyValues setValue:self.Modification forKey:@"Модификация:"];
+            [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+        }
+        else if ([rubric isEqualToString:@"water"]) {
+            if ([subrubric isEqualToString:@"hydros"]) {
+                
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.BodyType forKey:@"Тип кузова:"];
+                [keyValues setValue:self.Type forKey:@"Тип:"];
+                [keyValues setValue:self.EngineCapacity forKey:@"Объём двигателя:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.MotoHours forKey:@"Моточасы:"];
+                [keyValues setValue:self.Fuel forKey:@"Топливо:"];
+            }
+            else if ([subrubric isEqualToString:@"yachts"]) {
+                
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+                [keyValues setValue:self.Displacement forKey:@"Водоизмещение:"];
+                [keyValues setValue:self.EnginePower forKey:@"Мощность:"];
+                [keyValues setValue:self.Seats forKey:@"Число мест:"];
+            }
+            else if ([subrubric isEqualToString:@"boats"]) {
+                
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
+                [keyValues setValue:self.Year forKey:@"Год выпуска:"];
+            }
+        }
+        else if ([rubric isEqualToString:@"gears"]) {
+            if ([subrubric isEqualToString:@"wheels"]) {
+                
+                [keyValues setValue:self.Type forKey:@"Тип:"];
+                [keyValues setValue:self.Material forKey:@"Материал:"];
+                [keyValues setValue:self.Diameter forKey:@"Диаметр:"];
+                [keyValues setValue:self.WheelWidth forKey:@"Ширина:"];
+                [keyValues setValue:self.HolesCount forKey:@"Количество крепежных отверстий:"];
+                [keyValues setValue:self.HoleDiameter forKey:@"Диаметр расположения крепежных отверстий:"];
+                [keyValues setValue:self.Count forKey:@"Количество:"];
+                [keyValues setValue:self.Color forKey:@"Цвет:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+            }
+            else if ([subrubric isEqualToString:@"tires"]) {
+                
+                [keyValues setValue:self.Seasonality forKey:@"Сезонность:"];
+                [keyValues setValue:self.Spikes forKey:@"Шипы:"];
+                [keyValues setValue:self.Diameter forKey:@"Диаметр:"];
+                [keyValues setValue:self.Width forKey:@"Ширина профиля:"];
+                [keyValues setValue:self.Height forKey:@"Высота профиля:"];
+                [keyValues setValue:self.Count forKey:@"Количество:"];
+                [keyValues setValue:self.Status forKey:@"Состояние:"];
+            }
+        }
+        else if ([rubric isEqualToString:@"parts"]) {
+            [keyValues setValue:self.Name forKey:@"Наименование:"];
+            [keyValues setValue:self.Status forKey:@"Состояние:"];
+        }
+    }
+    
+    return keyValues;
 }
 
 @end

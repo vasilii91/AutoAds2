@@ -122,19 +122,13 @@
                                  200);
     advOtherInfo.frame = advFrame;
     
-    [advOtherInfo addKey:@"Год выпуска:" value:_advertisement.Year];
-    [advOtherInfo addKey:@"Пробег:" value:_advertisement.Mileage];
-    [advOtherInfo addKey:@"Объём двигателя:" value:_advertisement.EngineCapacity];
-    [advOtherInfo addKey:@"Мощность:" value:_advertisement.EnginePower];
-    [advOtherInfo addKey:@"Коробка передач:" value:_advertisement.Gearbox];
-    [advOtherInfo addKey:@"Тип руля:" value:_advertisement.Rudder];
-    [advOtherInfo addKey:@"Тип привода:" value:_advertisement.Drive];
-    [advOtherInfo addKey:@"Тип двигателя:" value:_advertisement.EngineType];
-    [advOtherInfo addKey:@"Топливо:" value:_advertisement.Fuel];
-    [advOtherInfo addKey:@"Тип кузова:" value:_advertisement.BodyType];
-    [advOtherInfo addKey:@"Состояние:" value:_advertisement.Status];
-    [advOtherInfo addKey:@"Цвет кузова:" value:_advertisement.Color];
-    [advOtherInfo addKey:@"Цвет металлик:" value:_advertisement.Metalic];
+    NSDictionary *keyValues = [_advertisement getAdvertisementKeyValues];
+    
+    for (NSString *key in [keyValues allKeys]) {
+        NSString *value = [keyValues valueForKey:key];
+        
+        [advOtherInfo addKey:key value:value];
+    }
     
     for (OptionsCategory *optionCategory in self.advertisement.Options) {
         [advOtherInfo addDelimeterWithText:optionCategory.title];

@@ -90,5 +90,6 @@
 - (NSString *)getOtherInfo;
 - (NSString *)getNameAndCity;
 - (NSString *)getAdvertisementInfo;
+- (NSDictionary *)getAdvertisementKeyValues;
 
 @end

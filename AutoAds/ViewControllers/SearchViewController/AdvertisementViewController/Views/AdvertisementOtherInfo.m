@@ -31,6 +31,9 @@
                              300,
                              fontSize);
     if (value != nil && key != nil) {
+        key = [NSString stringWithFormat:@"%@", key];
+        value = [NSString stringWithFormat:@"%@", value];
+        
         AdvertisementOtherInfoOne *advInfoOne = [AdvertisementOtherInfoOne loadView];
         advInfoOne.frame = rect;
         advInfoOne.labelKey.text = key;
@@ -40,6 +43,8 @@
         [self addSubview:advInfoOne];
     }
     else if (value != nil && key == nil) {
+        value = [NSString stringWithFormat:@"%@", value];
+        
         AdvertisementOtherInfoOption *advInfoOne = [AdvertisementOtherInfoOption loadView];
         advInfoOne.frame = rect;
         advInfoOne.labelValue.text = value;
