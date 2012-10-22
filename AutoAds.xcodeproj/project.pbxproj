@@ -19,6 +19,13 @@
 		1017C507161CF07000694563 /* autochel (74.ru).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FD161CF07000694563 /* autochel (74.ru).gif */; };
 		1017C508161CF07000694563 /* ufa1-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FE161CF07000694563 /* ufa1-logo.gif */; };
 		1017C509161CF07000694563 /* V1-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1017C4FF161CF07000694563 /* V1-logo.gif */; };
+		101B24251635ECDF0080BB2C /* TSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B241E1635ECDF0080BB2C /* TSAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		101B24261635ECDF0080BB2C /* TSAlertViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 101B241F1635ECDF0080BB2C /* TSAlertViewBackground.png */; };
+		101B24271635ECDF0080BB2C /* TSAlertViewBackground2.png in Resources */ = {isa = PBXBuildFile; fileRef = 101B24201635ECDF0080BB2C /* TSAlertViewBackground2.png */; };
+		101B24281635ECDF0080BB2C /* TSAlertViewButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 101B24211635ECDF0080BB2C /* TSAlertViewButtonBackground.png */; };
+		101B24291635ECDF0080BB2C /* TSAlertViewButtonBackground_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 101B24221635ECDF0080BB2C /* TSAlertViewButtonBackground_Highlighted.png */; };
+		101B242A1635ECDF0080BB2C /* TSAlertViewCancelButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 101B24231635ECDF0080BB2C /* TSAlertViewCancelButtonBackground.png */; };
+		101B242B1635ECDF0080BB2C /* TSAlertViewMessageListViewShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 101B24241635ECDF0080BB2C /* TSAlertViewMessageListViewShadow.png */; };
 		104235161617308300941200 /* SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 104235151617308300941200 /* SVPullToRefresh.m */; };
 		105EE98A162B27CF00D1723D /* PGSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 105EE97C162B27CF00D1723D /* PGSlider.m */; };
 		105EE98B162B27CF00D1723D /* pattern_tube_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 105EE97E162B27CF00D1723D /* pattern_tube_blue.png */; };
@@ -296,6 +303,14 @@
 		1017C4FD161CF07000694563 /* autochel (74.ru).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "autochel (74.ru).gif"; sourceTree = "<group>"; };
 		1017C4FE161CF07000694563 /* ufa1-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ufa1-logo.gif"; sourceTree = "<group>"; };
 		1017C4FF161CF07000694563 /* V1-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "V1-logo.gif"; sourceTree = "<group>"; };
+		101B241D1635ECDF0080BB2C /* TSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlertView.h; sourceTree = "<group>"; };
+		101B241E1635ECDF0080BB2C /* TSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlertView.m; sourceTree = "<group>"; };
+		101B241F1635ECDF0080BB2C /* TSAlertViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewBackground.png; sourceTree = "<group>"; };
+		101B24201635ECDF0080BB2C /* TSAlertViewBackground2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewBackground2.png; sourceTree = "<group>"; };
+		101B24211635ECDF0080BB2C /* TSAlertViewButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewButtonBackground.png; sourceTree = "<group>"; };
+		101B24221635ECDF0080BB2C /* TSAlertViewButtonBackground_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewButtonBackground_Highlighted.png; sourceTree = "<group>"; };
+		101B24231635ECDF0080BB2C /* TSAlertViewCancelButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewCancelButtonBackground.png; sourceTree = "<group>"; };
+		101B24241635ECDF0080BB2C /* TSAlertViewMessageListViewShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewMessageListViewShadow.png; sourceTree = "<group>"; };
 		1021D64C15FFD2A000360903 /* AdvValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvValues.h; path = SearchManager/Entities/AdvValues.h; sourceTree = "<group>"; };
 		104235141617308300941200 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		104235151617308300941200 /* SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPullToRefresh.m; sourceTree = "<group>"; };
@@ -750,6 +765,22 @@
 				1017C4FF161CF07000694563 /* V1-logo.gif */,
 			);
 			path = logos;
+			sourceTree = "<group>";
+		};
+		101B241C1635ECDF0080BB2C /* TSAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				101B241D1635ECDF0080BB2C /* TSAlertView.h */,
+				101B241E1635ECDF0080BB2C /* TSAlertView.m */,
+				101B241F1635ECDF0080BB2C /* TSAlertViewBackground.png */,
+				101B24201635ECDF0080BB2C /* TSAlertViewBackground2.png */,
+				101B24211635ECDF0080BB2C /* TSAlertViewButtonBackground.png */,
+				101B24221635ECDF0080BB2C /* TSAlertViewButtonBackground_Highlighted.png */,
+				101B24231635ECDF0080BB2C /* TSAlertViewCancelButtonBackground.png */,
+				101B24241635ECDF0080BB2C /* TSAlertViewMessageListViewShadow.png */,
+			);
+			name = TSAlertView;
+			path = Controls/TSAlertView;
 			sourceTree = "<group>";
 		};
 		104235131617308300941200 /* SVPullToRefresh */ = {
@@ -1750,6 +1781,7 @@
 		BEDD195616036BEC00FACC4B /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				101B241C1635ECDF0080BB2C /* TSAlertView */,
 				105EE97A162B27CF00D1723D /* PGSlider */,
 				1017C4D6161CA8BA00694563 /* SVProgressHUD */,
 				BE3CFA61161318890081CD64 /* PageControl */,
@@ -2055,6 +2087,12 @@
 				105EE994162B27CF00D1723D /* pattern_tube_light_blue@2x.png in Resources */,
 				105EE995162B27CF00D1723D /* pattern_tube_white.png in Resources */,
 				105EE996162B27CF00D1723D /* pattern_tube_white@2x.png in Resources */,
+				101B24261635ECDF0080BB2C /* TSAlertViewBackground.png in Resources */,
+				101B24271635ECDF0080BB2C /* TSAlertViewBackground2.png in Resources */,
+				101B24281635ECDF0080BB2C /* TSAlertViewButtonBackground.png in Resources */,
+				101B24291635ECDF0080BB2C /* TSAlertViewButtonBackground_Highlighted.png in Resources */,
+				101B242A1635ECDF0080BB2C /* TSAlertViewCancelButtonBackground.png in Resources */,
+				101B242B1635ECDF0080BB2C /* TSAlertViewMessageListViewShadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2211,6 +2249,7 @@
 				1017C4DB161CA8BA00694563 /* SVProgressHUD.m in Sources */,
 				BE0F5C2A1622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m in Sources */,
 				105EE98A162B27CF00D1723D /* PGSlider.m in Sources */,
+				101B24251635ECDF0080BB2C /* TSAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

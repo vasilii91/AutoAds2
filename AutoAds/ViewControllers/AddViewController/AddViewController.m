@@ -11,6 +11,7 @@
 #define TABLE_CELL_HEIGHT 50
 #define BUTTON_HEIGHT 64
 #define WEB_VIEW_HEIGHT 63
+#define IMAGE_VIEW_HEIGHT 67
 
 @interface AddViewController ()
 
@@ -58,15 +59,28 @@
     self.webView.opaque = NO;
     self.webView.delegate = self;
     
+    self.viewCaptcha.backgroundColor = [UIColor clearColor];
+    
+    [self.buttonEnterCaptcha.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:12.]];
+    self.buttonEnterCaptcha.hidden = YES;
+    
+    [self.buttonUpdateCaptcha.titleLabel setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:12.]];
+    self.buttonUpdateCaptcha.hidden = YES;
+    
     NSString *html = [NSString stringWithFormat:@"<html><body><p align=\"center\"><font size=\"2\" face=\"%@\">Нажимая кнопку \"Добавить\" я подтверждаю свое согласие с <a href=\"http://www.autochel.ru/help/car/rules\">правилами размещения объявлений</a></font></p></body></html>", FONT_DINPro_REGULAR];
     [self.webView loadHTMLString:html baseURL:nil];
     
     f0 = (AdvField *)[fields objectAtIndex:0];
     f1 = (AdvField *)[fields objectAtIndex:1];
     f2 = (AdvField *)[fields objectAtIndex:2];
+    
+    [(OrderedDictionary *)f0.value removeObjectForKey:@"Любой"];
+    
     f0.selectedValue = [[[AdvDictionaries Cities] allKeys] objectAtIndex:0];
     f1.selectedValue = [[[AdvDictionaries Rubrics] allKeys] objectAtIndex:0];
     f2.selectedValue = [[[AdvDictionaries SubrubricsMotors] allKeys] objectAtIndex:1];
+    
+    isFirstLoad = YES;
 }
 
 - (void)viewDidUnload
@@ -75,59 +89,67 @@
     [self setScrollView:nil];
     [self setWebView:nil];
     [self setButtonAdd:nil];
+    [self setImageViewCaptcha:nil];
+    [self setViewCaptcha:nil];
+    [self setButtonEnterCaptcha:nil];
+    [self setButtonUpdateCaptcha:nil];
     [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [networkManager subscribe:self];
     
-    BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
-    [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
-    BOOL isRubricAndSubWereSelected = f1.selectedValue != nil && f2.selectedValue != nil;
-    BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
-                            [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
-    
-    if ([f1.selectedValue isEqualToString:lastSelectedRubric] == NO &&
-        [f2.selectedValue isEqualToString:lastSelectedSubrubric] == YES) {
-        f2.selectedValue = nil;
-        isNeedToUpdate = NO;
+    if (isFirstLoad) {
+        [self cleanQueryToDefaultState];
+        isFirstLoad = NO;
     }
-    
-    if (f1.selectedValue != nil && f2.selectedValue == nil) {
-        [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];
-    }
-    
-    if ((isFieldsAreRubricsAndSub && isNeedToUpdate) ||
-        ([f1.selectedValue isEqualToString:@"Автозапчасти"])) {
+    else {
+        [networkManager subscribe:self];
         
-        [self cleanQueryExceptRubricAndSubrubric];
+        BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
+        [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
+        BOOL isRubricAndSubWereSelected = f1.selectedValue != nil && f2.selectedValue != nil;
+        BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
+                                [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
         
-        if (isRubricAndSubWereSelected == YES) {
-            lastSelectedRubric = f1.selectedValue;
-            lastSelectedSubrubric = f2.selectedValue;
+        if ([f1.selectedValue isEqualToString:lastSelectedRubric] == NO &&
+            [f2.selectedValue isEqualToString:lastSelectedSubrubric] == YES) {
+            f2.selectedValue = nil;
+            isNeedToUpdate = NO;
+        }
+        
+        if (f1.selectedValue != nil && f2.selectedValue == nil) {
+            [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];
+        }
+        
+        if ((isFieldsAreRubricsAndSub && isNeedToUpdate) ||
+            ([f1.selectedValue isEqualToString:@"Автозапчасти"])) {
             
-            currentGroup = [searchManager categoryAddAdvertisementByRubric:f1.selectedValue subrubric:f2.selectedValue];
-            fields = [currentGroup getObligatoryFields];
+            [self cleanQueryExceptRubricAndSubrubric];
             
-//            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
-//            [pleaseWaitAlertView show];
+            if (isRubricAndSubWereSelected == YES) {
+                lastSelectedRubric = f1.selectedValue;
+                lastSelectedSubrubric = f2.selectedValue;
+                
+                currentGroup = [searchManager categoryAddAdvertisementByRubric:f1.selectedValue subrubric:f2.selectedValue];
+                fields = [currentGroup getObligatoryFields];
 
-            [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
-            
-            currentRubric = [f1 valueForServerBySelectedValue];
-            currentSubrubric = [f2 valueForServerBySelectedValue];
-            
-            NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
-            [defauls setValue:currentRubric forKey:CURRENT_RUBRIC];
-            [defauls setValue:currentSubrubric forKey:CURRENT_SUBRUBRIC];
-            [defauls synchronize];
-            
-            [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
+                [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
+                
+                currentRubric = [f1 valueForServerBySelectedValue];
+                currentSubrubric = [f2 valueForServerBySelectedValue];
+                
+                NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
+                [defauls setValue:currentRubric forKey:CURRENT_RUBRIC];
+                [defauls setValue:currentSubrubric forKey:CURRENT_SUBRUBRIC];
+                [defauls synchronize];
+                
+                [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
+                [networkManager getCaptcha];
+            }
         }
     }
-    
     [self setFramesToViews];
 }
 
@@ -150,15 +172,19 @@
     self.tableViewFields.frame = tableFrame;
     
     self.scrollView.contentSize = CGSizeMake(320,
-                                             BUTTON_HEIGHT + WEB_VIEW_HEIGHT + tableHeight);
+                                             BUTTON_HEIGHT + WEB_VIEW_HEIGHT + IMAGE_VIEW_HEIGHT + tableHeight);
     
-    CGRect buttonFrame = self.buttonAdd.frame;
-    buttonFrame.origin.y = tableHeight + WEB_VIEW_HEIGHT;
-    self.buttonAdd.frame = buttonFrame;
+    CGRect viewFrame = self.viewCaptcha.frame;
+    viewFrame.origin.y = tableHeight;
+    self.viewCaptcha.frame = viewFrame;
     
     CGRect webViewFrame = self.webView.frame;
-    webViewFrame.origin.y = tableHeight;
+    webViewFrame.origin.y = tableHeight + IMAGE_VIEW_HEIGHT;
     self.webView.frame = webViewFrame;
+    
+    CGRect buttonFrame = self.buttonAdd.frame;
+    buttonFrame.origin.y = tableHeight + WEB_VIEW_HEIGHT + IMAGE_VIEW_HEIGHT;
+    self.buttonAdd.frame = buttonFrame;
     
     [self.tableViewFields reloadData];
 }
@@ -217,9 +243,30 @@
     [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
 }
 
+- (IBAction)clickOnEnterCaptchaButton:(id)sender
+{
+    TSAlertView* av = [[TSAlertView alloc] init];
+    av.title = @"Код защиты от роботов";
+    av.message = @"Введите код, который на картинке";
+    [av addButtonWithTitle: @"Готово"];
+    [av addButtonWithTitle: @"Отменить"];
+    av.style = TSAlertViewStyleInput;
+    av.buttonLayout = TSAlertViewButtonLayoutNormal;
+    av.delegate = self;
+    
+    av.inputTextField.text = @"";
+    
+    [av show];
+}
+
+- (IBAction)clickOnUpdateCaptchaButton:(id)sender
+{
+    [networkManager getCaptcha];
+}
+
 - (IBAction)clickOnAddAdvertisementButton:(id)sender
 {
-    NSDictionary *dict = [searchManager parametersToAddAdvertisement:fields];
+    NSDictionary *dict = [searchManager parametersToAddAdvertisement:fields captchaCode:captchaCode];
     LOG(@"%@", dict);
     
     [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT_ADD_ADVERTISEMENT];
@@ -345,10 +392,20 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
-        [networkManager unsubscribe:self];
-//        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
-        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+    if ([alertView isKindOfClass:[TSAlertView class]]) {
+        // cancel
+        if (buttonIndex == 1) {
+            return;
+        }
+        else {
+            captchaCode = ((TSAlertView *)alertView).inputTextField.text;
+        }
+    }
+    else {
+        if (buttonIndex == 0) {
+            [networkManager unsubscribe:self];
+            [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+        }
     }
 }
 
@@ -378,12 +435,17 @@
         [networkManager getOptionsByRubric:currentRubric subrubric:currentSubrubric];
     }
     else if (requestId == RequestTypeOptions) {
-//        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
         [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     }
-    
     else if (requestId == RequestTypeAddAdvertisement) {
         [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS_ADD_ADVERTISEMENT];
+    }
+    else if (requestId == RequestTypeGetCaptcha) {
+        UIImage *placeholderImage = [UIImage imageWithContentsOfFile:PATH_TO_CAPTCHA_IMAGE];
+        [self.imageViewCaptcha setImage:placeholderImage];
+        
+        self.buttonEnterCaptcha.hidden = NO;
+        self.buttonUpdateCaptcha.hidden = NO;
     }
 }
 

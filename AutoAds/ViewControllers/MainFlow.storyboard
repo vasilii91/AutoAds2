@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HIY-ih-cJ9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HIY-ih-cJ9">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -138,7 +138,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dZE-b8-1Fr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -167,6 +167,49 @@
                                             <action selector="clickOnTechnicalHelpButton:" destination="609-Yo-Dh0" eventType="touchUpInside" id="SUI-fC-eQ7"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" id="y06-su-GpJ">
+                                        <rect key="frame" x="0.0" y="178" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="hBM-Jh-T4T">
+                                                <rect key="frame" x="0.0" y="0.0" width="227" height="65"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kbM-Wd-Xmr">
+                                                <rect key="frame" x="214" y="0.0" width="94" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Ввести код">
+                                                    <color key="titleColor" name="selectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickOnEnterCaptchaButton:" destination="YYl-aQ-mWD" eventType="touchUpInside" id="dyX-4b-4BR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uI6-Pi-Ysx">
+                                                <rect key="frame" x="214" y="35" width="94" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Обновить">
+                                                    <color key="titleColor" name="selectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickOnUpdateCaptchaButton:" destination="YYl-aQ-mWD" eventType="touchUpInside" id="aSp-Zt-j64"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -175,8 +218,12 @@
                     <navigationItem key="navigationItem" title="Добавить" id="sug-tI-smj"/>
                     <connections>
                         <outlet property="buttonAdd" destination="0uq-xM-pmR" id="a2g-q1-721"/>
+                        <outlet property="buttonEnterCaptcha" destination="kbM-Wd-Xmr" id="c4p-eT-ytI"/>
+                        <outlet property="buttonUpdateCaptcha" destination="uI6-Pi-Ysx" id="n4y-HD-FGB"/>
+                        <outlet property="imageViewCaptcha" destination="hBM-Jh-T4T" id="aWI-l7-vn8"/>
                         <outlet property="scrollView" destination="nCo-aC-nfK" id="fMa-DA-sXU"/>
                         <outlet property="tableViewFields" destination="dZE-b8-1Fr" id="70n-oy-nHY"/>
+                        <outlet property="viewCaptcha" destination="y06-su-GpJ" id="ZND-bQ-HH5"/>
                         <outlet property="webView" destination="0wk-Ir-lbQ" id="8lK-wp-q0p"/>
                     </connections>
                 </viewController>
@@ -356,7 +403,7 @@
                                     <segue destination="sQh-8b-pyF" kind="custom" identifier="flip2Segue" customClass="FlipSegue" id="kdz-5I-STC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xSO-Re-oPU">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xSO-Re-oPU">
                                 <rect key="frame" x="0.0" y="254" width="320" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -409,6 +456,54 @@
         <image name="searchBlue.png" width="16" height="16"/>
         <image name="searchIcon.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="AddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOnAddAdvertisementButton:"/>
+                <relationship kind="action" name="clickOnEnterCaptchaButton:"/>
+                <relationship kind="action" name="clickOnUpdateCaptchaButton:"/>
+                <relationship kind="outlet" name="buttonAdd" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonEnterCaptcha" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonUpdateCaptcha" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageViewCaptcha" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableViewFields" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="viewCaptcha" candidateClass="UIView"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="FavoritesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoritesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableViewFavorites" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MainMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOnButton:"/>
+            </relationships>
+        </class>
+        <class className="MoreViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOnAboutProgramButton:"/>
+                <relationship kind="action" name="clickOnTechnicalHelpButton:"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tableViewLinks" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SavedSearchQueriesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SavedSearchQueriesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOnNewSearchButton:"/>
+                <relationship kind="outlet" name="buttonNewSearch" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableViewSavedSearchQueries" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="viewHeader" candidateClass="UIView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

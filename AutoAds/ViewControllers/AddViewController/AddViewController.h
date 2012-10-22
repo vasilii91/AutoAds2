@@ -17,8 +17,9 @@
 #import "KVDataManager.h"
 #import "OLGhostAlertView.h"
 #import "SVProgressHUD.h"
+#import "TSAlertView.h"
 
-@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate, ButtonCellDelegate>
+@interface AddViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, KVNetworkDelegate, UIAlertViewDelegate, SelectValueDelegate, ButtonCellDelegate, TSAlertViewDelegate>
 {
     PleaseWaitAlertView *pleaseWaitAlertView;
     
@@ -38,15 +39,24 @@
     AdvField *f2;
     
     BOOL isBrandSelected;
+    BOOL isFirstLoad;
     
     NSString *currentRubric;
     NSString *currentSubrubric;
     
     OrderedDictionary *dictionaryPhotos;
+    
+    NSString *captchaCode;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableViewFields;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAdd;
+@property (weak, nonatomic) IBOutlet UIButton *buttonEnterCaptcha;
+@property (weak, nonatomic) IBOutlet UIButton *buttonUpdateCaptcha;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCaptcha;
+@property (weak, nonatomic) IBOutlet UIView *viewCaptcha;
+- (IBAction)clickOnEnterCaptchaButton:(id)sender;
+- (IBAction)clickOnUpdateCaptchaButton:(id)sender;
 - (IBAction)clickOnAddAdvertisementButton:(id)sender;
 @end
