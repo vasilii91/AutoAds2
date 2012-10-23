@@ -13,6 +13,7 @@
 
 @dynamic dateAdded;
 @dynamic queryString;
+@dynamic queryStringRussian;
 @dynamic isSaved;
 
 @end

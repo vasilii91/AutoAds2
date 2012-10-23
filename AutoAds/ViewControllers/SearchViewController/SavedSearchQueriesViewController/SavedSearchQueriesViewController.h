@@ -28,7 +28,7 @@
     KVNetworkManager *networkManager;
     KVDataManager *dataManager;
     
-    NSString *currentQueryString;
+    KVPair *currentQueryString;
     NSInteger countOfGottenResponses;
 }
 

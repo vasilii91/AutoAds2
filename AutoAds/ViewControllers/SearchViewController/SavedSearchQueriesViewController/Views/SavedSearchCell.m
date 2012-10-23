@@ -11,18 +11,21 @@
 @implementation SavedSearchCell
 @synthesize labelBig;
 @synthesize labelSmall;
-
+@synthesize labelCount;
 
 #pragma mark - Initialization
 
 - (void)awakeFromNib
 {
-    [labelBig setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:14]];
+    [labelBig setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:13]];
     [labelBig setTextColor:FONT_COLOR_MY_BLUE_COLOR];
     [labelBig setBackgroundColor:[UIColor clearColor]];
     
-    [labelSmall setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:11]];
+    [labelSmall setFont:[UIFont fontWithName:FONT_DINPro_MEDIUM size:9]];
     [labelSmall setBackgroundColor:[UIColor clearColor]];
+    
+    [labelCount setBackgroundColor:[UIColor clearColor]];
+    [labelCount setTextColor:[UIColor redColor]];
 }
 
 + (SavedSearchCell *)loadView

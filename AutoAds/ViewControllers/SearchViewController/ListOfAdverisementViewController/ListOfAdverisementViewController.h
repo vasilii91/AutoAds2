@@ -20,6 +20,7 @@
 #import "KVNetworkManager.h"
 #import "SearchManager.h"
 #import "SVProgressHUD.h"
+#import "KVPair.h"
 
 @interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol, KVNetworkDelegate>
 {
@@ -41,6 +42,6 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewAdvertisement;
-@property (nonatomic, retain) NSString *queryString;
+@property (nonatomic, retain) KVPair *queryString;
 
 @end

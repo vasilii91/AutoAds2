@@ -14,4 +14,9 @@
 {
     return [NSString stringWithFormat:@"%@%@%@", self.Extra, self.Code, self.Number];
 }
+
+- (NSString *)prettyPhone
+{
+    return [NSString stringWithFormat:@"+%@-%@-%@", self.Extra, self.Code, self.Number];
+}
 @end

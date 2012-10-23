@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSString *Extra;
 
 - (NSString *)fullPhone;
+- (NSString *)prettyPhone;
 
 @end

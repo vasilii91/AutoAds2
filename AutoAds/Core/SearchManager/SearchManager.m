@@ -120,19 +120,29 @@ static SearchManager *_sharedMySingleton = nil;
     return result;
 }
 
-- (NSString *)queryToSearch:(NSArray *)fields
+- (KVPair *)queryToSearch:(NSArray *)fields
 {
     NSMutableString *stringQuery = [NSMutableString new];
+    NSMutableString *stringQueryRussian = [NSMutableString new];
+    
     for (AdvField *field in fields) {
 //        if (field.isPrecondition && field.selectedValue == nil && field.valueByDefault == nil) {
 //            return nil;
 //        }
         NSString *fieldName = field.nameEnglish;
-        NSString *fieldValue = [self fieldValueByField:field];
+        KVPair *fieldValue = [self fieldValueByField:field];
         
-        if (fieldValue != nil) {
+        if ([fieldName isEqualToString:F_CITY_CODE_ENG]) {
+            if ([fieldValue.queryEnglish length] != 0) {
+                [stringQueryRussian appendFormat:@"%@=%@", F_CITY_CODE_RUS, fieldValue.queryRussian];
+            }
+            else {
+                [stringQueryRussian appendFormat:@"%@=Любой", F_CITY_CODE_RUS];
+            }
+        }
+        else if (fieldValue.queryEnglish != nil) {
             
-            NSArray *values = [fieldValue componentsSeparatedByString:@","];
+            NSArray *values = [fieldValue.queryEnglish componentsSeparatedByString:@","];
             for (NSString *str in values) {
                 if ([stringQuery length] == 0) {
                     [stringQuery appendFormat:@"%@=%@", fieldName, str];
@@ -141,10 +151,16 @@ static SearchManager *_sharedMySingleton = nil;
                     [stringQuery appendFormat:@"&%@=%@", fieldName, str];
                 }
             }
+            
+            [stringQueryRussian appendFormat:@"&%@=%@", field.nameRussian, fieldValue.queryRussian];
         }
     }
+    
+    KVPair *pair = [KVPair new];
+    pair.queryEnglish = stringQuery;
+    pair.queryRussian = stringQueryRussian;
 
-    return stringQuery;
+    return pair;
 }
 
 - (NSDictionary *)parametersToAddAdvertisement:(NSArray *)fields captchaCode:(NSString *)captchaCode
@@ -153,9 +169,9 @@ static SearchManager *_sharedMySingleton = nil;
 
     for (AdvField *field in fields) {
         NSString *fieldName = field.nameEnglish;
-        NSString *fieldValue = [self fieldValueByField:field];
+        KVPair *fieldValue = [self fieldValueByField:field];
         
-        if ([fieldName length] != 0 && [fieldValue length] != 0) {
+        if ([fieldName length] != 0 && [fieldValue.queryEnglish length] != 0) {
             fieldName = [[AdvDictionaries AddAdvertisementFields] valueForKey:fieldName];
             if ([fieldName length] != 0) {
                 [parameters setValue:fieldValue forKey:fieldName];
@@ -167,12 +183,14 @@ static SearchManager *_sharedMySingleton = nil;
     return parameters;
 }
 
-- (NSString *)fieldValueByField:(AdvField *)field
+- (KVPair *)fieldValueByField:(AdvField *)field
 {
     NSString *fieldValue = @"";
+    NSString *fieldValueRussian = @"";
     
     if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
         fieldValue = [field.value valueForKey:field.selectedValue];
+        fieldValueRussian = field.selectedValue;
     }
     else if (field.valueType == ValueTypeString ||
              field.valueType == ValueTypeNumber ||
@@ -180,10 +198,12 @@ static SearchManager *_sharedMySingleton = nil;
              field.valueType == ValueTypeEmail) {
         
         fieldValue = field.selectedValue;
+        fieldValue = field.selectedValue;
     }
     
     if ([fieldValue length] == 0) {
         fieldValue = @"";
+        fieldValueRussian = @"";
         id dataSource = nil;
         BOOL isOptions = NO;
         if ([field.nameEnglish isEqualToString:F_MODEL_ENG]) {
@@ -203,18 +223,22 @@ static SearchManager *_sharedMySingleton = nil;
         if ([dataSource count] != 0) {
             NSInteger index = 0;
             for (id obj in dataSource) {
-                NSString *str = nil;
+                NSString *str = nil, *strRussian;
                 if (isOptions) {
                     str = [NSString stringWithFormat:@"%@", ((Option *)obj).id];
+                    strRussian = [NSString stringWithFormat:@"%@", ((Option *)obj).title];
                 }
                 else {
                     str = [field.value valueForKey:(NSString *)obj];
+                    strRussian = (NSString *)obj;
                 }
                 if (index == 0) {
                     fieldValue = [fieldValue stringByAppendingString:str];
+                    fieldValueRussian = [fieldValueRussian stringByAppendingString:strRussian];
                 }
                 else {
                     fieldValue = [fieldValue stringByAppendingFormat:@",%@", str];
+                    fieldValueRussian = [fieldValueRussian stringByAppendingFormat:@",%@", strRussian];
                 }
                 index++;
             }
@@ -225,8 +249,10 @@ static SearchManager *_sharedMySingleton = nil;
             for (Phone *phone in dataManager.selectedPhones) {
                 if (index != 0) {
                     fieldValue = [fieldValue stringByAppendingString:@","];
+                    fieldValueRussian = [fieldValueRussian stringByAppendingString:@","];
                 }
                 fieldValue = [fieldValue stringByAppendingFormat:@"{\"Code\":%@, \"Number\":%@, \"Extra\":%@}", phone.Code, phone.Number, phone.Extra];
+                fieldValueRussian = [phone prettyPhone];
                 index++;
             }
             fieldValue = [NSString stringWithFormat:@"[%@]", fieldValue];
@@ -234,6 +260,7 @@ static SearchManager *_sharedMySingleton = nil;
         else {
             if (field.valueType == ValueTypeDictionary || field.valueType == ValueTypeDictionaryFromInternet) {
                 fieldValue = [field.value valueForKey:field.valueByDefault];
+                fieldValueRussian = field.valueByDefault;
             }
             else if (field.valueType == ValueTypeString ||
                      field.valueType == ValueTypeNumber ||
@@ -241,11 +268,16 @@ static SearchManager *_sharedMySingleton = nil;
                      field.valueType == ValueTypeEmail) {
                 
                 fieldValue = field.valueByDefault;
+                fieldValueRussian = field.valueByDefault;
             }
         }
     }
     
-    return fieldValue;
+    KVPair *pair = [KVPair new];
+    pair.queryEnglish = fieldValue;
+    pair.queryRussian = fieldValueRussian;
+    
+    return pair;
 }
 
 

@@ -44,7 +44,7 @@
     NSString *currentRubric;
     NSString *currentSubrubric;
     
-    NSString *queryString;
+    KVPair *queryString;
 }
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 

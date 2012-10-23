@@ -58,7 +58,7 @@
 							<object class="IBUILabel" id="489970360">
 								<reference key="NSNextResponder" ref="100142175"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 6}, {280, 21}}</string>
+								<string key="NSFrame">{{20, 4}, {280, 16}}</string>
 								<reference key="NSSuperview" ref="100142175"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="970103309"/>
@@ -93,10 +93,9 @@
 							<object class="IBUILabel" id="738187252">
 								<reference key="NSNextResponder" ref="100142175"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 30}, {280, 16}}</string>
+								<string key="NSFrame">{{20, 20}, {280, 32}}</string>
 								<reference key="NSSuperview" ref="100142175"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -108,6 +107,7 @@
 								<reference key="IBUIHighlightedColor" ref="918811524"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<float key="IBUIMinimumFontSize">10</float>
+								<int key="IBUINumberOfLines">2</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
 									<double key="pointSize">12</double>
@@ -117,11 +117,12 @@
 									<double key="NSSize">12</double>
 									<int key="NSfFlags">16</int>
 								</object>
+								<double key="preferredMaxLayoutWidth">280</double>
 							</object>
 							<object class="IBUILabel" id="970103309">
 								<reference key="NSNextResponder" ref="100142175"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{294, 4}, {21, 26}}</string>
+								<string key="NSFrame">{{284, 4}, {27, 26}}</string>
 								<reference key="NSSuperview" ref="100142175"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="738187252"/>
@@ -145,11 +146,11 @@
 								<int key="IBUITextAlignment">1</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
-									<double key="pointSize">20</double>
+									<double key="pointSize">16</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica</string>
-									<double key="NSSize">20</double>
+									<double key="NSSize">16</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -310,10 +311,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1536" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">

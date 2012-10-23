@@ -209,7 +209,7 @@
 - (IBAction)clickOnSearchButton:(id)sender
 {
     queryString = [searchManager queryToSearch:fields];
-    [networkManager searchWithQuery:queryString isSearchWithPage:NO];
+    [networkManager searchWithQuery:queryString.queryEnglish isSearchWithPage:NO];
     
 //    [pleaseWaitAlertView show];
     [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];

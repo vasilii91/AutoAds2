@@ -44,15 +44,16 @@
         <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isSaved" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="queryString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="queryStringRussian" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FavoriteAdv" positionX="7" positionY="-297" width="128" height="75"/>
-        <element name="Query" positionX="259" positionY="-297" width="128" height="88"/>
         <element name="Brand" positionX="-36" positionY="-58" width="128" height="118"/>
+        <element name="CachedData" positionX="-468" positionY="-63" width="128" height="118"/>
+        <element name="FavoriteAdv" positionX="7" positionY="-297" width="128" height="75"/>
         <element name="Model" positionX="196" positionY="-55" width="128" height="118"/>
         <element name="Modification" positionX="457" positionY="-34" width="128" height="88"/>
-        <element name="CachedData" positionX="-468" positionY="-63" width="128" height="118"/>
         <element name="Options" positionX="261" positionY="146" width="128" height="88"/>
         <element name="OptionsCategories" positionX="-117" positionY="146" width="128" height="88"/>
+        <element name="Query" positionX="259" positionY="-297" width="128" height="103"/>
     </elements>
 </model>

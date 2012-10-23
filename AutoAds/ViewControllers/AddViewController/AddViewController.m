@@ -100,12 +100,13 @@
 {
     [super viewWillAppear:animated];
     
+    [networkManager subscribe:self];
+    
     if (isFirstLoad) {
         [self cleanQueryToDefaultState];
         isFirstLoad = NO;
     }
     else {
-        [networkManager subscribe:self];
         
         BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
         [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
@@ -146,7 +147,6 @@
                 [defauls synchronize];
                 
                 [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
-                [networkManager getCaptcha];
             }
         }
     }
@@ -435,6 +435,7 @@
         [networkManager getOptionsByRubric:currentRubric subrubric:currentSubrubric];
     }
     else if (requestId == RequestTypeOptions) {
+        [networkManager getCaptcha];
         [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
     }
     else if (requestId == RequestTypeAddAdvertisement) {

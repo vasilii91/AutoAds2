@@ -15,6 +15,7 @@
 #import "OrderedDictionary.h"
 #import "KVDataManager.h"
 #import "Phone.h"
+#import "KVPair.h"
 #import "objc/runtime.h"
 
 @interface SearchManager : NSObject
@@ -27,7 +28,7 @@
 - (AdvGroup *)findGroupByGroupType:(GroupType)groupType;
 - (AdvGroup *)categorySearchByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
 - (AdvGroup *)categoryAddAdvertisementByRubric:(NSString *)rubric subrubric:(NSString *)subrubric;
-- (NSString *)queryToSearch:(NSArray *)fields;
+- (KVPair *)queryToSearch:(NSArray *)fields;
 - (NSDictionary *)parametersToAddAdvertisement:(NSArray *)fields captchaCode:(NSString *)captchaCode;
 
 @end

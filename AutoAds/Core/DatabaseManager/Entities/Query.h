@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSDate * dateAdded;
 @property (nonatomic, retain) NSString * queryString;
+@property (nonatomic, retain) NSString * queryStringRussian;
 @property (nonatomic, retain) NSNumber * isSaved;
 
 @end

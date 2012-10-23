@@ -159,7 +159,7 @@
 
 - (void)clickOnSaveButton:(UIButton *)button
 {
-    Query *query = [databaseManager findQueryByQueryString:self.queryString isSaved:YES];
+    Query *query = [databaseManager findQueryByQueryString:self.queryString.queryEnglish isSaved:YES];
     
     isSaved = (query == nil) ? NO : YES;
     
@@ -185,13 +185,14 @@
     Query *query = (Query *)[databaseManager createEntityByClass:[Query class]];
     query.dateAdded = [NSDate date];
     query.isSaved = @(_isSaved);
-    query.queryString = self.queryString;
+    query.queryString = self.queryString.queryEnglish;
+    query.queryStringRussian = self.queryString.queryRussian;
     [databaseManager saveAll];
 }
 
 - (void)setStateToSaveButton:(UIButton *)button
 {
-    Query *query = [databaseManager findQueryByQueryString:self.queryString isSaved:YES];
+    Query *query = [databaseManager findQueryByQueryString:self.queryString.queryEnglish isSaved:YES];
     
     isSaved = (query == nil) ? NO : YES;
     

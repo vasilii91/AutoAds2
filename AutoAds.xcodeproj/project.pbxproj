@@ -218,6 +218,7 @@
 		BE96CF39160324870074A52B /* SavedSearchQueriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF37160324870074A52B /* SavedSearchQueriesViewController.m */; };
 		BE96CF4F160338A20074A52B /* ListOfAdverisementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */; };
 		BE96CF50160338A20074A52B /* ListOfAdverisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE96CF4E160338A20074A52B /* ListOfAdverisementViewController.xib */; };
+		BEAED4F216367E1E0004AA4A /* KVPair.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAED4F016367E1E0004AA4A /* KVPair.m */; };
 		BEB4A5CE161C931E006814DA /* OLGhostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A5CC161C931E006814DA /* OLGhostAlertView.m */; };
 		BEB4A5CF161C931E006814DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BEB4A5CD161C931E006814DA /* README.md */; };
 		BEC9940615F88A8A006BDCA9 /* DINPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E015F88A8A006BDCA9 /* DINPro-Black.otf */; };
@@ -622,6 +623,8 @@
 		BE96CF4C160338A20074A52B /* ListOfAdverisementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListOfAdverisementViewController.h; path = ListOfAdverisementViewController/ListOfAdverisementViewController.h; sourceTree = "<group>"; };
 		BE96CF4D160338A20074A52B /* ListOfAdverisementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListOfAdverisementViewController.m; path = ListOfAdverisementViewController/ListOfAdverisementViewController.m; sourceTree = "<group>"; };
 		BE96CF4E160338A20074A52B /* ListOfAdverisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListOfAdverisementViewController.xib; path = ListOfAdverisementViewController/ListOfAdverisementViewController.xib; sourceTree = "<group>"; };
+		BEAED4F016367E1E0004AA4A /* KVPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KVPair.m; path = Entities/KVPair.m; sourceTree = "<group>"; };
+		BEAED4F116367E1E0004AA4A /* KVPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KVPair.h; path = Entities/KVPair.h; sourceTree = "<group>"; };
 		BEB4A5CB161C931E006814DA /* OLGhostAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLGhostAlertView.h; sourceTree = "<group>"; };
 		BEB4A5CC161C931E006814DA /* OLGhostAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLGhostAlertView.m; sourceTree = "<group>"; };
 		BEB4A5CD161C931E006814DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -1263,6 +1266,8 @@
 				BE2F84FC15FF2EDA008859B1 /* Option.m */,
 				BE2F84FE15FF2FAE008859B1 /* OptionsCategory.h */,
 				BE2F84FF15FF2FAE008859B1 /* OptionsCategory.m */,
+				BEAED4F016367E1E0004AA4A /* KVPair.m */,
+				BEAED4F116367E1E0004AA4A /* KVPair.h */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -2250,6 +2255,7 @@
 				BE0F5C2A1622EA2F00E6A3C6 /* AdvertisementOtherInfoOption.m in Sources */,
 				105EE98A162B27CF00D1723D /* PGSlider.m in Sources */,
 				101B24251635ECDF0080BB2C /* TSAlertView.m in Sources */,
+				BEAED4F216367E1E0004AA4A /* KVPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2291,8 +2297,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2315,8 +2321,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2332,8 +2338,8 @@
 				INFOPLIST_FILE = "AutoAds/AutoAds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2348,8 +2354,8 @@
 				INFOPLIST_FILE = "AutoAds/AutoAds-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3B34125A-4FCB-47A2-9D22-E051255415E7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B34125A-4FCB-47A2-9D22-E051255415E7";
+				PROVISIONING_PROFILE = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D088D16A-64A8-4346-ADB3-8E19DE7AD0CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

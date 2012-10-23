@@ -30,6 +30,8 @@
         
         latestSearchQueries = [NSMutableArray new];
         savedSearchQueries = [NSMutableArray new];
+        
+        currentQueryString = [KVPair new];
     }
     return self;
 }
@@ -168,7 +170,7 @@
         NSString *count = [dataManager.advCountDictionary valueForKey:index];
         
         if ([count length] != 0) {
-            cell.labelCount.text = count;
+            cell.labelCount.text = [NSString stringWithFormat:@"(%@)", count];
         }
     }
     else {
@@ -182,8 +184,37 @@
     else {
         query = [savedSearchQueries objectAtIndex:indexPath.row];
     }
-    [cell.labelBig setText:query.queryString];
-    [cell.labelSmall setText:query.queryString];
+    
+    
+    NSDictionary *values = [KVPair valuesByThisString:query.queryStringRussian];
+    LOG(@"values - %@", values);
+    
+    // configure first line
+    NSString *city = [values valueForKey:F_CITY_CODE_RUS];
+    NSString *rubric = [values valueForKey:F_RUBRICID_RUS];
+    NSString *brand = [values valueForKey:F_BRAND_RUS];
+    if (brand == nil) {
+        brand = @"";
+    }
+    
+    NSString *firstLine = [NSString stringWithFormat:@"%@  %@  %@", city, rubric, brand];
+    
+    // configure second line
+    NSMutableString *secondLine = [NSMutableString new];
+    for (int i = 0; i < [values count]; i++) {
+        NSString *key = [[values allKeys] objectAtIndex:i];
+        NSString *value = [values valueForKey:key];
+        
+        if (i == 0) {
+            [secondLine appendFormat:@"%@ - %@", key, value];
+        }
+        else {
+            [secondLine appendFormat:@", %@ - %@", key, value];
+        }
+    }
+    
+    [cell.labelBig setText:firstLine];
+    [cell.labelSmall setText:secondLine];
     
     return cell;
 }
@@ -223,14 +254,15 @@
     else {
         query = [savedSearchQueries objectAtIndex:indexPath.row];
     }
-    currentQueryString = query.queryString;
+    currentQueryString.queryEnglish = query.queryString;
+    currentQueryString.queryRussian = query.queryStringRussian;
     
     // update last searched date
     query.dateAdded = [NSDate date];
     [databaseManager saveAll];
     
     [networkManager subscribe:self];
-    [networkManager searchWithQuery:currentQueryString isSearchWithPage:NO];
+    [networkManager searchWithQuery:currentQueryString.queryEnglish isSearchWithPage:NO];
     
     [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
 //    pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];

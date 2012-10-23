@@ -1381,8 +1381,8 @@
     [dictionary setValue:@"commercial" forKey:@"Коммерческий транспорт"];
     [dictionary setValue:@"moto" forKey:@"Мототехника"];
     [dictionary setValue:@"water" forKey:@"Водный транспорт"];
-    [dictionary setValue:@"gears" forKey:@"Шины и диски"];
-    [dictionary setValue:@"parts" forKey:@"Автозапчасти"];
+    [dictionary setValue:@"parts" forKey:@"Шины и диски"];
+    [dictionary setValue:@"gears" forKey:@"Автозапчасти"];
     
     return dictionary;
 }
