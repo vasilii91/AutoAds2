@@ -161,14 +161,14 @@
 
 - (void)goBack:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSelector:@selector(popViewController) withObject:nil afterDelay:0.3];
 }
 
 - (void)cleanCurrentValue
 {
     [dataManager cleanSelectedDataSourceByFieldName:field.nameEnglish];
     field.selectedValue = nil;
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSelector:@selector(popViewController) withObject:nil afterDelay:0.3];
 }
 
 
@@ -199,7 +199,13 @@
 
     field.selectedValue = selectedValue;
     
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
     
+    [self performSelector:@selector(popViewController) withObject:nil afterDelay:0.3];
+}
+
+- (void)popViewController
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -42,6 +42,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{-7, 0}, {327, 114}}</string>
 						<reference key="NSSuperview" ref="55329060"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="637709875"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -57,6 +58,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{51, 73}, {110, 32}}</string>
 						<reference key="NSSuperview" ref="55329060"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="563385478"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -88,9 +90,9 @@
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 							<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="635242476">
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">actionButton@2x.png</string>
+							<string key="NSResourceName">arrow_down.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="493489149">
 							<int key="type">2</int>
@@ -108,6 +110,8 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{51, 17}, {21, 41}}</string>
 						<reference key="NSSuperview" ref="55329060"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="142805200"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -128,7 +132,10 @@
 						<reference key="IBUIHighlightedTitleColor" ref="27431719"/>
 						<reference key="IBUINormalTitleColor" ref="883568294"/>
 						<reference key="IBUINormalTitleShadowColor" ref="605558940"/>
-						<reference key="IBUINormalBackgroundImage" ref="635242476"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">left.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="493489149"/>
 						<reference key="IBUIFont" ref="390998958"/>
 					</object>
@@ -138,6 +145,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{249, 17}, {21, 41}}</string>
 						<reference key="NSSuperview" ref="55329060"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="830317263"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">1</int>
@@ -160,7 +168,10 @@
 						<reference key="IBUIHighlightedTitleColor" ref="27431719"/>
 						<reference key="IBUINormalTitleColor" ref="883568294"/>
 						<reference key="IBUINormalTitleShadowColor" ref="605558940"/>
-						<reference key="IBUINormalBackgroundImage" ref="635242476"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">right.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="493489149"/>
 						<reference key="IBUIFont" ref="390998958"/>
 					</object>
@@ -170,6 +181,8 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{160, 73}, {110, 32}}</string>
 						<reference key="NSSuperview" ref="55329060"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">1</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -191,7 +204,10 @@
 						<reference key="IBUIHighlightedTitleColor" ref="27431719"/>
 						<reference key="IBUINormalTitleColor" ref="883568294"/>
 						<reference key="IBUINormalTitleShadowColor" ref="605558940"/>
-						<reference key="IBUINormalBackgroundImage" ref="635242476"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Arrow_up.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="493489149"/>
 						<reference key="IBUIFont" ref="390998958"/>
 					</object>
@@ -200,6 +216,8 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{80, 17}, {160, 40}}</string>
 						<reference key="NSSuperview" ref="55329060"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="1060147473"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -210,6 +228,7 @@
 				</array>
 				<string key="NSFrameSize">{320, 114}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="624133043"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -373,13 +392,13 @@
 					<string key="className">ListOfAdvertisementHeader</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="clickOnButtonAscDesc:">id</string>
+						<string key="clickOnButtonAscDesc:">UIButton</string>
 						<string key="clickOnTypeOfSortButton:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="clickOnButtonAscDesc:">
 							<string key="name">clickOnButtonAscDesc:</string>
-							<string key="candidateClassName">id</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBActionInfo" key="clickOnTypeOfSortButton:">
 							<string key="name">clickOnTypeOfSortButton:</string>
@@ -416,8 +435,11 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="actionButton@2x.png">{590, 112}</string>
+			<string key="Arrow_up.png">{119, 39}</string>
+			<string key="arrow_down.png">{119, 39}</string>
 			<string key="backgroundDark@2x.png">{640, 960}</string>
+			<string key="left.png">{20, 35}</string>
+			<string key="right.png">{20, 35}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1926</string>
 	</data>

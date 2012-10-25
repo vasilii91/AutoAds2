@@ -92,6 +92,14 @@
 
 - (IBAction)clickOnNewSearchButton:(id)sender
 {
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
+    
+    [self performSelector:@selector(showSearchViewController) withObject:nil afterDelay:0.3];
+    
+}
+
+- (void)showSearchViewController
+{
     SearchViewController *vc = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }

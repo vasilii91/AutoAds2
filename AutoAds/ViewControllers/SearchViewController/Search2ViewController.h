@@ -17,6 +17,7 @@
 #import "SelectValueOptionsView.h"
 #import "KVDataManager.h"
 #import "SelectValueCaptchaView.h"
+#import "SVProgressHUD.h"
 
 enum
 {

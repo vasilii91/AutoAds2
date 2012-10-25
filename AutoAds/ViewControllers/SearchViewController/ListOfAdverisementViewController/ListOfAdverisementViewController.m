@@ -8,11 +8,11 @@
 
 #import "ListOfAdverisementViewController.h"
 
-#define SORT_BUTTON_IMAGE_SELECTED @"list_button_selected.png"
-#define SORT_BUTTON_IMAGE_DESELECTED @"list_button.png"
+#define SORT_BUTTON_IMAGE_SELECTED @"b2_over.png"
+#define SORT_BUTTON_IMAGE_DESELECTED @"b2.png"
 
-#define SAVE_BUTTON_IMAGE_SELECTED @"addBlue.png"
-#define SAVE_BUTTON_IMAGE_DESELECTED @"addBarIcon.png"
+#define SAVE_BUTTON_IMAGE_SELECTED @"b1_over.png"
+#define SAVE_BUTTON_IMAGE_DESELECTED @"b1.png"
 
 @interface ListOfAdverisementViewController ()
 

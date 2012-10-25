@@ -99,6 +99,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [SVProgressHUD dismiss];
     
     [networkManager subscribe:self];
     

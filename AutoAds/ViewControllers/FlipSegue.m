@@ -16,11 +16,11 @@
 
 - (void)perform {
     
-    UIViewController *src = self.sourceViewController;
-    UIViewController *dst = self.destinationViewController;
+    sourceVC = self.sourceViewController;
+    destinationVC = self.destinationViewController;
     
-    if ([dst isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *tbc = (UITabBarController *)dst;
+    if ([destinationVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tbc = (UITabBarController *)destinationVC;
         tbc.selectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_TAB_BAR_INDEX];
 //        [tbc.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbarBackground.png"]];
         
@@ -49,10 +49,16 @@
         [tbc.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tabbarSelection.png"]];
     }
     
-    [UIView transitionFromView:src.view toView:dst.view duration:.5 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
-        [[UIApplication sharedApplication].keyWindow setRootViewController:dst];
-    }];
+    [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
     
+    [self performSelector:@selector(showNewViewController) withObject:nil afterDelay:0.3];
+}
+
+- (void)showNewViewController
+{
+    [UIView transitionFromView:sourceVC.view toView:destinationVC.view duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+        [[UIApplication sharedApplication].keyWindow setRootViewController:destinationVC];
+    }];
 }
 
 @end

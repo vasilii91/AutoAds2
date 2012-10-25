@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVProgressHUD.h"
 
 @interface FlipSegue : UIStoryboardSegue
-
+{
+    UIViewController *sourceVC;
+    UIViewController *destinationVC;
+}
 @end

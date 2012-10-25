@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/AddViewController/AddViewController.m"
-         timestampString = "372666610.920254"
+         timestampString = "372676443.563441"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "361"
-         endingLineNumber = "361"
+         startingLineNumber = "362"
+         endingLineNumber = "362"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/AddViewController/AddViewController.m"
-         timestampString = "372666610.920254"
+         timestampString = "372676443.563441"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "406"
-         endingLineNumber = "406"
+         startingLineNumber = "407"
+         endingLineNumber = "407"
          landmarkName = "-alertView:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/AddViewController/AddViewController.m"
-         timestampString = "372667062.028375"
+         timestampString = "372676443.563441"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "272"
-         endingLineNumber = "272"
+         startingLineNumber = "273"
+         endingLineNumber = "273"
          landmarkName = "-clickOnAddAdvertisementButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "372667078.164372"
+         timestampString = "372676660.457006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "212"
-         endingLineNumber = "212"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
          landmarkName = "-clickOnSearchButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SavedSearchQueriesViewController/SavedSearchQueriesViewController.m"
-         timestampString = "372674114.335389"
+         timestampString = "372676116.527061"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "265"
-         endingLineNumber = "265"
+         startingLineNumber = "273"
+         endingLineNumber = "273"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -203,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "372672079.148504"
+         timestampString = "372676660.457006"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "328"
-         endingLineNumber = "328"
+         startingLineNumber = "329"
+         endingLineNumber = "329"
          landmarkName = "-requestProcessed:forId:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SavedSearchQueriesViewController/SavedSearchQueriesViewController.m"
-         timestampString = "372674114.335389"
+         timestampString = "372676116.527061"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "250"
-         endingLineNumber = "250"
+         startingLineNumber = "258"
+         endingLineNumber = "258"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -228,26 +228,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/SavedSearchQueriesViewController/SavedSearchQueriesViewController.m"
-         timestampString = "372674114.335389"
+         filePath = "AutoAds/ViewControllers/SearchViewController/Search2ViewController.m"
+         timestampString = "372676617.657071"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "216"
-         endingLineNumber = "216"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
+         landmarkName = "-valueWasSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/SavedSearchQueriesViewController/SavedSearchQueriesViewController.m"
-         timestampString = "372674114.335389"
+         filePath = "AutoAds/ViewControllers/SearchViewController/Search2ViewController.m"
+         timestampString = "372676751.575571"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-goBack:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
