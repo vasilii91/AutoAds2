@@ -174,7 +174,7 @@ static SearchManager *_sharedMySingleton = nil;
         if ([fieldName length] != 0 && [fieldValue.queryEnglish length] != 0) {
             fieldName = [[AdvDictionaries AddAdvertisementFields] valueForKey:fieldName];
             if ([fieldName length] != 0) {
-                [parameters setValue:fieldValue forKey:fieldName];
+                [parameters setValue:fieldValue.queryEnglish forKey:fieldName];
             }
         }
     }

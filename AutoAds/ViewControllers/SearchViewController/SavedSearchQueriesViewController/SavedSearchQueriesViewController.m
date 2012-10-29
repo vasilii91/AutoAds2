@@ -62,6 +62,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [SVProgressHUD dismiss];
     
     [self resetDataSourceOfTableView];
     [self.tableViewSavedSearchQueries reloadData];
