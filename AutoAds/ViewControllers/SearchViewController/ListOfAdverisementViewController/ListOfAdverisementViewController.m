@@ -97,7 +97,7 @@
     [self.tableViewAdvertisement addInfiniteScrollingWithActionHandler:^{
         if ((currentPage - 1) * COUNT_ON_PAGE < dataManager.totalCount) {
             [networkManager subscribe:self];
-            NSString *qStr = [NSString stringWithFormat:@"%@&page=%d", self.queryString, currentPage];
+            NSString *qStr = [NSString stringWithFormat:@"%@&page=%d", self.queryString.queryEnglish, currentPage];
             [networkManager searchWithQuery:qStr isSearchWithPage:YES];
         }
         else {

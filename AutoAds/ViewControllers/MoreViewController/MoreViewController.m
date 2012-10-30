@@ -59,6 +59,20 @@
     [super viewDidUnload];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [SVProgressHUD dismiss];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [SVProgressHUD dismiss];
+}
+
 
 #pragma mark - Actions
 

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/MoreViewController/MoreViewController.m"
-         timestampString = "370994514.080735"
+         timestampString = "373317388.798515"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "371919830.117652"
+         timestampString = "373313641.613414"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "111"
-         endingLineNumber = "111"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -294,11 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
-         timestampString = "372630215.048492"
+         timestampString = "373313641.613414"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "212"
-         endingLineNumber = "212"
+         startingLineNumber = "217"
+         endingLineNumber = "217"
          landmarkName = "-clickOnSearchButton:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -319,13 +319,52 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AutoAds/ViewControllers/SearchViewController/SavedSearchQueriesViewController/SavedSearchQueriesViewController.m"
-         timestampString = "373224646.83986"
+         filePath = "AutoAds/ViewControllers/SearchViewController/ListOfAdverisementViewController/ListOfAdverisementViewController.m"
+         timestampString = "373312396.063524"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
-         landmarkName = "-showSearchViewController"
+         startingLineNumber = "221"
+         endingLineNumber = "221"
+         landmarkName = "-sortAdvertisementsBySortType:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/ListOfAdverisementViewController/ListOfAdverisementViewController.m"
+         timestampString = "373312550.644443"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "306"
+         endingLineNumber = "306"
+         landmarkName = "-userChoosenTypeOfSort:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
+         timestampString = "373313641.613414"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AutoAds/ViewControllers/SearchViewController/SearchViewController.m"
+         timestampString = "373313641.613414"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
+         landmarkName = "-cleanQueryExceptRubricAndSubrubric"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

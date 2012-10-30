@@ -73,6 +73,11 @@
     f0.selectedValue = [[[AdvDictionaries Cities] allKeys] objectAtIndex:0];
     f1.selectedValue = [[[AdvDictionaries Rubrics] allKeys] objectAtIndex:0];
     f2.selectedValue = [[[AdvDictionaries SubrubricsMotors] allKeys] objectAtIndex:1];
+    
+    currentGroup = [searchManager categorySearchByRubric:f1.selectedValue subrubric:f2.selectedValue];
+    fields = [currentGroup getObligatoryFields];
+    
+    [self cleanQueryExceptRubricAndSubrubric];
 }
 
 - (void)viewDidUnload
@@ -101,7 +106,7 @@
     if (f1.selectedValue != nil && f2.selectedValue == nil) {
         [self cleanQueryToDefaultStateWithoutCleaningRubAndSub];
     }
-    
+
     if ((isFieldsAreRubricsAndSub && isNeedToUpdate) ||
         ([f1.selectedValue isEqualToString:@"Автозапчасти"])) {
         

@@ -259,7 +259,7 @@
     [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
     [dictionary setValue:@"00100100g0140010000000" forKey:@"Набережные Челны"];
     [dictionary setValue:@"00100100g00v0010000000" forKey:@"Нижнекамск"];
-    [dictionary setValue:@"00100100g00v0010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
     
     return dictionary;
 }
@@ -363,15 +363,15 @@
 + (NSDictionary *)Cities74
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"a00100101u0000010000000" forKey:@"Екатеринбург"];
-    [dictionary setValue:@"a10010220000040000000" forKey:@"Златоуст"];
-    [dictionary setValue:@"a10010220000060000000" forKey:@"Копейск"];
-    [dictionary setValue:@"a10010220000090000000" forKey:@"Магнитогорск"];
-    [dictionary setValue:@"a00100102200000a0000000" forKey:@"Миасс"];
-    [dictionary setValue:@"a00100102200000b0000000" forKey:@"Озерск"];
-    [dictionary setValue:@"a10010220130010000000" forKey:@"Троицк"];
-    [dictionary setValue:@"a10010220000010000000" forKey:@"Челябинск"];
-    [dictionary setValue:@"a00100102200000g0000000" forKey:@"Южноуральск"];
+    [dictionary setValue:@"00100101u0000010000000" forKey:@"Екатеринбург"];
+    [dictionary setValue:@"10010220000040000000" forKey:@"Златоуст"];
+    [dictionary setValue:@"10010220000060000000" forKey:@"Копейск"];
+    [dictionary setValue:@"10010220000090000000" forKey:@"Магнитогорск"];
+    [dictionary setValue:@"00100102200000a0000000" forKey:@"Миасс"];
+    [dictionary setValue:@"00100102200000b0000000" forKey:@"Озерск"];
+    [dictionary setValue:@"10010220130010000000" forKey:@"Троицк"];
+    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"00100102200000g0000000" forKey:@"Южноуральск"];
     
     return dictionary;
 }
@@ -379,15 +379,15 @@
 + (NSDictionary *)Cities76
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"a10010240050010000000" forKey:@"Гаврилов-Ям"];
-    [dictionary setValue:@"a10010250000000000000" forKey:@"Москва"];
-    [dictionary setValue:@"a10010240000020000000" forKey:@"Переславль-Залесский"];
-    [dictionary setValue:@"a00100101p0000010000000" forKey:@"Ростов"];
-    [dictionary setValue:@"a00100102400f0010000000" forKey:@"Рыбинск"];
-    [dictionary setValue:@"a00100102400g0010000000" forKey:@"Тутаев"];
-    [dictionary setValue:@"a00100102400h0010000000" forKey:@"Углич"];
-    [dictionary setValue:@"a10010220000010000000" forKey:@"Челябинск"];
-    [dictionary setValue:@"a10010240000010000000" forKey:@"Ярославль"];
+    [dictionary setValue:@"10010240050010000000" forKey:@"Гаврилов-Ям"];
+    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
+    [dictionary setValue:@"10010240000020000000" forKey:@"Переславль-Залесский"];
+    [dictionary setValue:@"00100101p0000010000000" forKey:@"Ростов"];
+    [dictionary setValue:@"00100102400f0010000000" forKey:@"Рыбинск"];
+    [dictionary setValue:@"00100102400g0010000000" forKey:@"Тутаев"];
+    [dictionary setValue:@"00100102400h0010000000" forKey:@"Углич"];
+    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"10010240000010000000" forKey:@"Ярославль"];
     
     return dictionary;
 }

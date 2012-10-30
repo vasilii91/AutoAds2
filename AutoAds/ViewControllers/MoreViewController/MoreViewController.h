@@ -15,6 +15,7 @@
 #import "AboutProgramViewController.h"
 #import "OrderedDictionary.h"
 #import "AdvDictionaries.h"
+#import "SVProgressHUD.h"
 
 @interface MoreViewController : UIViewController
 {
