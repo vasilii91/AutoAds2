@@ -38,11 +38,11 @@
 - (NSString *)appendFormat:(NSString *)format toString:(NSMutableString *)str withParameter:(NSString *)parameter
 {
     NSMutableString *result = str;
-    if (parameter != nil && [parameter intValue] != 0) {
+    if (parameter != nil) {
         if (format == nil) {
             [str appendFormat:@"%@", parameter];
         }
-        else {
+        else if ([parameter intValue] != 0) {
             [str appendFormat:format, parameter];
         }
     }
@@ -293,6 +293,16 @@
     return [AdvDictionaries valueFromDictionary:[AdvDictionaries TrailerDestinies] forKeyOrValue:_Destiny];
 }
 
+- (NSString *)DateCreate
+{
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[_DateCreate doubleValue]];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateStyle:NSDateFormatterShortStyle];
+    NSString *string = [format stringFromDate:date];
+    
+    return string;
+}
+
 - (NSArray *)Options
 {
     NSString *rubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_RUBRIC];
@@ -378,6 +388,10 @@
     if (_CityCode != nil) {
         NSString *cityName = [AdvDictionaries valueFromDictionary:[AdvDictionaries Cities] forKeyOrValue:_CityCode];
         [self appendFormat:@", %@" toString:nameAndCity withParameter:cityName];
+    }
+    if (_Chaffer != nil) {
+        NSString *isChaffer = [AdvDictionaries valueFromDictionary:[AdvDictionaries Bools] forKeyOrValue:_Chaffer];
+        [self appendFormat:@", возможность торга - " toString:nameAndCity withParameter:isChaffer];
     }
     return nameAndCity;
 }
@@ -488,6 +502,8 @@
     NSString *subrubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_SUBRUBRIC];
     
     OrderedDictionary *keyValues = [OrderedDictionary new];
+    
+    [keyValues setValue:self.DateCreate forKey:@"Дата размещения"];
     
     if (rubric != nil) {
         if ([rubric isEqualToString:@"motors"]) {

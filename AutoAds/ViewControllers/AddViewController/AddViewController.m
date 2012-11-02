@@ -151,6 +151,9 @@
             }
         }
     }
+    
+    [networkManager getCaptcha];
+    
     [self setFramesToViews];
 }
 

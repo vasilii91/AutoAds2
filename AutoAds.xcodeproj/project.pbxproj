@@ -237,6 +237,8 @@
 		BEB5365C16392F03001D3AC4 /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB5364C16392F03001D3AC4 /* left@2x.png */; };
 		BEB5365D16392F03001D3AC4 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB5364D16392F03001D3AC4 /* right.png */; };
 		BEB5365E16392F03001D3AC4 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB5364E16392F03001D3AC4 /* right@2x.png */; };
+		BEB722CF1643BAB90036F407 /* AdvertisementAdditionalInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB722CD1643BAB80036F407 /* AdvertisementAdditionalInfo.xib */; };
+		BEB722D01643BAB90036F407 /* AdvertisementAdditionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB722CE1643BAB90036F407 /* AdvertisementAdditionalInfo.m */; };
 		BEC9940615F88A8A006BDCA9 /* DINPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E015F88A8A006BDCA9 /* DINPro-Black.otf */; };
 		BEC9940715F88A8A006BDCA9 /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E115F88A8A006BDCA9 /* DINPro-Bold.otf */; };
 		BEC9940815F88A8A006BDCA9 /* DINPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEC993E215F88A8A006BDCA9 /* DINPro-Light.otf */; };
@@ -660,6 +662,9 @@
 		BEB5364C16392F03001D3AC4 /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
 		BEB5364D16392F03001D3AC4 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
 		BEB5364E16392F03001D3AC4 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
+		BEB722CC1643BAB80036F407 /* AdvertisementAdditionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvertisementAdditionalInfo.h; path = AdvertisementViewController/Views/AdvertisementAdditionalInfo.h; sourceTree = "<group>"; };
+		BEB722CD1643BAB80036F407 /* AdvertisementAdditionalInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvertisementAdditionalInfo.xib; path = AdvertisementViewController/Views/AdvertisementAdditionalInfo.xib; sourceTree = "<group>"; };
+		BEB722CE1643BAB90036F407 /* AdvertisementAdditionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvertisementAdditionalInfo.m; path = AdvertisementViewController/Views/AdvertisementAdditionalInfo.m; sourceTree = "<group>"; };
 		BEC993E015F88A8A006BDCA9 /* DINPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Black.otf"; sourceTree = "<group>"; };
 		BEC993E115F88A8A006BDCA9 /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
 		BEC993E215F88A8A006BDCA9 /* DINPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Light.otf"; sourceTree = "<group>"; };
@@ -1055,6 +1060,9 @@
 		10D125611605F015003357E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BEB722CC1643BAB80036F407 /* AdvertisementAdditionalInfo.h */,
+				BEB722CE1643BAB90036F407 /* AdvertisementAdditionalInfo.m */,
+				BEB722CD1643BAB80036F407 /* AdvertisementAdditionalInfo.xib */,
 				10D125621605F055003357E7 /* AdvertisementCarPhotos.h */,
 				10D125631605F055003357E7 /* AdvertisementCarPhotos.m */,
 				10D125651605F07D003357E7 /* AdvertisementCarPhotos.xib */,
@@ -2168,6 +2176,7 @@
 				BEB5365C16392F03001D3AC4 /* left@2x.png in Resources */,
 				BEB5365D16392F03001D3AC4 /* right.png in Resources */,
 				BEB5365E16392F03001D3AC4 /* right@2x.png in Resources */,
+				BEB722CF1643BAB90036F407 /* AdvertisementAdditionalInfo.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2326,6 +2335,7 @@
 				105EE98A162B27CF00D1723D /* PGSlider.m in Sources */,
 				101B24251635ECDF0080BB2C /* TSAlertView.m in Sources */,
 				BEAED4F216367E1E0004AA4A /* KVPair.m in Sources */,
+				BEB722D01643BAB90036F407 /* AdvertisementAdditionalInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

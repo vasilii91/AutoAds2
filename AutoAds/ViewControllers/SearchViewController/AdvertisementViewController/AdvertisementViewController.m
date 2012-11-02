@@ -139,8 +139,21 @@
     
     [self.scrollView addSubview:advOtherInfo];
     
+    AdvertisementAdditionalInfo *additionalInfo = [AdvertisementAdditionalInfo loadView];
+    additionalInfo.textViewAdditionalInfo.text = self.advertisement.Details;
+    
+    CGFloat contentHeight = [additionalInfo.textViewAdditionalInfo contentSize].height;
+    
+    CGRect addInfoFrame = CGRectMake(0,
+                                     header.frame.size.height + carPhotos.frame.size.height + [advOtherInfo height],
+                                     320,
+                                     contentHeight);
+    additionalInfo.frame = addInfoFrame;
+    
+    [self.scrollView addSubview:additionalInfo];
+    
     [self.scrollView setContentSize:CGSizeMake(320,
-                                               advFrame.origin.y + [advOtherInfo height] + 40)];
+                                               advFrame.origin.y + [advOtherInfo height] + contentHeight)];
 }
 
 - (void)sendSMS:(NSString *)bodyOfMessage recipientList:(NSArray *)recipients

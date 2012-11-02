@@ -12,6 +12,7 @@
 #import "AdvertisementHeader.h"
 #import "AdvertisementCarPhotos.h"
 #import "AdvertisementOtherInfo.h"
+#import "AdvertisementAdditionalInfo.h"
 #import "AdvertisementWebViewController.h"
 #import "KVNetworkManager.h"
 #import "PleaseWaitAlertView.h"

@@ -134,6 +134,7 @@ static SearchManager *_sharedMySingleton = nil;
         
         if ([fieldName isEqualToString:F_CITY_CODE_ENG]) {
             if ([fieldValue.queryEnglish length] != 0) {
+                [stringQuery appendFormat:@"%@=%@", F_CITY_CODE_ENG, fieldValue.queryEnglish];
                 [stringQueryRussian appendFormat:@"%@=%@", F_CITY_CODE_RUS, fieldValue.queryRussian];
             }
             else {

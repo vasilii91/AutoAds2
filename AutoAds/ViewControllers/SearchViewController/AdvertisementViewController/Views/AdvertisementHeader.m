@@ -26,7 +26,7 @@
     [self.labelCarName setTextColor:FONT_COLOR_MY_BLUE_COLOR];
     [self.labelCarName setBackgroundColor:[UIColor clearColor]];
     
-    [self.labelNameAndCity setFont:[UIFont fontWithName:FONT_DINPro_REGULAR size:12]];
+    [self.labelNameAndCity setFont:[UIFont fontWithName:FONT_DINPro_REGULAR size:16]];
     [self.labelNameAndCity setBackgroundColor:[UIColor clearColor]];
     
     [self.labelPrice setFont:[UIFont fontWithName:FONT_DINPro_BOLD size:21]];
