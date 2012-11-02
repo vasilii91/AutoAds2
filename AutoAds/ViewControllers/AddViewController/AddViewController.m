@@ -152,7 +152,10 @@
         }
     }
     
-    [networkManager getCaptcha];
+    if (![lastSelectedField.nameEnglish isEqualToString:F_SUBRUBRIC_ENG]) {
+        [networkManager subscribe:self];
+        [networkManager getCaptcha];
+    }
     
     [self setFramesToViews];
 }

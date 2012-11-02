@@ -48,9 +48,11 @@
     phone.Code = self.textFieldCode.text;
     phone.Number = self.textFieldNumber.text;
     
-    [dataManager.selectedPhones addObject:phone];
-    [self.tableViewPhones reloadData];
-    [self cleanTextFields];
+    if ([phone isValidPhone]) {
+        [dataManager.selectedPhones addObject:phone];
+        [self.tableViewPhones reloadData];
+        [self cleanTextFields];
+    }
 }
 
 

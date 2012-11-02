@@ -16,5 +16,6 @@
 
 - (NSString *)fullPhone;
 - (NSString *)prettyPhone;
+- (BOOL)isValidPhone;
 
 @end

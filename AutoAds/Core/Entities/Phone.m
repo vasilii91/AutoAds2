@@ -19,4 +19,16 @@
 {
     return [NSString stringWithFormat:@"+%@-%@-%@", self.Extra, self.Code, self.Number];
 }
+
+- (BOOL)isValidPhone
+{
+    BOOL isValid = YES;
+    if ([self.Extra length] == 0 ||
+        [self.Code length] == 0 ||
+        [self.Number length] == 0) {
+        isValid = NO;
+    }
+    
+    return isValid;
+}
 @end
