@@ -176,6 +176,9 @@
 
 - (NSString *)convertPhoneToNormalFormat:(NSString *)oldPhone
 {
+    NSArray *phones = [oldPhone componentsSeparatedByString:@","];
+    oldPhone = [phones objectAtIndex:0];
+    
     oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@" " withString:@""];
     oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@"(" withString:@"-"];
     oldPhone = [oldPhone stringByReplacingOccurrencesOfString:@")" withString:@"-"];

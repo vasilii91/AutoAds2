@@ -91,12 +91,19 @@
     [SVProgressHUD dismiss];
     [networkManager subscribe:self];
     
+    // добавляем Любой город в города, т.к. пропадает после перехода на "Добавить объявление"
+    [(OrderedDictionary *)f0.value insertObject:@"" forKey:@"Любой" atIndex:0];
+    
+    
+    
     BOOL isFieldsAreRubricsAndSub = [f1.nameEnglish isEqualToString:F_RUBRIC_ENG] &&
                                     [f2.nameEnglish isEqualToString:F_SUBRUBRIC_ENG];
     BOOL isRubricAndSubWereSelected = f1.selectedValue != nil && f2.selectedValue != nil;
     BOOL isNeedToUpdate = [f1.selectedValue isEqualToString:lastSelectedRubric] == NO ||
                             [f2.selectedValue isEqualToString:lastSelectedSubrubric] == NO;
     
+    LOG(@"%@ - %@", f1.selectedValue, lastSelectedRubric);
+    LOG(@"%@ - %@", f2.selectedValue, lastSelectedSubrubric);
     if ([f1.selectedValue isEqualToString:lastSelectedRubric] == NO &&
         [f2.selectedValue isEqualToString:lastSelectedSubrubric] == YES) {
         f2.selectedValue = nil;
@@ -118,9 +125,10 @@
             
             currentGroup = [searchManager categorySearchByRubric:f1.selectedValue subrubric:f2.selectedValue];
             fields = [currentGroup getObligatoryFields];
+            f3 = (AdvField *)[fields objectAtIndex:3];
+            f4 = (AdvField *)[fields objectAtIndex:4];
             
-//            pleaseWaitAlertView = [[PleaseWaitAlertView alloc] initWithTitle:nil message:@"Пожалуйста, подождите...\n\n\n" delegate:self cancelButtonTitle:@"Отменить" otherButtonTitles: nil];
-//            [pleaseWaitAlertView show];
+            lastSelectedBrand = f3.selectedValue;
             
             [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
             
@@ -134,6 +142,13 @@
             
             [networkManager getModelsByRubric:currentRubric subrubric:currentSubrubric];
         }
+    }
+    
+    // очищаем сохраненные данные (модели, опции, телефоны, топливо) если меняется марка
+    LOG(@"%@ - %@", f3.selectedValue, lastSelectedBrand);
+    if (![f3.selectedValue isEqualToString:lastSelectedBrand]) {
+        [[KVDataManager sharedInstance] cleanAllTempData];
+        lastSelectedBrand = f3.selectedValue;
     }
     
     [self.tableView reloadData];

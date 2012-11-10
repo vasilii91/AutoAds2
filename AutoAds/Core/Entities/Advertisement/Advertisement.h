@@ -85,6 +85,7 @@
 @property (nonatomic, retain) NSString *url;
 
 - (NSDate *)getDateCreated;
+- (NSDate *)getDateUpdated;
 - (NSString *)getFullCarName;
 - (NSString *)getCarPrice;
 - (NSString *)getOtherInfo;

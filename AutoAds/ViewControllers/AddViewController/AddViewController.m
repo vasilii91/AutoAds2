@@ -447,6 +447,8 @@
     }
     else if (requestId == RequestTypeAddAdvertisement) {
         [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS_ADD_ADVERTISEMENT];
+        [self cleanQueryToDefaultState];
+        [self performSelector:@selector(goBack:) withObject:nil afterDelay:1.0];
     }
     else if (requestId == RequestTypeGetCaptcha) {
         UIImage *placeholderImage = [UIImage imageWithContentsOfFile:PATH_TO_CAPTCHA_IMAGE];

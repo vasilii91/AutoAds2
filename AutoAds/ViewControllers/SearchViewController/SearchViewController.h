@@ -35,10 +35,11 @@
     
     NSString *lastSelectedRubric;
     NSString *lastSelectedSubrubric;
+    NSString *lastSelectedBrand;
     
     KVNetworkManager *networkManager;
     
-    AdvField *f0, *f1, *f2;
+    AdvField *f0, *f1, *f2, *f3, *f4;
     BOOL isBrandSelected;
     
     NSString *currentRubric;

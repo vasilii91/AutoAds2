@@ -109,6 +109,14 @@
     tableViewAdvertisement.pullToRefreshView.lastUpdatedDate = [NSDate date];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if ([searchedAdvertisements count] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"К сожалению, объявлений не найдено. Попробуйте изменить параметры поиска"];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -227,7 +235,7 @@
             }
         }
         else {
-            result = [[adv1 getDateCreated] compare:[adv2 getDateCreated]];
+            result = [[adv1 getDateUpdated] compare:[adv2 getDateUpdated]];
         }
         
         if (sortType == TypeOfSortByDateDescending ||
