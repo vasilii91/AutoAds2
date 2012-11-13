@@ -244,6 +244,10 @@ static KVNetworkManager *instance = nil;
     [subscribers removeObject:subscriber];
 }
 
+- (void)removeAllSubscribers
+{
+    [subscribers removeAllObjects];
+}
 
 - (void)cancelRequest:(int)type forId:(NSString *)identifier 
 {    

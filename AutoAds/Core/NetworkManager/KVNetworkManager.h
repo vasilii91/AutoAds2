@@ -48,7 +48,7 @@ typedef enum {
 
 - (void)subscribe:(NSObject<KVNetworkDelegate> *)subscriber;
 - (void)unsubscribe:(NSObject<KVNetworkDelegate> *)subscriber;
-
+- (void)removeAllSubscribers;
 - (void)cancelRequest:(int)type forId:(NSString *)identifier;
 
 /**

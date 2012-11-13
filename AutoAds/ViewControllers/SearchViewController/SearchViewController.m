@@ -89,6 +89,8 @@
 {
     [super viewWillAppear:animated];
     [SVProgressHUD dismiss];
+    
+    [networkManager removeAllSubscribers];
     [networkManager subscribe:self];
     
     // добавляем Любой город в города, т.к. пропадает после перехода на "Добавить объявление"
@@ -157,7 +159,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [networkManager unsubscribe:self];
     
     [SVProgressHUD dismiss];
 }
@@ -347,6 +348,7 @@
     else if (requestId == RequestTypeOptions) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];
         vc.queryString = queryString;
+        [networkManager unsubscribe:self];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {

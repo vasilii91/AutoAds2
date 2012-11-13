@@ -80,7 +80,7 @@
     f1.selectedValue = [[[AdvDictionaries Rubrics] allKeys] objectAtIndex:0];
     f2.selectedValue = [[[AdvDictionaries SubrubricsMotors] allKeys] objectAtIndex:1];
     
-    isFirstLoad = YES;
+    isFirstAppear = YES;
 }
 
 - (void)viewDidUnload
@@ -101,11 +101,12 @@
     [super viewWillAppear:animated];
     [SVProgressHUD dismiss];
     
+    [networkManager removeAllSubscribers];
     [networkManager subscribe:self];
     
-    if (isFirstLoad) {
+    if (isFirstAppear) {
         [self cleanQueryToDefaultState];
-        isFirstLoad = NO;
+        isFirstAppear = NO;
     }
     else {
         
@@ -247,6 +248,8 @@
 
 - (void)goBack:(id)sender
 {
+    isFirstAppear = YES;
+    [self cleanQueryToDefaultState];
     [self.tabBarController performSegueWithIdentifier:@"flipSegue" sender:self];
 }
 

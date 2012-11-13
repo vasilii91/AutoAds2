@@ -22,7 +22,7 @@
 #import "SVProgressHUD.h"
 #import "KVPair.h"
 
-@interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol, KVNetworkDelegate>
+@interface ListOfAdverisementViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ListOfAdvertisementHeaderProtocol, KVNetworkDelegate, UIAlertViewDelegate>
 {
     NSMutableArray *searchedAdvertisements;
     BOOL isShowHeader;

@@ -42,7 +42,7 @@
         if (format == nil) {
             [str appendFormat:@"%@", parameter];
         }
-        else if ([parameter intValue] != 0) {
+        else if ([parameter integerValue] != 0 || [parameter length] != 0) {
             [str appendFormat:format, parameter];
         }
     }
@@ -507,9 +507,6 @@
     NSString *subrubric = [[NSUserDefaults standardUserDefaults] valueForKey:CURRENT_SUBRUBRIC];
     
     OrderedDictionary *keyValues = [OrderedDictionary new];
-    
-    [keyValues setValue:self.Color forKey:@"Цвет:"];
-    [keyValues setValue:self.Metalic forKey:@"Цвет металлик:"];
     
     NSString *colorFull = self.Color;
     if (_Metalic) {

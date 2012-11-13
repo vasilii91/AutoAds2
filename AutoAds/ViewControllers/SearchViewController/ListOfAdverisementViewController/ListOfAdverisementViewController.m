@@ -113,7 +113,8 @@
 {
     [super viewWillAppear:animated];
     if ([searchedAdvertisements count] == 0) {
-        [SVProgressHUD showErrorWithStatus:@"К сожалению, объявлений не найдено. Попробуйте изменить параметры поиска"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"К сожалению, объявлений не найдено. Попробуйте изменить параметры поиска" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
     }
 }
 
@@ -332,5 +333,12 @@
     
 }
 
+
+#pragma mark - @protocol UIAlertViewDelegate <NSObject>
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

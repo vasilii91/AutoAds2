@@ -39,7 +39,7 @@
     AdvField *f2;
     
     BOOL isBrandSelected;
-    BOOL isFirstLoad;
+    BOOL isFirstAppear;
     
     NSString *currentRubric;
     NSString *currentSubrubric;
