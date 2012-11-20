@@ -42,8 +42,17 @@
         if (format == nil) {
             [str appendFormat:@"%@", parameter];
         }
-        else if ([parameter integerValue] != 0 || [parameter length] != 0) {
-            [str appendFormat:format, parameter];
+        else {
+            if ([parameter isKindOfClass:[NSNumber class]]) {
+                if ([parameter integerValue] != 0) {
+                    [str appendFormat:format, parameter];
+                }
+            }
+            else {
+                if ([parameter length] != 0) {
+                    [str appendFormat:format, parameter];
+                }
+            }
         }
     }
     

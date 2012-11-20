@@ -236,7 +236,9 @@
             }
         }
         else {
-            result = [[adv1 getDateUpdated] compare:[adv2 getDateUpdated]];
+            NSDate *date1 = [adv1 getDateUpdated];
+            NSDate *date2 = [adv2 getDateUpdated];
+            result = [date1 compare:date2];
         }
         
         if (sortType == TypeOfSortByDateDescending ||
