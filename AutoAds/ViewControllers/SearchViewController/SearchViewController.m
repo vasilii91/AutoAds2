@@ -70,7 +70,7 @@
     f0 = (AdvField *)[fields objectAtIndex:0];
     f1 = (AdvField *)[fields objectAtIndex:1];
     f2 = (AdvField *)[fields objectAtIndex:2];
-    f0.selectedValue = [[[AdvDictionaries Cities] allKeys] objectAtIndex:0];
+    f0.selectedValue = [[[AdvDictionaries Cities] allKeys] objectAtIndex:1];
     f1.selectedValue = [[[AdvDictionaries Rubrics] allKeys] objectAtIndex:0];
     f2.selectedValue = [[[AdvDictionaries SubrubricsMotors] allKeys] objectAtIndex:1];
     
@@ -148,7 +148,9 @@
     
     // очищаем сохраненные данные (модели, опции, телефоны, топливо) если меняется марка
     LOG(@"%@ - %@", f3.selectedValue, lastSelectedBrand);
-    if (![f3.selectedValue isEqualToString:lastSelectedBrand]) {
+    if (f3.selectedValue != nil &&
+        ![f3.selectedValue isEqualToString:lastSelectedBrand]) {
+        
         [[KVDataManager sharedInstance] cleanAllTempData];
         lastSelectedBrand = f3.selectedValue;
     }
@@ -238,7 +240,6 @@
     queryString = [searchManager queryToSearch:fields];
     [networkManager searchWithQuery:queryString.queryEnglish isSearchWithPage:NO];
     
-//    [pleaseWaitAlertView show];
     [SVProgressHUD showWithStatus:PROGRESS_STATUS_PLEASE_WAIT];
 }
 
@@ -249,8 +250,8 @@
 {
     if (buttonIndex == 0) {
         [networkManager unsubscribe:self];
-//        [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
-        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+//        [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+        [SVProgressHUD dismiss];
     }
 }
 
@@ -344,8 +345,8 @@
 
 - (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
-//    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
-    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+//    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+    [SVProgressHUD dismiss];
     
     if (requestId == RequestTypeSearch) {
         [networkManager getOptionsByRubric:currentRubric subrubric:currentSubrubric];

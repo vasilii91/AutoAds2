@@ -60,6 +60,8 @@ static DatabaseManager *_sharedMySingleton = nil;
 
 - (NSArray *)getQueries:(BOOL)isSaved
 {
+    NSInteger countOfQueries = 5;
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isSaved == %@", @(isSaved)];
     NSArray *result = [Query findAllWithPredicate:predicate];
     
@@ -83,16 +85,16 @@ static DatabaseManager *_sharedMySingleton = nil;
     result = [result sortedArrayUsingComparator:sortBlock];
     
     if (isSaved == NO) {
-        if ([result count] <= 3) {
+        if ([result count] <= countOfQueries) {
             return result;
         }
         else {
-            // we always have 4 queries. We should delete last object
+            // we always have 6 queries. We should delete last object
             NSMutableArray *newResult = [NSMutableArray new];
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < countOfQueries; i++) {
                 [newResult addObject:[result objectAtIndex:i]];
             }
-            for (int i = 3; i < [result count]; i++) {
+            for (int i = countOfQueries; i < [result count]; i++) {
                 Query *query = [result objectAtIndex:i];
                 [currentManagedObjectContext deleteObject:query];
             }

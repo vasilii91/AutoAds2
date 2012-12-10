@@ -293,8 +293,8 @@
 
 - (void)requestProcessed:(RequestType)requestId forId:(NSString *)identifier
 {
-    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
-//    [pleaseWaitAlertView dismissWithClickedButtonIndex:-1 animated:YES];
+//    [SVProgressHUD showSuccessWithStatus:PROGRESS_STATUS_SUCCESS];
+    [SVProgressHUD dismiss];
     
     if (requestId == RequestTypeSearch) {
         ListOfAdverisementViewController *vc = [[ListOfAdverisementViewController alloc] initWithNibName:@"ListOfAdverisementViewController" bundle:nil];

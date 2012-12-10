@@ -234,15 +234,15 @@
 + (NSDictionary *)Cities2
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0010010020010010000000" forKey:@"Уфа"];
     [dictionary setValue:@"00100101u0000010000000" forKey:@"Екатеринбург"];
-    [dictionary setValue:@"10010220000090000000" forKey:@"Магнитогорск"];
-    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
-    [dictionary setValue:@"10010020000040000000" forKey:@"Октябрьский"];
-    [dictionary setValue:@"10010020000050000000" forKey:@"Салават"];
-    [dictionary setValue:@"10010020160010000000" forKey:@"Стерлитакам"];
-    [dictionary setValue:@"10010020180010000000" forKey:@"Туймазы"];
-    [dictionary setValue:@"10010020010010000000" forKey:@"Уфа"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"0010010220000090000000" forKey:@"Магнитогорск"];
+    [dictionary setValue:@"0010010250000000000000" forKey:@"Москва"];
+    [dictionary setValue:@"0010010020000040000000" forKey:@"Октябрьский"];
+    [dictionary setValue:@"0010010020000050000000" forKey:@"Салават"];
+    [dictionary setValue:@"0010010020160010000000" forKey:@"Стерлитакам"];
+    [dictionary setValue:@"0010010020180010000000" forKey:@"Туймазы"];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
     
     
     return dictionary;
@@ -251,15 +251,15 @@
 + (NSDictionary *)Cities16
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"00100100g0000010000000" forKey:@"Казань"];
     [dictionary setValue:@"00100100g0080010000000" forKey:@"Альметьевск"];
     [dictionary setValue:@"00100100g00e0010000000" forKey:@"Бугульма"];
     [dictionary setValue:@"00100100g00j0010000000" forKey:@"Елабуга"];
     [dictionary setValue:@"00100100g00l0010000000" forKey:@"Зеленодольск"];
-    [dictionary setValue:@"00100100g0000010000000" forKey:@"Казань"];
-    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
+    [dictionary setValue:@"0010010250000000000000" forKey:@"Москва"];
     [dictionary setValue:@"00100100g0140010000000" forKey:@"Набережные Челны"];
     [dictionary setValue:@"00100100g00v0010000000" forKey:@"Нижнекамск"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
     
     return dictionary;
 }
@@ -289,7 +289,7 @@
     [dictionary setValue:@"00100100y00b0010000000" forKey:@"Камышин"];
     [dictionary setValue:@"00100100n0000010000000" forKey:@"Краснодар"];
     [dictionary setValue:@"00100100y00i0010000000" forKey:@"Михайловка"];
-    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
+    [dictionary setValue:@"0010010250000000000000" forKey:@"Москва"];
     [dictionary setValue:@"00100100y00v0010000000" forKey:@"Урюпинск"];
     [dictionary setValue:@"00100100y00w0010000000" forKey:@"Фролово"];
     
@@ -299,15 +299,15 @@
 + (NSDictionary *)Cities59
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"00100101n0000010000000" forKey:@"Пермь"];
     [dictionary setValue:@"00100101n0000020000000" forKey:@"Березники"];
     [dictionary setValue:@"00100101u0000010000000" forKey:@"Екатеринбург"];
     [dictionary setValue:@"00100101n0000090000000" forKey:@"Кунгур"];
     [dictionary setValue:@"00100101n00000a0000000" forKey:@"Лысьва"];
-    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
-    [dictionary setValue:@"00100101n0000010000000" forKey:@"Пермь"];
+    [dictionary setValue:@"0010010250000000000000" forKey:@"Москва"];
     [dictionary setValue:@"00100101n00000b0000000" forKey:@"Соликамск"];
     [dictionary setValue:@"00100101n00000c0000000" forKey:@"Чайковский"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
     
     return dictionary;
 }
@@ -315,13 +315,13 @@
 + (NSDictionary *)Cities61
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"00100101p0000010000000" forKey:@"Ростов-на-Дону"];
     [dictionary setValue:@"00100101p0020010000000" forKey:@"Азов"];
     [dictionary setValue:@"00100101p0030010000000" forKey:@"Аксай"];
     [dictionary setValue:@"00100101p0000030000000" forKey:@"Батайск"];
     [dictionary setValue:@"00100101p0000040000000" forKey:@"Волгодонск"];
     [dictionary setValue:@"00100101p0000080000000" forKey:@"Каменск-Шахтинский"];
     [dictionary setValue:@"00100101p0000090000000" forKey:@"Новочеркасск"];
-    [dictionary setValue:@"00100101p0000010000000" forKey:@"Ростов-на-Дону"];
     [dictionary setValue:@"00100101p00000b0000000" forKey:@"Таганрог"];
     [dictionary setValue:@"00100101p00000c0000000" forKey:@"Шахты"];
     
@@ -331,15 +331,15 @@
 + (NSDictionary *)Cities63
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"00100101r0000010000000" forKey:@"Самара"];
     [dictionary setValue:@"00100101r00000a0000000" forKey:@"Кинель"];
     [dictionary setValue:@"00100101r00h0010000000" forKey:@"Нефтегорск"];
     [dictionary setValue:@"00100101r0000030000000" forKey:@"Новокуйбышевск"];
     [dictionary setValue:@"00100101r0000050000000" forKey:@"Отрадный"];
-    [dictionary setValue:@"00100101r0000010000000" forKey:@"Самара"];
     [dictionary setValue:@"00100101r0000080000000" forKey:@"Сызрань"];
     [dictionary setValue:@"00100101r0000070000000" forKey:@"Тольятти"];
     [dictionary setValue:@"00100101r0000060000000" forKey:@"Чапаевск"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
     
     return dictionary;
 }
@@ -347,15 +347,15 @@
 + (NSDictionary *)Cities72
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0010010200000010000000" forKey:@"Тюмень"];
     [dictionary setValue:@"00100101u0000010000000" forKey:@"Екатеринбург"];
-    [dictionary setValue:@"10010200090010000000" forKey:@"Заводоуковск"];
+    [dictionary setValue:@"0010010200090010000000" forKey:@"Заводоуковск"];
     [dictionary setValue:@"00100102000b0010000000" forKey:@"Ишим"];
-    [dictionary setValue:@"10010190000010000000" forKey:@"Курган"];
-    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
-    [dictionary setValue:@"10010200000020000000" forKey:@"Тобольск"];
-    [dictionary setValue:@"10010200000010000000" forKey:@"Тюмень"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
-    [dictionary setValue:@"a00100102000l0010000000" forKey:@"Ялуторовск"];
+    [dictionary setValue:@"0010010190000010000000" forKey:@"Курган"];
+    [dictionary setValue:@"0010010250000000000000" forKey:@"Москва"];
+    [dictionary setValue:@"0010010200000020000000" forKey:@"Тобольск"];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"00100102000l0010000000" forKey:@"Ялуторовск"];
     
     return dictionary;
 }
@@ -363,14 +363,14 @@
 + (NSDictionary *)Cities74
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
     [dictionary setValue:@"00100101u0000010000000" forKey:@"Екатеринбург"];
-    [dictionary setValue:@"10010220000040000000" forKey:@"Златоуст"];
-    [dictionary setValue:@"10010220000060000000" forKey:@"Копейск"];
-    [dictionary setValue:@"10010220000090000000" forKey:@"Магнитогорск"];
+    [dictionary setValue:@"0010010220000040000000" forKey:@"Златоуст"];
+    [dictionary setValue:@"0010010220000060000000" forKey:@"Копейск"];
+    [dictionary setValue:@"0010010220000090000000" forKey:@"Магнитогорск"];
     [dictionary setValue:@"00100102200000a0000000" forKey:@"Миасс"];
     [dictionary setValue:@"00100102200000b0000000" forKey:@"Озерск"];
-    [dictionary setValue:@"10010220130010000000" forKey:@"Троицк"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
+    [dictionary setValue:@"0010010220130010000000" forKey:@"Троицк"];
     [dictionary setValue:@"00100102200000g0000000" forKey:@"Южноуральск"];
     
     return dictionary;
@@ -379,15 +379,15 @@
 + (NSDictionary *)Cities76
 {
     OrderedDictionary *dictionary = [OrderedDictionary new];
-    [dictionary setValue:@"10010240050010000000" forKey:@"Гаврилов-Ям"];
-    [dictionary setValue:@"10010250000000000000" forKey:@"Москва"];
-    [dictionary setValue:@"10010240000020000000" forKey:@"Переславль-Залесский"];
+    [dictionary setValue:@"0010010240000010000000" forKey:@"Ярославль"];
+    [dictionary setValue:@"0010010240050010000000" forKey:@"Гаврилов-Ям"];
+    [dictionary setValue:@"0010010250000000000000" forKey:@"Москва"];
+    [dictionary setValue:@"0010010240000020000000" forKey:@"Переславль-Залесский"];
     [dictionary setValue:@"00100101p0000010000000" forKey:@"Ростов"];
     [dictionary setValue:@"00100102400f0010000000" forKey:@"Рыбинск"];
     [dictionary setValue:@"00100102400g0010000000" forKey:@"Тутаев"];
     [dictionary setValue:@"00100102400h0010000000" forKey:@"Углич"];
-    [dictionary setValue:@"10010220000010000000" forKey:@"Челябинск"];
-    [dictionary setValue:@"10010240000010000000" forKey:@"Ярославль"];
+    [dictionary setValue:@"0010010220000010000000" forKey:@"Челябинск"];
     
     return dictionary;
 }

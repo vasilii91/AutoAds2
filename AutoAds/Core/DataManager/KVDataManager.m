@@ -31,9 +31,11 @@ static KVDataManager *instance = nil;
 
 + (KVDataManager *)sharedInstance
 {
-	if (instance == nil) {
-		instance = [[KVDataManager alloc] init];
-	}
+    @synchronized(self) {
+        if (instance == nil) {
+            instance = [[KVDataManager alloc] init];
+        }
+    }
 	
 	return instance;
 }
